@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RAJAMAA-trilogia — koelukijaksi | J. Lintumies</title>
+<meta name="description" content="Kolmiosainen romaanisarja Suomen itärajasta on valmis. Etsin koelukijoita ennen julkaisua. Ensimmäinen osa ilmestyy isänpäiväksi 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@500;600&family=Spectral:ital,wght@0,300;0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paperi: #F6F7F5;
+    --ruutu: #E2E7E4;
+    --muste: #1C2830;
+    --jaa: #6E8E9E;
+    --havu: #31493D;
+    --leima: #A63A2B;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation: none !important; transition: none !important; }
+  }
+  body {
+    font-family: 'Spectral', Georgia, serif;
+    font-weight: 300;
+    color: var(--muste);
+    background-color: var(--paperi);
+    background-image:
+      linear-gradient(var(--ruutu) 1px, transparent 1px),
+      linear-gradient(90deg, var(--ruutu) 1px, transparent 1px);
+    background-size: 28px 28px;
+    line-height: 1.65;
+    font-size: 17px;
+  }
+  .sivu {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 24px 96px;
+  }
+  /* ---------- otsake ---------- */
+  header {
+    padding: 72px 0 40px;
+    border-bottom: 2px solid var(--muste);
+    position: relative;
+  }
+  .yla {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    color: var(--jaa);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 600;
+    font-size: clamp(52px, 11vw, 92px);
+    letter-spacing: 0.06em;
+    line-height: 0.95;
+    text-transform: uppercase;
+  }
+  .alaotsikko {
+    font-family: 'Spectral', serif;
+    font-style: italic;
+    font-size: 20px;
+    margin-top: 14px;
+    color: var(--havu);
+  }
+  .leima {
+    position: absolute;
+    right: 0;
+    bottom: 34px;
+    transform: rotate(-7deg);
+    border: 3px solid var(--leima);
+    color: var(--leima);
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    padding: 7px 12px;
+    border-radius: 3px;
+    opacity: 0.88;
+    background: rgba(246,247,245,0.7);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  @media (max-width: 560px) {
+    .leima { position: static; display: inline-block; margin-top: 22px; transform: rotate(-4deg); }
+  }
+  /* ---------- yleiset ---------- */
+  section { padding-top: 56px; }
+  h2 {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--havu);
+    margin-bottom: 18px;
+  }
+  p + p { margin-top: 14px; }
+  em { font-style: italic; }
+  strong { font-weight: 600; }
+  a { color: var(--havu); text-underline-offset: 3px; }
+  a:focus-visible { outline: 2px solid var(--leima); outline-offset: 2px; }
+  /* ---------- lokimerkinnät (kirjat) ---------- */
+  .loki {
+    border-left: 3px solid var(--jaa);
+    padding: 18px 0 18px 22px;
+    margin-top: 26px;
+    background: rgba(255,255,255,0.55);
+  }
+  .loki:first-of-type { margin-top: 10px; }
+  .lokirivi {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    letter-spacing: 0.06em;
+    color: var(--jaa);
+    margin-bottom: 8px;
+  }
+  .loki h3 {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .loki p { font-size: 16px; max-width: 56ch; }
+  /* ---------- lintuhuomautus ---------- */
+  .linnut {
+    margin-top: 48px;
+    padding: 26px 28px;
+    background: var(--muste);
+    color: var(--paperi);
+  }
+  .linnut .lokirivi { color: #9DB8C6; }
+  .linnut p { font-size: 17px; }
+  /* ---------- koelukijaksi ---------- */
+  .ehdot { list-style: none; margin: 18px 0 26px; }
+  .ehdot li {
+    padding: 12px 0 12px 34px;
+    border-bottom: 1px solid var(--ruutu);
+    position: relative;
+    font-size: 16px;
+  }
+  .ehdot li::before {
+    content: "☐";
+    position: absolute;
+    left: 4px;
+    top: 10px;
+    color: var(--havu);
+    font-size: 18px;
+  }
+  .nappi {
+    display: inline-block;
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--paperi);
+    background: var(--havu);
+    padding: 15px 30px;
+    border: none;
+  }
+  .nappi:hover { background: var(--muste); }
+  .nappi:focus-visible { outline: 3px solid var(--leima); outline-offset: 2px; }
+  .pikkuteksti {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--jaa);
+    margin-top: 12px;
+  }
+  /* ---------- kustantajille ---------- */
+  .kustantaja {
+    margin-top: 56px;
+    border-top: 2px solid var(--muste);
+    padding-top: 40px;
+  }
+  /* ---------- alatunniste ---------- */
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--ruutu);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--jaa);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+</style>
+</head>
+<body>
+<div class="sivu">
+
+  <header>
+    <p class="yla">J. Lintumies · Romaanisarja · Pohjois-Karjala</p>
+    <h1>Rajamaa</h1>
+    <p class="alaotsikko">Kolme romaania Suomen itärajasta. Trilogia on valmis.</p>
+    <span class="leima">Käsikirjoitus valmis · 08 / 2026</span>
+  </header>
+
+  <section>
+    <h2>Mistä on kyse</h2>
+    <p>Kolme vuotta, kolme romaania, yhteensä noin 200&nbsp;000 sanaa. RAJAMAA-trilogia kertoo Suomen itärajasta ihmisten kautta, jotka pitävät sitä pystyssä: rajavartijoista ja heidän koiristaan, tutkijoista, kalastajista, virkamiehistä ja yhdestä pojasta radioantennin äärellä. Jännite rakentuu hitaasti — tarkasta työstä, rehellisistä kirjauksista ja siitä, mitä tapahtuu kun joku jättää kirjaamatta.</p>
+    <p>Jos le Carrén hidas moraalinen jännite ja suomalaisen viraston arki samassa kirjassa kuulostaa yhdistelmältä jota et ole ennen lukenut — et olekaan. Siksi tämä sivu on olemassa.</p>
+  </section>
+
+  <section>
+    <h2>Lokikirja · kolme osaa</h2>
+
+    <div class="loki">
+      <p class="lokirivi">OSA I · ILMESTYY ISÄNPÄIVÄKSI 2026</p>
+      <h3>Rajamaa</h3>
+      <p>Itärajan tuntumassa alkaa tapahtua asioita, jotka eivät vielä näy missään tilastossa. Ne näkyvät ensin maastossa — ja yhden belgianpaimenkoiran käytöksessä.</p>
+    </div>
+
+    <div class="loki">
+      <p class="lokirivi">OSA II · ILMESTYY 2027</p>
+      <h3>Majakkaraja</h3>
+      <p>Rannikolla kylä, majakka ja merivartiosto elävät samaa syksyä. Kukaan ei huomaa mitään yksin — mutta moni pitää vihkoa, ja vihkot alkavat kertoa samaa.</p>
+    </div>
+
+    <div class="loki">
+      <p class="lokirivi">OSA III · ILMESTYY 2027</p>
+      <h3>Jääraja</h3>
+      <p>Ankara jäätalvi, kalastaja väärällä puolella ja hallinto, joka tekee kaiken oikein — paitsi ajoissa. Sarjan päätösosa vie rajan jäälle ja veden alle.</p>
+    </div>
+  </section>
+
+  <div class="linnut">
+    <p class="lokirivi">HAVAINTOPÄIVÄKIRJASTA</p>
+    <p>Jokainen kirjojen lintu on todellinen: oikea laji, oikea paikka, oikea vuodenaika. Sama koskee jäätä, säätä ja virkakieltä. Tarina on fiktiota — maailma jossa se tapahtuu ei ole.</p>
+  </div>
+
+  <section id="koelukijaksi">
+    <h2>Koelukijaksi</h2>
+    <p>Etsin koelukijoita ennen ensimmäisen osan julkaisua. Et tarvitse kirjallisuuskoulutusta — tarvitset vain aikaa lukea ja rohkeutta sanoa suoraan, missä kohtaa pitkästyit ja missä et malttanut lopettaa.</p>
+    <ul class="ehdot">
+      <li>Saat käsikirjoituksen PDF-muodossa (ensimmäinen osa, n. 400 sivua).</li>
+      <li>Lukuaikaa on syksyn verran — ei viikon takarajaa.</li>
+      <li>Palautteeksi riittää vapaamuotoinen viesti: mikä kantoi, mikä tökki, missä meinasit jättää kesken.</li>
+      <li>Nimesi ei päädy mihinkään ilman lupaasi.</li>
+    </ul>
+    <a class="nappi" href="mailto:jlintumies@gmail.com?subject=Koelukijaksi%20%E2%80%94%20RAJAMAA&body=Kerro%20parilla%20lauseella%2C%20millainen%20lukija%20olet%20ja%20mit%C3%A4%20yleens%C3%A4%20luet.">Ilmoittaudu koelukijaksi</a>
+    <p class="pikkuteksti">Nappi avaa sähköpostin · jlintumies@gmail.com</p>
+  </section>
+
+  <section class="kustantaja">
+    <h2>Kustantajille ja agenteille</h2>
+    <p>Koko trilogia on valmiina käsikirjoituksena — ei suunnitelmana eikä keskeneräisenä sarjana. Julkaisuaikataulu etenee omakustanteena, ellei parempaa reittiä ilmaannu: kustannus-, äänikirja- ja käännösoikeuksista keskustelen mielelläni.</p>
+    <p>Aineistopyynnöt: <a href="mailto:jlintumies@gmail.com?subject=RAJAMAA%20%E2%80%94%20aineistopyynt%C3%B6">jlintumies@gmail.com</a></p>
+  </section>
+
+  <footer>
+    <span>© J. Lintumies 2026</span>
+    <span>Ei evästeitä, ei seurantaa.</span>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taustatyö ja katsaukset | J. Lintumies</title>
+<meta name="description" content="Romaanien taustaksi tehdyt katsaukset: sähköjärjestelmän riittävyys, tuulivoiman tehokäyrä, sähkön hinta ja Venäjän hajoamisen rakenne.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@500;600&family=Spectral:ital,wght@0,300;0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paperi: #EFE9DC;
+    --ruutu: #DFD8C8;
+    --muste: #16232F;
+    --meri: #2C4051;
+    --jaa: #5C7385;
+    --leima: #B8511F;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation: none !important; transition: none !important; }
+  }
+  body {
+    font-family: 'Spectral', Georgia, serif;
+    font-weight: 300;
+    color: var(--muste);
+    background: var(--paperi);
+    line-height: 1.65;
+    font-size: 17px;
+  }
+  .sivu { max-width: 760px; margin: 0 auto; padding: 0 24px 96px; }
+  /* ---------- otsake ---------- */
+  header { padding: 72px 0 36px; position: relative; }
+  .yla {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px; letter-spacing: 0.12em;
+    color: var(--jaa); text-transform: uppercase; margin-bottom: 20px;
+  }
+  h1 {
+    font-family: 'Archivo Narrow', sans-serif; font-weight: 600;
+    font-size: clamp(46px, 10vw, 84px); letter-spacing: 0.09em;
+    line-height: 0.95; text-transform: uppercase;
+  }
+  .viiva { width: 92px; height: 3px; background: var(--leima); margin: 18px 0 16px; }
+  .alaotsikko { font-style: italic; font-size: 20px; color: var(--meri); }
+  .leima {
+    display: inline-block; margin-top: 22px; transform: rotate(-3deg);
+    border: 3px solid var(--leima); color: var(--leima);
+    font-family: 'IBM Plex Mono', monospace; font-weight: 500;
+    font-size: 13px; letter-spacing: 0.14em; padding: 7px 12px;
+    border-radius: 3px; text-transform: uppercase;
+  }
+  /* ---------- horisontti ---------- */
+  .horisontti { border-top: 1px solid var(--muste); opacity: 0.35; margin-top: 40px; }
+  /* ---------- yleiset ---------- */
+  section { padding-top: 56px; }
+  h2 {
+    font-family: 'Archivo Narrow', sans-serif; font-weight: 600;
+    font-size: 15px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--meri); margin-bottom: 18px;
+  }
+  p + p { margin-top: 14px; }
+  a { color: var(--meri); text-underline-offset: 3px; }
+  a:focus-visible { outline: 2px solid var(--leima); outline-offset: 2px; }
+  /* ---------- kirjat ---------- */
+  .kirja {
+    display: grid; grid-template-columns: 200px 1fr; gap: 30px;
+    align-items: start; margin-top: 46px;
+  }
+  .kirja:first-of-type { margin-top: 16px; }
+  .kirja img {
+    width: 100%; height: auto; display: block;
+    box-shadow: 0 2px 5px rgba(22,35,47,0.18), 0 14px 30px rgba(22,35,47,0.16);
+  }
+  .lokirivi {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px;
+    letter-spacing: 0.06em; color: var(--jaa); margin-bottom: 8px;
+  }
+  .kirja h3 {
+    font-family: 'Archivo Narrow', sans-serif; font-weight: 600;
+    font-size: 27px; letter-spacing: 0.06em; text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .kirja .alle { width: 46px; height: 2px; background: var(--leima); margin-bottom: 14px; }
+  .kirja p { font-size: 16px; }
+  .karsi { font-style: italic; }
+  @media (max-width: 620px) {
+    .kirja { grid-template-columns: 1fr; gap: 20px; }
+    .kirja img { max-width: 230px; }
+  }
+  /* ---------- lintuhuomautus ---------- */
+  .linnut { margin-top: 52px; padding: 26px 28px; background: var(--muste); color: var(--paperi); }
+  .linnut .lokirivi { color: #8FA8B6; }
+  .linnut p { font-size: 17px; }
+  /* ---------- erillisteos ---------- */
+  .erillinen { margin-top: 56px; border-top: 2px solid var(--muste); padding-top: 44px; }
+  .erillinen .kirja { margin-top: 24px; }
+  /* ---------- koelukijaksi ---------- */
+  .ehdot { list-style: none; margin: 18px 0 26px; }
+  .ehdot li {
+    padding: 12px 0 12px 34px; border-bottom: 1px solid var(--ruutu);
+    position: relative; font-size: 16px;
+  }
+  .ehdot li::before {
+    content: "☐"; position: absolute; left: 4px; top: 10px;
+    color: var(--meri); font-size: 18px;
+  }
+  .nappi {
+    display: inline-block; font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 600; font-size: 16px; letter-spacing: 0.1em;
+    text-transform: uppercase; text-decoration: none;
+    color: var(--paperi); background: var(--meri); padding: 15px 30px; border: none;
+  }
+  .nappi:hover { background: var(--muste); }
+  .nappi:focus-visible { outline: 3px solid var(--leima); outline-offset: 2px; }
+  .pikkuteksti {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px;
+    color: var(--jaa); margin-top: 12px;
+  }
+  /* ---------- kirjailija ---------- */
+  .kirjailija { margin-top: 56px; border-top: 2px solid var(--muste); padding-top: 40px; }
+  .kirjailija p { font-size: 16.5px; }
+  /* ---------- kustantajille ---------- */
+  .kustantaja { margin-top: 56px; border-top: 2px solid var(--muste); padding-top: 40px; }
+  /* ---------- alatunniste ---------- */
+  footer {
+    margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--ruutu);
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--jaa);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+  }
+
+  .raportti {
+    border-top: 1px solid var(--ruutu); padding: 26px 0;
+    display: grid; grid-template-columns: 1fr; gap: 6px;
+  }
+  .raportti:first-of-type { border-top: 2px solid var(--muste); }
+  .raportti h3 { font-family: 'Archivo Narrow', sans-serif; font-size: 24px; color: var(--meri); margin: 0; }
+  .raportti .meta {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px;
+    color: var(--jaa); text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  .raportti p { margin: 6px 0 0; }
+  .raportti .nappi { margin-top: 12px; }
+  .ryhma { margin-top: 52px; }
+  .ryhma > h2 { margin-bottom: 4px; }
+  .johdanto { font-size: 18px; color: var(--meri); }
+</style>
+</head>
+<body>
+<div class="sivu">
+
+  <header>
+    <p class="yla">J. Lintumies · Taustatyö · Tuomarniemen Toivo</p>
+    <h1>Katsaukset</h1>
+    <div class="viiva"></div>
+    <p class="alaotsikko">Romaanit ovat fiktiota. Luvut eivät ole.</p>
+    <div class="horisontti"></div>
+  </header>
+
+  <section>
+    <p class="johdanto">Kirjojen taustaksi on tehty katsauksia, jotka on kirjoitettu erikseen ja jotka kestävät lukemisen ilman romaaneja. Jokaisessa on alussa <em>Lukijalle</em>-osa, joka kertoo asian tavallisella suomella, ja sen jälkeen laskelmat, lähteet ja epävarmuudet.</p>
+    <p>Aineisto ja laskelmat luovutetaan pyynnöstä, myös ja erityisesti kritiikkiä varten.</p>
+  </section>
+
+  <section class="ryhma">
+    <h2>Sähkö · huoltovarmuus ja hinta</h2>
+    <p class="pikkuteksti">Erillisteoksen <em>Sähkökatko ja paskakuski</em> faktapohja</p>
+
+    <div class="raportti">
+      <p class="meta">Versio 1.1 · 18.8.2026 · 6 sivua</p>
+      <h3>Teho, ei energia</h3>
+      <p>Suomen sähköjärjestelmän riittävyys tehon näkökulmasta 2026–2035. Riittävyydestä keskustellaan terawattitunteina vuodessa, mutta toimitusvarmuus ratkeaa megawatteina yhdellä tunnilla. Tammikuun 2026 kulutusennätys, tehoreservin nollapäätös ja se, mitkä toimenpiteet ehtivät vaikuttaa ennen 2030-lukua.</p>
+      <p><a class="nappi" href="teho-ei-energia.pdf">Lue katsaus (PDF)</a></p>
+    </div>
+
+    <div class="raportti">
+      <p class="meta">Versio 1.0 · 19.8.2026 · 11 sivua</p>
+      <h3>Kolmas potenssi</h3>
+      <p>Miksi tuulituotannon ei tarvitse pysähtyä, jotta tehotase pettää. Turbiinin teho on tuulennopeuden kolmas potenssi: nopeuden puolittuminen vie 87 prosenttia tuotannosta. Mukana 86 vuoden säädata, El Niño -hypoteesin testaus ja hydrologisen taseen vaikutus hintaan.</p>
+      <p><a class="nappi" href="kolmas-potenssi.pdf">Lue katsaus (PDF)</a></p>
+    </div>
+
+    <div class="raportti">
+      <p class="meta">Versio 1.0 · 19.8.2026 · 6 sivua</p>
+      <h3>Kuka maksaa tyynen tunnin</h3>
+      <p>Sähkön hinta, verkon kustannukset ja riittävyys kuluttajan näkökulmasta. Onko hintahuoli ja riittävyyshuoli sama asia? Ja kuka maksaa verkon, joka rakennettiin hankkeille joita ei tullut.</p>
+      <p><a class="nappi" href="kuka-maksaa-tyynen-tunnin.pdf">Lue katsaus (PDF)</a></p>
+    </div>
+
+  </section>
+
+  <section class="ryhma">
+    <h2>Itäraja</h2>
+    <p class="pikkuteksti">RAJAMAA-trilogian taustatyötä</p>
+
+    <div class="raportti">
+      <p class="meta">Versio 1.0 · 19.8.2026 · 5 sivua</p>
+      <h3>Kenen käskystä</h3>
+      <p>Miksi Venäjä ei hajoa niin kuin Neuvostoliitto. Vuoden 1991 hajoaminen oli siisti, koska se seurasi valmiita saumoja. Nyky-Venäjällä niitä ei ole — ja siksi kysymys ei olisi rajoista vaan siitä, kuka komentaa mitäkin asetta.</p>
+      <p><a class="nappi" href="kenen-kaskysta.pdf">Lue katsaus (PDF)</a></p>
+    </div>
+
+  </section>
+
+  <section class="ryhma">
+    <h2>Kirjat</h2>
+    <p>Katsaukset ovat syntyneet romaanien taustatyönä. Kirjat kertovat saman asian toisella tavalla — ihmisinä, jotka tekevät työtään ja huomaavat liian myöhään mitä on tapahtumassa.</p>
+    <p style="margin-top:22px"><a class="nappi" href="index.html">Koko tuotanto</a> <a class="nappi" style="background:transparent;color:var(--meri);box-shadow:inset 0 0 0 2px var(--meri)" href="mailto:jlintumies@gmail.com?subject=Aineistopyynt%C3%B6">Pyydä aineisto</a></p>
+  </section>
+
+  <footer>
+    <span>© J. Lintumies 2026 · Tuomarniemen Toivo</span>
+    <span>Ei evästeitä, ei seurantaa.</span>
+  </footer>
+</div>
+</body>
+</html>

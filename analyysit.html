@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Taustatyö ja katsaukset | J. Lintumies</title>
+<title>Faktat ja analyysit | J. Lintumies</title>
 <meta name="description" content="Romaanien taustaksi tehdyt katsaukset: sähköjärjestelmän riittävyys, tuulivoiman tehokäyrä, sähkön hinta ja Venäjän hajoamisen rakenne.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -147,6 +147,26 @@
   .ryhma { margin-top: 52px; }
   .ryhma > h2 { margin-bottom: 4px; }
   .johdanto { font-size: 18px; color: var(--meri); }
+
+  .navi {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    margin-top: 26px; display: flex; flex-wrap: wrap; gap: 4px 18px;
+  }
+  .navi a { color: var(--jaa); text-decoration: none; border-bottom: 1px solid transparent; }
+  .navi a:hover { color: var(--leima); border-bottom-color: var(--leima); }
+  .navi a.tassa { color: var(--muste); border-bottom-color: var(--leima); }
+  .faktalaatikko {
+    margin-top: 34px; padding: 26px 28px;
+    background: rgba(44,64,81,0.05);
+    border-left: 3px solid var(--leima);
+  }
+  .faktalaatikko h3 {
+    font-family: 'Archivo Narrow', sans-serif; font-size: 22px;
+    color: var(--meri); margin: 0 0 8px;
+  }
+  .faktalaatikko p { margin: 0 0 10px; }
+  .faktalaatikko p:last-child { margin-bottom: 0; }
 </style>
 </head>
 <body>
@@ -154,9 +174,10 @@
 
   <header>
     <p class="yla">J. Lintumies · Taustatyö · Tuomarniemen Toivo</p>
-    <h1>Katsaukset</h1>
+    <h1>Faktat ja analyysit</h1>
     <div class="viiva"></div>
     <p class="alaotsikko">Romaanit ovat fiktiota. Luvut eivät ole.</p>
+    <nav class="navi"><a href="index.html">Kirjat</a> <a href="analyysit.html" class="tassa">Faktat ja analyysit</a> <a href="sahkokatko.html">Sähkökatko</a></nav>
     <div class="horisontti"></div>
   </header>
 

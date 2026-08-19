@@ -46,6 +46,26 @@
   footer { margin-top:60px; padding-top:22px; border-top:1px solid var(--ruutu);
     font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--jaa);
     display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; }
+
+  .navi {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    margin-top: 26px; display: flex; flex-wrap: wrap; gap: 4px 18px;
+  }
+  .navi a { color: var(--jaa); text-decoration: none; border-bottom: 1px solid transparent; }
+  .navi a:hover { color: var(--leima); border-bottom-color: var(--leima); }
+  .navi a.tassa { color: var(--muste); border-bottom-color: var(--leima); }
+  .faktalaatikko {
+    margin-top: 34px; padding: 26px 28px;
+    background: rgba(44,64,81,0.05);
+    border-left: 3px solid var(--leima);
+  }
+  .faktalaatikko h3 {
+    font-family: 'Archivo Narrow', sans-serif; font-size: 22px;
+    color: var(--meri); margin: 0 0 8px;
+  }
+  .faktalaatikko p { margin: 0 0 10px; }
+  .faktalaatikko p:last-child { margin-bottom: 0; }
 </style>
 </head>
 <body>
@@ -55,6 +75,7 @@
     <h1>Sähkökatko<br>ja paskakuski</h1>
     <div class="viiva"></div>
     <p class="alaotsikko">Neljä lukua: alku, konsultit, kolmas katkopäivä ja palvelutalo.</p>
+    <nav class="navi"><a href="index.html">Kirjat</a> <a href="analyysit.html">Faktat ja analyysit</a> <a href="sahkokatko.html" class="tassa">Sähkökatko</a></nav>
     <div class="horisontti"></div>
   </header>
 

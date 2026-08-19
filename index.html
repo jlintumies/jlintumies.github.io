@@ -131,6 +131,26 @@
     font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--jaa);
     display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
   }
+
+  .navi {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    margin-top: 26px; display: flex; flex-wrap: wrap; gap: 4px 18px;
+  }
+  .navi a { color: var(--jaa); text-decoration: none; border-bottom: 1px solid transparent; }
+  .navi a:hover { color: var(--leima); border-bottom-color: var(--leima); }
+  .navi a.tassa { color: var(--muste); border-bottom-color: var(--leima); }
+  .faktalaatikko {
+    margin-top: 34px; padding: 26px 28px;
+    background: rgba(44,64,81,0.05);
+    border-left: 3px solid var(--leima);
+  }
+  .faktalaatikko h3 {
+    font-family: 'Archivo Narrow', sans-serif; font-size: 22px;
+    color: var(--meri); margin: 0 0 8px;
+  }
+  .faktalaatikko p { margin: 0 0 10px; }
+  .faktalaatikko p:last-child { margin-bottom: 0; }
 </style>
 </head>
 <body>
@@ -142,6 +162,7 @@
     <div class="viiva"></div>
     <p class="alaotsikko">Kolme romaania Suomen itärajasta. Trilogia on valmis.</p>
     <span class="leima">Käsikirjoitus valmis · 08 / 2026</span>
+    <nav class="navi"><a href="index.html" class="tassa">Kirjat</a> <a href="analyysit.html">Faktat ja analyysit</a> <a href="sahkokatko.html">Sähkökatko</a></nav>
     <div class="horisontti"></div>
   </header>
 
@@ -163,7 +184,7 @@
         <p><strong>Marraskuun kahdentenakymmenentenäkuudentena päivänä 2026, kello 04.12, päivystäjä soittaa Onttolaan ja sanoo, että taajuudet ovat tyhjät.</strong></p>
         <p>Kapteeni on kuunnellut rajan takaista radioliikennettä yksitoista vuotta. Se on ollut ruma mutta säännöllinen, ja säännöllisyys on ollut rauhaa. Lämpökameran kuvassa kolmekymmentäyksi ihmistä kävelee länteen, aseet olalla piiput alaspäin, käsissä jotakin valkoista.</p>
         <p>Merkit olivat tulleet siinä järjestyksessä jossa ne rajaseudulla aina tulevat: ensin polttoaine, sitten posti, sitten linnut, ja viimeisenä puhe. Suurvallan romahduksen ensimmäinen luotettava mittari ei ollut satelliittikuva. Se oli kyläkaupan mökkivuokrakysyntä.</p>
-        <p style="margin-top:18px"><a class="nappi" href="nayte-rajamaa.html">Lue näyte</a> <a class="nappi" style="background:transparent;color:var(--meri);box-shadow:inset 0 0 0 2px var(--meri)" href="kenen-kaskysta.pdf">Taustatyö: miksi Venäjä ei hajoa niin kuin Neuvostoliitto</a></p>
+        <p style="margin-top:18px"><a class="nappi" href="nayte-rajamaa.html">Lue näyte</a> <a class="nappi" style="background:transparent;color:var(--meri);box-shadow:inset 0 0 0 2px var(--meri)" href="kenen-kaskysta.pdf">Taustatyö (PDF)</a></p>
       </div>
     </div>
 
@@ -192,6 +213,13 @@
         <p>Jokainen lupa on myönnetty lain mukaan, jokainen korvaus maksettu ajallaan, jokainen lomake täytetty oikein. Se seurasi siitä, että jokainen teki oman osansa oikein eikä kenenkään osaan kuulunut katsoa sitä kokonaan.</p>
         <p style="margin-top:18px"><a class="nappi" href="nayte-jaaraja.html">Lue näyte</a></p>
       </div>
+    </div>
+  
+    <div class="faktalaatikko">
+      <h3>Faktapohja</h3>
+      <p>Kirjojen taustaksi on tehty katsauksia, jotka on kirjoitettu erikseen ja jotka kestävät lukemisen ilman romaaneja: sähköjärjestelmän riittävyys, tuulivoiman tehokäyrä, sähkön hinta talvella ja Venäjän hajoamisen rakenne.</p>
+      <p>Jokaisessa on alussa <em>Lukijalle</em>-osa tavallisella suomella ja sen jälkeen laskelmat, lähteet ja epävarmuudet. Kirjan linnut ovat todellisia; niin ovat luvutkin.</p>
+      <p style="margin-top:18px"><a class="nappi" href="analyysit.html">Faktat ja analyysit</a> <a class="nappi" style="background:transparent;color:var(--meri);box-shadow:inset 0 0 0 2px var(--meri)" href="kenen-kaskysta.pdf">Miksi Venäjä ei hajoa niin kuin Neuvostoliitto</a></p>
     </div>
   </section>
 

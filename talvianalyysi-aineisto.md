@@ -209,7 +209,7 @@ Asemat: Tankar 63.95N 22.85E | Kristiinankaupunki 62.27N 21.38E | Pori/Tahkoluot
 | Ilmajoki   |                 -0.29 |  0.3546 |   -0.082 | 0.2622 |           -0.29 | ei trendiä |
 
 
-## 5. Kylmä tyven (DJF-yhteisesiintymä, vrk)
+## 5. Kylmä tyyni (DJF-yhteisesiintymä, vrk)
 
 
 ### tmean < −10 °C JA tuuli < 4 m/s

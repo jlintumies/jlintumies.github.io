@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Faktat ja analyysit | J. Lintumies</title>
+<meta name="description" content="Romaanien taustaksi tehdyt katsaukset: sähköjärjestelmän riittävyys, tuulivoiman tehokäyrä, sähkön hinta, Venäjän hajoamisen rakenne, valvontalennot, merenpohja ja työkoiran hajuaisti.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@500;600&family=Spectral:ital,wght@0,300;0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paperi: #EFE9DC;
+    --ruutu: #DFD8C8;
+    --muste: #16232F;
+    --meri: #2C4051;
+    --jaa: #5C7385;
+    --leima: #B8511F;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation: none !important; transition: none !important; }
+  }
+  body {
+    font-family: 'Spectral', Georgia, serif;
+    font-weight: 300;
+    color: var(--muste);
+    background: var(--paperi);
+    line-height: 1.65;
+    font-size: 17px;
+  }
+  .sivu { max-width: 760px; margin: 0 auto; padding: 0 24px 96px; }
+  /* ---------- otsake ---------- */
+  header { padding: 72px 0 36px; position: relative; }
+  .yla {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px; letter-spacing: 0.12em;
+    color: var(--jaa); text-transform: uppercase; margin-bottom: 20px;
+  }
+  h1 {
+    font-family: 'Archivo Narrow', sans-serif; font-weight: 600;
+    font-size: clamp(46px, 10vw, 84px); letter-spacing: 0.09em;
+    line-height: 0.95; text-transform: uppercase;
+  }
+  .viiva { width: 92px; height: 3px; background: var(--leima); margin: 18px 0 16px; }
+  .alaotsikko { font-style: italic; font-size: 20px; color: var(--meri); }
+  .leima {
+    display: inline-block; margin-top: 22px; transform: rotate(-3deg);
+    border: 3px solid var(--leima); color: var(--leima);
+    font-family: 'IBM Plex Mono', monospace; font-weight: 500;
+    font-size: 13px; letter-spacing: 0.14em; padding: 7px 12px;
+    border-radius: 3px; text-transform: uppercase;
+  }
+  /* ---------- horisontti ---------- */
+  .horisontti { border-top: 1px solid var(--muste); opacity: 0.35; margin-top: 40px; }
+  /* ---------- yleiset ---------- */
+  section { padding-top: 56px; }
+  h2 {
+    font-family: 'Archivo Narrow', sans-serif; font-weight: 600;
+    font-size: 15px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--meri); margin-bottom: 18px;
+  }
+  p + p { margin-top: 14px; }
+  a { color: var(--meri); text-underline-offset: 3px; }
+  a:focus-visible { outline: 2px solid var(--leima); outline-offset: 2px; }
+  /* ---------- kirjat ---------- */
+  .kirja {
+    display: grid; grid-template-columns: 200px 1fr; gap: 30px;
+    align-items: start; margin-top: 46px;
+  }
+  .kirja:first-of-type { margin-top: 16px; }
+  .kirja img {
+    width: 100%; height: auto; display: block;
+    box-shadow: 0 2px 5px rgba(22,35,47,0.18), 0 14px 30px rgba(22,35,47,0.16);
+  }
+  .lokirivi {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px;
+    letter-spacing: 0.06em; color: var(--jaa); margin-bottom: 8px;
+  }
+  .kirja h3 {
+    font-family: 'Archivo Narrow', sans-serif; font-weight: 600;
+    font-size: 27px; letter-spacing: 0.06em; text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .kirja .alle { width: 46px; height: 2px; background: var(--leima); margin-bottom: 14px; }
+  .kirja p { font-size: 16px; }
+  .karsi { font-style: italic; }
+  @media (max-width: 620px) {
+    .kirja { grid-template-columns: 1fr; gap: 20px; }
+    .kirja img { max-width: 230px; }
+  }
+  /* ---------- lintuhuomautus ---------- */
+  .linnut { margin-top: 52px; padding: 26px 28px; background: var(--muste); color: var(--paperi); }
+  .linnut .lokirivi { color: #8FA8B6; }
+  .linnut p { font-size: 17px; }
+  /* ---------- erillisteos ---------- */
+  .erillinen { margin-top: 56px; border-top: 2px solid var(--muste); padding-top: 44px; }
+  .erillinen .kirja { margin-top: 24px; }
+  /* ---------- koelukijaksi ---------- */
+  .ehdot { list-style: none; margin: 18px 0 26px; }
+  .ehdot li {
+    padding: 12px 0 12px 34px; border-bottom: 1px solid var(--ruutu);
+    position: relative; font-size: 16px;
+  }
+  .ehdot li::before {
+    content: "☐"; position: absolute; left: 4px; top: 10px;
+    color: var(--meri); font-size: 18px;
+  }
+  .nappi {
+    display: inline-block; font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 600; font-size: 16px; letter-spacing: 0.1em;
+    text-transform: uppercase; text-decoration: none;
+    color: var(--paperi); background: var(--meri); padding: 15px 30px; border: none;
+  }
+  .nappi:hover { background: var(--muste); }
+  .nappi:focus-visible { outline: 3px solid var(--leima); outline-offset: 2px; }
+  .pikkuteksti {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px;
+    color: var(--jaa); margin-top: 12px;
+  }
+  /* ---------- kirjailija ---------- */
+  .kirjailija { margin-top: 56px; border-top: 2px solid var(--muste); padding-top: 40px; }
+  .kirjailija p { font-size: 16.5px; }
+  /* ---------- kustantajille ---------- */
+  .kustantaja { margin-top: 56px; border-top: 2px solid var(--muste); padding-top: 40px; }
+  /* ---------- alatunniste ---------- */
+  footer {
+    margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--ruutu);
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--jaa);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+  }
+
+  .raportti {
+    border-top: 1px solid var(--ruutu); padding: 26px 0;
+    display: grid; grid-template-columns: 1fr; gap: 6px;
+  }
+  .raportti:first-of-type { border-top: 2px solid var(--muste); }
+  .raportti h3 { font-family: 'Archivo Narrow', sans-serif; font-size: 24px; color: var(--meri); margin: 0; }
+  .raportti .meta {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px;
+    color: var(--jaa); text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  .raportti p { margin: 6px 0 0; }
+  .raportti .nappi { margin-top: 12px; }
+  .ryhma { margin-top: 52px; }
+  .ryhma > h2 { margin-bottom: 4px; }
+  .johdanto { font-size: 18px; color: var(--meri); }
+
+  .navi {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    margin-top: 26px; display: flex; flex-wrap: wrap; gap: 4px 18px;
+  }
+  .navi a { color: var(--jaa); text-decoration: none; border-bottom: 1px solid transparent; }
+  .navi a:hover { color: var(--leima); border-bottom-color: var(--leima); }
+  .navi a.tassa { color: var(--muste); border-bottom-color: var(--leima); }
+  .faktalaatikko {
+    margin-top: 34px; padding: 26px 28px;
+    background: rgba(44,64,81,0.05);
+    border-left: 3px solid var(--leima);
+  }
+  .faktalaatikko h3 {
+    font-family: 'Archivo Narrow', sans-serif; font-size: 22px;
+    color: var(--meri); margin: 0 0 8px;
+  }
+  .faktalaatikko p { margin: 0 0 10px; }
+  .faktalaatikko p:last-child { margin-bottom: 0; }
+</style>
+</head>
+<body>
+<div class="sivu">
+
+  <header>
+    <p class="yla">J. Lintumies · Taustatyö · Tuomarniemen Toivo</p>
+    <h1>Faktat ja analyysit</h1>
+    <div class="viiva"></div>
+    <p class="alaotsikko">Romaanit ovat fiktiota. Luvut eivät ole.</p>
+    <nav class="navi"><a href="index.html">Kirjat</a> <a href="analyysit.html" class="tassa">Faktat ja analyysit</a> <a href="sahkokatko.html">Sähkökatko</a></nav>
+    <div class="horisontti"></div>
+  </header>
+
+  <section>
+    <p class="johdanto">Katsaukset on kirjoitettu erikseen ja ne kestävät lukemisen ilman romaaneja. </p>
+    <p>Osa on syntynyt romaanien taustatyönä, osa itsenäisesti sähkömarkkinasta ja säädatasta. Jokaisessa on alussa <em>Lukijalle</em>-osa, joka kertoo asian tavallisella suomella, ja lopussa rajoitteet — se mitä ei tiedetä.</p>
+    <p>Aineisto ja laskelmat luovutetaan pyynnöstä, myös ja erityisesti kritiikkiä varten.</p>
+  </section>
+
+  <section class="ryhma">
+    <h2>Muut analyysit</h2>
+    <p class="pikkuteksti">Sähkömarkkina, sää ja ilmasto — omaa laskentaa, ei kirjasidonnaisia</p>
+
+<div class="raportti">
+      <p class="meta">Versio 1.0 · 20.8.2026 · 5 sivua</p>
+      <h3>Kolmesataa kilometriä etelään</h3>
+      <p>102 paikkakuntaa, 80 vuotta, ERA5. Kaksi astetta ei tarkoita mitään — siksi käänsin sen kilometreiksi. Kuopion ilmasto on siirtynyt 362 kilometriä etelään, eli suunnilleen Helsinkiin, yhden ihmisen eliniän aikana. Ja yllätys: Inari on lämmennyt vähemmän kuin Kuopio ja Färsaaret tuskin lainkaan. Ratkaisevaa ei ole pohjoisuus vaan etäisyys avomerestä. Lopussa kaikkien 23 suomalaisen paikkakunnan luvut.</p>
+      <p><a class="nappi" href="kolmesataa-kilometria-etelaan.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p>
+    </div><div class="raportti">
+      <p class="meta">Versio 1.1 · 20.8.2026 · 7 sivua</p>
+      <h3>Nollan väärällä puolella</h3>
+      <p>Kuusi rannikkopistettä, 86 talvea, ERA5. Talvet ovat lämmenneet 2,5 astetta ja kovat pakkaset vähentyneet kolmanneksen — mutta tyynten päivien määrä ei ole muuttunut lainkaan, ja nollan ylitykset ovat lisääntyneet 70 prosenttia. Tammikuussa 2026 tuulivoimatuotanto putosi 0–5 prosenttiin kapasiteetista, eikä syy ollut tyyni sää vaan jää lavoissa — ja jäätäminen tapahtuu juuri siinä kaistassa, joka on kasvamassa.</p>
+      <p><a class="nappi" href="nollan-vaaralla-puolella.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a> <a class="nappi" href="talvianalyysi-aineisto.md" target="_blank" rel="noopener">Aineisto</a></p>
+    </div>    <div class="raportti">
+      <p class="meta">Versio 1.0 · 20.8.2026 · 6 sivua</p>
+      <h3>Yksi tunti ja kuusi viikkoa</h3>
+      <p>Kaikkien aikojen kulutusennätyksen hetkellä 8.1.2026 Suomi kävi omalla tuotannollaan ja Fenno-Skanissa oli kaksi kolmasosaa vapaana. Ja tuonti huipentuu keskipäivällä, ei kulutushuipussa — koska kun meillä on kylmä, on kylmä myös Ruotsissa. Riittävyys ja hinta ovat eri ongelmia ja osuvat eri hetkiin. Sisältää korjauksen kirjoittajan omaan aiempaan väitteeseen.</p>
+      <p><a class="nappi" href="yksi-tunti-ja-kuusi-viikkoa.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a> <a class="nappi" href="vesitase-aineisto-siirrot.csv" target="_blank" rel="noopener">Siirtoaineisto</a></p>
+    </div>
+<div class="raportti">
+      <p class="meta">Versio 1.0 · 20.8.2026 · 8 sivua</p>
+      <h3>Se ei ehdi täyttyä</h3>
+      <p>Kolme omaa laskentaa koko ketjusta Norjan altaista Suomen pistorasiaan. Sademäärä ei ole muuttunut 85 vuodessa, mutta yhä suurempi osa siitä tulee vetenä eikä lumena — ja vain vesi täyttää altaan samana syksynä. Se ei silti riitä: mediaanitasoon tarvittaisiin 18,9 TWh:n syysnousu, ja suurin koskaan mitattu on 14,2. Ja ketjun toisessa päässä Suomi oli talvella tuonnin varassa 88,6 % ajasta, yhteydellä joka on tuontihuipuissa 98-prosenttisessa käytössä.</p>
+      <p><a class="nappi" href="se-ei-ehdi-tayttya.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a> <a class="nappi" href="vesitase-aineisto-sade.csv" target="_blank" rel="noopener">Sadeaineisto</a> <a class="nappi" href="vesitase-aineisto-nve.csv" target="_blank" rel="noopener">NVE-aineisto</a> <a class="nappi" href="vesitase-aineisto-siirrot.csv" target="_blank" rel="noopener">Siirtoaineisto</a></p>
+    </div><div class="raportti">
+      <p class="meta">Versio 2.0 · 20.8.2026 · 6 sivua</p>
+      <h3>Mitä kiinteässä ostetaan</h3>
+      <p>Lukijat kysyivät suoraan: kannattaako ottaa kiinteä sopimus Q1:lle. En vastaa siihen, mutta kysymykseen itseensä voi vastata — ja useimmat kysyvät väärää asiaa. Kiinteä hinta ei ole veikkaus keskihinnasta vaan vakuutus hännästä. Versio 2.0 korjaa version rakenteellisen virheen: jäätäminen ei osu kylmään skenaarioon vaan leutoon, ja halvan lopputuloksen todennäköisyys putosi 25 prosentista 15:een.</p>
+      <p><a class="nappi" href="mita-kiinteassa-ostetaan.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p>
+    </div>
+  </section>
+
+  <section class="ryhma" style="border-top:2px solid var(--muste);padding-top:44px">
+    <h2>Analyysit kirjoja varten</h2>
+    <p class="johdanto" style="margin-bottom:34px">Romaanien taustatyötä. Nämä on tehty siksi, että kirjan luvut kestäisivät tarkistuksen — ja ne kestävät lukemisen myös ilman kirjoja.</p>
+  </section>
+
+  <section class="ryhma" style="margin-top:34px">
+    <h2>Sähkö · huoltovarmuus</h2>
+    <p class="pikkuteksti">Erillisteoksen <em>Sähkökatko ja paskakuski</em> faktapohja</p>
+
+<div class="raportti">
+      <p class="meta">Versio 1.1 · 18.8.2026 · 6 sivua</p>
+      <h3>Teho, ei energia</h3>
+      <p>Suomen sähköjärjestelmän riittävyys tehon näkökulmasta 2026–2035. Riittävyydestä keskustellaan terawattitunteina vuodessa, mutta toimitusvarmuus ratkeaa megawatteina yhdellä tunnilla. Tammikuun 2026 kulutusennätys, tehoreservin nollapäätös ja se, mitkä toimenpiteet ehtivät vaikuttaa ennen 2030-lukua.</p>
+      <p><a class="nappi" href="teho-ei-energia.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p>
+    </div><div class="raportti">
+      <p class="meta">Versio 1.0 · 19.8.2026 · 11 sivua</p>
+      <h3>Kolmas potenssi</h3>
+      <p>Miksi tuulituotannon ei tarvitse pysähtyä, jotta tehotase pettää. Turbiinin teho on tuulennopeuden kolmas potenssi: nopeuden puolittuminen vie 87 prosenttia tuotannosta. Mukana 86 vuoden säädata, El Niño -hypoteesin testaus ja hydrologisen taseen vaikutus hintaan.</p>
+      <p><a class="nappi" href="kolmas-potenssi.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p>
+    </div><div class="raportti">
+      <p class="meta">Versio 1.0 · 19.8.2026 · 6 sivua</p>
+      <h3>Kuka maksaa tyynen tunnin</h3>
+      <p>Sähkön hinta, verkon kustannukset ja riittävyys kuluttajan näkökulmasta. Onko hintahuoli ja riittävyyshuoli sama asia? Ja kuka maksaa verkon, joka rakennettiin hankkeille joita ei tullut.</p>
+      <p><a class="nappi" href="kuka-maksaa-tyynen-tunnin.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p>
+    </div>
+  </section>
+
+  <section class="ryhma">
+    <h2>Itäraja ja havainto</h2>
+    <p class="pikkuteksti">RAJAMAA-trilogian taustatyötä</p>
+
+<div class="raportti">
+      <p class="meta">Versio 1.0 · 19.8.2026 · 7 sivua</p>
+      <h3>Öljy jään alla</h3>
+      <p>Talvinen öljyvahinko on eri ongelma kuin kesäinen: öljy ei pysy pinnalla vaan hakeutuu jään halkeamiin, puomi ei ulotu jään alle eikä harjakeräin kerää sitä mitä ei ole pinnassa. Vuonna 1979 öljy painui jäiden alle ja ilmestyi kahden kuukauden kuluttua neljänsadan kilometrin päässä. Mukana aritmetiikka: torjuntatavoite kattaa kolmasosan yhdestä tankkerilastista.</p>
+      <p><a class="nappi" href="oljy-jaan-alla.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p>
+    </div>    <div class="raportti">
+      <p class="meta">Versio 1.1 · 20.8.2026 · 10 sivua</p>
+      <h3>Saari joka eli Pietarista</h3>
+      <p>Vuonna 1921 Seiskarissa asui 848 ihmistä neljällä neliökilometrillä — Suomen tiheimmin asuttu maalaiskunta. Saari on lähempänä Pietaria kuin lähintä suomalaista kaupunkia, ja se eli siitä: silakkaa, hylkeennahkaa ja meren pohjasta nostettuja katukiviä. Kun raja sulkeutui 1918, talous kuoli — ja kieltolaki oli kolmentoista vuoden korvike. Kun sota tuli, saari oli jo menettänyt puolet väestään. Mukana luku, jossa aineistona on kirjoittajan oma sukutaulu — ja yksi päivä toukokuussa 1919.</p>
+      <p><a class="nappi" href="saari-joka-eli-pietarista.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p>
+    </div>
+<div class="raportti">
+      <p class="meta">Versio 1.0 · 19.8.2026 · 5 sivua</p>
+      <h3>Kenen käskystä</h3>
+      <p>Miksi Venäjä ei hajoa niin kuin Neuvostoliitto. Vuoden 1991 hajoaminen oli siisti, koska se seurasi valmiita saumoja. Nyky-Venäjällä niitä ei ole — ja siksi kysymys ei olisi rajoista vaan siitä, kuka komentaa mitäkin asetta.</p>
+      <p><a class="nappi" href="kenen-kaskysta.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p>
+    </div><div class="raportti">
+      <p class="meta">Versio 2.0 · 19.8.2026 · 7 sivua</p>
+      <h3>Yksi valkoinen viiva</h3>
+      <p>Liittolaisten valvontalennot Suomen yllä: mitä kalustoa, mihin se pystyy, ja miksi juuri nuo reitit. Radiohorisontti selittää lentogeometrian kokonaan. Ja se kysymys jota kysytään väärin päin — selitystä ei vaadi jälkien katoaminen vaan se, että ne olivat päällä.</p>
+      <p><a class="nappi" href="yksi-valkoinen-viiva.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p>
+    </div><div class="raportti">
+      <p class="meta">Versio 2.0 · 19.8.2026 · 8 sivua</p>
+      <h3>Kaistale kerrallaan</h3>
+      <p>Merenpohja strategisena tilana. Kaapeli siirtää, kaapeli kuuntelee — ja kaapeli on halpa rikkoa. Mukana kuituoptisen kuuntelun fysiikka, Itämeren akustiikka, sukellusveneet, kaapelivauriot ja se mitä on syytä olettaa jätetyn kertomatta.</p>
+      <p><a class="nappi" href="kaistale-kerrallaan.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p>
+    </div><div class="raportti">
+      <p class="meta">Versio 1.0 · 19.8.2026 · 10 sivua</p>
+      <h3>Mitä koira tietää</h3>
+      <p>Hajuaistin fysiikka, jäljen ikägradientti ja kolme eri työtapaa. Ja se epämukava luku: kokeessa, jossa etsittävää ei ollut lainkaan, ohjaajan uskomus tuotti enemmän virhemerkkauksia kuin koiran oma kiinnostus. Koirakko on kahden osan mittalaite, ja epävarmempi osa kävelee kahdella jalalla. Ja ratkaisevin tekijä ei ole rotu vaan tunnit: jospa sille vuan näättäs mehttee.</p>
+      <p><a class="nappi" href="mita-koira-tietaa.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p>
+    </div><div class="raportti">
+      <p class="meta">Versio 2.1 · 19.8.2026 · 9 sivua</p>
+      <h3>Kolmesataa yhtä vastaan</h3>
+      <p>Miksi suomalainen virkamies ei pönötä? Vastaus on routavuosissa: kun lain noudattamisesta tuli vastarintaa, virkamiehen valta alkoi tulla laista eikä virasta — eikä sellaista tarvitse esittää. Mukana Rajavartiolaitoksen vaikenemisen perintö, valvonnan aritmetiikka, se mikä poliisin ympärillä on oikeasti kriisissä — ja Seiskari, jonne lähetettiin esivalta.</p>
+      <p><a class="nappi" href="kolmesataa-yhta-vastaan.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p>
+    </div><div class="raportti">
+      <p class="meta">Versio 1.0 · 19.8.2026 · 9 sivua</p>
+      <h3>Ei suurempaa haittaa</h3>
+      <p>Kalastuksenvalvojan toimivalta pykälätasolla: mitä hän saa tehdä, mitä ei — ja kuka valvoo valvojaa. Keskeisin löydös on symmetria: laki antaa valvojalle kolmiportaisen keinovalikoiman kalastajaa kohtaan ja viranomaiselle rakenteeltaan saman valvojaa kohtaan. Sama tikas molempiin suuntiin.</p>
+      <p><a class="nappi" href="ei-suurempaa-haittaa.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p>
+    </div><div class="raportti">
+      <p class="meta">Versio 1.0 · 19.8.2026 · 8 sivua</p>
+      <h3>Kuusi kalaa</h3>
+      <p>Pielisjoessa oli järvilohen lisääntymisalueita 177 hehtaaria. Niistä hävisi 171. Ja lajin olemassaolo näissä vesissä osoitettiin tieteellisesti vasta kahden ratkaisevan padon valmistuttua. Syksyllä 2025 tehtiin ensimmäinen onnistunut korjausyritys kuuden kalan perimällä — seitsemänkymmentä vuotta päätöksen jälkeen.</p>
+      <p><a class="nappi" href="kuusi-kalaa.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p>
+    </div><div class="raportti">
+      <p class="meta">Versio 1.0 · 19.8.2026 · 10 sivua</p>
+      <h3>Kirjan linnut ovat todellisia</h3>
+      <p>Sarjan tunnuslauseen tarkistus. Suomessa on laskettu noin kymmenentuhatta lintulinjaa seitsemässäkymmenessä vuodessa, ja työn ovat tehneet vapaaehtoiset — se on ainoa tämän sarjan aihe, jossa vertailuaineisto oli valmiina. Mukana kaikki kirjoissa esiintyvät lajit — ja kaksi joita ei ole: kottarainen ja peltosirkku, joiden katoamisessa syytettiin ensin ulkomaalaisia.</p>
+      <p><a class="nappi" href="kirjan-linnut.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p>
+    </div>
+  </section>
+
+  <section class="ryhma">
+    <h2>Kirjat</h2>
+    <p>Katsaukset ovat syntyneet romaanien taustatyönä. Kirjat kertovat saman asian toisella tavalla — ihmisinä, jotka tekevät työtään ja huomaavat liian myöhään mitä on tapahtumassa.</p>
+    <p style="margin-top:22px"><a class="nappi" href="index.html">Koko tuotanto</a> <a class="nappi" style="background:transparent;color:var(--meri);box-shadow:inset 0 0 0 2px var(--meri)" href="mailto:jlintumies@gmail.com?subject=Aineistopyynt%C3%B6">Pyydä aineisto</a></p>
+  </section>
+
+  <footer>
+    <span>© J. Lintumies 2026 · Tuomarniemen Toivo</span>
+    <span>Ei evästeitä, ei seurantaa.</span>
+  </footer>
+</div>
+</body>
+</html>

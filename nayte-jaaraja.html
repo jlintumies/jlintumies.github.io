@@ -3,49 +3,151 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lukunäyte: JÄÄRAJA | J. Lintumies</title>
 <meta name="robots" content="noindex">
+<title>Lukunäyte: JÄÄRAJA | J. Lintumies</title>
+<meta name="description" content="Lukunäyte Rajamaa-trilogian päätösosasta JÄÄRAJA: prologi Seiskarista 1939 ja neljä lukua.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@500;600&family=Spectral:ital,wght@0,300;0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root { --paperi:#F1EDE3; --ruutu:#DFD8C8; --muste:#14202B; --meri:#2C4051; --jaa:#5C7385; --leima:#B8511F; }
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family:'Spectral',Georgia,serif; font-weight:300; color:var(--muste);
-         background:var(--paperi); line-height:1.72; font-size:18.5px; }
-  .sivu { max-width:640px; margin:0 auto; padding:0 24px 90px; }
-  header { padding:60px 0 26px; }
-  .yla { font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.12em;
-         color:var(--jaa); text-transform:uppercase; margin-bottom:16px; }
-  h1 { font-family:'Archivo Narrow',sans-serif; font-weight:600;
-       font-size:clamp(34px,7vw,52px); letter-spacing:0.05em; line-height:1.02; text-transform:uppercase; }
-  .viiva { width:80px; height:3px; background:var(--leima); margin:16px 0 14px; }
-  .alaotsikko { font-style:italic; font-size:19px; color:var(--meri); }
-  .horisontti { border-top:1px solid var(--muste); opacity:0.35; margin-top:30px; }
-  .luku { padding-top:52px; }
-  .lukuotsikko { font-family:'Archivo Narrow',sans-serif; font-weight:600; font-size:22px;
-       letter-spacing:0.05em; text-transform:uppercase; margin-bottom:4px; }
-  .paikka { font-family:'IBM Plex Mono',monospace; font-size:12.5px; letter-spacing:0.05em;
-       color:var(--jaa); margin-bottom:26px; }
-  .luku p { margin-bottom:15px; }
-  .luku p.repl { margin-bottom:11px; }
-  .valiotsikko { display:flex; align-items:center; gap:16px; margin:56px 0 0;
-       font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.14em;
-       color:var(--jaa); text-transform:uppercase; }
-  .valiotsikko::before, .valiotsikko::after { content:""; flex:1; height:1px; background:var(--ruutu); }
-  .loppu { margin-top:60px; border-top:2px solid var(--muste); padding-top:38px; }
-  h2 { font-family:'Archivo Narrow',sans-serif; font-weight:600; font-size:15px;
-       letter-spacing:0.16em; text-transform:uppercase; color:var(--meri); margin-bottom:16px; }
-  .loppu p { font-size:17px; }
-  .nappi { display:inline-block; font-family:'Archivo Narrow',sans-serif; font-weight:600;
-    font-size:15px; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none;
-    color:var(--paperi); background:var(--meri); padding:14px 26px; margin:22px 10px 0 0; }
-  .nappi.toinen { background:transparent; color:var(--meri); box-shadow:inset 0 0 0 2px var(--meri); }
-  .nappi:hover { background:var(--muste); color:var(--paperi); }
-  .nappi:focus-visible { outline:3px solid var(--leima); outline-offset:2px; }
-  footer { margin-top:60px; padding-top:22px; border-top:1px solid var(--ruutu);
-    font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--jaa);
-    display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; }
+  :root {
+    --paperi: #EFE9DC;
+    --ruutu: #DFD8C8;
+    --muste: #16232F;
+    --meri: #2C4051;
+    --jaa: #5C7385;
+    --leima: #B8511F;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation: none !important; transition: none !important; }
+  }
+  body {
+    font-family: 'Spectral', Georgia, serif;
+    font-weight: 300;
+    color: var(--muste);
+    background: var(--paperi);
+    line-height: 1.65;
+    font-size: 17px;
+  }
+  .sivu { max-width: 760px; margin: 0 auto; padding: 0 24px 96px; }
+  /* ---------- otsake ---------- */
+  header { padding: 72px 0 36px; position: relative; }
+  .yla {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px; letter-spacing: 0.12em;
+    color: var(--jaa); text-transform: uppercase; margin-bottom: 20px;
+  }
+  h1 {
+    font-family: 'Archivo Narrow', sans-serif; font-weight: 600;
+    font-size: clamp(46px, 10vw, 84px); letter-spacing: 0.09em;
+    line-height: 0.95; text-transform: uppercase;
+  }
+  .viiva { width: 92px; height: 3px; background: var(--leima); margin: 18px 0 16px; }
+  .alaotsikko { font-style: italic; font-size: 20px; color: var(--meri); }
+  .leima {
+    display: inline-block; margin-top: 22px; transform: rotate(-3deg);
+    border: 3px solid var(--leima); color: var(--leima);
+    font-family: 'IBM Plex Mono', monospace; font-weight: 500;
+    font-size: 13px; letter-spacing: 0.14em; padding: 7px 12px;
+    border-radius: 3px; text-transform: uppercase;
+  }
+  /* ---------- horisontti ---------- */
+  .horisontti { border-top: 1px solid var(--muste); opacity: 0.35; margin-top: 40px; }
+  /* ---------- yleiset ---------- */
+  section { padding-top: 56px; }
+  h2 {
+    font-family: 'Archivo Narrow', sans-serif; font-weight: 600;
+    font-size: 15px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--meri); margin-bottom: 18px;
+  }
+  p + p { margin-top: 14px; }
+  a { color: var(--meri); text-underline-offset: 3px; }
+  a:focus-visible { outline: 2px solid var(--leima); outline-offset: 2px; }
+  /* ---------- kirjat ---------- */
+  .kirja {
+    display: grid; grid-template-columns: 200px 1fr; gap: 30px;
+    align-items: start; margin-top: 46px;
+  }
+  .kirja:first-of-type { margin-top: 16px; }
+  .kirja img {
+    width: 100%; height: auto; display: block;
+    box-shadow: 0 2px 5px rgba(22,35,47,0.18), 0 14px 30px rgba(22,35,47,0.16);
+  }
+  .lokirivi {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px;
+    letter-spacing: 0.06em; color: var(--jaa); margin-bottom: 8px;
+  }
+  .kirja h3 {
+    font-family: 'Archivo Narrow', sans-serif; font-weight: 600;
+    font-size: 27px; letter-spacing: 0.06em; text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .kirja .alle { width: 46px; height: 2px; background: var(--leima); margin-bottom: 14px; }
+  .kirja p { font-size: 16px; }
+  .karsi { font-style: italic; }
+  @media (max-width: 620px) {
+    .kirja { grid-template-columns: 1fr; gap: 20px; }
+    .kirja img { max-width: 230px; }
+  }
+  /* ---------- lintuhuomautus ---------- */
+  .linnut { margin-top: 52px; padding: 26px 28px; background: var(--muste); color: var(--paperi); }
+  .linnut .lokirivi { color: #8FA8B6; }
+  .linnut p { font-size: 17px; }
+  /* ---------- erillisteos ---------- */
+  .erillinen { margin-top: 56px; border-top: 2px solid var(--muste); padding-top: 44px; }
+  .erillinen .kirja { margin-top: 24px; }
+  /* ---------- koelukijaksi ---------- */
+  .ehdot { list-style: none; margin: 18px 0 26px; }
+  .ehdot li {
+    padding: 12px 0 12px 34px; border-bottom: 1px solid var(--ruutu);
+    position: relative; font-size: 16px;
+  }
+  .ehdot li::before {
+    content: "☐"; position: absolute; left: 4px; top: 10px;
+    color: var(--meri); font-size: 18px;
+  }
+  .nappi {
+    display: inline-block; font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 600; font-size: 16px; letter-spacing: 0.1em;
+    text-transform: uppercase; text-decoration: none;
+    color: var(--paperi); background: var(--meri); padding: 15px 30px; border: none;
+  }
+  .nappi:hover { background: var(--muste); }
+  .nappi:focus-visible { outline: 3px solid var(--leima); outline-offset: 2px; }
+  .pikkuteksti {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px;
+    color: var(--jaa); margin-top: 12px;
+  }
+  /* ---------- kirjailija ---------- */
+  .kirjailija { margin-top: 56px; border-top: 2px solid var(--muste); padding-top: 40px; }
+  .kirjailija p { font-size: 16.5px; }
+  /* ---------- kustantajille ---------- */
+  .kustantaja { margin-top: 56px; border-top: 2px solid var(--muste); padding-top: 40px; }
+  /* ---------- alatunniste ---------- */
+  footer {
+    margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--ruutu);
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--jaa);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+  }
+
+  .raportti {
+    border-top: 1px solid var(--ruutu); padding: 26px 0;
+    display: grid; grid-template-columns: 1fr; gap: 6px;
+  }
+  .raportti:first-of-type { border-top: 2px solid var(--muste); }
+  .raportti h3 { font-family: 'Archivo Narrow', sans-serif; font-size: 24px; color: var(--meri); margin: 0; }
+  .raportti .meta {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px;
+    color: var(--jaa); text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  .raportti p { margin: 6px 0 0; }
+  .raportti .nappi { margin-top: 12px; }
+  .ryhma { margin-top: 52px; }
+  .ryhma > h2 { margin-bottom: 4px; }
+  .johdanto { font-size: 18px; color: var(--meri); }
 
   .navi {
     font-family: 'IBM Plex Mono', monospace; font-size: 12px;
@@ -67,201 +169,259 @@
   .faktalaatikko p { margin: 0 0 10px; }
   .faktalaatikko p:last-child { margin-bottom: 0; }
 </style>
+<style>
+  .lukunayte { max-width: 680px; }
+  .luku { margin-top: 58px; }
+  .luku:first-of-type { margin-top: 30px; }
+  .lukunro {
+    font-family: 'Archivo Narrow', sans-serif; font-weight: 600;
+    font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--leima); margin-bottom: 6px;
+  }
+  .otsakerivi {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12.5px;
+    color: var(--jaa); line-height: 1.6; margin-bottom: 20px;
+    padding-bottom: 12px; border-bottom: 1px solid var(--ruutu);
+  }
+  .luku p { font-size: 17.5px; margin-top: 15px; }
+  .luku p:first-of-type { margin-top: 0; }
+  .tauko { text-align: center; color: var(--jaa); margin: 26px 0; letter-spacing: 0.5em; }
+  .valikko {
+    font-family: 'Archivo Narrow', sans-serif; font-weight: 600;
+    font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--jaa); text-align: center; margin: 62px 0 0;
+    padding-top: 22px; border-top: 2px solid var(--muste);
+  }
+  .prologi {
+    background: rgba(44,64,81,0.05); border-left: 3px solid var(--leima);
+    padding: 30px 32px; margin-top: 30px;
+  }
+  .prologi .lukunro { color: var(--leima); }
+  .prologi .otsakerivi { border-bottom-color: rgba(92,115,133,0.35); }
+  .loppu { margin-top: 62px; border-top: 2px solid var(--muste); padding-top: 34px; }
+  @media (max-width: 620px) {
+    .prologi { padding: 22px 20px; }
+    .luku p { font-size: 17px; }
+  }
+</style>
 </head>
 <body>
-<div class="sivu">
+<div class="sivu lukunayte">
+
   <header>
     <p class="yla">Lukunäyte · Rajamaa-trilogia, osa III</p>
     <h1>Jääraja</h1>
     <div class="viiva"></div>
-    <p class="alaotsikko">Neljä lukua: alku, Salminen ja Ura, kalastuksenvalvoja ja hakukuvio sumussa.</p>
-    <nav class="navi"><a href="index.html" class="tassa">Kirjat</a> <a href="analyysit.html">Faktat ja analyysit</a> <a href="sahkokatko.html">Sähkökatko</a></nav>
+    <p class="alaotsikko">Prologi ja neljä lukua.</p>
+    <nav class="navi"><a href="index.html">Kirjat</a> <a href="analyysit.html">Faktat ja analyysit</a> <a href="sahkokatko.html">Sähkökatko</a></nav>
     <div class="horisontti"></div>
   </header>
 
-  <div class="luku">
-      <p class="lukuotsikko">1. luku</p>
-      <p class="paikka">24.10.2027 (su) --- Ulkoluoto, klo 2.40. Selkeää, tyyntä, −1°. Allia yhtäjaksoisesti idästä.</p>
-      <p>Marraskuussa alleja laskee vain hullu, ja Rautio oli tehnyt sen kaksikymmentäkuusi vuotta.</p>
-      <p>Hän oli kertonut sen kolmelle ihmiselle. Yksi oli ymmärtänyt.</p>
-      <p>Alli ei näy pimeässä. Se kuuluu. Ääni tulee mereltä matalalta, monesta kohdasta yhtä aikaa, pehmeä ja kaukainen ja lakkaamaton, eikä sitä osaa kuvitella ennen kuin on kuullut sen, ja sen jälkeen sitä ei erota mistään muusta. Rautio istui tornissa villapaita kahtena päällekkäin ja merkitsi tukkimiehen kirjanpitoa pimeässä, viisi pystyviivaa ja poikkiviiva, ja hänen käsialansa oli yöllä parempaa kuin päivällä, koska yöllä hän ei katsonut sitä.</p>
-      <p>Kello kaksi neljäkymmentä hän kuuli moottorin.</p>
-      <p>Se ei kuulunut sinne. Se kävi niin hiljaisella että sen erotti vain koska kaikki muu oli hiljaista, ja se tuli siitä suunnasta jossa oli laituri.</p>
-      <p>Rautio laski kynän vihkon päälle ja nousi ja meni tornin itäpuolelle.</p>
-      <p>Vene oli laiturissa. Matala ja lyhyt, ja siinä paloivat kulkuvalot eikä muuta. Kannella liikkui ihmisiä, kolme ehkä neljä, ja he nostivat jotain veneestä laiturille ja siirsivät sen pois --- liikettä jota oli tehty niin monta kertaa aiemmin, ettei siinä ollut yhtään turhaa.</p>
-      <p>Kalastajia, hän ajatteli.</p>
-      <p>Sitten hän ajatteli, että lokakuun loppu ja kello kolme yöllä ja ilman työvaloja. Että kalastaja pitää valot, koska verkkoa on paha katsoa pimeässä. Sitten hän ajatteli, ettei se kuulunut hänelle.</p>
-      <p>Hän seisoi siinä kuusi tai seitsemän minuuttia. Kerran yksi kannella kääntyi ja katsoi ylös, torniin päin, ja Rautio ei liikkunut --- ei siksi että olisi pelännyt, vaan siksi että liikkuminen häiritsee havaintoa. Se on ensimmäinen asia jonka oppii.</p>
-      <p>Kymmentä vaille kolme vene lähti itään. Kulkuvalot sammuivat noin kahdensadan metrin päässä laiturista, ja Rautio merkitsi sen mielessään huolimattomuudeksi ja unohti sen.</p>
-      <p style="text-align:center;color:var(--jaa);letter-spacing:0.4em;margin:26px 0">· · ·</p>
-      <p>Torniin palattuaan hän kirjoitti jakson loppuun sen mikä oli laskettavaa. Allia neljäsataakolmekymmentä, mustalintua kaksikymmentä, yksi isokoskelo joka oli myöhässä koko lajinsa puolesta. Numerot menivät vasempaan sarakkeeseen, jonne numerot kuuluivat.</p>
-      <p>Vihkon oikeassa reunassa oli kapea sarake, jonka otsikko oli muuta. Siihen kirjoitettiin sää, jos sää muuttui kesken jakson, ja häiriö, jos joku käveli laskentapaikan ohi. Rautio oli kirjoittanut siihen kahdenkymmenenkuuden vuoden aikana kolmesti.</p>
-      <p>Hän piti kynää sarakkeen kohdalla.</p>
-      <p>Matala vene, valot väärässä paikassa, neljä ihmistä jotka eivät katsoneet toisiaan työn aikana. Se ei ollut lintu, eikä sitä ollut pyydetty laskemaan.</p>
-      <p>Hän piti kynää siinä pitkään.</p>
-  </div>
+  <section>
+      <div class="prologi">
+        <p class="lukunro">Prologi</p>
+        <p class="otsakerivi">11.10.1939 &mdash; Seiskari, Lounatkylä. Sumua, tyyntä. Laiva lähtee viideltä.</p>
+        <p>Käsky tuli aamulla ja aikaa oli neljä tuntia, ja mukaan sai ottaa sen minkä jaksoi kantaa.</p>
+        <p>Seiskarissa oli neljäsataakolmekymmentäkuusi ihmistä. Kaksikymmentä vuotta aiemmin heitä oli ollut kahdeksansataaneljäkymmentäkahdeksan, ja sitä ennen lähes yhdeksänsataa, ja saari oli neljä ja puoli kilometriä pitkä ja puolitoista leveä. Sillä tiheydellä ei eletä maasta. Sillä eletään siitä mitä meren toisella puolella on, ja meren toisella puolella oli Pietari, alle sata kilometriä, kun lähimpään suomalaiseen kaupunkiin oli yhdeksänkymmentä.</p>
+        <p>Sinne oli viety silakkaa ja hylkeenrasvaa ja halkoja, ja kiviä jotka oli nostettu meren pohjasta rautapiikkisellä koukulla ja joilla oli kivetty kaupungin katuja. Vuonna 1923 tällä saarella oli omistettu kaksikymmentäkaksi jahtia, kuusi kaljaasia ja yksi kuunari.</p>
+        <p>Kukaan ei ollut sanonut, että se loppuisi. Raja vain meni kiinni, ja sen jälkeen kalasta ja verkoista ei enää elänyt kahdeksansataa ihmistä, ja miehet lähtivät merille ja mantereelle töihin.</p>
+        <p>Saari oli siis tyhjentynyt jo puoliksi ennen kuin kukaan ampui yhtään laukausta. Sota vei sen mikä oli jäljellä.</p>
+        <p class="tauko">&middot;&middot;&middot;</p>
+        <p>Neljä hevosta ja seitsemänkymmentä lehmää ei mahdu samaan laivaan neljänsadan ihmisen kanssa.</p>
+        <p>Lehmät jäivät navettoihin. Navetan ovet jätettiin auki, koska se oli ainoa mitä niille saattoi tehdä.</p>
+        <p>Ja koirat kiellettiin.</p>
+        <p>Ne olivat hyljekoiria. Niitä oli pidetty saarilla sitä varten, että ne löysivät hangen alta norpan pesäluolan ja jään alta hylkeen hengitysreiän, mitä ihminen ei osaa. Niitä oli ollut näillä saarilla todennäköisesti kivikaudelta asti, ja Seiskarin koirat olivat polvenkorkuisia ja pääosin mustia, koska mustan erottaa hangesta.</p>
+        <p>Hylkeenpyynti oli loppunut kolmekymmentäluvulla. Sen jälkeen niillä ei ollut ollut varsinaista tehtävää, ja ne olivat vain olleet niissä taloissa: ne vahtivat, ne pitivät lapset pihassa, ne toivat verkkoja rannasta, ja veneessä ne eivät oksentaneet.</p>
+        <p>Merivartijat ja sotilaat sanoivat, ettei niitä oteta mukaan. Käsky oli käsky ja aikaa oli neljä tuntia.</p>
+        <p>Ne jäivät istumaan kotiportaille, koska isännät olivat aina ennenkin tulleet takaisin.</p>
+        <p class="tauko">&middot;&middot;&middot;</p>
+        <p>Laiva lähti viideltä ja meri oli peilityyni, ja sumu oli sellaista että saari näkyi vielä pitkään sen jälkeen kun rantaviivaa ei enää erottanut.</p>
+        <p>Sitten ne haettiin.</p>
+        <p>Ei kaikkia. Mutta useimmat, ja ne haettiin salaa omilla veneillä pimeällä ja ilman valoja, ja niitä kannettiin takin alla ja säkissä ja soutuveneen keulakopan alla &mdash; miehet jotka olivat kolmetoista vuotta ajaneet pirtua samoja matalikkoja pitkin, tekivät sen viimeisen kerran, ja tällä kertaa lasti oli koira.</p>
+        <p>Siitä ei tehty yhtään merkintää mihinkään.</p>
+        <p>Eikä yksikään niistä koirista tiennyt menettäneensä mitään.</p>
+      </div>
+      <div class="luku">
+        <p class="lukunro">1. luku</p>
+        <p class="otsakerivi">24.10.2027 (su) &mdash; Ulkoluoto, klo 2.40. Selkeää, tyyntä, −1°. Allia yhtäjaksoisesti idästä.</p>
+        <p>Marraskuussa alleja laskee vain hullu, ja Rautio oli tehnyt sen kaksikymmentäkuusi vuotta.</p>
+        <p>Hän oli kertonut sen kolmelle ihmiselle. Yksi oli ymmärtänyt.</p>
+        <p>Alli ei näy pimeässä. Se kuuluu. Ääni tulee mereltä matalalta, monesta kohdasta yhtä aikaa, pehmeä ja kaukainen ja lakkaamaton, eikä sitä osaa kuvitella ennen kuin on kuullut sen, ja sen jälkeen sitä ei erota mistään muusta. Rautio istui tornissa villapaita kahtena päällekkäin ja merkitsi tukkimiehen kirjanpitoa pimeässä, viisi pystyviivaa ja poikkiviiva, ja hänen käsialansa oli yöllä parempaa kuin päivällä, koska yöllä hän ei katsonut sitä.</p>
+        <p>Kello kaksi neljäkymmentä hän kuuli moottorin.</p>
+        <p>Se ei kuulunut sinne. Se kävi niin hiljaisella että sen erotti vain koska kaikki muu oli hiljaista, ja se tuli siitä suunnasta jossa oli laituri.</p>
+        <p>Ulkoluoto oli kansainvälisesti tärkeä lintualue. Se oli sitä siksi, ettei siellä asunut ketään.</p>
+        <p>Rautio laski kynän vihkon päälle ja nousi ja meni tornin itäpuolelle.</p>
+        <p>Vene oli laiturissa. Matala ja lyhyt, ja siinä paloivat kulkuvalot eikä muuta. Kannella liikkui ihmisiä, kolme ehkä neljä, ja he nostivat jotain veneestä laiturille ja siirsivät sen pois &mdash; liikettä jota oli tehty niin monta kertaa aiemmin, ettei siinä ollut yhtään turhaa.</p>
+        <p>Kalastajia, hän ajatteli.</p>
+        <p>Sitten hän ajatteli, että lokakuun loppu ja kello kolme yöllä ja ilman työvaloja. Että kalastaja pitää valot, koska verkkoa on paha katsoa pimeässä. Sitten hän ajatteli, ettei se kuulunut hänelle.</p>
+        <p>Hän seisoi siinä kuusi tai seitsemän minuuttia. Kerran yksi kannella kääntyi ja katsoi ylös, torniin päin, ja Rautio ei liikkunut &mdash; ei siksi että olisi pelännyt, vaan siksi että liikkuminen häiritsee havaintoa. Se on ensimmäinen asia jonka oppii.</p>
+        <p>Kymmentä vaille kolme vene lähti itään. Kulkuvalot sammuivat noin kahdensadan metrin päässä laiturista, ja Rautio merkitsi sen mielessään huolimattomuudeksi ja unohti sen.</p>
+        <p class="tauko">&middot;&middot;&middot;</p>
+        <p>Torniin palattuaan hän kirjoitti jakson loppuun sen mikä oli laskettavaa. Allia neljäsataakolmekymmentä, mustalintua kaksikymmentä, yksi isokoskelo joka oli myöhässä koko lajinsa puolesta. Numerot menivät vasempaan sarakkeeseen, jonne numerot kuuluivat.</p>
+        <p>Vihkon oikeassa reunassa oli kapea sarake, jonka otsikko oli <em>muuta</em>. Siihen kirjoitettiin sää, jos sää muuttui kesken jakson, ja häiriö, jos joku käveli laskentapaikan ohi. Rautio oli kirjoittanut siihen kahdenkymmenenkuuden vuoden aikana kolmesti.</p>
+        <p>Hän piti kynää sarakkeen kohdalla.</p>
+        <p>Matala vene, valot väärässä paikassa, neljä ihmistä jotka eivät katsoneet toisiaan työn aikana. Se ei ollut lintu, eikä sitä ollut pyydetty laskemaan.</p>
+        <p>Hän piti kynää siinä pitkään.</p>
+      </div>
+      <p class="valikko">Kuukautta myöhemmin &middot; ulkoväylä</p>
+      <div class="luku">
+        <p class="lukunro">13. luku</p>
+        <p class="otsakerivi">25.11.2027 (to) &mdash; Partio, ulkoväylä.</p>
+        <p>Ura ei pitänyt merestä. Se ei sanonut sitä ääneen, koska se oli koira, mutta se sanoi sen kaikella muulla: se seisoi kannella jalat harallaan niin kuin maa olisi pettänyt sen henkilökohtaisesti, katsoi aaltoja moittivasti, ja kun vene keinui pahemmin, se meni Salmisen jalkojen väliin ja oli siellä olevinaan vartiossa. Kolme kuukautta merellä eikä se ollut hyväksynyt merta. Se oli alkanut sietää sitä, mikä oli koiralle sama asia kuin ihmiselle työpaikka jota ei rakasta muttei jätä.</p>
+        <p>Salminen ymmärsi sitä. Hän oli itse samanlainen. Kaksi maalaista lainassa väärässä elementissä, ja he tekivät työnsä, ja kotona molemmat nukkuivat paremmin.</p>
+        <p>Sinä yönä tutkassa oli taas se piste. Maali, niin kuin täällä sanottiin &mdash; Salmiselle oli opetettu se sana heti alussa, eikä se ollut vieläkään mennyt jakeluun. Maalihan on se johon ammutaan. Täällä maali oli mikä tahansa mikä näkyi tutkassa: lossi, huvivene, kaislikko väärässä säässä. Samalla logiikalla laituri oli laituri mutta seinä oli laipio ja lattia kansi.</p>
+        <p>Ja vessa oli puusee.</p>
+        <p>Sitä sanaa Salminen ei ollut päässyt yli kolmeen kuukauteen. Puusee on maalla se harmaa lauta-alus pihan perällä, jossa on sydän ovessa ja kärpäsiä ja vanhoja lehtiä laatikossa, ja jonne mennään pakkasella juosten. Se on paskahuussi. Täällä sillä sanalla tarkoitettiin ruostumatonta pyttyä, jossa oli imuhuuhtelu ja lämmitetty istuinrengas ja valo joka syttyi ovesta.</p>
+        <p>Kukaan ei ollut osannut selittää hänelle miksi.</p>
+        <p>Salminen käytti sanoja oikein ja ajatteli niitä väärin, ja oli oppinut ettei sitä huomannut kukaan muu kuin hän itse.</p>
+        <p>Se maali oli ollut ulkoselallä nyt niin monta kertaa, että se oli lakannut olemasta poikkeama ja muuttunut tavaksi. Ja tapa on se mitä vartioston kuuluu katsoa, koska teko joka toistetaan tarpeeksi monta kertaa lakkaa näyttämästä teolta ja alkaa näyttää elinkeinolta. Hän avasi alusrekisterin. Pieni kalastusalus, rekisteröity, omistaja mies jonka nimi ei sanonut hänelle mitään, kotisatama sama josta piste lähti. Kaikki oli laillista, kaikki oli kohdallaan, eikä mitään voinut kirjata toimenpiteeksi. Se oli juuri se mikä häntä vaivasi.</p>
+        <p>Hän kirjasi nimen omaan vihkoonsa, ei viralliseen, ja päätti että seuraavalla kerralla kun piste olisi ulkona, hän kävisi katsomassa. Ei pysäyttäisi. Katsomassa. Sen verran sai tehdä ilman että oli mitään.</p>
+        <p>Ura oli nukahtanut hänen jalkojensa väliin ja näki unta, jaloista päätellen, maasta.</p>
+        <p>Salminen katsoi ruutua, jolla se piste oli yhä siinä missä sen ei kuulunut olla, ja mietti mitä hän sanoisi, jos hän ajaisi sen viereen ja kysyisi.</p>
+      </div>
+      <p class="valikko">Kesäkuu &middot; Viinijärvi</p>
+      <div class="luku">
+        <p class="lukunro">26. luku</p>
+        <p class="otsakerivi">27.6.2028 (ti) &mdash; Viinijärvi, klo 11.20. Tyyntä, +21°.</p>
+        <p>Vene oli täynnä sitä mitä veneessä kesällä on: kaksi vapaa keulassa pojanpojan jäljiltä, ämpäri, kahvitermos, Kaisa keskituhdolla, Roi pohjalla omalla paikallaan ja Visa siinä missä Visa kulloinkin oli.</p>
+        <p>Turunen ei ollut kalassa. Hän oli menossa ohi kotirantaan, ja vesillä oli Kettusen Veikon verkot ja niissä Veikon nimi.</p>
+        <p>Valvojan vene tuli sivusta hyvällä vauhdilla ja kääntyi eteen niin, että se pysäytti heidät.</p>
+        <p>Kyljessä oli tarra jossa luki <em>kalastuksenvalvonta</em>.</p>
+        <p class="tauko">&middot;&middot;&middot;</p>
+        <p>Mies oli neljänkymmenen tienoilla ja hänellä oli aurinkolasit ja liivi, ja hän aloitti ennen kuin veneet olivat pysähtyneet.</p>
+        <p>&rdquo;Kalastonhoitomaksu esiin.&rdquo;</p>
+        <p>&rdquo;Hyvää päivää&rdquo;, Turunen sanoi.</p>
+        <p>&rdquo;Päivää. Maksu esiin.&rdquo;</p>
+        <p>&rdquo;Minä en ole kalastamassa.&rdquo;</p>
+        <p>Mies katsoi keulaan, jossa olivat ne kaksi vapaa, ja teki niistä sen johtopäätöksen jonka oli päättänyt tehdä jo tullessaan.</p>
+        <p>&rdquo;Vene on täynnä vapoja. Silloin saadaan kysyä.&rdquo;</p>
+        <p>&rdquo;Ne ovat pojanpojan. Ne ovat kuivat, ja saatte katsoa ne.&rdquo;</p>
+        <p>&rdquo;Henkilötiedot.&rdquo;</p>
+        <p>&rdquo;Millä perusteella?&rdquo;</p>
+        <p>&rdquo;Sillä että minulla on siihen oikeus.&rdquo;</p>
+        <p>Turunen katsoi häntä ja antoi tulla kolme sekuntia hiljaisuutta, koska hän oli kolmekymmentä vuotta antanut ihmisille ne kolme sekuntia. Useimmat käyttivät ne.</p>
+        <p>Tämä ei käyttänyt.</p>
+        <p>&rdquo;Näyttäkääpä valvojakortti&rdquo;, Turunen sanoi.</p>
+        <p>Ja siinä se tuli näkyviin, koska mies ei kaivanut korttia esiin vaan käänsi kysymyksen ympäri.</p>
+        <p>&rdquo;Onko noissa verkoissa tuolla pyydysmerkit?&rdquo;</p>
+        <p>&rdquo;On. Ja niissä on Kettusen Veikon nimi.&rdquo;</p>
+        <p>&rdquo;Ensi kerralla jos merkkejä ei ole, niin perataan verkot valtiolle.&rdquo;</p>
+        <p class="tauko">&middot;&middot;&middot;</p>
+        <p>Kaisa liikahti keskituhdolla.</p>
+        <p>Hän oli ollut naimisissa kolmekymmentäneljä vuotta miehen kanssa, joka ei suuttunut, ja hän tiesi sen paremmin kuin kukaan: mies ei suuttunut kotona eikä juhlissa eikä silloinkään kun naapurin poika ajoi kelkalla hänen pellolleen kaksi kertaa saman talven aikana.</p>
+        <p>Nyt hän näki sen tulevan.</p>
+        <p>Se ei näkynyt kasvoista. Se näkyi siitä, että Turusen käsi oli laskeutunut kaasukahvalle ja pysähtynyt siihen liikkumatta, ja siitä että hän ei ollut sanonut mitään kolmeen sekuntiin.</p>
+        <p>Kaisa teki sen minkä hän oli tehnyt kolmekymmentäneljä vuotta ja mikä oli aina toiminut. Hän puhui tavallisista asioista tavallisella äänellä.</p>
+        <p>&rdquo;Onko teillä kiire?&rdquo; hän kysyi valvojalta. &rdquo;Meillä olisi kahvia. Se on vähän jäähtynyttä mutta se on kahvia.&rdquo;</p>
+        <p>Mies katsoi häntä sen ilmeen läpi joka hänellä oli aurinkolasien takana.</p>
+        <p>&rdquo;Minä hoidan tässä työtäni.&rdquo;</p>
+        <p>&rdquo;Niin hoidatte&rdquo;, Kaisa sanoi. &rdquo;Meidän kanssa se työ menee helposti. Se mies tuossa on ollut rajalla kolmekymmentä vuotta ja Veikko laittaa merkit sinne minne pitää, jos joku sanoo sille kerran. Soittakaa Veikolle. Minä annan numeron.&rdquo;</p>
+        <p>Se oli hyvin tehty. Se oli tehty niin hyvin, että se olisi purkanut yhdeksän tilannetta kymmenestä.</p>
+        <p>&rdquo;Ei tässä numeroita tarvita&rdquo;, mies sanoi.</p>
+        <p class="tauko">&middot;&middot;&middot;</p>
+        <p>&rdquo;Ja pannaan tämä nyt kerralla selväksi.&rdquo; Mies otti aurinkolasit pois, ja se oli ensimmäinen kohtelias asia jonka hän oli tehnyt, ja se tuli väärään kohtaan. &rdquo;Jos te ette vesillä tottele valvojaa, siitä tulee rikosilmoitus. Ihan sama kenen verkot nuo on.&rdquo;</p>
+        <p>Turunen ei liikahtanut.</p>
+        <p>&rdquo;Te ajatte kalastuskunnan mandaatilla&rdquo;, hän sanoi. &rdquo;Ette poliisin. Ja Taipaleen vesillä tietää jokainen mökkiläistä myöten, että Turusen asiat ovat kunnossa. Kysykää keneltä tahansa joka tulee tästä ohi seuraavan tunnin aikana.&rdquo;</p>
+        <p>&rdquo;Minä en kysy tältä järveltä mitään.&rdquo;</p>
+        <p>Mies otti puhelimen liivin taskusta. Hän ei avannut sitä. Hän piti sitä kädessään niin, että se näkyi.</p>
+        <p>&rdquo;Minä tunnen Erkin naapurikunnasta. Erkki tekee sen ilmoituksen jos minä sanon sanan, ja siinä lukee sitten toisen kunnan nimi eikä minun. Kala ei tunne veden rajoja.&rdquo;</p>
+        <p>Hän pani puhelimen takaisin taskuun.</p>
+        <p>&rdquo;Eikä valvonta.&rdquo;</p>
+        <p>Kaisa laski termoksen tuhdolle.</p>
+        <p class="tauko">&middot;&middot;&middot;</p>
+        <p>Roi nousi.</p>
+        <p>Se nousi pohjalta hitaasti ja tuli tuhtojen yli Turusen viereen, mikä oli kiellettyä, koska vanha koira ei liikkunut veneessä ilman lupaa eikä ollut liikkunut siitä asti kun se oli sen oppinut.</p>
+        <p>Se ei katsonut valvojaa. Se katsoi Turusta.</p>
+        <p>Se työnsi kirsun hänen kämmentään vasten ja jäi siihen, ja kun kättä ei tullut, se painoi kylkensä hänen sääriään vasten koko pituudeltaan ja nosti katseensa hänen kasvoihinsa alhaalta päin, siitä asennosta josta koira katsoo silloin kun se sovittelee.</p>
+        <p>Ja Visa tuli perässä.</p>
+        <p>Se oli neljän kuukauden ikäinen eikä se ymmärtänyt mitään. Se ymmärsi Roin. Se tuli ja survoi itsensä Turusen jalkojen väliin ja nosti käpälän hänen polvelleen, ja piti sen siinä, ja katsoi ylöspäin.</p>
+        <p>Turunen katsoi alas.</p>
+        <p>Kaksi koiraa, kolmen kuukauden ero siinä miten hyvin ne osasivat sen, ja molemmat tekivät samaa asiaa: ne kertoivat hänelle, että hänestä oli tullut se ihminen jonka lähellä koira käy varmistamassa.</p>
+        <p>Hän laski kätensä Roin päälle.</p>
+        <p class="tauko">&middot;&middot;&middot;</p>
+        <p>Kun hän puhui, hän puhui hitaammin kuin tavallisesti, ja se oli hänessä ainoa merkki jonka ulkopuolinen olisi voinut nähdä.</p>
+        <p>&rdquo;Minä olen ollut kolmekymmentä vuotta rajalla&rdquo;, hän sanoi. &rdquo;Ja siellä opetetaan ensimmäisenä syksynä yksi asia, ja se opetetaan kesken jonkin muun, selin, jonkun vanhemman miehen suulla.&rdquo;</p>
+        <p>Mies ei sanonut mitään.</p>
+        <p>&rdquo;Ihmisille ei jelhistellä. Eikä pönötetä.&rdquo;</p>
+        <p>Hän piti kättään koiran päällä.</p>
+        <p>&rdquo;Ja se ei ole kohteliaisuutta. Se on laskuoppia. Teitä on tällä järvellä yksi. Meitä on kolmesataa, ja me nähdään täältä kaikki mitä te ette näe. Te päätätte joka kerta sillä miten te puhutte, kumpi joukko on isompi.&rdquo;</p>
+        <p>Hän käänsi kaasun ja päästi veneen liikkeelle hiljaa, ohi valvojan veneen keulan, sen verran läheltä kuin oli kohteliasta.</p>
+        <p>&rdquo;Ja tehkää se ilmoitus&rdquo;, hän sanoi ohi mennessään. &rdquo;Minä olen kolmekymmentä vuotta täyttänyt lomakkeita, joissa on ollut toisen ihmisen nimi.&rdquo;</p>
+        <p class="tauko">&middot;&middot;&middot;</p>
+        <p>Kotirannassa hän sitoi veneen ja seisoi laiturilla pidempään kuin oli tarpeen.</p>
+        <p>Kaisa otti termoksen ja katsoi häntä.</p>
+        <p>&rdquo;Sinä olit oikeassa.&rdquo;</p>
+        <p>&rdquo;Olin.&rdquo;</p>
+        <p>&rdquo;Ja se ei auta yhtään.&rdquo;</p>
+        <p>&rdquo;Ei auta.&rdquo;</p>
+        <p>Illalla hän istui portailla, ja Roi tuli ja asettui hänen jalkoihinsa niin kuin se oli asettunut veneessä, ja hän raapi sitä korvan takaa pitkään.</p>
+        <p>Hän ei etsinyt lakia mistään.</p>
+        <p>Hän tiesi kyllä pykälät, tai tiesi ne riittävällä tarkkuudella, ja hän tiesi olevansa oikeassa, eikä se ollut se asia joka häntä vaivasi.</p>
+        <p>Häntä vaivasi kaksi asiaa, ja toinen niistä oli se puhelin.</p>
+        <p>Mies ei ollut soittanut sillä kenellekään. Hän oli vain pitänyt sitä kädessä sen verran, että se näkyi, ja se oli riittänyt, ja hän oli tiennyt sen riittävän. Sen oppii jostakin. Sitä ei opeteta kurssilla.</p>
+        <p>Toinen asia oli se, ettei sitä miestä ollut opetettu.</p>
+        <p>Joku oli antanut hänelle kortin ja liivin ja tarran veneen kylkeen, ja kukaan ei ollut istunut hänen vieressään ensimmäisenä syksynä ja sanonut sitä yhtä asiaa kesken jonkin muun, ja nyt hän ajoi tällä järvellä ja teki kolmestasadasta ihmisestä kolmesataa ihmistä jotka eivät soita hänelle koskaan.</p>
+        <p>Se oli menetys, eikä se näkyisi missään.</p>
+        <p>Ennen sellainen mies olisi saanut kuulla siitä. Häntä ei olisi rangaistu eikä hänestä olisi kirjoitettu mitään, mutta joku vanhempi olisi sanonut hänelle jotain kesken jonkin muun, ja se olisi mennyt perille, koska se olisi tullut joltakulta jonka arvostuksen menettäminen maksoi jotain.</p>
+        <p>Nyt oli koulutus, joka opettaa toimivaltuudet, ja koe, jolla varmistetaan että ne muistetaan. Ne ovat molemmat oikein. Mutta ne opettavat mitä saa tehdä, eivätkä ne kerro sanallakaan siitä, mitä ei kannata tehdä vaikka saisi.</p>
+        <p>Turunen tiesi, että hän kuulosti tuon ajatuksen kanssa vanhalta mieheltä.</p>
+        <p>Hän tiesi myös, että hän oli tavannut kaksi vuotta aiemmin kapteenin, joka oli häntä kaksikymmentä vuotta nuorempi ja joka oli sen oppinut jostakin, ja joka soitti hänelle silloin kun asia oli tärkeä ja jätti soittamatta silloin kun se ei ollut, ja joka oli kysynyt häneltä neuvoa koirasta kysymättä ensin oliko hän vielä ajan tasalla.</p>
+        <p>Se oli hänen ainoa vasta-argumenttinsa sille ajatukselle, ja se oli yhden ihmisen kokoinen, ja hän piti siitä kiinni.</p>
+        <p>Turunen ei tehnyt asiasta ilmoitusta. Hän mietti sitä kaksi päivää ja päätti, ettei tee, ja hän tiesi tarkalleen mikä siinä päätöksessä oli väärin: että hän oli itse nyt yksi niistä kolmestasadasta.</p>
+        <p>Hän ei kertonut siitä Veikolle eikä kenellekään muullekaan.</p>
+        <p>Kaisa kirjoitti veneen numeron kalenterin heinäkuun kohdalle, ja Turunen näki sen, eikä kumpikaan sanonut siitä mitään.</p>
+      </div>
+      <p class="valikko">Vuotta myöhemmin &middot; Osa II</p>
+      <div class="luku">
+        <p class="lukunro">36. luku</p>
+        <p class="otsakerivi">2.10.2028 (ma) &mdash; Ulkoväylä, klo 05.50. Sumua, näkyvyys kahdestasadasta kuuteensataan metriin, tyyntä, +8°.</p>
+        <p>Sumussa merivartija tekee kaksi asiaa. Hän katsoo tutkaa ja hän kuuntelee.</p>
+        <p>Tutka näyttää sen mikä on. Korva kertoo, mitä se tekee.</p>
+        <p>Salminen oli ollut vahdissa pari tuntia ja tutkalla oli kuusi maalia, joista viisi meni jonnekin.</p>
+        <p>Kuudes ei mennyt.</p>
+        <p>Se oli ollut ruudulla kello kolme neljästäkymmenestä lähtien ja se oli liikkunut koko ajan, mutta se ei ollut matkalla. Se meni kolmesataa metriä itään, kääntyi, meni kolmesataa metriä länteen, siirtyi vähän pohjoiseen ja teki saman uudestaan.</p>
+        <p>Salminen katsoi sitä kaksikymmentä minuuttia ennen kuin sanoi mitään.</p>
+        <p>Sitten hän sanoi sen mitä se oli.</p>
+        <p>&rdquo;Tuo tekee hakukuviota.&rdquo;</p>
+        <p>Väisänen tuli katsomaan ruorista käsin.</p>
+        <p>&rdquo;Nii tekköö.&rdquo;</p>
+        <p>&rdquo;Se etsii jotain pohjasta.&rdquo;</p>
+        <p>&rdquo;Tae se on hukannu verkon.&rdquo; Väisänen sanoi sen ilman erityistä painoa, koska se oli se todennäköisempi vaihtoehto ja koska hän oli kolmekymmentä vuotta merellä ja tiesi kuinka monta verkkoa hukataan vuodessa.</p>
+        <p>Salminen tiesi sen myös. Hän tiesi lisäksi sen mitä Väisänen ei tiennyt, koska se oli hänen omassa vihkossaan eikä missään muualla: että hän oli seurannut yhtä alusta yksitoista kuukautta, ja että se alus oli tänä yönä satamassa kiinni.</p>
+        <p>Hän oli tarkistanut sen ennen vahtiin tuloa. Hän oli alkanut tarkistaa sen aina.</p>
+        <p>Tuo kuudes maali ei siis ollut se.</p>
+        <p class="tauko">&middot;&middot;&middot;</p>
+        <p>He lähtivät katsomaan.</p>
+        <p>Sumussa se tarkoittaa, että ajetaan hitaammin kuin haluttaisiin ja kuunnellaan enemmän kuin katsotaan. Etäisyyttä oli kaksi ja puoli mailia, ja siihen menisi kaksikymmentä minuuttia, ja kaksikymmentä minuuttia on sumussa pitkä aika.</p>
+        <p>Kolmentoista minuutin kohdalla maali pysähtyi.</p>
+        <p>Viidentoista minuutin kohdalla se lähti liikkeelle itään, kaksitoista solmua, suoraan, eikä pysähtynyt enää.</p>
+        <p>Kaksitoista solmua on kalastusaluksen matkanopeus. Sitä ei ajeta sumussa, jos ei tunne pohjaa ulkoa, ja sitä ei ajeta sumussa ollenkaan, jos ei ole syytä.</p>
+        <p>&rdquo;Se kuuli meidät&rdquo;, Väisänen sanoi.</p>
+        <p>&rdquo;Ei se kuullut. Se katsoi tutkaa.&rdquo;</p>
+        <p>Se oli sama asia toisin päin: he olivat olleet ruudulla yhtä kauan kuin se oli ollut heidän. Salminen oli katsonut kaksikymmentä minuuttia jotakuta, joka oli katsonut häntä samat kaksikymmentä minuuttia, ja toinen heistä oli päättänyt ensin.</p>
+        <p>Paikalla ei ollut mitään. Sumu, tyyni vesi, ja pohjaa neljäkymmentäkaksi metriä.</p>
+        <p>Ura kävi kannella ja tuli takaisin sisään ja ravisteli itsensä siihen paikkaan jossa siitä oli eniten haittaa.</p>
+        <p class="tauko">&middot;&middot;&middot;</p>
+        <p>Aluksen Salminen sai tunnistettua neljä päivää myöhemmin. Sumu ei estä tutkatallennetta, ja tunnistelaite oli ollut päällä siihen asti kun alus lähti satamasta.</p>
+        <p>Se oli kalastusalus. Rekisteröity, luvat kunnossa, kotisatama kuudenkymmenen mailin päässä lännessä. Omistajalla oli laina ja kaksi lasta ja kaksikymmentäkaksi vuotta samaa työtä.</p>
+        <p>Salminen istui pöytänsä ääressä ja katsoi kahta nimeä vihkossaan.</p>
+        <p>Hän oli koko vuoden ajatellut, että hän seuraa yhtä miestä ja yhtä venettä ja yhtä asiaa. Hän oli rakentanut siitä kuvion päässään ja hän oli ollut siitä kuviosta oikeassa.</p>
+        <p>Kuvio oli vain väärän kokoinen.</p>
+        <p>Se ei ollut yksi vene. Se oli ammatti, jota tarjottiin niille joilla oli vene ja velkaa, ja se tarjottiin heille yksitellen, ja jokainen heistä luuli olevansa ainoa.</p>
+        <p>Hän kirjoitti toisen nimen vihkoon ensimmäisen alle ja jätti niiden väliin tyhjän rivin, koska hän ei tiennyt vielä, montako siihen väliin tulisi.</p>
+      </div>
 
-  <p class="valiotsikko">Kuukautta myöhemmin · ulkoväylä</p>
+      <div class="loppu">
+        <h2>Näyte päättyy</h2>
+        <p>JÄÄRAJA on trilogian päätösosa, 88 lukua. Sarja alkaa kirjasta RAJAMAA, joka ilmestyy isänpäiväksi 2026. Etsin vielä koelukijoita.</p>
+        <p>Prologin luvut ovat todellisia. Seiskarin historia, väkiluvut ja hyljekoirat on käyty läpi katsauksessa <a href="analyysit.html">Saari joka eli Pietarista</a>.</p>
+        <p style="margin-top:22px"><a class="nappi" href="index.html#koelukijaksi">Ilmoittaudu koelukijaksi</a> <a class="nappi" style="background:transparent;color:var(--meri);box-shadow:inset 0 0 0 2px var(--meri)" href="index.html">Koko tuotanto</a></p>
+      </div>
 
-  <div class="luku">
-      <p class="lukuotsikko">13. luku</p>
-      <p class="paikka">25.11.2027 (to) --- Partio, ulkoväylä.</p>
-      <p>Ura ei pitänyt merestä. Se ei sanonut sitä ääneen, koska se oli koira, mutta se sanoi sen kaikella muulla: se seisoi kannella jalat harallaan niin kuin maa olisi pettänyt sen henkilökohtaisesti, katsoi aaltoja moittivasti, ja kun vene keinui pahemmin, se meni Salmisen jalkojen väliin ja oli siellä olevinaan vartiossa. Kolme kuukautta merellä eikä se ollut hyväksynyt merta. Se oli alkanut sietää sitä, mikä oli koiralle sama asia kuin ihmiselle työpaikka jota ei rakasta muttei jätä.</p>
-      <p>Salminen ymmärsi sitä. Hän oli itse samanlainen. Kaksi maalaista lainassa väärässä elementissä, ja he tekivät työnsä, ja kotona molemmat nukkuivat paremmin.</p>
-      <p>Sinä yönä tutkassa oli taas se piste. Maali, niin kuin täällä sanottiin --- Salmiselle oli opetettu se sana heti alussa, eikä se ollut vieläkään mennyt jakeluun. Maalihan on se johon ammutaan. Täällä maali oli mikä tahansa mikä näkyi tutkassa: lossi, huvivene, kaislikko väärässä säässä. Samalla logiikalla laituri oli laituri mutta seinä oli laipio ja lattia kansi.</p>
-      <p>Ja vessa oli puusee.</p>
-      <p>Sitä sanaa Salminen ei ollut päässyt yli kolmeen kuukauteen. Puusee on maalla se harmaa lauta-alus pihan perällä, jossa on sydän ovessa ja kärpäsiä ja vanhoja lehtiä laatikossa, ja jonne mennään pakkasella juosten. Se on paskahuussi. Täällä sillä sanalla tarkoitettiin ruostumatonta pyttyä, jossa oli imuhuuhtelu ja lämmitetty istuinrengas ja valo joka syttyi ovesta.</p>
-      <p>Kukaan ei ollut osannut selittää hänelle miksi.</p>
-      <p>Salminen käytti sanoja oikein ja ajatteli niitä väärin, ja oli oppinut ettei sitä huomannut kukaan muu kuin hän itse.</p>
-      <p>Se maali oli ollut ulkoselällä nyt niin monta kertaa, että se oli lakannut olemasta poikkeama ja muuttunut tavaksi. Ja tapa on se mitä vartioston kuuluu katsoa, koska teko joka toistetaan tarpeeksi monta kertaa lakkaa näyttämästä teolta ja alkaa näyttää elinkeinolta. Hän avasi alusrekisterin. Pieni kalastusalus, rekisteröity, omistaja mies jonka nimi ei sanonut hänelle mitään, kotisatama sama josta piste lähti. Kaikki oli laillista, kaikki oli kohdallaan, eikä mitään voinut kirjata toimenpiteeksi. Se oli juuri se mikä häntä vaivasi.</p>
-      <p>Hän kirjasi nimen omaan vihkoonsa, ei viralliseen, ja päätti että seuraavalla kerralla kun piste olisi ulkona, hän kävisi katsomassa. Ei pysäyttäisi. Katsomassa. Sen verran sai tehdä ilman että oli mitään.</p>
-      <p>Ura oli nukahtanut hänen jalkojensa väliin ja näki unta, jaloista päätellen, maasta.</p>
-      <p>Salminen katsoi ruutua, jolla se piste oli yhä siinä missä sen ei kuulunut olla, ja mietti mitä hän sanoisi, jos hän ajaisi sen viereen ja kysyisi.</p>
-  </div>
-
-  <p class="valiotsikko">Kesäkuu · Viinijärvi</p>
-
-  <div class="luku">
-      <p class="lukuotsikko">26. luku</p>
-      <p class="paikka">27.6.2028 (ti) — Viinijärvi, klo 11.20. Tyyntä, +21°.</p>
-      <p>Vene oli täynnä sitä mitä veneessä kesällä on: kaksi vapaa keulassa pojanpojan jäljiltä, ämpäri, kahvitermos, Kaisa keskituhdolla, Roi pohjalla omalla paikallaan ja Visa siinä missä Visa kulloinkin oli.</p>
-      <p>Turunen ei ollut kalassa. Hän oli menossa ohi kotirantaan, ja vesillä oli Kettusen Veikon verkot ja niissä Veikon nimi.</p>
-      <p>Valvojan vene tuli sivusta hyvällä vauhdilla ja kääntyi eteen niin, että se pysäytti heidät.</p>
-      <p>Kyljessä oli tarra jossa luki kalastuksenvalvonta.</p>
-      <p style="text-align:center;color:var(--jaa);letter-spacing:0.4em;margin:26px 0">· · ·</p>
-      <p>Mies oli neljänkymmenen tienoilla ja hänellä oli aurinkolasit ja liivi, ja hän aloitti ennen kuin veneet olivat pysähtyneet.</p>
-      <p class="repl">&quot;Kalastonhoitomaksu esiin.&quot;</p>
-      <p class="repl">&quot;Hyvää päivää&quot;, Turunen sanoi.</p>
-      <p class="repl">&quot;Päivää. Maksu esiin.&quot;</p>
-      <p class="repl">&quot;Minä en ole kalastamassa.&quot;</p>
-      <p>Mies katsoi keulaan, jossa olivat ne kaksi vapaa, ja teki niistä sen johtopäätöksen jonka oli päättänyt tehdä jo tullessaan.</p>
-      <p class="repl">&quot;Vene on täynnä vapoja. Silloin saadaan kysyä.&quot;</p>
-      <p class="repl">&quot;Ne ovat pojanpojan. Ne ovat kuivat, ja saatte katsoa ne.&quot;</p>
-      <p class="repl">&quot;Henkilötiedot.&quot;</p>
-      <p class="repl">&quot;Millä perusteella?&quot;</p>
-      <p class="repl">&quot;Sillä että minulla on siihen oikeus.&quot;</p>
-      <p>Turunen katsoi häntä ja antoi tulla kolme sekuntia hiljaisuutta, koska hän oli kolmekymmentä vuotta antanut ihmisille ne kolme sekuntia. Useimmat käyttivät ne.</p>
-      <p>Tämä ei käyttänyt.</p>
-      <p class="repl">&quot;Näyttäkääpä valvojakortti&quot;, Turunen sanoi.</p>
-      <p>Ja siinä se tuli näkyviin, koska mies ei kaivanut korttia esiin vaan käänsi kysymyksen ympäri.</p>
-      <p class="repl">&quot;Onko noissa verkoissa tuolla pyydysmerkit?&quot;</p>
-      <p class="repl">&quot;On. Ja niissä on Kettusen Veikon nimi.&quot;</p>
-      <p class="repl">&quot;Ensi kerralla jos merkkejä ei ole, niin perataan verkot valtiolle.&quot;</p>
-      <p style="text-align:center;color:var(--jaa);letter-spacing:0.4em;margin:26px 0">· · ·</p>
-      <p>Kaisa liikahti keskituhdolla.</p>
-      <p>Hän oli ollut naimisissa kolmekymmentäneljä vuotta miehen kanssa, joka ei suuttunut, ja hän tiesi sen paremmin kuin kukaan: mies ei suuttunut kotona eikä juhlissa eikä silloinkaan kun naapurin poika ajoi kelkalla hänen pellolleen kaksi kertaa saman talven aikana.</p>
-      <p>Nyt hän näki sen tulevan.</p>
-      <p>Se ei näkynyt kasvoista. Se näkyi siitä, että Turusen käsi oli laskeutunut kaasukahvalle ja pysähtynyt siihen liikkumatta, ja siitä että hän ei ollut sanonut mitään kolmeen sekuntiin.</p>
-      <p>Kaisa teki sen minkä hän oli tehnyt kolmekymmentäneljä vuotta ja mikä oli aina toiminut. Hän puhui tavallisista asioista tavallisella äänellä.</p>
-      <p class="repl">&quot;Onko teillä kiire?&quot; hän kysyi valvojalta. &quot;Meillä olisi kahvia. Se on vähän jäähtynyttä mutta se on kahvia.&quot;</p>
-      <p>Mies katsoi häntä sen ilmeen läpi joka hänellä oli aurinkolasien takana.</p>
-      <p class="repl">&quot;Minä hoidan tässä työtäni.&quot;</p>
-      <p class="repl">&quot;Niin hoidatte&quot;, Kaisa sanoi. &quot;Meidän kanssa se työ menee helposti. Se mies tuossa on ollut rajalla kolmekymmentä vuotta ja Veikko laittaa merkit sinne minne pitää, jos joku sanoo sille kerran. Soittakaa Veikolle. Minä annan numeron.&quot;</p>
-      <p>Se oli hyvin tehty. Se oli tehty niin hyvin, että se olisi purkanut yhdeksän tilannetta kymmenestä.</p>
-      <p class="repl">&quot;Ei tässä numeroita tarvita&quot;, mies sanoi.</p>
-      <p style="text-align:center;color:var(--jaa);letter-spacing:0.4em;margin:26px 0">· · ·</p>
-      <p class="repl">&quot;Ja pannaan tämä nyt kerralla selväksi.&quot; Mies otti aurinkolasit pois, ja se oli ensimmäinen kohtelias asia jonka hän oli tehnyt, ja se tuli väärään kohtaan. &quot;Jos te ette vesillä tottele valvojaa, siitä tulee rikosilmoitus. Ihan sama kenen verkot nuo on.&quot;</p>
-      <p>Turunen ei liikahtanut.</p>
-      <p class="repl">&quot;Te ajatte kalastuskunnan mandaatilla&quot;, hän sanoi. &quot;Ette poliisin. Ja Taipaleen vesillä tietää jokainen mökkiläistä myöten, että Turusen asiat ovat kunnossa. Kysykää keneltä tahansa joka tulee tästä ohi seuraavan tunnin aikana.&quot;</p>
-      <p class="repl">&quot;Minä en kysy tältä järveltä mitään.&quot;</p>
-      <p>Mies otti puhelimen liivin taskusta. Hän ei avannut sitä. Hän piti sitä kädessään niin, että se näkyi.</p>
-      <p class="repl">&quot;Minä tunnen Erkin naapurikunnasta. Erkki tekee sen ilmoituksen jos minä sanon sanan, ja siinä lukee sitten toisen kunnan nimi eikä minun. Kala ei tunne veden rajoja.&quot;</p>
-      <p>Hän pani puhelimen takaisin taskuun.</p>
-      <p class="repl">&quot;Eikä valvonta.&quot;</p>
-      <p>Kaisa laski termoksen tuhdolle.</p>
-      <p style="text-align:center;color:var(--jaa);letter-spacing:0.4em;margin:26px 0">· · ·</p>
-      <p>Roi nousi.</p>
-      <p>Se nousi pohjalta hitaasti ja tuli tuhtojen yli Turusen viereen, mikä oli kiellettyä, koska vanha koira ei liikkunut veneessä ilman lupaa eikä ollut liikkunut siitä asti kun se oli sen oppinut.</p>
-      <p>Se ei katsonut valvojaa. Se katsoi Turusta.</p>
-      <p>Se työnsi kirsun hänen kämmentään vasten ja jäi siihen, ja kun kättä ei tullut, se painoi kylkensä hänen sääriään vasten koko pituudeltaan ja nosti katseensa hänen kasvoihinsa alhaalta päin, siitä asennosta josta koira katsoo silloin kun se sovittelee.</p>
-      <p>Ja Visa tuli perässä.</p>
-      <p>Se oli neljän kuukauden ikäinen eikä se ymmärtänyt mitään. Se ymmärsi Roin. Se tuli ja survoi itsensä Turusen jalkojen väliin ja nosti käpälän hänen polvelleen, ja piti sen siinä, ja katsoi ylöspäin.</p>
-      <p>Turunen katsoi alas.</p>
-      <p>Kaksi koiraa, kolmen kuukauden ero siinä miten hyvin ne osasivat sen, ja molemmat tekivät samaa asiaa: ne kertoivat hänelle, että hänestä oli tullut se ihminen jonka lähellä koira käy varmistamassa.</p>
-      <p>Hän laski kätensä Roin päälle.</p>
-      <p style="text-align:center;color:var(--jaa);letter-spacing:0.4em;margin:26px 0">· · ·</p>
-      <p>Kun hän puhui, hän puhui hitaammin kuin tavallisesti, ja se oli hänessä ainoa merkki jonka ulkopuolinen olisi voinut nähdä.</p>
-      <p class="repl">&quot;Minä olen ollut kolmekymmentä vuotta rajalla&quot;, hän sanoi. &quot;Ja siellä opetetaan ensimmäisenä syksynä yksi asia, ja se opetetaan kesken jonkin muun, selin, jonkun vanhemman miehen suulla.&quot;</p>
-      <p>Mies ei sanonut mitään.</p>
-      <p class="repl">&quot;Ihmisille ei jelhistellä. Eikä pönötetä.&quot;</p>
-      <p>Hän piti kättään koiran päällä.</p>
-      <p class="repl">&quot;Ja se ei ole kohteliaisuutta. Se on laskuoppia. Teitä on tällä järvellä yksi. Meitä on kolmesataa, ja me nähdään täältä kaikki mitä te ette näe. Te päätätte joka kerta sillä miten te puhutte, kumpi joukko on isompi.&quot;</p>
-      <p>Hän käänsi kaasun ja päästi veneen liikkeelle hiljaa, ohi valvojan veneen keulan, sen verran läheltä kuin oli kohteliasta.</p>
-      <p class="repl">&quot;Ja tehkää se ilmoitus&quot;, hän sanoi ohi mennessään. &quot;Minä olen kolmekymmentä vuotta täyttänyt lomakkeita, joissa on ollut toisen ihmisen nimi.&quot;</p>
-      <p style="text-align:center;color:var(--jaa);letter-spacing:0.4em;margin:26px 0">· · ·</p>
-      <p>Kotirannassa hän sitoi veneen ja seisoi laiturilla pidempään kuin oli tarpeen.</p>
-      <p>Kaisa otti termoksen ja katsoi häntä.</p>
-      <p class="repl">&quot;Sinä olit oikeassa.&quot;</p>
-      <p class="repl">&quot;Olin.&quot;</p>
-      <p class="repl">&quot;Ja se ei auta yhtään.&quot;</p>
-      <p class="repl">&quot;Ei auta.&quot;</p>
-      <p>Illalla hän istui portailla, ja Roi tuli ja asettui hänen jalkoihinsa niin kuin se oli asettunut veneessä, ja hän raapi sitä korvan takaa pitkään.</p>
-      <p>Hän ei etsinyt lakia mistään.</p>
-      <p>Hän tiesi kyllä pykälät, tai tiesi ne riittävällä tarkkuudella, ja hän tiesi olevansa oikeassa, eikä se ollut se asia joka häntä vaivasi.</p>
-      <p>Häntä vaivasi kaksi asiaa, ja toinen niistä oli se puhelin.</p>
-      <p>Mies ei ollut soittanut sillä kenellekään. Hän oli vain pitänyt sitä kädessä sen verran, että se näkyi, ja se oli riittänyt, ja hän oli tiennyt sen riittävän. Sen oppii jostakin. Sitä ei opeteta kurssilla.</p>
-      <p>Toinen asia oli se, ettei sitä miestä ollut opetettu.</p>
-      <p>Joku oli antanut hänelle kortin ja liivin ja tarran veneen kylkeen, ja kukaan ei ollut istunut hänen vieressään ensimmäisenä syksynä ja sanonut sitä yhtä asiaa kesken jonkin muun, ja nyt hän ajoi tällä järvellä ja teki kolmestasadasta ihmisestä kolmesataa ihmistä jotka eivät soita hänelle koskaan.</p>
-      <p>Se oli menetys, eikä se näkyisi missään.</p>
-      <p>Ennen sellainen mies olisi saanut kuulla siitä. Häntä ei olisi rangaistu eikä hänestä olisi kirjoitettu mitään, mutta joku vanhempi olisi sanonut hänelle jotain kesken jonkin muun, ja se olisi mennyt perille, koska se olisi tullut joltakulta jonka arvostuksen menettäminen maksoi jotain.</p>
-      <p>Nyt oli koulutus, joka opettaa toimivaltuudet, ja koe, jolla varmistetaan että ne muistetaan. Ne ovat molemmat oikein. Mutta ne opettavat mitä saa tehdä, eivätkä ne kerro sanallakaan siitä, mitä ei kannata tehdä vaikka saisi.</p>
-      <p>Turunen tiesi, että hän kuulosti tuon ajatuksen kanssa vanhalta mieheltä.</p>
-      <p>Hän tiesi myös, että hän oli tavannut kaksi vuotta aiemmin kapteenin, joka oli häntä kaksikymmentä vuotta nuorempi ja joka oli sen oppinut jostakin, ja joka soitti hänelle silloin kun asia oli tärkeä ja jätti soittamatta silloin kun se ei ollut, ja joka oli kysynyt häneltä neuvoa koirasta kysymättä ensin oliko hän vielä ajan tasalla.</p>
-      <p>Se oli hänen ainoa vasta-argumenttinsa sille ajatukselle, ja se oli yhden ihmisen kokoinen, ja hän piti siitä kiinni.</p>
-      <p>Turunen ei tehnyt asiasta ilmoitusta. Hän mietti sitä kaksi päivää ja päätti, ettei tee, ja hän tiesi tarkalleen mikä siinä päätöksessä oli väärin: että hän oli itse nyt yksi niistä kolmestasadasta.</p>
-      <p>Hän ei kertonut siitä Veikolle eikä kenellekään muullekaan.</p>
-      <p>Kaisa kirjoitti veneen numeron kalenterin heinäkuun kohdalle, ja Turunen näki sen, eikä kumpikaan sanonut siitä mitään.</p>
-  </div>
-
-  <p class="valiotsikko">Vuotta myöhemmin · Osa II</p>
-
-  <div class="luku">
-      <p class="lukuotsikko">36. luku</p>
-      <p class="paikka">2.10.2028 (ma) --- Ulkoväylä, klo 05.50. Sumua, näkyvyys kahdestasadasta kuuteensataan metriin, tyyntä, +8°.</p>
-      <p>Sumussa merivartija tekee kaksi asiaa. Hän katsoo tutkaa ja hän kuuntelee.</p>
-      <p>Tutka näyttää sen mikä on. Korva kertoo, mitä se tekee.</p>
-      <p>Salminen oli ollut vahdissa pari tuntia ja tutkalla oli kuusi maalia, joista viisi meni jonnekin.</p>
-      <p>Kuudes ei mennyt.</p>
-      <p>Se oli ollut ruudulla kello kolme neljästäkymmenestä lähtien ja se oli liikkunut koko ajan, mutta se ei ollut matkalla. Se meni kolmesataa metriä itään, kääntyi, meni kolmesataa metriä länteen, siirtyi vähän pohjoiseen ja teki saman uudestaan.</p>
-      <p>Salminen katsoi sitä kaksikymmentä minuuttia ennen kuin sanoi mitään.</p>
-      <p>Sitten hän sanoi sen mitä se oli.</p>
-      <p class="repl">&quot;Tuo tekee hakukuviota.&quot;</p>
-      <p>Väisänen tuli katsomaan ruorista käsin.</p>
-      <p class="repl">&quot;Nii tekköö.&quot;</p>
-      <p class="repl">&quot;Se etsii jotain pohjasta.&quot;</p>
-      <p class="repl">&quot;Tae se on hukannu verkon.&quot; Väisänen sanoi sen ilman erityistä painoa, koska se oli se todennäköisempi vaihtoehto ja koska hän oli kolmekymmentä vuotta merellä ja tiesi kuinka monta verkkoa hukataan vuodessa.</p>
-      <p>Salminen tiesi sen myös. Hän tiesi lisäksi sen mitä Väisänen ei tiennyt, koska se oli hänen omassa vihkossaan eikä missään muualla: että hän oli seurannut yhtä alusta yksitoista kuukautta, ja että se alus oli tänä yönä satamassa kiinni.</p>
-      <p>Hän oli tarkistanut sen ennen vahtiin tuloa. Hän oli alkanut tarkistaa sen aina.</p>
-      <p>Tuo kuudes maali ei siis ollut se.</p>
-      <p style="text-align:center;color:var(--jaa);letter-spacing:0.4em;margin:26px 0">· · ·</p>
-      <p>He lähtivät katsomaan.</p>
-      <p>Sumussa se tarkoittaa, että ajetaan hitaammin kuin haluttaisiin ja kuunnellaan enemmän kuin katsotaan. Etäisyyttä oli kaksi ja puoli mailia, ja siihen menisi kaksikymmentä minuuttia, ja kaksikymmentä minuuttia on sumussa pitkä aika.</p>
-      <p>Kolmentoista minuutin kohdalla maali pysähtyi.</p>
-      <p>Viidentoista minuutin kohdalla se lähti liikkeelle itään, kaksitoista solmua, suoraan, eikä pysähtynyt enää.</p>
-      <p>Kaksitoista solmua on kalastusaluksen matkanopeus. Sitä ei ajeta sumussa, jos ei tunne pohjaa ulkoa, ja sitä ei ajeta sumussa ollenkaan, jos ei ole syytä.</p>
-      <p class="repl">&quot;Se kuuli meidät&quot;, Väisänen sanoi.</p>
-      <p class="repl">&quot;Ei se kuullut. Se katsoi tutkaa.&quot;</p>
-      <p>Se oli sama asia toisin päin: he olivat olleet ruudulla yhtä kauan kuin se oli ollut heidän. Salminen oli katsonut kaksikymmentä minuuttia jotakuta, joka oli katsonut häntä samat kaksikymmentä minuuttia, ja toinen heistä oli päättänyt ensin.</p>
-      <p>Paikalla ei ollut mitään. Sumu, tyyni vesi, ja pohjaa neljäkymmentäkaksi metriä.</p>
-      <p>Ura kävi kannella ja tuli takaisin sisään ja ravisteli itsensä siihen paikkaan jossa siitä oli eniten haittaa.</p>
-      <p style="text-align:center;color:var(--jaa);letter-spacing:0.4em;margin:26px 0">· · ·</p>
-      <p>Aluksen Salminen sai tunnistettua neljä päivää myöhemmin. Sumu ei estä tutkatallennetta, ja tunnistelaite oli ollut päällä siihen asti kun alus lähti satamasta.</p>
-      <p>Se oli kalastusalus. Rekisteröity, luvat kunnossa, kotisatama kuudenkymmenen mailin päässä lännessä. Omistajalla oli laina ja kaksi lasta ja kaksikymmentäkaksi vuotta samaa työtä.</p>
-      <p>Salminen istui pöytänsä ääressä ja katsoi kahta nimeä vihkossaan.</p>
-      <p>Hän oli koko vuoden ajatellut, että hän seuraa yhtä miestä ja yhtä venettä ja yhtä asiaa. Hän oli rakentanut siitä kuvion päässään ja hän oli ollut siitä kuviosta oikeassa.</p>
-      <p>Kuvio oli vain väärän kokoinen.</p>
-      <p>Se ei ollut yksi vene. Se oli ammatti, jota tarjottiin niille joilla oli vene ja velkaa, ja se tarjottiin heille yksitellen, ja jokainen heistä luuli olevansa ainoa.</p>
-      <p>Hän kirjoitti toisen nimen vihkoon ensimmäisen alle ja jätti niiden väliin tyhjän rivin, koska hän ei tiennyt vielä, montako siihen väliin tulisi.</p>
-  </div>
-
-  <section class="loppu">
-    <h2>Näyte päättyy</h2>
-    <p>JÄÄRAJA on trilogian päätösosa, 88 lukua. Sarja alkaa kirjasta RAJAMAA, joka ilmestyy isänpäiväksi 2026. Etsin vielä koelukijoita.</p>
-    <p><a class="nappi" href="index.html#koelukijaksi">Ilmoittaudu koelukijaksi</a><a class="nappi toinen" href="index.html">Koko tuotanto</a></p>
   </section>
 
   <footer>
-    <span>© J. Lintumies 2026 · Tuomarniemen Toivo</span>
+    <span>&copy; J. Lintumies 2026 · Tuomarniemen Toivo</span>
     <span>Ei evästeitä, ei seurantaa.</span>
   </footer>
 </div>

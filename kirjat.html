@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>J. Lintumies — kirjat</title>
+<style>
+  :root{
+    --paperi:#f2efe6;
+    --muste:#14212f;
+    --harmaa:#5c6874;
+    --oranssi:#c6602b;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    background:var(--paperi);
+    color:var(--muste);
+    font-family:Georgia,"Times New Roman",serif;
+    line-height:1.55;
+  }
+  .sisus{max-width:1180px;margin:0 auto;padding:64px 28px 96px}
+  h1{
+    font-weight:400;
+    font-size:clamp(28px,4vw,44px);
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    margin:0;
+  }
+  .viiva{width:150px;height:5px;background:var(--oranssi);margin:26px 0 22px}
+  .ohje{color:var(--harmaa);font-size:15px;margin:0 0 54px;max-width:46em}
+
+  .hylly{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(210px,1fr));
+    gap:52px 40px;
+    align-items:end;
+  }
+  .kirja{margin:0}
+  .kansi{
+    display:block;
+    cursor:zoom-in;
+    text-decoration:none;
+  }
+  .kansi img{
+    display:block;
+    width:100%;
+    height:auto;
+    box-shadow:0 2px 6px rgba(20,33,47,.18),0 14px 34px rgba(20,33,47,.20);
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .kansi:hover img,.kansi:focus-visible img{
+    transform:translateY(-5px);
+    box-shadow:0 4px 10px rgba(20,33,47,.22),0 20px 44px rgba(20,33,47,.28);
+  }
+  .kansi:focus-visible{outline:3px solid var(--oranssi);outline-offset:6px}
+
+  .nimi{
+    margin:20px 0 0;
+    font-size:16px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+  }
+  .meta{margin:6px 0 0;font-size:13.5px;color:var(--harmaa);letter-spacing:.05em}
+  .kuvaus{margin:10px 0 0;font-size:14.5px;color:#3a4653}
+  .avaa{
+    margin:10px 0 0;font-size:12.5px;letter-spacing:.09em;
+    text-transform:uppercase;color:var(--oranssi);
+  }
+
+  footer{
+    margin-top:86px;padding-top:22px;
+    border-top:1px solid rgba(20,33,47,.16);
+    color:var(--harmaa);font-size:13px;letter-spacing:.18em;text-transform:uppercase;
+  }
+</style>
+</head>
+<body>
+<div class="sisus">
+
+  <h1>J. Lintumies</h1>
+  <div class="viiva"></div>
+  <p class="ohje">Klikkaa kantta, niin koko kansi — etukansi, selkämys ja takakansi teksteineen — aukeaa uuteen välilehteen ruudun kokoisena.</p>
+
+  <div class="hylly">
+
+    <article class="kirja">
+      <a class="kansi" href="kannet/rajamaa_kansi.png" target="_blank" rel="noopener">
+        <img src="kannet/thumbs/rajamaa_etu.jpg" alt="Rajamaa — etukansi. Avaa koko kannen.">
+      </a>
+      <h2 class="nimi">Rajamaa</h2>
+      <p class="meta">Rajamaa-trilogia I · romaani</p>
+      <p class="kuvaus">Marraskuun yönä 2026 itärajan takaa katoavat äänet. Ensin hinta, sitten tulevaisuus.</p>
+      <p class="avaa">Koko kansi →</p>
+    </article>
+
+    <article class="kirja">
+      <a class="kansi" href="kannet/majakkaraja_kansi.svg" target="_blank" rel="noopener">
+        <img src="kannet/thumbs/majakkaraja_etu.jpg" alt="Majakkaraja — etukansi. Avaa koko kannen.">
+      </a>
+      <h2 class="nimi">Majakkaraja</h2>
+      <p class="meta">Rajamaa-trilogia II · romaani</p>
+      <p class="kuvaus">Taivaalla kulkee kone, joka ei vilkuta. Se kulkee joka päivä, eikä kukaan katso ylös.</p>
+      <p class="avaa">Koko kansi →</p>
+    </article>
+
+    <article class="kirja">
+      <a class="kansi" href="kannet/jaaraja_kansi.png" target="_blank" rel="noopener">
+        <img src="kannet/thumbs/jaaraja_etu.jpg" alt="Jääraja — etukansi. Avaa koko kannen.">
+      </a>
+      <h2 class="nimi">Jääraja</h2>
+      <p class="meta">Rajamaa-trilogia III · romaani</p>
+      <p class="kuvaus">Suomenlahdella ei tapahdu mitään sellaista, mistä kukaan olisi vastuussa. Vastaus tulee huhtikuussa, kun jäät lähtevät.</p>
+      <p class="avaa">Koko kansi →</p>
+    </article>
+
+    <article class="kirja">
+      <a class="kansi" href="kannet/paskakuski_kansi.png" target="_blank" rel="noopener">
+        <img src="kannet/thumbs/paskakuski_etu.jpg" alt="Sähkökatko ja paskakuski — etukansi. Avaa koko kannen.">
+      </a>
+      <h2 class="nimi">Sähkökatko ja paskakuski</h2>
+      <p class="meta">Romaani</p>
+      <p class="kuvaus">Kukaan ei kuole eikä kukaan tee mitään väärin. Tämä on kirja miehestä, joka vastaa puhelimeen.</p>
+      <p class="avaa">Koko kansi →</p>
+    </article>
+
+    <article class="kirja">
+      <a class="kansi" href="kannet/kaksi-laukausta_kansi.png" target="_blank" rel="noopener">
+        <img src="kannet/thumbs/kaksi-laukausta_etu.jpg" alt="Kaksi laukausta — etukansi. Avaa koko kannen.">
+      </a>
+      <h2 class="nimi">Kaksi laukausta</h2>
+      <p class="meta">Romaani · 1656–1726 · kesken</p>
+      <p class="kuvaus">Kaupunki joka kynnettiin pelloksi. Heinäkuussa 1656 Lieksanjokea tulee alas neljä venettä, eikä yhdessäkään ole koiraa.</p>
+      <p class="avaa">Koko kansi →</p>
+    </article>
+
+  </div>
+
+  <footer>Tuomarniemen Toivo</footer>
+
+</div>
+</body>
+</html>

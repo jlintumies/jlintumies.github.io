@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Lukunäyte: Kolme luotia messinkiä | J. Lintumies</title>
+<meta name="description" content="Lukunäyte historiallisesta romaanista Kolme luotia messinkiä: neljä lukua Brahean kaupungista ja Pielisjärvestä 1656–1689.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@500;600&family=Spectral:ital,wght@0,300;0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paperi: #EFE9DC;
+    --ruutu: #DFD8C8;
+    --muste: #16232F;
+    --meri: #2C4051;
+    --jaa: #5C7385;
+    --leima: #B8511F;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation: none !important; transition: none !important; }
+  }
+  body {
+    font-family: 'Spectral', Georgia, serif;
+    font-weight: 300;
+    color: var(--muste);
+    background: var(--paperi);
+    line-height: 1.65;
+    font-size: 17px;
+  }
+  .sivu { max-width: 760px; margin: 0 auto; padding: 0 24px 96px; }
+  /* ---------- otsake ---------- */
+  header { padding: 72px 0 36px; position: relative; }
+  .yla {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px; letter-spacing: 0.12em;
+    color: var(--jaa); text-transform: uppercase; margin-bottom: 20px;
+  }
+  h1 {
+    font-family: 'Archivo Narrow', sans-serif; font-weight: 600;
+    font-size: clamp(46px, 10vw, 84px); letter-spacing: 0.09em;
+    line-height: 0.95; text-transform: uppercase;
+  }
+  .viiva { width: 92px; height: 3px; background: var(--leima); margin: 18px 0 16px; }
+  .alaotsikko { font-style: italic; font-size: 20px; color: var(--meri); }
+  .leima {
+    display: inline-block; margin-top: 22px; transform: rotate(-3deg);
+    border: 3px solid var(--leima); color: var(--leima);
+    font-family: 'IBM Plex Mono', monospace; font-weight: 500;
+    font-size: 13px; letter-spacing: 0.14em; padding: 7px 12px;
+    border-radius: 3px; text-transform: uppercase;
+  }
+  /* ---------- horisontti ---------- */
+  .horisontti { border-top: 1px solid var(--muste); opacity: 0.35; margin-top: 40px; }
+  /* ---------- yleiset ---------- */
+  section { padding-top: 56px; }
+  h2 {
+    font-family: 'Archivo Narrow', sans-serif; font-weight: 600;
+    font-size: 15px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--meri); margin-bottom: 18px;
+  }
+  p + p { margin-top: 14px; }
+  a { color: var(--meri); text-underline-offset: 3px; }
+  a:focus-visible { outline: 2px solid var(--leima); outline-offset: 2px; }
+  /* ---------- kirjat ---------- */
+  .kirja {
+    display: grid; grid-template-columns: 200px 1fr; gap: 30px;
+    align-items: start; margin-top: 46px;
+  }
+  .kirja:first-of-type { margin-top: 16px; }
+  .kirja img {
+    width: 100%; height: auto; display: block;
+    box-shadow: 0 2px 5px rgba(22,35,47,0.18), 0 14px 30px rgba(22,35,47,0.16);
+  }
+  .lokirivi {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px;
+    letter-spacing: 0.06em; color: var(--jaa); margin-bottom: 8px;
+  }
+  .kirja h3 {
+    font-family: 'Archivo Narrow', sans-serif; font-weight: 600;
+    font-size: 27px; letter-spacing: 0.06em; text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .kirja .alle { width: 46px; height: 2px; background: var(--leima); margin-bottom: 14px; }
+  .kirja p { font-size: 16px; }
+  .karsi { font-style: italic; }
+  @media (max-width: 620px) {
+    .kirja { grid-template-columns: 1fr; gap: 20px; }
+    .kirja img { max-width: 230px; }
+  }
+  /* ---------- lintuhuomautus ---------- */
+  .linnut { margin-top: 52px; padding: 26px 28px; background: var(--muste); color: var(--paperi); }
+  .linnut .lokirivi { color: #8FA8B6; }
+  .linnut p { font-size: 17px; }
+  /* ---------- erillisteos ---------- */
+  .erillinen { margin-top: 56px; border-top: 2px solid var(--muste); padding-top: 44px; }
+  .erillinen .kirja { margin-top: 24px; }
+  /* ---------- koelukijaksi ---------- */
+  .ehdot { list-style: none; margin: 18px 0 26px; }
+  .ehdot li {
+    padding: 12px 0 12px 34px; border-bottom: 1px solid var(--ruutu);
+    position: relative; font-size: 16px;
+  }
+  .ehdot li::before {
+    content: "☐"; position: absolute; left: 4px; top: 10px;
+    color: var(--meri); font-size: 18px;
+  }
+  .nappi {
+    display: inline-block; font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 600; font-size: 16px; letter-spacing: 0.1em;
+    text-transform: uppercase; text-decoration: none;
+    color: var(--paperi); background: var(--meri); padding: 15px 30px; border: none;
+  }
+  .nappi:hover { background: var(--muste); }
+  .nappi:focus-visible { outline: 3px solid var(--leima); outline-offset: 2px; }
+  .pikkuteksti {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px;
+    color: var(--jaa); margin-top: 12px;
+  }
+  /* ---------- kirjailija ---------- */
+  .kirjailija { margin-top: 56px; border-top: 2px solid var(--muste); padding-top: 40px; }
+  .kirjailija p { font-size: 16.5px; }
+  /* ---------- kustantajille ---------- */
+  .kustantaja { margin-top: 56px; border-top: 2px solid var(--muste); padding-top: 40px; }
+  /* ---------- alatunniste ---------- */
+  footer {
+    margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--ruutu);
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--jaa);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+  }
+
+  .raportti {
+    border-top: 1px solid var(--ruutu); padding: 26px 0;
+    display: grid; grid-template-columns: 1fr; gap: 6px;
+  }
+  .raportti:first-of-type { border-top: 2px solid var(--muste); }
+  .raportti h3 { font-family: 'Archivo Narrow', sans-serif; font-size: 24px; color: var(--meri); margin: 0; }
+  .raportti .meta {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px;
+    color: var(--jaa); text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  .raportti p { margin: 6px 0 0; }
+  .raportti .nappi { margin-top: 12px; }
+  .ryhma { margin-top: 52px; }
+  .ryhma > h2 { margin-bottom: 4px; }
+  .johdanto { font-size: 18px; color: var(--meri); }
+
+  .navi {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    margin-top: 26px; display: flex; flex-wrap: wrap; gap: 4px 18px;
+  }
+  .navi a { color: var(--jaa); text-decoration: none; border-bottom: 1px solid transparent; }
+  .navi a:hover { color: var(--leima); border-bottom-color: var(--leima); }
+  .navi a.tassa { color: var(--muste); border-bottom-color: var(--leima); }
+  .faktalaatikko {
+    margin-top: 34px; padding: 26px 28px;
+    background: rgba(44,64,81,0.05);
+    border-left: 3px solid var(--leima);
+  }
+  .faktalaatikko h3 {
+    font-family: 'Archivo Narrow', sans-serif; font-size: 22px;
+    color: var(--meri); margin: 0 0 8px;
+  }
+  .faktalaatikko p { margin: 0 0 10px; }
+  .faktalaatikko p:last-child { margin-bottom: 0; }
+</style>
+<style>
+  .lukunayte { max-width: 680px; }
+  .luku { margin-top: 58px; }
+  .luku:first-of-type { margin-top: 30px; }
+  .lukunro {
+    font-family: 'Archivo Narrow', sans-serif; font-weight: 600;
+    font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--leima); margin-bottom: 6px;
+  }
+  .otsakerivi {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12.5px;
+    color: var(--jaa); line-height: 1.6; margin-bottom: 20px;
+    padding-bottom: 12px; border-bottom: 1px solid var(--ruutu);
+  }
+  .luku p { font-size: 17.5px; margin-top: 15px; }
+  .luku p:first-of-type { margin-top: 0; }
+  .tauko { text-align: center; color: var(--jaa); margin: 26px 0; letter-spacing: 0.5em; }
+  .valikko {
+    font-family: 'Archivo Narrow', sans-serif; font-weight: 600;
+    font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--jaa); text-align: center; margin: 62px 0 0;
+    padding-top: 22px; border-top: 2px solid var(--muste);
+  }
+  .prologi {
+    background: rgba(44,64,81,0.05); border-left: 3px solid var(--leima);
+    padding: 30px 32px; margin-top: 30px;
+  }
+  .prologi .lukunro { color: var(--leima); }
+  .prologi .otsakerivi { border-bottom-color: rgba(92,115,133,0.35); }
+  .loppu { margin-top: 62px; border-top: 2px solid var(--muste); padding-top: 34px; }
+  @media (max-width: 620px) {
+    .prologi { padding: 22px 20px; }
+    .luku p { font-size: 17px; }
+  }
+</style>
+</head>
+<body>
+<div class="sivu lukunayte">
+
+  <header>
+    <p class="yla">Lukunäyte · Kolme luotia messinkiä</p>
+    <h1>Kolme luotia messinkiä</h1>
+    <div class="viiva"></div>
+    <p class="alaotsikko">Neljä lukua 33 vuodesta.</p>
+    <nav class="navi"><a href="index.html">Kirjat</a> <a href="analyysit.html">Faktat ja analyysit</a> <a href="sahkokatko.html">Sähkökatko</a></nav>
+    <div class="horisontti"></div>
+  </header>
+
+  <section>
+
+      <div class="prologi">
+        <p class="lukunro">Lukijalle</p>
+        <p>Vuonna 1653 Pielisjärven rannalle perustettiin kaupunki. Sillä oli privilegiot, raatihuone, 55 porvaria ja oma sinetti. 28 vuoden kuluttua sen raatihuoneen uunia ei lämmitetty, ja sen jälkeen kaupunkia ei enää ollut.</p>
+        <p>Sitä ei lakkautettu. Kukaan ei päättänyt mitään. Se vain lakkasi.</p>
+        <p>30 vuotta myöhemmin se sinetti löytyy kuolinpesän kirstun pohjalta liinan sisältä. Se punnitaan, koska luetteloon merkitään metalliesineen paino: <em>messinkiesine, kolme luotia</em>. Sen rivin kirjoittaa mies, joka seisoi raatihuoneen pihassa sinä aamuna jona uunia ei lämmitetty.</p>
+        <p>Tämä kirja alkoi asiakirjoista. Niitä on 3&nbsp;487: Käkisalmen läänin tuomiokirjoja, maakirjoja ja henkikirjoja. Niissä luetellaan ihmisiä, aitoja, velkoja, kirveitä, kaloja ja lapsia.</p>
+        <p>Niitä lukiessa huomaa kaksi asiaa.</p>
+        <p>Ensimmäinen on se, että ihmiset puhuvat niissä itse. Kirjuri kirjasi vastaukset niin kuin ne sanottiin. Siksi tämän kirjan parhaat repliikit ovat niiden ihmisten, jotka ne sanoivat 300 vuotta sitten.</p>
+        <p>Toinen on se, että jokainen tuomio on oikea.</p>
+        <p>Ei löydy mielivaltaa. Löytyy sääntöjä, joita sovelletaan huolellisesti, ja miehiä jotka tekevät työnsä hyvin. Ja niiden sääntöjen päässä katoaa kaupunki, tyhjenee pitäjä ja häviää yhteisö, eikä kukaan ole tehnyt mitään väärin.</p>
+
+        <p>Tuomiot ovat oikeita sen lain ja sen järjestyksen mukaan, jota silloin sovellettiin. Nykylukijaa ne saattavat silti kummastuttaa. Perätön varkaussyytös maksaa saman kuin salavuoteus, kunnia on kalliimpi kuin ruumis, ja kun virkamies ampuu talonpojan, se kirjataan sivulauseeseen henkilötunnisteeksi eikä kysytä siitä mitään.</p>
+        <p>Mittapuuta ei tarvitse hakea meidän ajastamme. Se oli sen kirjan ensimmäisillä sivuilla, jonka mukaan näissä luvuissa tuomitaan. Olaus Petrin tuomarinohjeet on painettu lakikirjan alkuun, ja ne olivat siellä 100 vuotta ennen näitä käräjiä. Siellä ne ovat yhä, tänäkin päivänä Suomen Laissa.</p>
+        <p>Niissä lukee, että kaikkea lakia on älyllä käytettävä, sillä suurin oikeus on suurin vääryys. Ja että mikä ei ole oikeus ja kohtuus, se ei saata olla lakikaan.</p>
+        <p>Se luettiin ensin. Ja sitten tuomittiin niin kuin tuomittiin.</p>
+      </div>
+
+      <div class="faktalaatikko">
+        <h3>Kolme miestä</h3>
+        <p><strong>Erkki Ahlholm</strong> on avioton lapsi, jonka isän kohta jätettiin kirkonkirjaan tyhjäksi. Hän oppii lukemaan ja laskemaan, ja hän nousee sillä kirjurin apulaisesta skanssin haltijaksi. Hänen ainoa keinonsa on rehellisyys, ja se maksaa joka kerta jollekulle jotain.</p>
+        <p><strong>Iivana Sapatti</strong> on karjalainen, jonka suku on ollut siinä rannassa kauemmin kuin kaupunki. Sodan jälkeen suvun 50 talosta on jäljellä 12. Hän maksaa veronsa joka vuosi ajallaan &mdash; ja juuri se säästää hänen talonsa ja erottaa hänet naapureistaan.</p>
+        <p><strong>Simon Affleck</strong> tulee Narvasta veronvuokraajan kirjuriksi. Hän on nuori, hän numeroi kysymyksensä ja hän näyttää kirjaamansa vastauksen sille joka sen antoi. Suomi tuntee hänet toisella nimellä.</p>
+      </div>
+
+      <div class="faktalaatikko" style="margin-top:22px">
+        <h3>Tästä näytteestä</h3>
+        <p>Näytteessä on neljä lukua 33 vuodesta. Ne on valittu niin, että kukin toimii yksinään, eikä mikään niistä kerro loppua.</p>
+        <p>Ensimmäinen on kirjan alku: neljä venettä tulee jokea alas, ja kuusivuotias huomaa niistä sen mikä puuttuu. Toinen on majatalosta Kajaanin tiellä, jossa sovitaan lakkien panemisesta lattialle ja jossa sopimus rikotaan. Kolmas on varkaussyytöksestä, jossa todisteena on kirveenjälki ja jossa kootaan kaupungin kaikki kirveet. Neljäs on Simon Affleckista syyskuussa 1689: hän tunnustaa ennen kuin häneltä on kysytty.</p>
+        <p>Kaikki pöytäkirjaan kirjatut tapahtumat ovat totta. Se, mitä niiden välissä tapahtui, on kirjoitettu.</p>
+      </div>
+
+      <p class="valikko">Osa I &middot; Sissit &middot; 1656&ndash;1666</p>
+
+
+      <div class="luku">
+        <p class="lukunro">1. Neljä venettä</p>
+        <p class="otsakerivi">13. heinäkuuta 1656 &middot; Lieksanjoen suu</p>
+        <p>Veneet tulivat jokea alas neljän aikaan iltapäivällä ja niitä oli neljä. Erkki näki ne ennen kuin kukaan muu, koska hän oli rannassa eikä hänellä ollut siellä mitään tekemistä. Hän oli kuusivuotias ja hän oli tullut katsomaan, oliko yön verkoissa mitään, ja verkot olivat tyhjät niin kuin ne olivat olleet koko kesän. Hän oli seissyt polviaan myöten vedessä niin kauan että jalat olivat tunnottomat, ja se oli hyvä tunne siihen asti kunnes hän nousi maalle ja tunto tuli takaisin.</p>
+        <p>Ensimmäinen vene oli iso ja siinä souti neljä miestä ja perässä istui yksi. Kolme muuta oli pienempiä ja ne tulivat jäljessä hajallaan eivätkä pysyneet linjassa. Airot nousivat ja laskivat eri tahtiin. Erkki katsoi niitä siitä asti kun ne tulivat niemen kärjen takaa, ja koko sen matkan hänellä oli sellainen tunne että jotain puuttui. Hän kävi ne läpi järjestyksessä. Airot olivat paikallaan ja peräsimet olivat paikallaan ja miehet istuivat siinä järjestyksessä kuin veneessä istutaan, isoin perässä ja kevein keulassa. Vasta kolmannella kerralla hän löysi sen.</p>
+        <p>Ei koiraa.</p>
+        <p>Joka veneessä, joka tuli tänne, oli koira. Se seisoi kokassa ja se hyppäsi maihin ennen kuin vene oli kiinni, ja se juoksi kerran laiturin päästä päähän ennen kuin kukaan oli noussut. Näissä neljässä ei ollut yhtään. Koira tarkoitti, että joku oli menossa jonnekin ja tulossa takaisin, ja Erkki tiesi sen samalla tavalla kuin hän tiesi mihin aikaan varjo yltää kaivolle, eli tietämättä että tiesi. Hän juoksi pihaan asti eikä huutanut matkalla, koska emäntä oli sanonut, ettei pihaan juosta huutaen.</p>
+        <p class="tauko">&middot;&middot;&middot;</p>
+        <p>Miehiä nousi rannasta kuusi ja loput jäivät veneisiin ja pitivät niitä paikallaan airoilla, eivätkä ne sitoneet niitä kiinni. Ne olivat heinäkuussa lampaannahassa, ja se oli ensimmäinen asia jonka Erkki huomasi, koska kukaan ei ollut lampaannahassa heinäkuussa. Kolmella oli pitkät hiukset ja parta ja yhdellä oli päässä lakki, joka oli korkeampi kuin lakit täällä ja jonka reuna oli kulunut vaaleaksi siitä kohdasta, mistä siihen tartutaan.</p>
+        <p>Ja ne haisivat. Se ei ollut sitä hajua, joka tulee miehistä jotka ovat nukkuneet ulkona, vaikka sitäkin oli, vaan sen alla oli jotain makeaa, joka oli kalanrasvaa, ja jotain karvasta, joka ei ollut mitään mitä Erkki tunsi. Se haju tuli pihan poikki ennen miehiä ja se jäi tupaan siksi illaksi ja vielä seuraavaksi aamuksi.</p>
+        <p>Se, joka käveli edellä, oli lyhyt mies ja hänellä oli päällystakki, joka oli ollut joskus hyvä. Hänellä ei ollut partaa, ja hän oli ainoa jolla ei ollut, ja hän käveli kolme askelta muita edellä koko matkan rannasta pihaan. Ne puhuivat keskenään koko sen matkan, ja Erkki kuunteli sitä portin takaa ja ymmärsi joka kolmannen sanan. Se oli pahempaa kuin ettei olisi ymmärtänyt mitään. Ne puhuivat karjalaa. Sitä puhuttiin joen toisella puolella ja hän oli kuullut sitä koko ikänsä Sapatin pihassa ja Timitran ruuhessa, mutta tämä oli eri karjalaa: sanat olivat pitempiä ja paino oli väärässä kohdassa. Välissä ne sanoivat kokonaisia lauseita, joissa ei ollut yhtään tuttua sanaa. Sen jälkeen ne vaihtoivat takaisin, ja hän ymmärsi taas joka kolmannen.</p>
+        <p class="tauko">&middot;&middot;&middot;</p>
+        <p>Pormestari tuli ulos ovesta ja jäi kynnykselle seisomaan eikä mennyt pihaan asti. Se lyhyt mies pysähtyi niin kauas, että puhuminen vaati äänen nostamista, ja otti hatun päästään ja piti sitä kädessä koko sen ajan kun puhui.</p>
+        <p>"Onko tämä kaupunki."</p>
+        <p>"On."</p>
+        <p>"Se on pieni kaupunki."</p>
+        <p>"Se on kolmatta vuotta vanha", pormestari sanoi.</p>
+        <p>Mies nyökkäsi ja katsoi pihan poikki tonttien suuntaan ja katsoi niitä pitkään. Tontit oli mitattu ja seipäät lyöty ja niiden välissä kasvoi heinää. Kirkon paikalla oli kivijalka ja sen päällä ei ollut mitään. Sitten hän käänsi päänsä takaisin.</p>
+        <p>"Kuka täällä käskee."</p>
+        <p>"Minä olen pormestari."</p>
+        <p>"Sitä minä en kysynyt."</p>
+        <p>Pormestari ei vastannut siihen mitään, ja mies antoi sen olla ja siirsi hatun toiseen käteen.</p>
+        <p>"Meillä on 16 miestä ja me olemme syöneet viimeksi eilen aamulla. Antakaa se mitä on, niin me olemme aamulla poissa."</p>
+        <p class="tauko">&middot;&middot;&middot;</p>
+        <p>Ne tulivat sisään ja istuivat pöytään, ja kuusi miestä täytti tuvan niin ettei Erkki mahtunut kuin nurkkaan oven viereen. Emäntä kantoi olutta ja leipää ja pani ne pöytään sanomatta mitään. Hän kävi kolme kertaa eikä katsonut kertaakaan ketään pöydässä istuvaa kasvoihin.</p>
+        <p>Ennen kuin ne söivät, ne tekivät ristinmerkin. Kolmella sormella, ja oikea olka ensin. Erkki oli nähnyt sen ennenkin, joen toisella puolella Sapatin pihassa kahdesti ja tsasounan ovella kerran. Siellä se tehtiin täsmälleen samalla tavalla ja samaan suuntaan. Sapatin pihassa se oli tarkoittanut, että ruoka alkaa. Nyt se tarkoitti samaa ja tarkoitti jotain muutakin, ja se oli se kohta, jota hän ei saanut sopimaan mihinkään.</p>
+        <p>Leipä oli edellispäiväistä ja sen kuori oli kova. Miehet söivät nopeasti ja lakkasivat sitten yhtäkkiä, kaikki suunnilleen samaan aikaan, ja loppu meni hitaasti. Se lyhyt mies otti palan ja käänteli sitä kädessään ennen kuin pani sen suuhun.</p>
+        <p>"Tämä on ruista."</p>
+        <p>"On."</p>
+        <p>"Meillä ei ole ollut ruista kolmeen viikkoon. Sanokaa emännälle, että se on hyvää."</p>
+        <p>"Sanokaa itse. Hän seisoo tuossa."</p>
+        <p>Mies käänsi päätään ja katsoi emäntää ja sanoi sen suomeksi. Hän sanoi sen oikein muttei nopeasti. Emäntä nyökkäsi ja meni takaisin padan ääreen ja jäi seisomaan selin.</p>
+        <p>Erkki katsoi miesten käsiä, koska ne olivat lähinnä ja koska ne olivat pöydän korkeudella. Kynnet olivat mustat ja rystyset halkeilleet. Yhden pyssyn perä oli sidottu nahkasuikaleella niin, että kierrokset olivat tasaisin välein ja pää oli työnnetty kierrosten alle. Se sidos oli tehty huolella ja aikaa oli ollut, ja Erkki ajatteli sitä pitempään kuin mitään muuta siinä huoneessa. Sitten hän katsoi sen lyhyen miehen takkia. Siinä oli rivi nappeja ja ne olivat messinkiä ja ne olivat mustuneet. Kolmas ylhäältä riippui langan varassa ja kääntyi hitaasti sinne ja tänne joka kerta kun mies nosti kättään suuhun. Hän katsoi sitä nappia koko aterian ajan ja ajatteli että se putoaa, ja se ei pudonnut.</p>
+        <p class="tauko">&middot;&middot;&middot;</p>
+        <p>"Montako taloa."</p>
+        <p>"Katsokaa itse. Ne näkyvät tuosta ovesta."</p>
+        <p>"Minä katsoin jo. Minä kysyn siksi, että kuulen mitä te vastaatte."</p>
+        <p>Pormestari seisoi kynnyksellä eikä ollut istunut kertaakaan, ja hänen takanaan ovi oli auki, koska tuvassa oli kuuma ja koska ovi oli ollut auki koko päivän.</p>
+        <p>"Onko täällä kirkkoa."</p>
+        <p>"Kivijalka on."</p>
+        <p>"Onko sotaväkeä."</p>
+        <p>"Ei ole."</p>
+        <p>"Kaksi hevosta tuolla aitan takana on ratsuhevosia ja niissä on kruunun merkki, ja minä kävin katsomassa ne ennen kuin tulin tähän oveen", mies sanoi. "Minä en moiti teitä. Minä vain kerron teille mitä minä tiedän, ettei teidän tarvitse arvata sitä muun puhumisen lomassa."</p>
+        <p>"Kaksi rakuunaa on majoitettuna. Ne ovat olleet täällä helmikuusta ja ne ovat syöneet minun pöydässäni kaksi kertaa päivässä, eikä niistä ole ollut sen kummempaa hyötyä kuin haittaakaan. Ne eivät ole sotaväkeä."</p>
+        <p>"Ei niin", mies sanoi. "Missä nimismies asuu."</p>
+        <p>Pormestari ei vastannut. Mies odotti kaksi hengenvetoa ja kysyi sitten uudestaan samalla äänellä, eikä hän nostanut sitä eikä laskenut.</p>
+        <p>"Missä nimismies asuu."</p>
+        <p>"Sitä minä en sano. Ja te tiedätte itsekin, ettei se johdu siitä etten minä tietäisi. Minä sanoin teille montako taloa, koska te näette ne ovesta. Minä sanoin ettei kirkkoa ole, koska te kävelitte sen ohi. Tämä on eri asia, koska tämä on ihminen."</p>
+        <p>Pöydän päässä yksi miehistä sanoi jotain toiselle sillä toisella kielellä ja kaksi naurahti, eikä se lyhyt mies kääntynyt heihin päin.</p>
+        <p>"Ahlholm, minä olen kulkenut tätä jokea alas viisi päivää. Joka kylässä minulle sanotaan sama asia ja se sanotaan yhtä kohteliaasti kuin te sanotte, ja joka kylässä se kestää saman ajan ja päättyy samalla tavalla. Se päättyy siihen, että joku kolmas kertoo minulle sen ilman että minä kysyn."</p>
+        <p>"Voi olla."</p>
+        <p>"Ei se ole voi olla. Se on joka kerta."</p>
+        <p>Hän pyyhki suunsa kämmenselkään ja nojasi taaksepäin niin että penkki narahti, ja hän antoi sen olla siinä hetken ennen kuin puhui uudestaan. Pöydässä kukaan ei liikkunut. Ulkoa kuului, että joku rannassa kolautti airoa veneen laitaan kahdesti.</p>
+        <p>"Onko teillä poika."</p>
+        <p>"Ei ole."</p>
+        <p>"Tuo tuossa oven vieressä. Se on katsonut minua koko ajan siitä asti kun me tultiin sisään."</p>
+        <p>"Hän ei ole minun."</p>
+        <p>"Kenen hän sitten on."</p>
+        <p>"Hän on tässä talossa", pormestari sanoi.</p>
+        <p>Mies katsoi Erkkiä ensin kasvoihin ja sitten jalkoihin ja takaisin kasvoihin. Erkki katsoi takaisin, koska hän ei tiennyt että olisi pitänyt tehdä toisin.</p>
+        <p>"Kuinka vanha sinä olet."</p>
+        <p>"Kuusi."</p>
+        <p>"Poika. Missä nimismies asuu."</p>
+        <p>Erkki avasi suunsa, ja hän ehti saada siitä ulos yhden äänteen, joka ei ollut vielä mikään sana.</p>
+        <p>"Hän ei tiedä", pormestari sanoi.</p>
+        <p>Mies katsoi pormestaria ja nyökkäsi ja hymyili hiukan. Se hymy meni ohi ennen kuin hän ehti puhua.</p>
+        <p>"Ei tiedä", hän sanoi. "Ei tarvitsekaan. Se on toinen tapa vastata ja se kelpaa minulle tänään."</p>
+        <p class="tauko">&middot;&middot;&middot;</p>
+        <p>Sitten miehet nousivat ja tuvassa oli äkkiä tilaa. Ovella se lyhyt mies kääntyi vielä kerran ja pani hatun päähänsä vasta sen jälkeen kun oli puhunut.</p>
+        <p>"Ahlholm. Me tulemme takaisin kahdeksan päivän kuluttua ja me tulemme koko voimalla, ja silloin täällä kysytään toisella tavalla ja toinen mies kysyy. Sanokaa se niille, jotka teitä kuuntelevat. Ja sanokaa myös se, että minä kysyin ensin kauniisti ja että minä söin teidän leipäänne."</p>
+        <p>"Sanon."</p>
+        <p>Se kolmas nappi jäi siihen mihin se jäi. Se irtosi vasta kynnyksellä ja putosi lattiaan ja pyöri kaksi kertaa ympäri ja pysähtyi Erkin jalan viereen. Mies oli silloin jo pihalla eikä hän kääntynyt. Erkki otti sen ja pani sen nyrkkiin. Miehet menivät rantaan jonossa, ja veneet lähtivät niin että ensin lähti iso ja muut sen jälkeen. Ääni kuului vielä pitkään sen jälkeen kun veneitä ei enää näkynyt. Nappi oli kylmä ja sen reuna oli terävä siitä kohdasta missä lanka oli ollut, ja se painoi kämmentä koko sen ajan.</p>
+        <p>Emäntä tuli ovelle ja katsoi joelle ja kuivasi käsiään esiliinaan, vaikka ne olivat kuivat.</p>
+        <p>"Mistä ne tulivat."</p>
+        <p>"Rajan takaa", pormestari sanoi. "Aunuksen puolelta tai sitä tietä. Ne ovat samaa uskoa kuin Sapatti ja ne puhuvat melkein samaa kieltä, ja se ei tarkoita mitään sen suhteen mitä ne täällä tekevät."</p>
+        <p>"Ne söivät minun leipäni."</p>
+        <p>"Söivät. Ja ne tulevat takaisin kahdeksan päivän päästä ja silloin ne eivät kysy leipää."</p>
+        <p class="tauko">&middot;&middot;&middot;</p>
+        <p>Illalla pääskyt tulivat räystään alle. Niitä oli siellä pesä toisensa vieressä, eikä niitä nähnyt portailta, koska räystäs oli liian korkealla, ja siksi Erkki nousi seisomaan kaivon kannelle ja piti kiinni salvasta. Sieltä näki. Hän laski niitä sitä mukaa kuin ne tulivat ja pääsi 19:ään ja meni sekaisin, koska yksi tuli takaisin ulos eikä hän tiennyt oliko se sama. Hän aloitti alusta ja meni uudestaan sekaisin samassa kohdassa.</p>
+        <p>Emäntä tuli portaille ja jäi seisomaan hänen taakseen eikä käskenyt häntä alas kannen päältä, vaikka oli käskenyt joka muu kerta.</p>
+        <p>"Ne eivät pysy paikallaan."</p>
+        <p>"Ei niitä tarvitse laskea."</p>
+        <p>"Minä haluan tietää kuinka monta niitä on."</p>
+        <p>"Sitä ei tiedä kukaan, eikä siitä olisi mitään hyötyä vaikka sinä sen tietäisit", emäntä sanoi. "Tule syömään ennen kuin se jäähtyy."</p>
+        <p>Hän seisoi vielä hetken ja meni sitten sisään. Korppi istui aidanseipäässä pihan toisella puolella pitkään sen jälkeen kun aurinko oli mennyt, eikä se lähtenyt vaikka Erkki heitti sitä kohti kiven. Se katsoi kiviä ja sitten poikaa. Sitten se lensi pois hitaasti ja matalalta, ja se meni sitä samaa jokea alas kuin veneet olivat menneet.</p>
+        <p class="tauko">&middot;&middot;&middot;</p>
+        <p>Myöhemmin, kun oli jo pimeä, Erkki heräsi siihen että tuvassa oli valoa. Pormestari istui pöydän ääressä yksin ja hänen edessään oli paperi ja hänellä oli kynä kädessä. Hän kirjoitti hitaasti, koska hän kirjoitti aina hitaasti. Hän pysähtyi välissä ja katsoi seinään päin ja jatkoi sitten. Kerran hän kastoi kynän ja piti sitä hetken ilmassa ennen kuin vei sen paperille.</p>
+        <p>Erkki katsoi sitä oven raosta. Hän ei mennyt sisään eikä puhunut, ja hän seisoi siinä niin kauan että jalat kylmenivät lattiaan, ja sillä välin hän laski rivit.</p>
+        <p>Niitä oli 23.</p>
+      </div>
+
+      <p class="valikko">Osa II &middot; Kaupunki &middot; 1668&ndash;1680</p>
+
+
+      <div class="luku">
+        <p class="lukunro">13. Lakit lattialla</p>
+        <p class="otsakerivi">2. helmikuuta 1671 &middot; Kajaanin tie</p>
+        <p>Talvitie Kajaaniin oli kolme päivää ja se oli auki vain silloin kun se oli ajettu.</p>
+        <p>Se meni ensin jokivartta ylös ja kääntyi lännelle vaaran alta. Siitä eteenpäin se kulki soita ja järvenselkiä myöten, koska talvella mennään siitä mistä kesällä ei pääse. Se oli kynttilänmessun aika, ja silloin ajettiin koska silloin tie oli parhaimmillaan.</p>
+        <p>Erkki ajoi toista rekeä. Hän oli 21-vuotias ja hän oli ajanut sen matkan kolme kertaa, ja tällä kertaa hän ajoi sitä rekeä jossa oli tavara. Edellä ajoi Sastamoinen ja hänen mukanaan raatimies Urpiainen.</p>
+        <p>Kuormassa oli kuivattua haukea, voita ja 40 oravannahkaa.</p>
+        <p class="tauko">&middot;&middot;&middot;</p>
+        <p>Majatalo oli kahden päivän päässä ja se oli ainoa talo kahdeksan virstan matkalla. Se oli iso ja se oli tehty siihen sitä varten. Tuvassa oli kaksi pitkää penkkiä ja lavitsat seinustoilla. Siellä nukkui 12 miestä silloin kun oli talvi ja markkina-aika. Jokainen maksoi siitä saman.</p>
+        <p>Hevoset menivät talliin ja rekiä oli pihalla neljä. Sisällä oli lämmin ja märkä: vaatteita kuivui joka orrella ja siitä tuli sellainen ilma, joka lyö vasten kun ovi aukeaa.</p>
+        <p>Isäntä oli sellainen mies, joka pitää majataloa. Hän muisti kaikkien nimet ja hän sanoi ne heti ovella. Hän tiesi kuka oli käynyt viime talvena ja kenen kanssa. Hän myi ruoan ja hän myi juoman ja hän myi hevoselle heinät. Kaikista niistä oli oma hintansa. Hinnat olivat korkeat koska muuta taloa ei ollut.</p>
+        <p>Kukaan ei valittanut niistä ääneen. Niistä valitettiin sen jälkeen kun oli päästy pois.</p>
+        <p class="tauko">&middot;&middot;&middot;</p>
+        <p>Illalla isäntä teki ehdotuksen. Hän teki sen ovensuusta koko tuvalle ja hän teki sen sillä äänellä, jolla myydään.</p>
+        <p>Eikö olisi hyödyllistä, että jokainen matkalainen ostaisi ryypyn ennen lähtöä. Siihen suostuttiin, ja siihen suostui kymmenen miestä ja se oli koko tupa.</p>
+        <p>Sitten tuli se ehto, ja se ehto ei ollut isännän. Se tuli pöydän toisesta päästä ja siihen suostuttiin nauraen, koska se oli hyvä.</p>
+        <p>Jokaisen on otettava lakki päästään ja pantava se lattialle, kunnes on maksanut oman ryyppynsä. Ja päähän sen saa panna vasta sitten kun on maksettu.</p>
+        <p>Lakkeja meni lattialle kymmenen kappaletta, ja ne olivat kasassa oven puoleisen penkin päässä.</p>
+        <p class="tauko">&middot;&middot;&middot;</p>
+        <p>Sitä katsoi mielellään.</p>
+        <p>Kymmenen paljasta päätä pöydän ympärillä ja kymmenen lakkia lattialla. Jokainen otti omansa vuorollaan ja pani sen päähän ja se näkyi koko tupaan. Kaksi ensimmäistä maksoi ja pani lakin päähän ja siitä taputettiin.</p>
+        <p>Erkki katsoi sitä lavitsalta. Hän oli nähnyt saman asian toisessa muodossa Kertun tuvassa ovensuun laudassa, jossa velka oli viiva ja maksu oli poikkiviiva, ja siinäkin se näkyi kaikille eikä kukaan tiennyt kenen mikäkin oli.</p>
+        <p>Tässä sen tiesi jokainen, koska lakki on päässä tai ei ole.</p>
+        <p class="tauko">&middot;&middot;&middot;</p>
+        <p>Sastamoinen tilasi omansa ja odotti. Hän odotti siihen asti kun isäntä tuli tallista, ja hänen ryyppyään ei tuotu.</p>
+        <p>Sitten hän kumartui ja otti lakkinsa lattialta ja pani sen päähänsä. Hortanainen otti sen pois. Hän istui Sastamoisen vieressä ja hän oli juonut siihen mennessä kolme. Hän kurottautui ja riuhtaisi lakin Sastamoisen päästä ja heitti sen lattialle muiden joukkoon. Se oli tehty nopeasti eikä sen kummemmin.</p>
+        <p>Sastamoinen otti sen hyvällä. Isäntä ei ollut vielä tuonut viinaa, ja se oli totta. Sastamoinen sanoi sen ääneen ja nauroi.</p>
+        <p>Hetken päästä hän otti lakin uudestaan ja pani sen päähänsä. Hortanainen riuhtaisi sen taas. Tällä kertaa se ei mennyt lattialle vaan muiden lakkien joukkoon siihen kasaan, ja se meni sinne alle, ja Sastamoisen olisi pitänyt kaivaa se sieltä.</p>
+        <p>Tuvassa naurettiin. Se nauru oli toisenlaista kuin äsken: sellaista jota nauretaan kun katsotaan kahta miestä, eikä sitä nauranut kukaan sen jälkeen.</p>
+        <p class="tauko">&middot;&middot;&middot;</p>
+        <p>Sastamoinen ei kaivanut lakkiaan.</p>
+        <p>Hän kääntyi Hortanaista kohti ja hän kysyi kysymyksen, ja hän kysyi sen hiljaa.</p>
+        <p>"Onko minun lakissani narrinkulkuset?"</p>
+        <p>Erkki oli lavitsalla seinustalla ja hän kuuli sen, ja hän kuuli sen siksi että tuvassa oli juuri sillä hetkellä hiljaisempaa kuin oli ollut koko iltana.</p>
+        <p>Hortanainen sylkäisi kouraansa. Sitten hän löi. Sastamoinen löi takaisin korvalle ja tarttui hiuksiin, ja he menivät molemmat penkin yli lattialle lakkien päälle. Se kesti kymmenen laskun ajan, ja sen verran menee ennen kuin kolme miestä ehtii nousta penkiltä.</p>
+        <p>Urpiainen ja Wiljakain vetivät heidät erilleen ja se tehtiin siten, että toinen vedettiin ulos ja toinen jäi sisään, koska niin se tehdään.</p>
+        <p>Hortanainen vietiin tuvan ovesta.</p>
+        <p class="tauko">&middot;&middot;&middot;</p>
+        <p>Hortanainen huusi ovelta koko ajan. Hän huusi tahtovansa sisään ja hän huusi tahtovansa sopia. Hän huusi sen monta kertaa peräkkäin ja samoilla sanoilla. Hänen äänensä muuttui siinä ajassa.</p>
+        <p>Se ei ollut vihainen ääni.</p>
+        <p>Erkki kuunteli sitä lavitsalta ja hän oli varma siitä mitä hän kuuli, ja hän on ollut siitä varma sen jälkeenkin: se mies tarkoitti sitä.</p>
+        <p>Ovella neuvoteltiin. Sastamoinen sanoi että päästäkää.</p>
+        <p>Hortanainen tuli sisään. Hän tuli kumarassa, koska ovi oli matala. Hän suoristui kynnyksen jälkeen ja hänellä oli airo kädessä.</p>
+        <p>Se airo oli ollut seinustalla oven vieressä ja siinä oli kaksi muutakin, ja ne olivat siinä koska majatalossa oli vene kesää varten. Se oli kuusinen ja se oli miehen mittainen ja lapa oli leveä.</p>
+        <p>Hortanainen otti sen molemmin käsin ja löi sillä lapa edellä, ja hän löi kerran.</p>
+        <p>Sastamoinen kaatui maahan siihen paikkaan, jossa seisoi.</p>
+        <p class="tauko">&middot;&middot;&middot;</p>
+        <p>Sen jälkeen ei ollut mitään ääntä pitkään aikaan. Sitten yksi mies sanoi jotain ja kolme miestä liikkui yhtä aikaa, ja Erkki oli lavitsalta lattialla ennen kuin tajusi nousseensa.</p>
+        <p>Verta tuli päänahasta ja se tuli nopeasti niin kuin sieltä tulee. Isäntä toi valoa ja toi liinaa ja hänen vaimonsa toi vettä. He tekivät sen niin nopeasti että sen näki: siinä talossa oli tehty se ennenkin.</p>
+        <p>Hortanainen seisoi paikallaan airo yhä kädessä. Kukaan ei ottanut sitä häneltä. Hän katsoi lattiaa ja hän katsoi sitä pitkään, ja sitten hän laski airon seinustalle takaisin siihen kohtaan mistä oli ottanut. Hän asetti sen niin että se seisoi suorassa.</p>
+        <p>Sitten hän istuutui penkille ja pani kädet polvilleen.</p>
+        <p>Sastamoinen ei noussut sinä yönä.</p>
+        <p>Hän makasi tuvan lattialla sen puolen aamua ja hänet siirrettiin lavitsalle. Hän oli tajuissaan ja hän puhui, mutta hän puhui hitaasti ja hän kysyi kahdesti mitä oli tapahtunut.</p>
+        <p>Aamulla hänet pantiin rekeen ja käännyttiin takaisin, ja tavara jäi menemättä Kajaaniin. Erkki ajoi.</p>
+        <p>Kotimatka kesti kaksi päivää, koska ajettiin hitaammin. Hortanainen tuli perässä omassa reessään koko matkan eikä puhunut kenellekään mitään, ja kun tultiin Braheaan, hän ajoi suoraan kotiinsa.</p>
+        <p>Sastamoinen makasi neljä viikkoa.</p>
+        <p class="tauko">&middot;&middot;&middot;</p>
+        <p>Kaksi kuukautta myöhemmin asia oli raastuvassa. Sastamoinen sai kuusi markkaa korvapuustista ja hiuksista repimisestä. Hortanainen sai 20 markkaa hopeaa vaarallisesta päähaavasta ja 24 markkaa kivusta, säryistä ja lääkärinpalkasta.</p>
+        <p>Se oli 40 markkaa yhteensä, ja se oli sama summa jonka Pååll Urpiain oli maksanut kaksi vuotta aiemmin siitä, ettei tahtonut naida Anna Kakitarta.</p>
+        <p>Erkki laski sen takaseinustalla.</p>
+        <p>Ja siitä lakkirivistä ei kirjattu mitään. Se ei ollut asianosaisten välinen sopimus eikä se ollut isännän ehto, ja se oli tehty kymmenen miehen kesken sen huoneen sisällä, ja se oli purkautunut ennen aamua.</p>
+      </div>
+
+
+      <div class="luku">
+        <p class="lukunro">21. Kolmekymmentä kirvestä</p>
+        <p class="otsakerivi">12. lokakuuta 1674 &middot; Brahea</p>
+        <p>Loven kohta oli terän toisessa päässä. Kirveenterän lovi tulee kivestä tai naulasta ja se on jokaisessa terässä eri kohdassa, eikä sitä saa pois muuten kuin hiomalla koko terän uudelleen. Kaksi terää ei ole samanlaisia sen jälkeen kun molempia on käytetty vuosi.</p>
+        <p class="tauko">&middot;&middot;&middot;</p>
+        <p>Aitan ovi oli murrettu yöllä. Sigfred Heinonen huomasi sen aamulla ja hän huomasi sen siitä, että ovi oli kiinni mutta väärin: se oli painettu takaisin karmiinsa eikä se ollut mennyt kokonaan.</p>
+        <p>Sisällä oli kaksi viljalaaria ja toisessa oli ruis, ja sen laarin pohjalla käsivarren syvyydessä oli ollut pieni arkku. Siinä oli ollut 150 taalarin edestä rahaa eri valuutoissa. Niin sitä säilytetään: ei kirstussa vaan viljassa, koska viljalaariin ei mene kukaan pimeässä ilman että se kuuluu. Arkkua ei ollut. Ruis oli laarissa eikä sitä ollut viety, ja pinta oli tasoitettu kädellä niin että se näytti koskemattomalta.</p>
+        <p>Murtojälki oli oven karmissa vyötärön korkeudella siinä kohdassa jossa salpa oli. Terä oli pantu oven ja karmin väliin ja sitä oli väännetty. Kolmannella vääntämisellä puu oli lohjennut. Hemming Sastamoin ja Pååll Urpiain katsoivat sen jäljen sinä aamuna. Sitten ne kävivät katsomassa Thomas Hulkoisen kirveen, ja se sopi.</p>
+        <p class="tauko">&middot;&middot;&middot;</p>
+        <p>Thomas Hulkoinen oli 29-vuotias ja hän oli palvelusmies Antti Sandmanin talossa. Hän oli pitkä ja hoikka ja hänellä oli isot kädet jotka olivat kasvaneet ennen muuta. Hänen hiuksensa olivat vaaleat. Hänellä ei ollut mitään: kaksi paitaa, saappaat, ja se kirves jonka seppä oli tehnyt hänelle ja hänen veljelleen samasta raudasta.</p>
+        <p>Raastuvassa hän ei kiistänyt sitä, että kirves oli hänen. Se oli ensimmäinen asia jonka Iivana pani merkille, koska mies olisi voinut sanoa että kirves on lainassa tai hukassa tai ettei se ole hänen, ja siitä olisi tullut riita jota olisi kestänyt kaksi istuntoa.</p>
+        <p>"Se on minun."</p>
+        <p>Sitten hän sanoi kolme muuta asiaa siinä järjestyksessä ja niin kuin ne olisi harjoiteltu, koska ne oli harjoiteltu: hän oli maannut valveilla yön ja miettinyt ne.</p>
+        <p>"Heinonen tuli lainaamaan juuri sitä kirvestä oman ovensa korjaamiseen ja vaati sitä, vaikka hänelle sanottiin ettei se ole terävä. Heinonen kävi edellisenä päivänä minun aitassani ja tonki kepillä viljalaareja sanomatta sanaakaan. Ja minulla on toinenkin kirves, saman sepän tekemä, ja kenties sekin sopii siihen jälkeen."</p>
+        <p>Sitten hän sanoi neljännen, ja sitä ei ollut harjoiteltu, ja hän sanoi sen hitaammin kuin edelliset kolme.</p>
+        <p>"Nyt kun hän on lukenut ylleni varkaudentyön, näyttäköön sen toteen tai olkoon itse sama."</p>
+        <p class="tauko">&middot;&middot;&middot;</p>
+        <p>Salissa oltiin hiljaa. Iivana laski montako sanaa siinä oli, ja niitä oli 14. Se lause on siitä merkillinen, että sen ymmärtää heti eikä sitä voi kiertää: se sanoo todista tai ole itse varas. Sen sanominen raastuvassa vaatii, että on valmis siihen mitä tulee jos se menee väärin.</p>
+        <p>Kirjuri kirjoitti sen. Hän kirjoitti sen puheen perässä eikä jäljessä, ja suu liikkui sanojen mukana ja kulmakarvat nousivat rivin puolivälissä. Sitten hän pysähtyi. Se ei ollut pitkä pysähdys: kynä nousi paperista ja jäi ilmaan kolmen laskun ajaksi. Hän katsoi sitä riviä jonka oli juuri kirjoittanut. Sitten hän kastoi kynän uudestaan vaikka siinä oli mustetta, ja kirjoitti rivin loppuun.</p>
+        <p>Iivana istui kuudennessa penkissä ja näki sen sieltä, ja hän ymmärsi sen, koska hän oli katsonut sitä miestä 18 vuotta. Kirjuri oli kirjoittanut sen lauseen ennen kuin oli ehtinyt kuulla sitä. Käsi kulkee puheen mukana, eikä käsi ajattele, ja rivin lopussa hän luki sen minkä oli kirjoittanut. Kuultuna se oli miehen puhetta pöydän edestä. Kirjoitettuna se oli kaupungin kirjassa ja se oli siellä sen jälkeen. Hän ei nostanut katsettaan kertaakaan koko loppuistunnon aikana.</p>
+        <p>Hulkoinen vaati vielä kaksi asiaa: että koko kaupungin ja kylien kirveet kootaan yhteen. Että pormestari ja raati katsastavat murtojäljen itse.</p>
+        <p>Kirves on talossa se esine jota ei anneta: varsi on tehty sen miehen käteen joka sitä käyttää ja terä on hiottu sillä tavalla kuin siinä talossa hiotaan, ja mies tuntee sen painon pimeässä. Ja kirveellä tehdään muutakin kuin puuta. Talonpojilla ei ollut aseita eikä niitä saanut olla. Siksi jokainen kapina tässä maassa oli tehty niillä työkaluilla joita talossa oli, ja niitä oli kolme: kirves, viikate ja seiväs.</p>
+        <p class="tauko">&middot;&middot;&middot;</p>
+        <p>Kerääjiä oli kolme ja Iivana oli yksi niistä. Häntä ei kysytty: hänelle sanottiin, ja hän sanoi että hyvä on. Ne oli valittu huonosti, ja sen huomasi jokainen kaupungissa paitsi se joka ne oli valinnut.</p>
+        <p>Thomas Salmund oli kaupunginpalvelija. Hän oli ollut kaksi vuotta aiemmin renki, jonka isäntä oli haastanut oikeuteen viidestä sairasviikosta ja voittanut. Hän oli tehnyt ne viikot ja lähtenyt sen jälkeen. Nyt hänellä oli virka ja hän puhui liian kohteliaasti.</p>
+        <p>Semsi Nyrainen oli kolmas. Maaliskuussa hän oli lyönyt Komuista veitsellä yksitoista kertaa. Komuinen oli jäänyt henkiin ja hänen selässään oli leveä arpi lapaluun alla. Nyrainen oli maksanut sakkonsa kokonaan kahdessa erässä. Sen jälkeen hän oli taas se jonka valaan uskottiin &mdash; niin se menee: kun sakko on maksettu, asia on kirjattu maksetuksi, ja kirjattu asia on ohi. Kaupungissa ei silti ollut ihmistä joka ei olisi tiennyt sitä. Ja kun hän seisoi pihassa ja pyysi kirvestä, se oli eri asia kuin että joku toinen seisoi pihassa ja pyysi kirvestä. Hän tiesi sen, ja hän seisoi kaikissa pihoissa muita kauempana ja kädet näkyvissä.</p>
+        <p>Ja Iivana oli 40-vuotias ja painava ja hidas ja kreikanuskoinen. Se oli huonoin mahdollinen valinta ja se oli tehty siksi, että hän oli lähinnä raatihuonetta silloin kun miehiä tarvittiin, ja kylissä oli taloja joissa hänen sukunimensä riitti siihen ettei ovea avattu. Hän tiesi sen eikä sanonut siitä mitään, ja hän jäi joka pihassa portin luo ja antoi Salmundin mennä ovelle.</p>
+        <p class="tauko">&middot;&middot;&middot;</p>
+        <p>Ensimmäisessä talossa kirves annettiin heti ja ilman puhetta, koska talo oli sen porvarin jolla oli asiaa raadille seuraavalla viikolla. Toisessa isäntä tuli ovelle ja kuunteli Salmundin lauseen loppuun asti pihaportaalla seisten. Hän oli 60-vuotias ja hän seisoi paidassa vaikka oli lokakuu. Hänellä oli kädessä puukko ja pala puuta jota hän oli vuolemassa ja jota hän jatkoi vuolemaan koko sen ajan minkä puhui.</p>
+        <p>"Mihin niitä tarvitaan."</p>
+        <p>Salmund selitti sen alusta loppuun samalla lauseella kuin naapurissa, ja isäntä vuoli koko sen ajan eikä nostanut katsettaan puusta.</p>
+        <p>"Antaa se raati sitten omansa ensin."</p>
+        <p>"Raadin kirveet on jo otettu."</p>
+        <p>Se ei ollut totta silloin. Se oli totta iltaan mennessä, koska Salmund käveli sieltä suoraan raatimiesten pihoihin ja otti ne ensimmäisenä. Se oli hänen ainoa oivalluksensa koko siinä toimessa, ja se oli hyvä.</p>
+        <p>Neljännessä talossa ovi ei auennut. Sisällä oltiin: savu tuli piipusta, koira oli pihalla ja se oli irti, ja ikkunan rakko oli työnnetty sivuun kahden sormen levyisen raon verran. Kolkutettiin kolmesti.</p>
+        <p>"Tämä kirjataan", Salmund sanoi ovelle.</p>
+        <p>Sisältä vastattiin heti eikä siellä neuvoteltu siitä kenen pitää vastata, ja se ääni oli naisen ääni.</p>
+        <p>"Kirjatkoon."</p>
+        <p>Sen jälkeen ei kuulunut mitään. Koira tuli portille asti ja seisoi siinä, ja kolme miestä lähti pois eikä kukaan sanonut siitä sanaakaan ennen kuin oltiin seuraavassa pihassa.</p>
+        <p class="tauko">&middot;&middot;&middot;</p>
+        <p>Kuudennessa talossa annettiin väärä kirves. Emäntä toi sen ovelle molemmin käsin ja pani sen portaalle.</p>
+        <p>"Siinä."</p>
+        <p>Se oli vanha ja tylsä ja sen varsi oli halki liitoksesta, se oli ollut aitan takaseinustalla kaksi vuotta. Terän kannassa oli ruostetta. Iivana oli portilla niin kuin aina. Hän sanoi sieltä yhden sanan ja hän sanoi sen hitaasti, koska hän puhui suomea hitaammin kuin karjalaa.</p>
+        <p>"Toinenkin."</p>
+        <p>"Ei ole toista."</p>
+        <p>Iivana katsoi pihaa, jossa oli 12 syltä halkoja pinossa, tehty sinä syksynä, halot tasaisia ja halkaisupinnat puhtaat eivätkä repeytyneet.</p>
+        <p>"Sillä on tehty tuo."</p>
+        <p>Emäntä katsoi häntä ja meni sisään ja tuli takaisin toisen kirveen kanssa ja pani sen portaalle sen ensimmäisen viereen. Sitten hän sanoi sen, mitä oli aikonut sanoa alusta asti.</p>
+        <p>"Ja tuokin tulee takaisin. Vai tuleeko? Siinä on kaksi kirvestä ja tässä talossa on kaksi miestä, ja jos ne eivät tule takaisin, niin marraskuussa tässä talossa ei ole kumpaakaan."</p>
+        <p>Kylissä se oli hitaampaa, ja kaksi taloa ilmoitti että kirveet ovat metsässä miesten mukana, ja se oli totta molemmissa. Ylimmäisessä talossa asui vanha mies jonka nimeä Salmund ei tiennyt ja jonka Iivana tunsi. Mies kuunteli asian ja meni aittaan ja toi kirveen ja piti sitä kädessään.</p>
+        <p>"Onko teillä kuittia."</p>
+        <p>Salmundilla ei ollut kuittia eikä hän ollut ajatellut sitä, ja hän katsoi Nyraista ja Nyrainen katsoi maahan.</p>
+        <p>"Kirveet palautetaan."</p>
+        <p>"Niin sanotaan."</p>
+        <p>Hän sanoi sen ilman ilkeyttä. Sitten hän vei kirveen takaisin aittaan ja pani sen paikalleen ja tuli ulos ja pani oven kiinni ja jäi siihen seisomaan.</p>
+        <p>Iltapäivällä Salmund tuli takaisin sen paperin kanssa, jonka kirjuri oli hänelle kirjoittanut. Siinä luki <em>yksi kirves, otettu kaupungin tarpeeseen ja palautettava</em>. Siinä luki nimi ja päiväys. Alareunassa oli kaupungin sinetti. Vanha mies katsoi sitä ja kysyi mitä siinä lukee. Salmund luki sen ääneen. Vanha mies kuunteli ja nyökkäsi ja meni hakemaan kirveen. Hän pani paperin seinänrakoon oven pieleen siihen kohtaan, jossa pidetään ne asiat joita tarvitaan myöhemmin.</p>
+        <p>Kirjuri kirjoitti sinä päivänä 23 sellaista lappua. Yhdeksän niistä hän kirjoitti pihalla kirstun kannen päällä, koska ihmisiä oli tullut jonoon, ja hänen mustesarvensa oli maassa hänen jalkojensa välissä. Ja jossain siinä jonossa kysyttiin se kysymys, jota ei sanottu ääneen kuin siellä.</p>
+        <p>"Ja kuka sen kirveen tuo takaisin, jos se sopii?"</p>
+        <p>Siihen ei vastannut kukaan, ja jono siirtyi eteenpäin yhden ihmisen verran. Iltaan mennessä pihassa oli kolmisenkymmentä kirvestä, pantuna riviin terä samaan suuntaan ja varret rinnakkain, ja rivi oli kahdeksan sylen mittainen. Se oli näky jota ei nähdä kuin kerran: kaupunki jossa oli 50 miestä oli koonnut yhteen kaikki kirveensä ja pannut ne maahan yhden aitanoven takia. Ja niitä vartioitiin yön yli, koska ne olivat kaupungin pihassa eivätkä talojen. Kaikkia ei saatu. Neljä ovea ei auennut, ja se sanottiin ääneen ja se kirjattiin. Sitten ne sovitettiin, ja se kesti kaksi tuntia, ja niistä 30 sopi yksi.</p>
+        <p>Toisessa istunnossa Heinoselta kysyttiin, onko hänellä parempia todisteita. Hän vetosi Matz Sarkiseen, ja Sarkinen astui esiin, ja oikeus tarjosi hänelle valaa.</p>
+        <p>"Ei sitä valaa tarvita. Minä uskon hänen kertomuksensa muutenkin, ja hän on tuntenut minut 20 vuotta, eikä minun tarvitse panna häntä vannomaan minun asiassani."</p>
+        <p>Se oli virhe ja se oli iso virhe, ja Iivana näki kirjurin kirjoittavan sen ylös. Todistus, jota ei ole vannottu, ei ole todistus. Se on puhetta. Ja kun kirjuri oli kirjoittanut sen, hän ravisti hiekkaa rivin päälle ja odotti neljä hengenvetoa ja kopautti arkkia pöydänreunaan kerran. Hiekka meni lattialle.</p>
+        <p>Mustetta paperilla ja hiekalla kuivattu. Se ei muuttunut siitä enää: sitä ei voinut ottaa takaisin eikä sanoa toisin, eikä sillä ollut väliä mitä Heinonen sanoisi seuraavassa istunnossa tai sitä seuraavassa. Iivana katsoi hiekkaa lattialla.</p>
+        <p>Sarkinen todisti kuitenkin, ja hän todisti oman asiansa eikä sitä asiaa jota varten hänet oli kutsuttu.</p>
+        <p>"Heinonen luulee minua varkaakseen, vaikka olen itse sakotettu." Hän sanoi sen pöydän edessä ja hänen äänensä nousi lauseen puolivälissä. "Hän menee pormestarin luo ja tahtoo nähdä ne rahat, jotka minä sakoistani maksoin."</p>
+        <p>Profossi seisoi pöydän edessä ja kertoi kaupungille, että hän oli itse ollut sakotettu. Hän kertoi sen omasta tahdostaan ja puolustuksekseen. Se oli se asia jota hän oli pelännyt kymmenen vuotta, ja nyt hän sanoi sen itse säästääkseen jotain muuta. Sen jälkeen hänen kätensä olivat pöydän reunalla ja ne olivat siinä koko loppuajan.</p>
+        <p>Kolmannessa istunnossa kirveet oli koottu loppuun ja pormestari ja raati sovittivat ne itse niin kuin Hulkoinen oli vaatinut. Se kesti puoli päivää. 16 sopi.</p>
+        <p>Sitä Iivana ajatteli sen jälkeen useammin kuin mitään muuta siltä syksyltä. Ensimmäisellä kerralla kirveitä oli kolmisenkymmentä ja niistä sopi yksi. Silloin se tarkoitti että tuo yksi on se kirves: kaikki muut eivät sovi ja tämä sopii. Toisella kerralla kirveitä oli 64 ja niistä sopi 16. Se ei tarkoita että Hulkoisen kirves olisi väärä &mdash; se sopii edelleen. Se tarkoittaa että 16 kirvestä sopii samaan jälkeen, ja siksi jälki ei kerro mikä niistä oli siinä ovessa.</p>
+        <p>Ja se mikä siinä oli pahinta oli tämä: kirveet eivät olleet muuttuneet kahdessa viikossa. Ne 16 olivat olleet olemassa myös sinä ensimmäisenä päivänä. Ne olivat vain olleet vielä aitoissa. Ensimmäisellä kerralla ei siis todistettu että kirves on Hulkoisen; ensimmäisellä kerralla todistettiin että oli kokeiltu liian vähän. Eikä sitä olisi tiennyt kukaan, ellei Hulkoinen olisi vaatinut loppuja.</p>
+        <p class="tauko">&middot;&middot;&middot;</p>
+        <p>Neljännessä istunnossa Heinonen myönsi ettei ollut löytänyt parempia todisteita, ja hän tahtoi sopia ja pyysi oikeudelta anteeksi ymmärtämättömyyttään. Hulkoinen kieltäytyi.</p>
+        <p>"Minä tahdon vapautua niistä syytöksistä, ja sovinto ei vapauta."</p>
+        <p>Se oli oikein. Sovinto olisi jättänyt kaupunkiin sen mitä siihen jää: että ne sopivat, ja että kyllä siinä jotain oli.</p>
+        <p>Sigfred Heinonen tuomittiin 40 markkaan hopeaa asianomistajalle ja 20 markkaan kuninkaalle ja kaupungille. Thomas Hulkoinen julistettiin vapaaksi.</p>
+        <p>Rahoja ei löytynyt. Sitä ei sanottu tuomiossa eikä sitä sanottu missään. 150 taalarin arkku oli viety jonnekin ja joku oli vienyt sen, ja se joku oli kaupungissa. Hän oli seissyt jossakin siinä pihassa niinä päivinä kun kirveitä soviteltiin.</p>
+        <p class="tauko">&middot;&middot;&middot;</p>
+        <p>Kirveiden palauttamisesta annettiin kuulutus. Se luettiin kirkon portailla jumalanpalveluksen jälkeen, ja siinä ilmoitettiin että kirveet ovat noudettavissa raatihuoneen pihasta ja että kunkin on noudettava omansa. Kirveet oli haettu taloista. Ne palautettiin ilmoittamalla.</p>
+        <p>Sana kirkon portailta kulkee kaupungissa saman päivän aikana. Ylempiin kyliin se kulkee sen mukaan kuka sattuu menemään sinne päin, ja lokakuun lopulla ei mene moni: kolmeen taloon se tuli viikon kuluttua, kahteen kahden viikon kuluttua, ja yhteen vasta marraskuussa siksi että sieltä lähdettiin kysymään.</p>
+        <p>Sillä välin savotta seisoi. Lokakuun loppu ja marraskuu ovat se aika jona kaadetaan kaski seuraavaa vuotta varten ja tehdään talven halot ja hirret. Se tehdään kirveellä. Miehet joilla ei ollut kirvestä menivät kalaan. Sekin oli järkevää ja sitäkin tarvittiin, mutta se tarkoitti että kun sana vihdoin tuli taloon, mies oli jäällä eikä pihassa.</p>
+        <p>Kaksi miestä haki kirveensä vasta suksilla. Toinen niistä sanoi sen ääneen raatihuoneen pihassa, ja hän sanoi sen kohteliaasti ja pormestarille päin, koska pormestari sattui olemaan pihassa.</p>
+        <p>"Kiitos kun säilytitte."</p>
+        <p>Kirveitä palautui 58 kappaletta 64:stä. Neljä jäi noutamatta ja kaksi vaihtui, ja niistä kahdesta riideltiin keväällä.</p>
+        <p>Thomas Hulkoinen otettiin porvariksi tammikuussa viisi vuotta myöhemmin. Hänen takaajanaan oli raatimies Matz Hulkoinen, joka oli hänen setänsä ja joka oli istunut raadissa koko sen syksyn eikä ollut sanonut hänen puolestaan sanaakaan.</p>
+      </div>
+
+      <p class="valikko">Osa III &middot; Reduktio &middot; 1680&ndash;1697</p>
+
+
+      <div class="luku">
+        <p class="lukunro">50. Neljäkymmentä taalaria</p>
+        <p class="otsakerivi">syyskuu 1689 &middot; syyskäräjät</p>
+        <p>"Minä tunnustan sen."</p>
+        <p>Simon Affleck sanoi sen ennen kuin häneltä oli kysytty mitään. Se ei ollut tapa: vastaajalta kysytään ja kysymys esitetään kokonaisena ennen kuin siihen sanotaan sanaakaan.</p>
+        <p>Tuomari luki kysymyksen loppuun asti, koska kysymys luetaan loppuun myös silloin kun vastaus on jo annettu.</p>
+        <p>"Kiistättekö te mitään siitä mitä erittelyssä lukee."</p>
+        <p>"En kiistä mitään. Se on kirjoitettu oikein ja päivämäärät ovat oikein, ja minä olen lukenut sen kahdesti ja tarkistanut ne kirkonkirjasta. Siinä ei ole yhtään kohtaa jonka minä voisin kiistää, ja jos minä kiistäisin, se otettaisiin uudestaan esiin toisena vuonna."</p>
+        <p>"Onko teillä siihen lisättävää."</p>
+        <p>"Ei ole."</p>
+        <p class="tauko">&middot;&middot;&middot;</p>
+        <p>Lapsi oli syntynyt saman kuun 21. päivänä ja käräjät olivat neljä päivää sen jälkeen. Lapsi oli syntynyt elossa ja se oli kastettu, ja äiti oli elossa myös. Kirkonkirjaan oli tullut kolme riviä.</p>
+        <p>Nainen oli Carin Johansdotter ja hän oli vuokraajan piika. Se on se kohta, joka luettiin ääneen kahdesti, ja se luettiin kahdesti siksi että ensimmäisellä kerralla salissa liikahti. Hovin kirjuri oli maannut hovin piian kanssa ja siitä oli syntynyt lapsi, ja se oli tapahtunut sen katon alla jonka isäntä oli hänen isäntänsä.</p>
+        <p>Kymmenen vuotta aiemmin siinä samassa pitäjässä oli käsitelty toinen asia, jossa oli kirjuri ja piika ja isännän katto. Silloin piika oli ollut kantaja. Hän oli 17-vuotias eikä hänellä ollut mitään. Hän oli nostanut kanteen kahta miestä vastaan ja voittanut molemmat. Hän oli saanut siitä sen että asia sanottiin ääneen ja kirjattiin.</p>
+        <p>Tällä kertaa piika oli vastaaja. Affleck ei tiennyt siitä asiasta mitään, koska hän oli silloin Narvassa ja 18-vuotias.</p>
+        <p>Simon Affleck oli 29-vuotias. Hän oli syntynyt Narvassa ja hän oli ollut siinä pitäjässä neljä vuotta. Erkki Ahlholm oli 39-vuotias ja seisoi sinä päivänä salin takaseinällä. Iivana Sapatti ei ollut paikalla.</p>
+        <p>Affleckin titteli oli vuodessa vaihtunut. Maaliskuussa 1688 hän oli ollut <em>skrifwaren</em>, kirjuri, ja hänen nimensä oli luettu todistajaluettelossa neljäntenä. Nyt hän oli <em>landzskrifwaren</em>, lääninkirjuri, eikä se ollut hovin virka vaan kruunun, ja se oli parempi virka.</p>
+        <p class="tauko">&middot;&middot;&middot;</p>
+        <p>Aineiston toimitti oikeudelle rovasti. Se oli erittely ja se oli jätetty kirjallisesti ennen käräjiä, ja se oli täydellinen.</p>
+        <p>Siinä oli päivämäärät. Siinä oli se, milloin asia oli tullut hänen tietoonsa ja kuka sen oli kertonut. Siinä oli lapsen syntymä ja kaste. Ja siinä oli mainittu se, että vastaaja on lääninkirjuri.</p>
+        <p>Se ei ollut tarpeen asian ratkaisemiseksi. Se oli siinä siksi, ettei sitä voisi jättää pois.</p>
+        <p>Jokainen kohta oli sellainen, jonka voi tarkistaa toisaalta: päivämäärät kirkonkirjasta, kaste kirkonkirjasta, ja se kuka kertoi &mdash; se mies oli pitäjässä ja häneltä voi kysyä. Erittelyssä ei ollut yhtään kohtaa, jota olisi voinut kiistää sanomalla ettei niin ole.</p>
+        <p>Sen oli laatinut mies joka ei ollut lukenut sitä työtä missään, ja se oli laadittu niin kuin sen laatii se joka on lukenut. Affleck oli lukenut, ja hän tunnisti sen.</p>
+        <p class="tauko">&middot;&middot;&middot;</p>
+        <p>Ja se oli sitä merkillisempää, että sen oli laatinut mies joka oli ollut siinä pitäjässä vuoden.</p>
+        <p>Edellinen kirkkoherra oli ollut siinä virassa niin kauan kuin kukaan muisti. Hänen kanssaan Affleck oli asioinut kahdesti: hän oli kirjoittanut seisaaltaan sen kalastuskiellon pappilan pihassa ja lukenut ne kaksi paperia vuodelta 1670, ja hän oli kirjannut hovin salissa ne vastaukset kymmeneen kohtaan. Se mies oli tuntenut jokaisen talon ja jokaisen padon ja hän oli riidellyt niistä 20 vuotta. Hän oli riidellyt niistä sillä tavalla kuin riidellään naapurin kanssa.</p>
+        <p>Tämä oli tullut Viipurista. Hän oli ollut siellä tuomiokirkon arkkidiakoni ja hän oli tullut siitä virasta tähän, ja se on alaspäin eikä ylöspäin, eikä sitä tehdä ilman syytä. Hänet oli asetettu edellisenä vuonna ja hänestä oli tehty rovasti samana vuonna.</p>
+        <p>Affleck laski sen kolmiosaisena, koska hän laski kaiken.</p>
+        <p>Ensimmäinen: se mies ei tuntenut häntä. Hän ei ollut ollut siinä salissa silloin kun Affleck kirjoitti kiellon eikä silloin kun hän kirjasi vastaukset, eikä hänellä ollut mitään perittävää.</p>
+        <p>Toinen: se erittely oli tehty huolella, huolellisemmin kuin mikään asiakirja jonka Affleck oli siinä pitäjässä nähnyt, ja se oli laadittu sillä tavalla kuin laatii se joka on lukenut sen työn. Ja sen huolellisuus oli sitä lajia jota ei tehdä vihasta. Vihasta tehdään nopeasti ja liikaa.</p>
+        <p>Kolmas oli se, jota hän ei osannut sovittaa kumpaankaan. Mies joka on ollut vuoden ja joka ei tunne ketään, aloittaa siitä mikä on hänen mielestään ensimmäinen asia. Ja tämä mies oli aloittanut siitä, että vuokraajan kirjuri oli maannut vuokraajan piian kanssa.</p>
+        <p>Se oli tehty niin kuin tekee mies joka aikoo että se kestää. Ja se oli tehty ensimmäisenä.</p>
+        <p class="tauko">&middot;&middot;&middot;</p>
+        <p>Tuomio annettiin samana päivänä. Neljäkymmentä taalaria hopeaa. Sitä ei alennettu tunnustuksen perusteella eikä sitä korotettu.</p>
+        <p>"Onko sakko maksettavissa."</p>
+        <p>"On."</p>
+        <p>"Milloin."</p>
+        <p>"Tänään."</p>
+        <p>Hän maksoi sen käteisenä ja se merkittiin maksetuksi ennen kuin istunto päättyi. Se oli hänen kolmen kuukauden palkkansa. Hän oli laskenut sen kesäkuussa, kun oli tiennyt mitä syyskuussa tulee, ja hän oli pannut sen summan sivuun. Sen hän oli oppinut siitä työstä jota hän teki: se joka tietää mitä vaaditaan, panee sen sivuun ennen kuin sitä vaaditaan.</p>
+        <p>Ja sen jälkeen tuli se osa, jota ei makseta rahalla ja jota ei voi maksaa etukäteen.</p>
+        <p>Molemmat tuomittiin kirkkorangaistukseen. Se tarkoittaa, että seisotaan kirkon ovella saarnan ajan. Että pappi julistaa sen jälkeen rikkomuksen ja tuomion ja synninpäästön. Sakon voi maksaa samana päivänä. Sunnuntain joutuu odottamaan.</p>
+        <p>Ja siinä kohdassa Affleck laski toisen luvun, eikä sitä lukua kysynyt häneltä kukaan.</p>
+        <p>Naisen sakko on puolet miehen sakosta, eli 20 taalaria hopeaa. Hän tiesi mitä vuokraajan piika ansaitsi vuodessa, koska hän oli kirjannut ne taloudet ja niiden palkat kolmena vuonna peräkkäin. Se on neljä vuotta.</p>
+        <p>Sakkoa, jota ei makseta, ei anneta anteeksi. Se muutetaan. Ja siinä on kaksi tietä, ja molemmat kulkevat rahan kautta: se joka ei kykene maksamaan sakkoaan istuu sen jalkapuussa, ja se joka kykenee maksamaan enemmän kuin sakkonsa lunastaa itsensä myös siitä penkistä, jolla häpeä kärsitään.</p>
+        <p>Sama teko maksaa toiselle rahaa ja toiselle sunnuntait. Se ero on kirjoitettu lakiin ja se on kirjoitettu sinne selvästi.</p>
+        <p>Nainen oli lapsivuoteessa eikä hän noussut siitä sillä viikolla eikä seuraavalla. Hänen sunnuntainsa odotti kirkkoonottamista, ja se odotti kuusi viikkoa synnytyksestä, ja pitempään jos hän ei siihen mennessä jaksaisi kävellä kirkolle.</p>
+        <p class="tauko">&middot;&middot;&middot;</p>
+        <p>Salissa oli sata ihmistä ja asia oli 17. Sen jälkeen käsiteltiin aitariita ja kaksi velkaa.</p>
+        <p>Kukaan ei sanonut mitään ääneen. Ja se liikahdus joka salissa oli käynyt kahdesti oli käynyt molemmilla kerroilla siinä kohdassa jossa luettiin naisen nimi. Ei siinä kohdassa jossa luettiin miehen.</p>
+        <p>Erkki seisoi takaseinällä ja pani sen merkille. Hän oli seissyt siinä salissa kymmenen vuotta aiemmin, kun se toinen piika oli ollut kantajana, ja hän oli silloin seissyt pöydän edessä ja vastannut siihen mitä kysyttiin. Silloin salissa oli ollut yhdeksän naista ja se oli ollut enemmän kuin missään istunnossa siihen mennessä.</p>
+        <p>Nyt naisia oli neljä, ja kolme heistä seisoi seinustan perällä huivit sidottuina sillä kolmannella tavalla.</p>
+        <p class="tauko">&middot;&middot;&middot;</p>
+        <p>Kaksi päivää myöhemmin, samoilla käräjillä, hän pyysi toista asiaa. Se oli valmisteltu ennen näitä käräjiä, ja se oli valmisteltu ennen kuin hän tiesi mitä tuomio olisi.</p>
+        <p>Hän ei pyytänyt sitä itse. Hän pyysi sen isäntänsä kautta, ja isäntä oli veronvuokraaja Salomon Enberg, ja Enberg pyysi oikeutta kysymään. Kysymys oli tämä.</p>
+        <p>Onko kenelläkään läsnäolijalla mitään valittamista hänestä sinä aikana, jonka hän on ollut siinä pitäjässä.</p>
+        <p>Sitä kysyttiin lautakunnalta ja sitä kysyttiin salilta. Salissa oli sata ihmistä ja valtaosa niistä oli talonpoikia. Kaksi päivää aiemmin ne samat ihmiset olivat kuulleet luettavan hänen tuomionsa ja sen naisen nimen, ja he olivat liikahtaneet kahdesti.</p>
+        <p>Nyt kukaan ei sanonut mitään, ja se hiljaisuus kesti sen ajan jonka tuomari katsoi tarpeelliseksi.</p>
+        <p>Vastaus kirjattiin. Siinä luki, ettei kenelläkään ollut mitään, että hän oli hoitanut virkansa kunniallisesti, ja että hänelle annetaan hyvä todistus koko siltä ajalta jonka hän oli ollut siinä pitäjässä.</p>
+        <p>Otsikko oli latinaa: <em>Attestatum publicum</em>, julkinen todistus, eikä sitä otsikkoa käytetty siinä niteessä kuin kahdesti.</p>
+        <p>Ja siinä kohdassa hänen nimensä on kirjoitettu kokonaisena, isän nimi mukaan lukien, ja siinä muodossa se on siinä niteessä ainoan kerran.</p>
+        <p><em>Simon Thomasson Affleck.</em></p>
+        <p>Ja titteli oli eri: kaksi päivää aiemmin hän oli ollut lääninkirjuri, tällä sivulla hän on kihlakunnankirjuri. Kaksi titteliä samalta viikolta, eikä kumpikaan ole virhe &mdash; mies teki molempia töitä ja kirjuri kirjoitti sen, mikä siinä asiassa oli olennaista.</p>
+        <p>Rovasti istui sivupenkissä. Hän katsoi pöytää koko sen ajan minkä asia kesti, eikä hän katsonut Affleckia kertaakaan.</p>
+        <p>Pihassa istunnon jälkeen hän tuli Affleckin luo ja sanoi kaksi lausetta, ja se oli ensimmäinen kerta siinä viikossa kun hän katsoi häntä.</p>
+        <p>"Te maksoitte sen tänään. Se on hyvä."</p>
+        <p>"Miksi se on hyvä."</p>
+        <p>"Koska maksamaton sakko on velka, ja velka on asia jota joku pitää tallessa ja ottaa esiin silloin kun se hänelle sopii. Te olette itse perännyt sellaisia kolme vuotta ja tiedätte mitä minä tarkoitan."</p>
+        <p>Affleck sanoi siihen yhden asian, ja se oli ainoa jonka hän sanoi omasta aloitteestaan koko sinä viikkona.</p>
+        <p>"Te kirjoititte sen erittelyn itse."</p>
+        <p>"Kirjoitin."</p>
+        <p>"Te olisitte voinut lähettää sen kirjurilla."</p>
+        <p>"Olisin", rovasti sanoi. "Ja te olisitte voinut jättää sen erittelyn odottamaan siihen asti kun minä tunnen tämän pitäjän. Minä olen ollut täällä vuoden ja minä en tunne yhtään taloa nimeltä, ja se on se syy jonka takia minä kirjoitin sen itse. Minä en tiennyt kenelle sen olisi voinut antaa."</p>
+        <p>Sitten hän kääntyi ja lähti pihan poikki, eikä hän kääntynyt katsomaan taakseen.</p>
+        <p>Affleck ymmärsi sen kolmiosaisesti niin kuin hän ymmärsi kaiken, ja hän ymmärsi sen ennen kuin rovasti oli kääntynyt pois.</p>
+        <p>Ensimmäinen: jos asiaa ei olisi viety oikeuteen, se olisi ollut olemassa silti. Sen tiesivät kätilö ja kaksi naapuria ja se joka oli kertonut. Koko hovin väki.</p>
+        <p>Toinen: silloin se olisi ollut asia, jonka joku voi ottaa esiin milloin tahansa. Kolmen vuoden kuluttua tai kymmenen, ja silloin kun se hänelle parhaiten sopii.</p>
+        <p>Kolmas: tunnustettu ja maksettu asia on ohi. Se kolmas piti paikkansa siinä asiassa.</p>
+        <p class="tauko">&middot;&middot;&middot;</p>
+        <p>Puolitoista vuotta myöhemmin rovasti toi oikeuteen toisen. Se ei ollut sama asia: se oli toinen nainen ja toinen lapsi, ja se nainen oli irtolainen eikä kuulunut kenenkään talouteen.</p>
+        <p>Siinä jutussa sakko maksettiin rahalla, jonka Affleck oli itse korjannut talteen ryövärien veneeltä. Sata kuparitaalaria Pielisjärven kirkolle, ja kaksinkertainen summa luvattuna siitä, ettei tarvitsisi istua mustalla penkillä. Ne kaksisataa olivat vielä kahden vuoden kuluttua maksamatta. Ja hän ei ollut niillä käräjillä vastaamassa, koska hän oli äitinsä luona Narvassa.</p>
+        <p>Kaksi kertaa. Kaksi naista, kaksi lasta, kaksi sakkoa ja kaksi kertaa sama rovasti pöytää katsomassa. Kumpikaan naisista ei ollut hänen säätyään: toinen oli hovin piika ja toinen oli irtolainen, ja kummastakaan ei tehdä vaimoa.</p>
+        <p>Ja kummallakin kerralla hän tunnusti ensimmäisellä kysymyksellä, ja kummallakin kerralla hän maksoi tai lupasi maksaa saman päivän aikana.</p>
+        <p>Se oli hänen ainoa kohtansa. Mies joka laski kaiken etukäteen ja pani sivuun sen mitä vaadittaisiin. Joka sanoi kolme kysymystä numeroituna ennen kuin kysyi ne &mdash; ja joka ei kahdesti laskenut sitä, mitä siitä seuraa.</p>
+        <p>Kirkolla on siihen yksi lause ja se on saarnasta, eikä sitä sanota siitä miehestä vaan kaikista.</p>
+        <p><em>Henki on altis, mutta liha on heikko.</em></p>
+        <p>Sen lauseen hän kuuli luettuna itsestään, ja hän kuuli sen kirkon ovella seisten.</p>
+        <p>Sinä iltana hän kirjoitti vihkoonsa kaksi riviä. Se vihko oli se, jossa oli hänen oma työnsä, ja siihen hän merkitsi ne luvut jotka hän tahtoi muistaa.</p>
+        <p>Hän ei merkinnyt sakkoa, koska se oli kuitissa. Hän merkitsi päivämäärän, jona lapsi oli syntynyt. Ja sen alle hän merkitsi sen, monentenako päivänä asia oli ollut oikeudessa.</p>
+        <p>Hän ei merkinnyt niitä 20:tä taalaria, joita hän oli laskenut salissa.</p>
+        <p class="tauko">&middot;&middot;&middot;</p>
+        <p>Sen rovastin nimi oli Petrus Herkepaeus, ja hän oli myös Pielisjärven kirkkoherra. Hän oli asetettu siihen virkaan edellisenä vuonna. Hän jätti sen erittelyn oikeudelle, ja hän julisti tuomion saarnastuolista.</p>
+        <p>Ja hänellä oli tytär, jonka nimi oli Anna ja joka oli yhdeksänvuotias ja Viipurissa syntynyt.</p>
+        <p>Simon Affleck nai kirkkoherran tyttären. Sitä nimeä ei sanottu siinä salissa eikä sitä sanottu sinä vuonna, eikä Affleck ollut kuullut sitä syyskuussa 1689.</p>
+        <p>Kahdesti liha oli ollut heikko, ja kahdesti se oli maksanut rahaa ja tullut kirjatuksi pöytäkirjaan.</p>
+        <p>Kolmannella kerralla se vihittiin, ja sen toimitti sama mies.</p>
+      </div>
+
+      <div class="loppu">
+        <h2>Näyte päättyy</h2>
+        <p>Historiallinen romaani vuosilta 1653&ndash;1726. Neljä osaa, 70 lukua, kolme näkökulmaa. Kirja perustuu Käkisalmen läänin alkuperäisasiakirjoihin.</p>
+        <p>Työn aikana on tehty löytöjä, joita ei ole aiemmassa kirjallisuudessa: Simon Affleckin isä nimetään vuoden 1691 pöytäkirjassa, ensimmäinen dokumentoitu ampuminen on vuodelta 1689 eikä 1697, ja kruunun maakirjoissa Braheaa ei ole kaupunkina kertaakaan.</p>
+        <p>Ja siellä missä kaupunki oli, on nyt pelto. Kadut, tontit, raatihuoneen paikka ja se ranta jossa palttinaa myytiin yöllä kello yhden aikaan &mdash; kaikki sen alla.</p>
+        <p>Ja pellon reunassa on kohta, jota ei kynnetä. Sitä sanotaan koivikoksi eikä kukaan osaa sanoa miksi sitä ei ole raivattu. Se näyttää raivausrauniolta.</p>
+        <p style="margin-top:22px"><a class="nappi" href="index.html#koelukijaksi">Ilmoittaudu koelukijaksi</a> <a class="nappi" style="background:transparent;color:var(--meri);box-shadow:inset 0 0 0 2px var(--meri)" href="kaupunki-joka-kynnettiin-pelloksi.pdf" target="_blank" rel="noopener">Taustatyö: kaupunki joka kynnettiin pelloksi</a> <a class="nappi" style="background:transparent;color:var(--meri);box-shadow:inset 0 0 0 2px var(--meri)" href="kaksi-laukausta.pdf" target="_blank" rel="noopener">Taustatyö: kaksi laukausta</a></p>
+        <p style="margin-top:18px"><a class="nappi" style="background:transparent;color:var(--meri);box-shadow:inset 0 0 0 2px var(--meri)" href="index.html">Koko tuotanto</a></p>
+      </div>
+
+  </section>
+
+  <footer>
+    <span>&copy; J. Lintumies 2026 · Tuomarniemen Toivo</span>
+    <span>Ei evästeitä, ei seurantaa.</span>
+  </footer>
+</div>
+</body>
+</html>

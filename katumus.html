@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Katumus ennen kirvestä | Juri Jukola</title>
+<meta name="description" content="Katumus ennen kirvestä: tietokirja kuolemanrangaistuksesta Itä-Suomessa 1748–1809. Käsikirjoituksen työversio luettavissa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@500;600&family=Spectral:ital,wght@0,300;0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --paperi:#F1EDE3; --ruutu:#DFD8C8; --muste:#14202B; --meri:#2C4051; --jaa:#5C7385; --leima:#B8511F; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Spectral',Georgia,serif; font-weight:300; color:var(--muste);
+         background:var(--paperi); line-height:1.72; font-size:18.5px; }
+  .sivu { max-width:640px; margin:0 auto; padding:0 24px 90px; }
+  header { padding:60px 0 26px; }
+  .yla { font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.12em;
+         color:var(--jaa); text-transform:uppercase; margin-bottom:16px; }
+  h1 { font-family:'Archivo Narrow',sans-serif; font-weight:600;
+       font-size:clamp(34px,7vw,52px); letter-spacing:0.05em; line-height:1.02; text-transform:uppercase; }
+  .viiva { width:80px; height:3px; background:var(--leima); margin:16px 0 14px; }
+  .alaotsikko { font-style:italic; font-size:19px; color:var(--meri); }
+  .horisontti { border-top:1px solid var(--muste); opacity:0.35; margin-top:30px; }
+  .luku { padding-top:52px; }
+  .lukuotsikko { font-family:'Archivo Narrow',sans-serif; font-weight:600; font-size:22px;
+       letter-spacing:0.05em; text-transform:uppercase; margin-bottom:4px; }
+  .paikka { font-family:'IBM Plex Mono',monospace; font-size:12.5px; letter-spacing:0.05em;
+       color:var(--jaa); margin-bottom:26px; }
+  .luku p { margin-bottom:15px; }
+  .luku p.repl { margin-bottom:11px; }
+  .valiotsikko { display:flex; align-items:center; gap:16px; margin:56px 0 0;
+       font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.14em;
+       color:var(--jaa); text-transform:uppercase; }
+  .valiotsikko::before, .valiotsikko::after { content:""; flex:1; height:1px; background:var(--ruutu); }
+  .loppu { margin-top:60px; border-top:2px solid var(--muste); padding-top:38px; }
+  h2 { font-family:'Archivo Narrow',sans-serif; font-weight:600; font-size:15px;
+       letter-spacing:0.16em; text-transform:uppercase; color:var(--meri); margin-bottom:16px; }
+  .loppu p { font-size:17px; }
+  .nappi { display:inline-block; font-family:'Archivo Narrow',sans-serif; font-weight:600;
+    font-size:15px; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none;
+    color:var(--paperi); background:var(--meri); padding:14px 26px; margin:22px 10px 0 0; }
+  .nappi.toinen { background:transparent; color:var(--meri); box-shadow:inset 0 0 0 2px var(--meri); }
+  .nappi:hover { background:var(--muste); color:var(--paperi); }
+  .nappi:focus-visible { outline:3px solid var(--leima); outline-offset:2px; }
+  footer { margin-top:60px; padding-top:22px; border-top:1px solid var(--ruutu);
+    font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--jaa);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; }
+
+  .navi {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    margin-top: 26px; display: flex; flex-wrap: wrap; gap: 4px 18px;
+  }
+  .navi a { color: var(--jaa); text-decoration: none; border-bottom: 1px solid transparent; }
+  .navi a:hover { color: var(--leima); border-bottom-color: var(--leima); }
+  .navi a.tassa { color: var(--muste); border-bottom-color: var(--leima); }
+  .faktalaatikko {
+    margin-top: 34px; padding: 26px 28px;
+    background: rgba(44,64,81,0.05);
+    border-left: 3px solid var(--leima);
+  }
+  .faktalaatikko h3 {
+    font-family: 'Archivo Narrow', sans-serif; font-size: 22px;
+    color: var(--meri); margin: 0 0 8px;
+  }
+  .faktalaatikko p { margin: 0 0 10px; }
+  .faktalaatikko p:last-child { margin-bottom: 0; }
+</style>
+</head>
+<body>
+<div class="sivu">
+  <header>
+    <p class="yla">Tietokirja · työn alla</p>
+    <h1>Katumus<br>ennen kirvestä</h1>
+    <div class="viiva"></div>
+    <p class="alaotsikko">Kuolemanrangaistus Itä-Suomessa 1748&ndash;1809.</p>
+    <nav class="navi"><a href="index.html">Kirjat</a> <a href="analyysit.html">Faktat ja analyysit</a> <a href="sahkokatko.html">S&auml;hk&ouml;katko</a> <a href="katumus.html" class="tassa">Katumus ennen kirvest&auml;</a></nav>
+    <div class="horisontti"></div>
+  </header>
+
+  <div class="luku">
+    <p class="lukuotsikko">Lukijalle</p>
+    <p class="paikka">Juri Jukola &middot; k&auml;sikirjoituksen ty&ouml;versio &middot; 12 lukua</p>
+
+    <p>Toukokuussa 1769 mies tappoi Paltamossa viisi nukkuvaa ihmist&auml;. H&auml;net tuomittiin menett&auml;m&auml;&auml;n oikea k&auml;tens&auml; ja p&auml;&auml;ns&auml;, ja tuomio pantiin t&auml;yt&auml;nt&ouml;&ouml;n.</p>
+
+    <p>Kolme vuotta my&ouml;hemmin oikeudessa istuivat syytettyin&auml; Kajaanin kirkkoherra Olof Westzyntius, kappalainen Isaac Frosterus ja kruununvouti Christian Castreen. Kaksi ensimm&auml;ist&auml; olivat seuranneet miest&auml; mestauspaikalle ja koettaneet valmistaa h&auml;net autuaaseen kuolemaan. Kolmas oli toimittanut teloituksen.</p>
+
+    <p>Syyte kuului, ett&auml; mies oli saanut kuolla <em>uti f&ouml;rh&auml;rdadt tilst&aring;nd</em> &mdash; paatuneessa tilassa. Ei niin, ettei h&auml;nt&auml; olisi ehditty valmistaa, vaan niin ett&auml; valmistaminen oli ep&auml;onnistunut. H&auml;n kuoli katumatta.</p>
+
+    <p>Kun niin oli k&auml;ynyt, siit&auml; olisi lain mukaan pit&auml;nyt l&auml;hte&auml; ilmoitus maaherralle ja t&auml;yt&auml;nt&ouml;&ouml;npanoa olisi pit&auml;nyt lyk&auml;t&auml;. Niin ei tehty.</p>
+
+    <p class="valiotsikko">Mist&auml; velvollisuus tuli</p>
+
+    <p>Rikoskaaressa ei ole sanaakaan siit&auml;, ett&auml; tuomitun on oltava valmis kuolemaan. Se tulee vuoden 1686 kirkkolaista, joka oli Suomessa voimassa vuoteen 1870.</p>
+
+    <p>Eik&auml; se s&auml;&auml;d&ouml;s puhu katumuksesta abstraktisti vaan viinasta: papiston oli valvottava, ettei niille vangeille, joille oli m&auml;&auml;r&auml;tty p&auml;iv&auml; valmistautua kuolemaan, annettaisi viini&auml;, olutta tai paloviinaa niin paljon ett&auml; he juopuisivat &mdash; koska juopunut on kykenem&auml;t&ouml;n pit&auml;m&auml;&auml;n katuvia ajatuksia ja rukoilemaan Jumalalta autuasta loppua.</p>
+
+    <p>Kuolemaan tuomitulle annettiin ennen teloitusta juotavaa. Se oli tapa, ja niin yleinen ett&auml; se kiellettiin lailla ensin 1686 ja uudestaan kirjeen&auml; valtakunnan hovioikeuksille marraskuussa 1690.</p>
+
+    <p>Rangaistus vaati tuomitun tajuissaan. Sielun oli oltava paikalla, kun kirves putosi.</p>
+
+    <p class="valiotsikko">228 vastaan kaksi</p>
+
+    <p>M&auml;&auml;r&auml;ys valmistaa tuomittu autuaaseen kuolemaan ei ollut t&auml;m&auml;n jutun erityispiirre. Se on jokaisessa vahvistetussa kuolemantuomiossa, ja sanamuoto on l&auml;hes muuttumaton vuosikymmenest&auml; toiseen. T&auml;m&auml;n kirjan aineistossa se toistuu <strong>228 sivulla</strong>.</p>
+
+    <p>Sana <em>oberedd</em>, valmistautumaton, esiintyy <strong>kahdella</strong>. Ja ne kaksi ovat sama juttu.</p>
+
+    <p>Kaava toimi kahdellasadalla sivulla ja petti kerran, ja se kerta vei kolme virkamiest&auml; oikeuteen.</p>
+
+    <p class="valiotsikko">Aineisto</p>
+
+    <p>Kansallisarkiston digitoitua tuomiokirja-aineistoa: hovioikeuden p&auml;&auml;t&ouml;staltioita, rikosasiain p&ouml;yt&auml;kirjoja ja renovoituja tuomiokirjoja viidest&auml;toista it&auml;isest&auml; pit&auml;j&auml;st&auml;. Yhdistetty korpus on 9&nbsp;819 sivua, ja siit&auml; on luettu alkuper&auml;isin&auml; kuvina 57 tapausta.</p>
+
+    <p>Se on rajaseutu. Uudenkaupungin rauhassa 1721 ortodoksisesta Karjalasta j&auml;i Ruotsin puolelle vain kaksi seurakuntaa, Ilomantsi ja Liperi &mdash; ja juuri niit&auml; kahta pit&auml;j&auml;&auml; varten oli olemassa kuninkaallisia s&auml;&auml;d&ouml;ksi&auml;, joita ei tarvittu miss&auml;&auml;n muualla valtakunnassa. Kun Sotkamossa mestattiin rajan takaa tullut mies, h&auml;nelle oli m&auml;&auml;r&auml; hakea kreikkalaisen opin pappi l&auml;himm&auml;lt&auml; ven&auml;l&auml;iselt&auml; paikkakunnalta, jotta h&auml;n ehtisi katua.</p>
+
+    <p class="valiotsikko">Mit&auml; kirja v&auml;itt&auml;&auml;</p>
+
+    <p>T&auml;st&auml; aineistosta saa helposti sen kuvan, ett&auml; 1700-luvun oikeus oli mielivaltainen ja verinen. Se on totta.</p>
+
+    <p>Samassa aineistossa perusteettomasta ilmiannosta sakotettiin 20 taalaria ja m&auml;&auml;r&auml;ttiin julkinen anteeksipyynt&ouml;. Mielelt&auml;&auml;n vajaata ei rangaistu lainkaan. Humalatila lievensi, sovinto alensi sakkoa, ja kun n&auml;ytt&ouml; j&auml;i kahta valallista todistajaa v&auml;hemm&auml;ksi, syytetty vapautettiin. Sana <em>vapautettu</em> esiintyy aineistossa 1&nbsp;400 sivulla, sana <em>mestattava</em> noin 200:lla.</p>
+
+    <p>Kysymys ei siis ole, miksi he olivat julmia. Kysymys on, <strong>mist&auml; he olivat tarkkoja ja miksi juuri niist&auml; asioista.</strong></p>
+
+    <p class="valiotsikko">Aiemmasta kirjallisuudesta</p>
+
+    <p>Aiheesta on kirjoitettu. Anu Koskivirta tutki henkirikosta ja kontrollia samalla alueella ja samana aikana, Mikko Moilanen mestauslavaa ja py&ouml;veleit&auml;, ja H. J. Bostr&ouml;m laski kansalliset t&auml;yt&auml;nt&ouml;&ouml;npanoluvut jo 1929.</p>
+
+    <p>T&auml;m&auml;n kirjan kysymys on toinen: <strong>mist&auml; rangaistus koostui ja miten se sovitettiin siihen ihmiseen, jota rangaistiin.</strong></p>
+
+    <p>Julkinen h&auml;pe&auml;rangaistus ei koskaan j&auml;&auml;nyt pois, mutta sen muoto neuvoteltiin tuomitun mukaan: luterilainen seisoi kirkossa, kreikanuskoinen istui jalkapuussa vuoden 1706 asetuksen nojalla, kuuro ja mykk&auml; istui kirkon ovella. Sakon muuntamisesta raipoiksi m&auml;&auml;r&auml;si Turun hovioikeuden oma yleiskirje, ei kuninkaan asetus. Ja ruumiin kohtelu koottiin kahdesta laista: h&auml;pe&auml; rikoskaaresta, hautauspaikka kirkkolaista.</p>
+  </div>
+
+  <section class="loppu">
+    <h2>Ty&ouml;versio luettavissa</h2>
+    <p>Kirjasta on kirjoitettu kaksitoista lukua ja epilogi. Ty&ouml;versio on kokonaisuudessaan luettavissa PDF-muodossa: se ei ole valmis kirja vaan keskener&auml;inen k&auml;sikirjoitus, jossa l&auml;hteet ja ep&auml;varmuudet on merkitty n&auml;kyviin.</p>
+    <p>Palaute on tervetullutta, ja erityisesti kolmeen kysymykseen: kantaako v&auml;ite, onko It&auml;-Suomi-rajaus oikea, ja onko joku tehnyt t&auml;m&auml;n jo.</p>
+    <p><a class="nappi" href="katumus-kasikirjoitus.pdf">Lue ty&ouml;versio (PDF)</a><a class="nappi toinen" href="analyysit.html">Faktat ja analyysit</a></p>
+  </section>
+
+  <section class="loppu">
+    <h2>Mit&auml; kirjasta puuttuu</h2>
+    <p>Kirjassa ei ole prosenttilukua siit&auml;, kuinka suuri osuus kuolemantuomioista pantiin t&auml;yt&auml;nt&ouml;&ouml;n. Sellaisen laskemiseen tarvittaisiin yksi t&auml;ysi vuosi luettuna kokonaan &mdash; kaikki sen vuoden alistetut asiat, ei vain ne jotka osuivat hakusanaan.</p>
+    <p>Se on teht&auml;viss&auml;. Yhden vuoden designaatioluettelo on parisenkymment&auml; sivua ja siin&auml; on noin 90 asiaa; sen lukeminen ja purkaminen taulukoksi on viikon ty&ouml;. Kuudenkymmenen vuoden ajanjakso on siis noin vuoden t&auml;ysip&auml;iv&auml;inen urakka, ja sen p&auml;&auml;lle tulevat arkistok&auml;ynnit ja matkat.</p>
+    <p>Sit&auml; vuotta ei ole. T&auml;m&auml; ty&ouml; on tehty ty&ouml;n ohessa ja omalla kustannuksella, sill&auml; ajalla joka j&auml;&auml; sen j&auml;lkeen kun leip&auml; on hankittu p&ouml;yt&auml;&auml;n. Aineisto on kuitenkin olemassa, se on digitoitu ja se on kenen tahansa luettavissa. Se odottaa jotakuta, jolla on siihen vuosi.</p>
+  </section>
+
+  <footer>
+    <span>&copy; Juri Jukola 2026 &middot; Tuomarniemen Toivo</span>
+    <span>Ei ev&auml;steit&auml;, ei seurantaa.</span>
+  </footer>
+</div>
+</body>
+</html>

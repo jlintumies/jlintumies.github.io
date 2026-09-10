@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kirjat — J. Lintumies · Juri Jukola</title>
-<meta name="description" content="Katumus ennen kirvestä (tietokirja, tekeillä), Kolme luotia messinkiä, RAJAMAA-trilogia ja Sähkökatko ja paskakuski. Etsin koelukijoita ennen julkaisua.">
+<meta name="description" content="PIELISJÄRVI-sarja (Toimittamatta, Jäävätty), Katumus ennen kirvestä (tietokirja), Kolme luotia messinkiä, RAJAMAA-trilogia ja Sähkökatko ja paskakuski. Etsin koelukijoita ennen julkaisua.">
 <style>
 :root{
   --navy:#1B2E42;
@@ -90,7 +90,28 @@ h2.osasto::after{content:"";display:block;width:120px;height:3px;background:var(
 footer{background:var(--navy);color:#9FB0BE;margin-top:60px;padding:32px 0;font-size:14px}
 footer a{color:#C8D2DA;border-bottom:1px solid #44586B}
 
+/* ---------- valmis ja jaossa ---------- */
+.valmis{background:var(--bone);border-left:5px solid var(--grey-2);padding:30px 30px 26px;margin:34px 0 0}
+.valmis .kirja{margin-top:0}
+.merkki.harmaa{background:var(--grey)}
+
+/* ---------- pielisjarvi-sarja ---------- */
+.sarja-intro p{margin:0 0 15px}
+.sarja{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin:26px 0 0;align-items:start}
+.sarjakirja{margin:0}
+.sarjakirja a.kansi{display:block;border:0;cursor:zoom-in}
+.sarjakirja img{width:100%;height:auto;display:block;border:1px solid var(--line);
+  box-shadow:0 2px 10px rgba(27,46,66,.14);transition:transform .15s ease, box-shadow .15s ease}
+.sarjakirja a.kansi:hover img{transform:translateY(-2px);box-shadow:0 6px 18px rgba(27,46,66,.22)}
+.sarjakirja figcaption{margin:14px 0 0}
+.sarjakirja .meta{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--grey-2);margin:0 0 6px}
+.sarjakirja h3{font-size:25px;letter-spacing:.05em;margin:0 0 10px;font-weight:normal}
+.sarjakirja p{margin:0 0 10px;font-size:16px;line-height:1.55}
+.sarjakirja .avaa{font-size:14px}
+
 @media (max-width:680px){
+  .sarja{grid-template-columns:1fr;gap:34px}
+  .valmis{padding:24px 20px}
   body{font-size:17px}
   .kirja{grid-template-columns:1fr;gap:20px}
   .kirja img{max-width:230px}
@@ -105,7 +126,7 @@ footer a{color:#C8D2DA;border-bottom:1px solid #44586B}
   <div class="wrap">
     <p class="kicker">J. Lintumies · Juri Jukola · Tuomarniemen Toivo</p>
     <h1>Kirjat</h1>
-    <p class="lead">Viisi romaania rajaseudusta ja yksi tietokirja: kolmen osan sarja Suomen itärajasta, historiallinen romaani Brahean kaupungista, erillisteos sähkökatkosta — ja tietokirja kuolemanrangaistuksesta Itä-Suomessa, luonnos kokonaisuudessaan luettavissa.</p>
+    <p class="lead">Romaaneja rajaseudusta ja yksi tietokirja: uusi PIELISJÄRVI-sarja käräjien pöytäkirjoista, kolmen osan sarja Suomen itärajasta, historiallinen romaani Brahean kaupungista, erillisteos sähkökatkosta — ja tietokirja kuolemanrangaistuksesta Itä-Suomessa, kokonaisuudessaan luettavissa.</p>
     <nav class="main">
       <a href="index.html">Kirjat</a>
       <a href="analyysit.html">Faktat ja analyysit</a>
@@ -116,13 +137,60 @@ footer a{color:#C8D2DA;border-bottom:1px solid #44586B}
   </div>
 </header>
 
-<!-- ===================== UUSIN · TYÖN ALLA ===================== -->
+<!-- ===================== PIELISJÄRVI-SARJA ===================== -->
 <section>
   <div class="wrap">
-    <h2 class="osasto">Uusin · tietokirja</h2>
+    <h2 class="osasto">Uusin · PIELISJÄRVI-sarja</h2>
 
     <div class="uusi">
-      <span class="merkki">Työn alla</span>
+      <span class="merkki">Uusi sarja</span>
+
+      <div class="sarja-intro">
+        <p class="nosto" style="font-weight:bold">Pielisjärven käräjät kokoontuivat kahdesti vuodessa, ja se, mitä pitäjässä riideltiin, luvattiin ja jätettiin tekemättä, kirjattiin ruotsiksi tuomiokirjaan. PIELISJÄRVI-sarja kertoo ihmisistä, joiden asia on siellä yhä.</p>
+
+        <p>Sarjan kirjat ovat lyhyitä historiallisia romaaneja, ja jokainen on oma kokonaisuutensa: sama pitäjä, eri sukupolvi ja eri asiakirjat. Kaksi ensimmäistä kertovat isästä ja pojasta, jotka kumpikin olivat Pielisjärven kirkkoherroja: Korpi-Jaakosta 1740-luvulla ja Koski-Jaakosta 1790-luvulla. Tapahtumat, päivämäärät ja tuomiot ovat Kansallisarkiston tuomiokirjoista. Romaanin jälkeen tulee dokumenttiosa, joka kertoo, mikä on asiakirjasta ja mikä kirjoitettua, ja miten ihmisille lopulta kävi. Dokumenttiosan takia sarja ilmestyy tekijän omalla nimellä.</p>
+      </div>
+
+      <div class="sarja">
+        <figure class="sarjakirja">
+          <a class="kansi" href="TOIMITTAMATTA-kansi-levitys.svg" target="_blank" rel="noopener" title="Avaa kansi isompana omaan ikkunaan">
+            <img src="TOIMITTAMATTA-kansi-levitys.svg" alt="Toimittamatta — takakansi, selkämys ja etukansi" loading="lazy">
+          </a>
+          <figcaption>
+            <p class="meta">Osa I · Pielisjärvi 1793 · Valmis, koeluvussa</p>
+            <h3>Toimittamatta</h3>
+            <p>Kirkkoherra Jaakko Stenius nuorempi on syytettynä maanpetoksesta. Vaasan hovioikeus määräsi tutkinnan vuonna 1790, mutta sitä ei ole pidetty, eikä kirkkoherralle kerrota asiasta mitään.</p>
+            <a class="avaa" href="TOIMITTAMATTA-kansi-levitys.svg" target="_blank" rel="noopener">Avaa kansi ja takakannen teksti</a>
+          </figcaption>
+        </figure>
+
+        <figure class="sarjakirja">
+          <a class="kansi" href="JAAVATTY-kansi-levitys.svg" target="_blank" rel="noopener" title="Avaa kansi isompana omaan ikkunaan">
+            <img src="JAAVATTY-kansi-levitys.svg" alt="Jäävätty — takakansi, selkämys ja etukansi" loading="lazy">
+          </a>
+          <figcaption>
+            <p class="meta">Osa II · Pielisjärvi 1745–1749 · Kirjoitusvaiheessa</p>
+            <h3>Jäävätty</h3>
+            <p>Kirkkoherra Jaakko Stenius vanhempi ajaa käräjillä sisarentyttärensä asiaa omaa apulaispappiaan vastaan. Kaksi vuotta kestävässä jutussa ratkaistaan ensin, kenen sanaa kuullaan, ja vasta sitten, mitä tapahtui.</p>
+            <a class="avaa" href="JAAVATTY-kansi-levitys.svg" target="_blank" rel="noopener">Avaa kansi ja takakannen teksti</a>
+          </figcaption>
+        </figure>
+      </div>
+
+      <p class="pikku">Kansien käsiala on kirjojen omista pöytäkirjoista: Toimittamatta-kirjan kannessa on vuoden 1793 käräjien pykälä 14, Jäävätyn kannessa helmikuun 1747 kohta, jossa todistajaa vastaan esitetään jäävi.</p>
+    </div>
+
+    <hr class="erotin">
+  </div>
+</section>
+
+<!-- ===================== KATUMUS ENNEN KIRVESTÄ ===================== -->
+<section>
+  <div class="wrap">
+    <h2 class="osasto">Tietokirja</h2>
+
+    <div class="valmis">
+      <span class="merkki harmaa">Tehty ja unohdettu</span>
       <div class="kirja">
         <a href="katumus-ennen-kirvesta-kansi-koko.png" title="Avaa kansi isompana uuteen välilehteen" target="_blank" rel="noopener">
           <img src="katumus-ennen-kirvesta-kansi.png" alt="Katumus ennen kirvestä — etukansi">
@@ -338,7 +406,7 @@ footer a{color:#C8D2DA;border-bottom:1px solid #44586B}
     <div class="teksti" style="margin-top:26px">
       <p>J. Lintumies on kirjailijanimi. Sen takana on diplomi-insinööri ja kauppatieteiden maisteri, joka on johtanut tehtaita ja toimitusketjuja kahdenkymmenenviiden vuoden ajan — Suomessa, Saksassa, Kiinassa, Meksikossa, Kanadassa, Yhdysvalloissa ja laajasti Aasiassa ja Etelä-Amerikassa. Nostureita, kaivosteknologiaa, ruiskuvalua ja lopuksi lääkinnällisiä laitteita, joissa virhe ei ole tilastorivi vaan potilas. Muutostilanteita, integraatioita, yksi yhtiö irrotettuna toisesta yhdessätoista kuukaudessa. Työ opetti sen, mistä nämä kirjat kertovat: vahinko syntyy harvoin pahuudesta ja melkein aina siitä, että jokainen tekee oman osansa oikein eikä kenenkään osaan kuulu katsoa kokonaisuutta.</p>
 
-      <p>Työnjako on käytännöllinen. Romaanit kirjoittaa Lintumies. Tietokirjat, taulukot, laskelmat ja katsaukset menevät omalla nimellä, koska niissä pitää voida soittaa tekijälle ja kysyä mistä luku on peräisin. Romaanissa saa vastata, että se on totta vaikkei tapahtunut.</p>
+      <p>Työnjako on käytännöllinen. Romaanit kirjoittaa Lintumies, paitsi PIELISJÄRVI-sarjan, jonka jokaisessa kirjassa on dokumenttiosa. Tietokirjat, taulukot, laskelmat ja katsaukset menevät omalla nimellä, koska niissä pitää voida soittaa tekijälle ja kysyä mistä luku on peräisin. Romaanissa saa vastata, että se on totta vaikkei tapahtunut.</p>
 
       <p>Asepalveluksensa kirjailija suoritti rajavartiolaitoksessa sissikoira Naken kanssa, Immolassa ja Onttolassa. Koirat jäivät. Pihassa on nyt kaksi irlanninsetteriä, joista toinen tuli mukaan toisenlaista tietä ja on opettanut isännälleen kärsivällisyydestä enemmän kuin metsästyskoirat yhteensä. Kirjojen koirat eivät ole symboleja. Ne tekevät työtä, jonka tekemistä on katsottu läheltä.</p>
 
@@ -367,7 +435,8 @@ footer a{color:#C8D2DA;border-bottom:1px solid #44586B}
     <h2 class="osasto">Kustantajille ja agenteille</h2>
     <div class="teksti" style="margin-top:26px">
       <p>Koko trilogia on valmiina käsikirjoituksena — ei suunnitelmana eikä keskeneräisenä sarjana. Myös <em>Kolme luotia messinkiä</em> on valmis. Julkaisuaikataulu etenee omakustanteena, ellei parempaa reittiä ilmaannu: kustannus-, äänikirja- ja käännösoikeuksista keskustelen mielelläni.</p>
-      <p>Tietokirja <em>Katumus ennen kirvestä</em> on tekeillä, ja sen aineisto on kerätty ja luettu. Näyte on luettavissa yllä.</p>
+      <p>PIELISJÄRVI-sarjan ensimmäinen kirja <em>Toimittamatta</em> on valmis ja koeluvussa, ja toinen, <em>Jäävätty</em>, on kirjoitusvaiheessa. Aineistoa on jo useampaan kirjaan.</p>
+      <p>Tietokirja <em>Katumus ennen kirvestä</em> on kirjoitettu, ja se on luettavissa kokonaisuudessaan yllä.</p>
       <p>Aineistopyynnöt: <a href="mailto:jlintumies@gmail.com?subject=Aineistopyynt%C3%B6">jlintumies@gmail.com</a></p>
     </div>
   </div>

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workpapers | J. Lintumies</title>
+<meta name="description" content="Lyhyitä työpapereita: politiikkasuosituksia, muistioita ja yksittäisiä laskelmia, jotka voi jakaa suoralla linkillä. Laajemmat katsaukset ovat sivulla Faktat ja analyysit.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="J. Lintumies">
+<meta property="og:locale" content="fi_FI">
+<meta property="og:url" content="https://jlintumies.github.io/workpapers.html">
+<meta property="og:title" content="Workpapers | J. Lintumies">
+<meta property="og:description" content="Lyhyitä työpapereita: politiikkasuosituksia, muistioita ja yksittäisiä laskelmia, jotka voi jakaa suoralla linkillä.">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@500;600&family=Spectral:ital,wght@0,300;0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paperi: #EFE9DC;
+    --ruutu: #DFD8C8;
+    --muste: #16232F;
+    --meri: #2C4051;
+    --jaa: #5C7385;
+    --leima: #B8511F;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation: none !important; transition: none !important; }
+  }
+  body {
+    font-family: 'Spectral', Georgia, serif;
+    font-weight: 300;
+    color: var(--muste);
+    background: var(--paperi);
+    line-height: 1.65;
+    font-size: 17px;
+  }
+  .sivu { max-width: 760px; margin: 0 auto; padding: 0 24px 96px; }
+  /* ---------- otsake ---------- */
+  header { padding: 72px 0 36px; position: relative; }
+  .yla {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px; letter-spacing: 0.12em;
+    color: var(--jaa); text-transform: uppercase; margin-bottom: 20px;
+  }
+  h1 {
+    font-family: 'Archivo Narrow', sans-serif; font-weight: 600;
+    font-size: clamp(46px, 10vw, 84px); letter-spacing: 0.09em;
+    line-height: 0.95; text-transform: uppercase;
+  }
+  .viiva { width: 92px; height: 3px; background: var(--leima); margin: 18px 0 16px; }
+  .alaotsikko { font-style: italic; font-size: 20px; color: var(--meri); }
+  .leima {
+    display: inline-block; margin-top: 22px; transform: rotate(-3deg);
+    border: 3px solid var(--leima); color: var(--leima);
+    font-family: 'IBM Plex Mono', monospace; font-weight: 500;
+    font-size: 13px; letter-spacing: 0.14em; padding: 7px 12px;
+    border-radius: 3px; text-transform: uppercase;
+  }
+  /* ---------- horisontti ---------- */
+  .horisontti { border-top: 1px solid var(--muste); opacity: 0.35; margin-top: 40px; }
+  /* ---------- yleiset ---------- */
+  section { padding-top: 56px; }
+  h2 {
+    font-family: 'Archivo Narrow', sans-serif; font-weight: 600;
+    font-size: 15px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--meri); margin-bottom: 18px;
+  }
+  p + p { margin-top: 14px; }
+  a { color: var(--meri); text-underline-offset: 3px; }
+  a:focus-visible { outline: 2px solid var(--leima); outline-offset: 2px; }
+  /* ---------- kirjat ---------- */
+  .kirja {
+    display: grid; grid-template-columns: 200px 1fr; gap: 30px;
+    align-items: start; margin-top: 46px;
+  }
+  .kirja:first-of-type { margin-top: 16px; }
+  .kirja img {
+    width: 100%; height: auto; display: block;
+    box-shadow: 0 2px 5px rgba(22,35,47,0.18), 0 14px 30px rgba(22,35,47,0.16);
+  }
+  .lokirivi {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px;
+    letter-spacing: 0.06em; color: var(--jaa); margin-bottom: 8px;
+  }
+  .kirja h3 {
+    font-family: 'Archivo Narrow', sans-serif; font-weight: 600;
+    font-size: 27px; letter-spacing: 0.06em; text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .kirja .alle { width: 46px; height: 2px; background: var(--leima); margin-bottom: 14px; }
+  .kirja p { font-size: 16px; }
+  .karsi { font-style: italic; }
+  @media (max-width: 620px) {
+    .kirja { grid-template-columns: 1fr; gap: 20px; }
+    .kirja img { max-width: 230px; }
+  }
+  /* ---------- lintuhuomautus ---------- */
+  .linnut { margin-top: 52px; padding: 26px 28px; background: var(--muste); color: var(--paperi); }
+  .linnut .lokirivi { color: #8FA8B6; }
+  .linnut p { font-size: 17px; }
+  /* ---------- erillisteos ---------- */
+  .erillinen { margin-top: 56px; border-top: 2px solid var(--muste); padding-top: 44px; }
+  .erillinen .kirja { margin-top: 24px; }
+  /* ---------- koelukijaksi ---------- */
+  .ehdot { list-style: none; margin: 18px 0 26px; }
+  .ehdot li {
+    padding: 12px 0 12px 34px; border-bottom: 1px solid var(--ruutu);
+    position: relative; font-size: 16px;
+  }
+  .ehdot li::before {
+    content: "☐"; position: absolute; left: 4px; top: 10px;
+    color: var(--meri); font-size: 18px;
+  }
+  .nappi {
+    display: inline-block; font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 600; font-size: 16px; letter-spacing: 0.1em;
+    text-transform: uppercase; text-decoration: none;
+    color: var(--paperi); background: var(--meri); padding: 15px 30px; border: none;
+  }
+  .nappi:hover { background: var(--muste); }
+  .nappi:focus-visible { outline: 3px solid var(--leima); outline-offset: 2px; }
+  .pikkuteksti {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px;
+    color: var(--jaa); margin-top: 12px;
+  }
+  /* ---------- kirjailija ---------- */
+  .kirjailija { margin-top: 56px; border-top: 2px solid var(--muste); padding-top: 40px; }
+  .kirjailija p { font-size: 16.5px; }
+  /* ---------- kustantajille ---------- */
+  .kustantaja { margin-top: 56px; border-top: 2px solid var(--muste); padding-top: 40px; }
+  /* ---------- alatunniste ---------- */
+  footer {
+    margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--ruutu);
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--jaa);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+  }
+
+  .raportti {
+    border-top: 1px solid var(--ruutu); padding: 26px 0;
+    display: grid; grid-template-columns: 1fr; gap: 6px;
+  }
+  .raportti:first-of-type { border-top: 2px solid var(--muste); }
+  .raportti h3 { font-family: 'Archivo Narrow', sans-serif; font-size: 24px; color: var(--meri); margin: 0; }
+  .raportti .meta {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px;
+    color: var(--jaa); text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  .raportti p { margin: 6px 0 0; }
+  .raportti h4 { font-family: 'Archivo Narrow', sans-serif; font-size: 17px; color: var(--meri); margin: 20px 0 2px; font-weight: 600; }
+  .raportti .nappi { margin-top: 12px; }
+  .ryhma { margin-top: 52px; }
+  .ryhma > h2 { margin-bottom: 4px; }
+  .johdanto { font-size: 18px; color: var(--meri); }
+
+  .navi {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    margin-top: 26px; display: flex; flex-wrap: wrap; gap: 4px 18px;
+  }
+  .navi a { color: var(--jaa); text-decoration: none; border-bottom: 1px solid transparent; }
+  .navi a:hover { color: var(--leima); border-bottom-color: var(--leima); }
+  .navi a.tassa { color: var(--muste); border-bottom-color: var(--leima); }
+  .faktalaatikko {
+    margin-top: 34px; padding: 26px 28px;
+    background: rgba(44,64,81,0.05);
+    border-left: 3px solid var(--leima);
+  }
+  .faktalaatikko h3 {
+    font-family: 'Archivo Narrow', sans-serif; font-size: 22px;
+    color: var(--meri); margin: 0 0 8px;
+  }
+  .faktalaatikko p { margin: 0 0 10px; }
+  .faktalaatikko p:last-child { margin-bottom: 0; }
+
+  /* ---------- osiorakenne ---------- */
+  .osio { margin-top: 64px; }
+  .osio > .banneri {
+    display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;
+    border-top: 3px solid var(--muste); padding-top: 14px; margin-bottom: 6px;
+  }
+  .osio > .banneri h2 {
+    font-family: 'Archivo Narrow', sans-serif; font-weight: 600;
+    font-size: 30px; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--muste); margin: 0;
+  }
+  .osio > .banneri .lkm {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px;
+    color: var(--paperi); background: var(--jaa); padding: 3px 9px;
+    letter-spacing: 0.08em; white-space: nowrap;
+  }
+  .osio > .kuvaus { font-size: 16px; color: var(--meri); font-style: italic; margin-bottom: 6px; }
+  .alaryhma { margin-top: 38px; }
+  .alaryhma > h3 {
+    font-family: 'Archivo Narrow', sans-serif; font-weight: 600;
+    font-size: 15px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--leima); margin: 0 0 2px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .alaryhma > h3::after {
+    content: ""; flex: 1; height: 1px; background: var(--ruutu);
+  }
+  /* ---------- uusin ---------- */
+  .uusin {
+    margin-top: 34px; background: var(--muste); color: var(--paperi);
+    padding: 28px 30px;
+  }
+  .uusin .lippu {
+    display: inline-block; background: var(--leima); color: var(--paperi);
+    font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500;
+    letter-spacing: 0.16em; text-transform: uppercase; padding: 4px 10px; margin-bottom: 14px;
+  }
+  .uusin h3 {
+    font-family: 'Archivo Narrow', sans-serif; font-weight: 600; font-size: 30px;
+    letter-spacing: 0.05em; text-transform: uppercase; margin: 0 0 6px; color: var(--paperi);
+  }
+  .uusin .meta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #8FA8B6;
+    letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 10px; }
+  .uusin p { font-size: 16.5px; }
+  .uusin .nappi { background: var(--paperi); color: var(--muste); margin-top: 16px; }
+  .uusin .nappi:hover { background: var(--leima); color: var(--paperi); }
+  .uusin + .uusin { margin-top: 14px; }
+  .raportti.tuore { border-left: 3px solid var(--leima); padding-left: 18px; }
+    .intro-laatikko { background: var(--ruutu); border-left: 3px solid var(--meri); padding: 18px 22px; margin: 22px 0 30px; border-radius: 2px; }
+    .intro-laatikko h4 { font-family: inherit; margin: 0 0 10px; font-size: 0.95rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--meri); }
+    .intro-laatikko p { margin: 0 0 12px; font-size: 0.95rem; }
+    .intro-laatikko p:last-child { margin-bottom: 0; }
+    .avoin { display: inline-block; background: #1f6f5c; color: #fff; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 9px; border-radius: 2px; margin-right: 8px; }
+    .lahdelaatikko { border: 1px solid var(--jaa); padding: 12px 16px; margin: 12px 0; border-radius: 2px; font-size: 0.88rem; }
+    .lahdelaatikko strong { display: block; margin-bottom: 5px; color: var(--meri); }
+  .raportti .uusimerkki {
+    display: inline-block; background: var(--leima); color: var(--paperi);
+    font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.14em;
+    padding: 2px 7px; margin-left: 8px; vertical-align: 2px;
+  }
+  /* ---------- hyppylinkit ---------- */
+  .hypyt {
+    display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px;
+  }
+  .hypyt a {
+    font-family: 'Archivo Narrow', sans-serif; font-size: 14px; letter-spacing: 0.08em;
+    text-transform: uppercase; text-decoration: none; color: var(--meri);
+    border: 1px solid var(--jaa); padding: 8px 14px;
+  }
+  .hypyt a:hover { background: var(--meri); color: var(--paperi); border-color: var(--meri); }
+  @media (max-width: 620px) {
+    .osio > .banneri h2 { font-size: 23px; }
+    .uusin h3 { font-size: 23px; }
+  }
+
+  /* ---------- kirjakytkennät ---------- */
+  .kirjat-esittely { margin-top: 30px; background: rgba(44,64,81,0.05); border-left: 3px solid var(--meri); padding: 24px 26px; }
+  .kirjat-esittely h3 { font-family: 'Archivo Narrow', sans-serif; font-size: 15px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--meri); margin: 0 0 12px; }
+  .kirjarivi { display: grid; grid-template-columns: 150px 1fr; gap: 6px 18px; padding: 9px 0;
+    border-top: 1px solid var(--ruutu); align-items: baseline; }
+  .kirjarivi:first-of-type { border-top: none; }
+  .kirjarivi .nimi { font-family: 'Archivo Narrow', sans-serif; font-weight: 600; font-size: 16px;
+    letter-spacing: 0.05em; text-transform: uppercase; color: var(--muste); }
+  .kirjarivi .selite { font-size: 15px; }
+  @media (max-width: 620px) { .kirjarivi { grid-template-columns: 1fr; gap: 2px; } }
+  .kirjamerkki { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--meri); border: 1px solid var(--jaa);
+    padding: 2px 8px; display: inline-block; margin-top: 8px; }
+  .kirjamerkki.sarja { color: var(--leima); border-color: var(--leima); }
+  .kirjamerkki.vapaa { color: var(--jaa); }
+  /* ---------- workpapers ---------- */
+  .linkkirivi {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px;
+    color: var(--jaa); margin-top: 10px; word-break: break-all;
+  }
+  .linkkirivi a { color: var(--jaa); text-decoration: none; border-bottom: 1px dotted var(--jaa); }
+  .linkkirivi a:hover { color: var(--leima); border-bottom-color: var(--leima); }
+  .linkkirivi::before { content: "Suora linkki "; color: var(--meri); }
+  .raportti { scroll-margin-top: 24px; }
+</style>
+
+</head>
+<body>
+<div class="sivu">
+
+  <header>
+    <p class="yla">J. Lintumies · Taustatyö · Tuomarniemen Toivo</p>
+    <h1>Workpapers</h1>
+    <div class="viiva"></div>
+    <p class="alaotsikko">Yksittäisiä papereita. Yksi asia kerrallaan, yksi linkki kerrallaan.</p>
+    <nav class="navi"><a href="index.html">Kirjat</a> <a href="analyysit.html">Faktat ja analyysit</a> <a href="sahkokatko.html">Sähkökatko</a> <a href="workpapers.html" class="tassa">Workpapers</a></nav>
+    <div class="horisontti"></div>
+  </header>
+
+  <section>
+    <h2>Mitä täällä on</h2>
+    <p>Tämä sivu on lyhyitä papereita varten: politiikkasuosituksia, muistioita, yksittäisiä laskelmia ja vastauksia kysymyksiin, jotka eivät ansaitse kokonaista katsausta mutta ansaitsevat oman osoitteen.</p>
+    <p>Jokaisella paperilla on pysyvä ankkurilinkki, jonka voi jakaa sellaisenaan. Laajemmat katsaukset aineistoineen, menetelmineen ja rajoitteineen ovat sivulla <a href="analyysit.html">Faktat ja analyysit</a>, ja työpaperit viittaavat niihin silloin kun luvut tulevat sieltä.</p>
+    <p>Sama sääntö kuin muuallakin: sisältö saa käyttää, lainata ja jatkojalostaa vapaasti, ja lähdeviite on kohteliaisuus eikä ehto. Virheistä otan mielelläni palautetta.</p>
+  </section>
+
+  <section class="osio" id="paperit">
+    <div class="banneri"><h2>Paperit</h2><span class="lkm">1 paperi</span></div>
+    <p class="kuvaus">Uusin ylimpänä.</p>
+
+<div class="raportti tuore" id="politiikkasuositus">
+      <p class="meta">Politiikkasuositus · 1 sivu · 9.9.2026</p>
+      <h3>Kuusi toimenpidettä, tärkeysjärjestyksessä<span class="uusimerkki">Uusin</span></h3>
+      <p>Yhden sivun suositus siitä, mitä datakeskuskuormalle ja sähkön riittävyydelle pitäisi tehdä, missä järjestyksessä ja millä aikataululla. Jokaisesta kohdasta on kerrottu, vastaako se riittävyyteen vai laskuun — ne ovat eri ongelmia, eivätkä samat keinot ratkaise molempia.</p>
+      <p>Lähtökohta on tämä. <strong>Riittävyys</strong> ratkeaa 278 kylmänä ja tyynenä tuntena, ja siihen vastaavat jousto, varavoima ja kapasiteetin hinnoittelu — halvalla ja nopeasti. <strong>Lasku</strong> syntyy kaikkina 8 760 tuntina, ja siihen vastaa vain uusi säävarma energia, megawatti megawattia vastaan. Jouston myyminen hintaratkaisuna on virhe: kuorman poistaminen kalleimmilta viideltä prosentilta tunneista leikkaa hintavaikutuksesta viisi prosenttia.</p>
+      <p>Kärjessä on keino, joka ei maksa julkista rahaa lainkaan. Datakeskuksella on varavoimaa suunnilleen kuormansa verran, koska liiketoiminta vaatii sen — 1 600 megawatin kuorma tarkoittaa yli 1 600 megawattia asennettua ja käyttämätöntä tehoa, enemmän kuin Loviisa. Se saadaan käyttöön liittymisehdolla. Toisena on päätös, joka on jo tehty ja joka pitää pitää: sähköveron palauttamatta jättäminen. Lopussa on kolme keinoa, jotka eivät toimi, ja perustelu kullekin.</p>
+      <p><span class="kirjamerkki vapaa">Luvut katsauksesta Se luku, jota ei kerrottu</span></p>
+      <p><a class="nappi" href="politiikkasuositus.pdf" target="_blank" rel="noopener">Lue suositus (PDF)</a></p>
+      <p class="linkkirivi"><a href="https://jlintumies.github.io/workpapers.html#politiikkasuositus">jlintumies.github.io/workpapers.html#politiikkasuositus</a></p>
+    </div>
+
+  </section>
+
+  <section>
+    <div class="horisontti"></div>
+    <p class="pikkuteksti" style="margin-top:24px">Työpaperit ovat lyhyitä ja ne on kirjoitettu nopeasti. Ne nojaavat katsauksiin, joissa aineisto, menetelmä ja rajoitteet on kuvattu — paperi kertoo mihin katsaukseen. Jos luku tuntuu väärältä, se kannattaa tarkistaa katsauksesta, ja jos se on väärä siellä, otan siitä mielelläni palautetta osoitteeseen jujukol@gmail.com.</p>
+  </section>
+
+</div>
+</body>
+</html>

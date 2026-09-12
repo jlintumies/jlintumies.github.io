@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Faktat ja analyysit | J. Lintumies</title>
-<meta name="description" content="Romaanien taustaksi tehdyt katsaukset: sähköjärjestelmän riittävyys, tuulivoiman tehokäyrä, sähkön hinta, valvontalennot, merenpohja, työkoiran hajuaisti — sekä koneluettuun arkistoaineistoon perustuvat selvitykset Seiskarista, itäkarjalaisista pakolaisista sekä Brahean kaupungista ja Lieksan skanssista 1653–1710.">
+<meta name="description" content="Pika-analyysi Googlen 13 miljardin investoinnista ja Loviisan sopimuksesta: mitä se maksaa suomalaiselle kotitaloudelle. Lisäksi romaanien taustaksi tehdyt katsaukset: sähköjärjestelmän riittävyys, tuulivoiman tehokäyrä, sähkön hinta, valvontalennot, merenpohja, työkoiran hajuaisti — sekä koneluettuun arkistoaineistoon perustuvat selvitykset Seiskarista, itäkarjalaisista pakolaisista, Brahean kaupungista ja Lieksan skanssista 1653–1710 sekä Pielisjärven ja Nurmeksen käräjistä 1744–1750 nimiluetteloineen.">>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@500;600&family=Spectral:ital,wght@0,300;0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -215,6 +215,25 @@
   .uusin p { font-size: 16.5px; }
   .uusin .nappi { background: var(--paperi); color: var(--muste); margin-top: 16px; }
   .uusin .nappi:hover { background: var(--leima); color: var(--paperi); }
+  .uusin .mittatikku {
+    border-left: 3px solid var(--leima);
+    background: rgba(184, 81, 31, 0.12);
+    padding: 15px 20px; margin: 24px 0 6px;
+  }
+  .uusin .mittatikku h4 {
+    font-family: 'Archivo Narrow', sans-serif; font-size: 12px; font-weight: 600;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--leima);
+    margin: 0 0 7px;
+  }
+  .uusin .mittatikku p { margin: 0; font-size: 16.5px; line-height: 1.6; }
+  .uusin .mittatikku strong { color: var(--paperi); }
+  .uusin .nappi.toissijainen {
+    background: transparent; color: var(--paperi);
+    border: 1px solid #8FA8B6; padding: 13px 26px; font-size: 15px;
+  }
+  .uusin .nappi.toissijainen:hover { background: var(--leima); border-color: var(--leima); color: var(--paperi); }
+  .uusin .erotin { border-top: 1px solid rgba(143,168,182,0.4); margin: 22px 0 16px; }
+  .uusin .lisateksti { font-size: 15.5px; color: #C7D3DB; }
   .uusin + .uusin { margin-top: 14px; }
   .raportti.tuore { border-left: 3px solid var(--leima); padding-left: 18px; }
     .intro-laatikko { background: var(--ruutu); border-left: 3px solid var(--meri); padding: 18px 22px; margin: 22px 0 30px; border-radius: 2px; }
@@ -260,6 +279,66 @@
     padding: 2px 8px; display: inline-block; margin-top: 8px; }
   .kirjamerkki.sarja { color: var(--leima); border-color: var(--leima); }
   .kirjamerkki.vapaa { color: var(--jaa); }
+
+  /* ============ TAITTO 2.0: sivupalkki + avattavat kortit ============ */
+  .sivu { max-width: 1180px; }
+  .palsta { display: grid; grid-template-columns: 236px minmax(0, 1fr); gap: 52px; align-items: start; }
+  .sisalto { min-width: 0; }
+
+  .sivupalkki { position: sticky; top: 24px; }
+  .sivupalkki h2 {
+    font-family: 'Archivo Narrow', sans-serif; font-size: 12px; font-weight: 600;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--jaa);
+    margin: 0 0 12px; padding-bottom: 8px; border-bottom: 1px solid var(--jaa);
+  }
+  .sivupalkki h2 + h2 { margin-top: 30px; }
+  .sivupalkki a {
+    display: flex; justify-content: space-between; align-items: baseline; gap: 8px;
+    font-family: 'Archivo Narrow', sans-serif; font-size: 16px; line-height: 1.3;
+    color: var(--meri); text-decoration: none; padding: 7px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+  .sivupalkki a:hover { color: var(--leima); }
+  .sivupalkki a .n { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--jaa); }
+  .sivupalkki a:hover .n { color: var(--leima); }
+  .sivupalkki .ulos { border-bottom: none; color: var(--jaa); }
+
+  /* kortti avattavaksi */
+  details.raportti { padding: 0; }
+  details.raportti > summary {
+    list-style: none; cursor: pointer; padding: 20px 0 18px; position: relative;
+  }
+  details.raportti > summary::-webkit-details-marker { display: none; }
+  details.raportti > summary::after {
+    content: "+"; position: absolute; right: 0; top: 18px;
+    font-family: 'IBM Plex Mono', monospace; font-size: 20px; color: var(--jaa); line-height: 1;
+  }
+  details.raportti[open] > summary::after { content: "–"; color: var(--leima); }
+  details.raportti > summary:hover h3 { color: var(--leima); }
+  details.raportti > summary h3 { margin: 2px 0 6px; padding-right: 28px; }
+  details.raportti > summary .meta { margin: 0; }
+  .tiivis {
+    margin: 0; padding-right: 28px; color: var(--muste);
+    font-size: 16.5px; line-height: 1.55; opacity: 0.82;
+  }
+  details.raportti[open] > summary .tiivis { display: none; }
+  details.raportti .avattu { padding-bottom: 22px; }
+  details.raportti .avattu > p:first-child { margin-top: 0; }
+
+  .osio > .banneri { margin-bottom: 6px; }
+  .ryhmakuvaus { margin: 0 0 4px; }
+
+  @media (max-width: 980px) {
+    .sivu { max-width: 760px; }
+    .palsta { grid-template-columns: 1fr; gap: 0; }
+    .sivupalkki { position: static; margin-bottom: 40px; }
+    .sivupalkki h2 { margin-top: 22px; }
+    .sivupalkki .linkit { display: flex; flex-wrap: wrap; gap: 8px; }
+    .sivupalkki .linkit a {
+      border: 1px solid var(--jaa); border-bottom: 1px solid var(--jaa);
+      padding: 7px 13px; font-size: 15px;
+    }
+  }
 </style>
 </head>
 <body>
@@ -270,240 +349,213 @@
     <h1>Faktat ja analyysit</h1>
     <div class="viiva"></div>
     <p class="alaotsikko">Romaanit ovat fiktiota. Luvut eivät ole.</p>
-    <nav class="navi"><a href="index.html">Kirjat</a> <a href="analyysit.html" class="tassa">Faktat ja analyysit</a> <a href="sahkokatko.html">Sähkökatko</a></nav>
+    <nav class="navi"><a href="index.html">Kirjat</a> <a href="analyysit.html" class="tassa">Faktat ja analyysit</a> <a href="sahkokatko.html">Sähkökatko</a> <a href="workpapers.html">Workpapers</a></nav>
     <div class="horisontti"></div>
   </header>
 
-  <section>
-    <p class="johdanto">Romaanit ovat fiktiota. Luvut eivät ole — ja tässä ne ovat tarkistettavina.</p>
-    <p>Kun kirjassa sanotaan, että tuulivoima tuottaa kovalla pakkasella lähes nollan, että koira erottaa hajun tietyltä etäisyydeltä tai että öljy käyttäytyy jään alla eri tavalla kuin avovedessä — se on tarkistettu ennen kuin se on kirjoitettu. Nämä katsaukset ovat se tarkistus. Ne on kirjoitettu ensin itselleni ja vasta sitten julkaistavaksi, ja siksi ne sisältävät myös sen, mitä ei tiedetä.</p>
-    <p>Jokaisessa on alussa <em>Lukijalle</em>-osa tavallisella suomella ja lopussa rajoitteet. Katsaukset kestävät lukemisen ilman romaaneja, ja moni niistä on syntynyt myös ilman niitä. Aineisto ja laskelmat luovutetaan pyynnöstä, myös ja erityisesti kritiikkiä varten.</p>
-
-    <div class="kirjat-esittely">
-      <h3>Mihin kirjaan mikäkin liittyy</h3>
-      <div class="kirjarivi"><span class="nimi">Rajamaa</span><span class="selite">Sarjan ensimmäinen osa. Itäraja ja havainnointi, pakolaisuus ja reserviläistoiminta — ja se mitä viranomaiskoneistossa kirjataan ja mitä katoaa.</span></div>
-      <div class="kirjarivi"><span class="nimi">Majakkaraja</span><span class="selite">Toinen osa. Koiran jäljestämistaidot ja koulutus, valvontalennot ja lentojen seuranta.</span></div>
-      <div class="kirjarivi"><span class="nimi">Jääraja</span><span class="selite">Kolmas osa. Merivalvonta, kaapelit ja vedenalainen kuuntelu, kalastuksenvalvonta ja kalakannat, öljyvahinko.</span></div>
-      <div class="kirjarivi"><span class="nimi">Koko sarja</span><span class="selite">Osa katsauksista koskee koko trilogiaa eikä yhtä osaa. Ne on merkitty erikseen.</span></div>
-      <div class="kirjarivi"><span class="nimi">Kolme luotia messinkiä</span><span class="selite">Historiallinen romaani, työnimeltään aiemmin Kaksi laukausta. Brahean kaupunki ja sen ihmiset, Pielisjärven tuomiokirjat, veronvuokraus ja Simon Affleck 1656–1726.</span></div>
-      <div class="kirjarivi"><span class="nimi">Sähkökatko ja paskakuski</span><span class="selite">Erillisteos. Sähköjärjestelmä, teho ja se mitä tapahtuu kun sitä ei ole.</span></div>
-      <div class="kirjarivi"><span class="nimi">Tuleva kirja</span><span class="selite">Aunuksen ja Seiskarin suvut, pakolaisuus ja rajantakainen tieto. Aihekatsauksia kirjaan, jota ei ole vielä kirjoitettu.</span></div>
-      <div class="kirjarivi"><span class="nimi">Ilman kirjaa</span><span class="selite">Osa katsauksista on tehty itsenäisesti sähkömarkkinasta, säästä ja ilmastosta. Ne on merkitty erikseen.</span></div>
-      <p style="margin-top:14px"><a class="nappi" href="index.html">Katso kirjat</a></p>
+  <div class="palsta">
+    <aside class="sivupalkki">
+    <h2>Aiheet</h2>
+    <div class="linkit">
+    <a href="#sahko">Sähkö ja huoltovarmuus<span class="n">10</span></a>
+    <a href="#brahea">Brahea ja Pielisjärvi · 1600–1800-luku<span class="n">10</span></a>
+    <a href="#itaraja">Itäraja, valvonta ja havainto<span class="n">9</span></a>
+    <a href="#seiskari">Seiskari ja heimoaate<span class="n">5</span></a>
+    <a href="#suku">Suku, metsä ja kotiseutu<span class="n">3</span></a>
     </div>
-  </section>
+    <h2>Muualla</h2><div class="linkit">
+    <a class="ulos" href="workpapers.html">Workpapers</a>
+    <a class="ulos" href="index.html">Kirjat</a>
+    </div></aside>
 
-    <div class="uusin">
-    <span class="lippu">Uusin julkaisu · 5.9.2026</span>
+    <main class="sisalto">
+
+<div class="intro-laatikko">
+      <h4>Mistä tässä osiossa on kyse</h4>
+      <p><strong>Nämä ovat kirjojen pohjatyötä.</strong> Useimmat ovat jo johtaneet kirjaan. Sähköanalyysit ovat taustaa erillisteokselle <em>Sähkökatko ja paskakuski</em>, rajaa ja valvontaa koskevat <em>Rajamaa</em>-trilogialle, ja 1600–1800-luvun tuomiokirja-aineistot historialliselle romaanille <em>Kolme luotia messinkiä</em> sekä tietokirjalle <em>Katumus ennen kirvestä</em>. Osa aiheista on yhä kesken, ja niistä kirja on vasta tulossa.</p>
+      <p><strong>Yksi tarina on kirjoittamatta.</strong> Isoisäni Pekka Jukola ja hänen veljensä Juho ja Paavo syntyivät Aunuksen Karjalassa Mäntyselän pitäjän Hokanmäen kylässä, ylittivät rajan Suomeen 1919–1922 ja rakensivat Suojärvelle kauppahuoneen maassa, jossa pakolainen ei saanut omistaa maata. Heidän vanhempansa jäivät rajan taakse. Sitä kirjaa ei ole vielä olemassa, mutta osa tämän sivun aineistoista on sen siementä.</p>
+      <p><strong>Mitä aineistot ovat.</strong> Nämä eivät ole kirjojen lukuja vaan niiden pohjatyötä. Osa kokoaa sen, mitä yhdestä perheestä, yhdestä kaupungista tai yhdestä elinkeinosta on asiakirjoissa. Osa laskee mitatusta datasta auki jonkin asian, jota ei ole ennen laskettu. Osa esittää teorian — merkittynä teoriaksi. Ja osa on laajaa lähdeaineistoa, joka syntyi näitä tehdessä ja jota kuka tahansa voi käyttää omaan työhönsä.</p>
+      <p><strong>Nämä ovat mahdollisia vasta nyt.</strong> Historian puolella siksi, että arkistot ovat avautuneet koneluettaviksi: Kansalliskirjaston lehtikokoelma vuoteen 1939, Kansallisarkiston tuomiokirjat 1600-luvulta alkaen Astia-palvelussa, Karjala-tietokanta Katiha, HisKi ja Ruotsin Riksarkivet. Nykyajan puolella siksi, että mittausaineistot ovat avointa dataa: Fingridin avoin rajapinta ja sen kautta Datahubin tuntikulutus käyttäjäryhmittäin, Sähkötinin ja Energy-Chartsin tuntihintasarjat, Norjan vesivarastotilasto NVE:ltä, Ilmatieteen laitoksen ja SMHI:n havainnot, ERA5-uusanalyysi vuodesta 1940 sekä Tilastokeskuksen, Energiaviraston ja Energiateollisuuden tilastot.</p>
+      <p><strong>Menetelmä on molemmissa sama.</strong> Jokainen väite lähteistetään, epävarmuudet sanotaan ääneen, ja se mitä ei tiedetä merkitään tekstiin. Lähdetaso merkitään myös: arkistoaineistossa se, mikä on luettu alkuperäisestä sivukuvasta ja mikä on pelkän koneluvun varassa — laskennoissa se, mikä on mitattua dataa ja mikä omaa mallinnusta. Kun jokin osoittautuu vääräksi, se korjataan näkyvästi.</p>
+    </div>
+
+<div class="uusin">
+    <span class="lippu">Uusin julkaisu · 9.9.2026</span>
+    <h3>Se luku, jota ei kerrottu</h3>
+    <p class="meta">Pika-analyysi · 34 sivua · versio 2.8 (11.9.2026)</p>
+    <p>Google ilmoitti tänään investoivansa Suomeen 13 miljardia euroa ja osti samalla 22 vuodeksi puolet Loviisan ydinvoimalasta. Iltaan mennessä kysyttiin kahta asiaa: riittääkö sähkö ja nousevatko hinnat. Vastasin niihin samana päivänä, koska laskenta oli valmiina — tällä sivulla on jo yhdeksän muuta sähköanalyysiä, ja niiden aineisto oli koneella ennen kuin uutinen tuli.</p>
+    <p>Tavallisen suomalaisen kannalta tulos on kolme lukua, ja ensimmäinen ei koske Googlea. <strong>Sähkölasku nousee joka tapauksessa.</strong> Pelkästään tavanomaisen kysynnän kasvun takia sähkölämmitteisen omakotitalon tukkuhintainen <strong>vuosilasku</strong> nousee vuoteen 2030 mennessä noin 226 euroa eli 30 prosenttia. Kaikki tämän laatikon euromäärät ovat vuosilaskun muutoksia ja koskevat energiaa, eivät siirtoa eivätkä veroja. <strong>Googlen oma osuus sen päällä on 57–97 euroa</strong> — ja sopimus estää samalla Loviisan sulkemisen, joka olisi maksanut 206. Netto on siis 109–149 euroa vuodessa hyväksi: lasku ei laske, mutta se nousee sen verran vähemmän. <strong>Koko datakeskusaalto</strong> viidellä gigawatilla olisi sen sijaan 989 euroa vuodessa. Ja <strong>kysyntä kasvaa ilman datakeskuksiakin</strong> noin 400 megawattia joka vuosi, suurimpana yksittäisenä tekijänä kaukolämmön sähkökattilat.</p>
+    <p>Versio 2.2 kääntää johtopäätöksen. Julkistuspäivänä esitetty arvio Googlen kuormasta oli 1 400–1 600 megawattia, ja sillä sopimus olisi maksanut kuluttajalle. Helsingin yliopiston professori Jussi Kangasharju julkaisi kaksi päivää myöhemmin laskelman, joka päätyy 300–500 megawattiin — ja se on kolmin-viisinkertaisesti pienempi. Artikkelissa on myös oma alalukunsa sille, miksi Google ei kertonut lukua, vaikka se olisi hälventänyt juuri sen huolen, joka uutisesta nousi.</p>
+    <p>Yksi mitattu asia kannattaa tietää ennen kuin lukee yhtäkään keskihintaa. Viime talvena sähkölämmitteinen pientalo maksoi sähköstään 69,26 euroa megawattitunnilta ja teollisuus 62,03, kun aritmeettinen keskihinta oli 56,47. Ero ei ole sopimuksessa vaan siinä, että kotitalous kuluttaa juuri silloin kun on kylmä eikä tuule.</p>
+    <div class="mittatikku">
+      <h4>Mittatikku</h4>
+      <p>Kotitalouden sähkön kokonaishinta on Tilastokeskuksen mukaan 12 kuukauden keskiarvona <strong>18,0 senttiä kilowattitunnilta</strong>, josta energiaa 5,9, siirtoa 5,5 ja veroja 5,7. Kilpailutettavaa energiaa on <strong>kolmannes laskusta</strong>. Kaikki tässä esitetyt luvut koskevat sitä kolmannesta — eivät koko laskua. Siirto ja verot eivät liiku sähkön markkinahinnan mukana, ja ne ovat yhdessä kaksi kolmasosaa siitä, mitä kotitalous maksaa.</p>
+    </div>
+    <p><a class="nappi" href="se-luku-jota-ei-kerrottu.pdf" target="_blank" rel="noopener">Lue analyysi (PDF)</a></p>
+    <div class="erotin"></div>
+    <p class="lisateksti">Analyysistä on tiivistetty yhden sivun <strong>politiikkasuositus</strong>: kuusi toimenpidettä tärkeysjärjestyksessä, kukin aikatauluineen ja perusteluineen — ja kolme keinoa, jotka eivät toimi. Kärjessä on keino, joka ei maksa julkista rahaa lainkaan.</p>
+    <p><a class="nappi toissijainen" href="workpapers.html#politiikkasuositus">Politiikkasuositus · 1 sivu</a></p>
+  </div>
+<div class="uusin">
+    <span class="lippu">Uusi katsaus · 9.9.2026</span>
+    <h3>Se mitä nimihaku ei löydä</h3>
+    <p class="meta">Aineistokatsaus · 15 sivua · versio 1.1</p>
+    <p>Hain arkiston hakupalvelusta Pielisjärven kirkkoherran nimeä ja sain koko 26-vuotiselta virkakaudelta 28 osumaa. Kun latasin käräjäjaksot kokonaan ja luetin ne koneella, hän olikin joka neljännellä sivulla. Sama koskee sukututkijaa, joka hakee omaa sukunimeään ja saa nolla osumaa: haku näyttää samalta riippumatta siitä, onko se lukenut kaiken vai kolme prosenttia. Katsauksessa on 783 sivua Pielisjärven ja Nurmeksen käräjiä vuosilta 1744–1750, ja se alkaa nimistä: 273 sukua, 493 henkilöä, folioviitteineen.</p>
+    <p><a class="nappi" href="karajakirja.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p>
+  </div>
+<div class="uusin">
+    <span class="lippu">Uusi katsaus · 5.9.2026</span>
     <h3>Pato joka rakennettiin joka kevät</h3>
     <p class="meta">Aineistokatsaus · 9 sivua · versio 2.0</p>
     <p>Lieksanjoella oli koski, joka tuotti kruunulle veroa lähes kaksisataa vuotta. Se ei ollut suuri: hyvänä vuonna kymmenen tynnyriä lohta, huonona kaksi. Mutta sen haltijat ovat lista, jota kannattaa katsoa. Ensimmäinen oli majuri Simon Affleck, jonka kansa muistaa Simo Hurttana. Kolmas oli kirkkoherra Jaakko Stenius, Korpi-Jaakko, ja hänen jälkeensä poika Koski-Jaakko. Sama koski, sama vero — ja pitäjän pahin muisto sekä pitäjän suurin hyväntekijä pitivät samaa apajaa.</p>
     <p><a class="nappi" href="pankakoski.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p>
   </div>
-    <div class="uusin">
-    <span class="lippu">Uusi katsaus · 5.9.2026</span>
-    <h3>Jouluyö Kuoran kylässä</h3>
-    <p class="meta">Aineistokatsaus · 16 sivua · versio 1.0</p>
-    <p>Joulukuun 24. ja 25. päivän välisenä yönä 1763 vanha talollinen löi vaimonsa kuoliaaksi Kuoran kylässä Pielisjärvellä. Riidan syytä ei tiedetä, todistajia ei mainita, eikä sitä millä hän löi. Mutta yksi asia on kirjattu erittäin tarkasti, ja se on lasku: ruumiin avaaminen maksoi suunnilleen kuuden lehmän hinnan, ja se otettiin siitä jäämistöstä joka olisi jäänyt talon jatkajille. Katsauksessa on lisäksi noin viisikymmentä muuta Pielisjärven, Nurmeksen ja Juuan tapausta vuosilta 1754–1806.</p>
-    <p><a class="nappi" href="jouluyo.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p>
-  </div>
-    <div class="uusin">
-    <span class="lippu">Uusi julkaisu · 3.9.2026</span>
-    <h3>Pappi haettiin rajan yli</h3>
-    <p class="meta">Aihesynopsis · 5 sivua · versio 1.0</p>
-    <p>Vuonna 1768 kolme miestä tuli Repolasta rajan yli Sotkamoon ja tappoi siellä miehen. Yksi heistä tuomittiin menettämään oikea kätensä ja päänsä — ja kuningas määräsi, että hänelle on haettava kreikkalaisen opin pappi lähimmältä venäläiseltä paikkakunnalta. Hän oli tullut rajan yli, hänet mestattiin tällä puolella, ja pappi haettiin takaisin sieltä mistä hän oli tullut, jotta hän ehtisi katua. Aineisto on nyt käyty läpi ja se kertoo, miksi. Kysyn samalla kolme kysymystä, joihin toivon vastauksia.</p>
-    <p><a class="nappi" href="#pappi">Lue merkintä</a></p>
-  </div>
-    <div class="uusin">
-    <span class="lippu">Uusi raportti · 3.9.2026</span>
-    <h3>Brahean oikeustapaukset</h3>
-    <p class="meta">Aineistoraportti · 42 sivua · versio 4.0</p>
-    <p>Kaikki 99 oikeustapausta, jotka Brahean tuomiokirja-aineistosta löytyvät. Jokaisesta kerrotaan päivä, osapuolet nimeltä, mistä riideltiin ja mikä oli tuomio — ja jokaisesta on suora linkki alkuperäiseen sivukuvaan. Tämä on romaanin sivutuote, mutta sivutuotteessa on enemmän kuin romaaniin mahtuu, ja siksi se julkaistaan kokonaisena.</p>
-    <p><a class="nappi" href="brahean-oikeustapaukset.pdf" target="_blank" rel="noopener">Lue aineistoraportti (PDF)</a></p>
-  </div>
-    <div class="uusin">
-    <span class="lippu">Uusi merkintä · 2.9.2026</span>
-    <h3>Braheassa sattui ja tapahtui</h3>
-    <p class="meta">Tilannekatsaus · ei erillistä PDF:ää</p>
-    <p>Kiitos kysymyksistä ja korjauksista. Yleisin kysymys on, milloin tulee lisää. Vastaus on: hitaasti — ja syy ei ole laiskuus. Joka kerta kun olen sulkemassa yhtä lukua, aineistosta astuu esiin uusi ihminen, jolla on oma juttunsa ja hyvin vahva mielipide siitä.</p>
-    <p><a class="nappi" href="#jatkuu">Lue merkintä</a></p>
-  </div>
-    <div class="uusin">
-    <span class="lippu">Uusi merkintä · 1.9.2026</span>
-    <h3>Mitä Ruotsista ei löytynyt</h3>
-    <p class="meta">Hakukertomus · ei erillistä PDF:ää</p>
-    <p>Braheasta ei ole karttaa ja Lieksan skanssin sijainti on tuntematon. Krigsarkivetin suomalaisia karttoja ei ole skannattu, joten verkkohaun tyhjä tulos ei todista mitään — se piti kysyä ihmiseltä. Kysyin, ja vastaus oli ei. Sivutuotteena sain kuvan, jonka olin julkaista väärän kaupungin nimellä.</p>
-    <p><a class="nappi" href="#ruotsista">Lue kertomus</a></p>
-  </div>
-    <div class="uusin">
-    <span class="lippu">Uusi katsaus · 31.8.2026</span>
-    <h3>Kaksi laukausta</h3>
-    <p class="meta">Analyysit kirjoja varten · 33 sivua · versio 3.3</p>
-    <p>Maaliskuun 29. päivänä 1726 Pielisjärven kirkonkirjaan kirjoitettiin kaksi merkintää samalle aukeamalle. Vasemmalla vihittiin luutnantti ja neiti Christina Affleck. Oikealla haudattiin neidon isä, majuri Simon Affleck, joka oli kuollut kymmenen kuukautta aiemmin. Hautapaikkaa ei kerrota, eikä sitä voi enää selvittää.</p>
-    <p><a class="nappi" href="kaksi-laukausta.pdf" target="_blank" rel="noopener">Lue artikkeli (PDF)</a></p>
-  </div>
-    <div class="uusin">
-    <span class="lippu">Uusi katsaus · 28.8.2026</span>
-    <h3>Skanssi jonka he rakensivat itse</h3>
-    <p class="meta">Analyysit kirjoja varten · 10 sivua</p>
-    <p>Rahvas rakensi Lieksan varustuksen omalla kustannuksellaan ja piti sitä kunnossa. Se anoi itselleen päällikön ja päätti käräjillä hänen palkastaan. Sen miehet opetettiin siellä käsittelemään aseitaan. Ja vuonna 1688 sen omat valtuutetut suljettiin siihen yöksi.</p>
-    <p><a class="nappi" href="skanssi-jonka-he-rakensivat-itse.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p>
-  </div>
 
-    <div class="uusin">
-    <span class="lippu">Uusi katsaus · 28.8.2026</span>
-    <h3>Kaupunki joka kynnettiin pelloksi</h3>
-    <p class="meta">Analyysit kirjoja varten · 41 sivua</p>
-    <p>Vuonna 1653 Pietari Brahe perusti Lieksanjoen suulle kaupungin. Vuonna 1688 sen talot purettiin ja kadut kynnettiin pelloksi. Karttaa ei ole säilynyt yhtäkään — mutta kaupungin oma raastuvanoikeus kirjoitti pöytäkirjaa, ja kruunun verokirjat kertovat, ettei kaupunki ollut kirjanpidossa koskaan kaupunki.</p>
-    <p><a class="nappi" href="kaupunki-joka-kynnettiin-pelloksi.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p>
-  </div>
+  <p class="pikkuteksti" style="margin:26px 0 34px">Vanhemmat julkaisut löytyvät aiheittain alta. Klikkaa otsikkoa, niin kuvaus aukeaa.</p>
 
-  <nav class="hypyt">
-    <a href="#kirjoihin">Analyysit kirjoja varten</a>
-    <a href="#tulevat">Tulevien kirjojen aiheita</a>
-    <a href="#muut">Muut analyysit</a>
-  </nav>
-
-  <section class="osio" id="kirjoihin">
-    <div class="banneri"><h2>Analyysit kirjoja varten</h2><span class="lkm">21 julkaisua</span></div>
-    <p class="kuvaus">Romaanien taustatyö. Jokainen kirjoissa esiintyvä luku on tarkistettu tässä.</p>
-
-    <div class="alaryhma">
-      <h3>Sähkö · huoltovarmuus</h3>
-
-<div class="raportti">
-      <p class="meta">Versio 1.1 · 18.8.2026 · 6 sivua</p>
-      <h3>Teho, ei energia</h3>
-      <p>Suomen sähköjärjestelmän riittävyys tehon näkökulmasta 2026–2035. Riittävyydestä keskustellaan terawattitunteina vuodessa, mutta toimitusvarmuus ratkeaa megawatteina yhdellä tunnilla. Tammikuun 2026 kulutusennätys, tehoreservin nollapäätös ja se, mitkä toimenpiteet ehtivät vaikuttaa ennen 2030-lukua.</p>
+  <section class="osio" id="sahko">
+    <div class="banneri"><h2>Sähkö ja huoltovarmuus</h2><span class="lkm">10 julkaisua</span></div>
+    <p class="kuvaus ryhmakuvaus">Sähkömarkkina, tehon riittävyys ja hinnanmuodostus. Taustaa kirjaan Sähkökatko ja paskakuski sekä itsenäisiä katsauksia.</p>
+    <details class="raportti tuore" id="se-luku-jota-ei-kerrottu" open>
+      <summary>
+        <p class="meta">Versio 2.8 · 12.9.2026 · 34 sivua</p>
+        <h3>Se luku, jota ei kerrottu<span class="uusimerkki">Uusin</span></h3>
+        <p class="tiivis">Pika-analyysi päivän uutisesta · aineisto vapaasti käytettävissä</p>
+      </summary>
+      <div class="avattu"><p><span class="avoin">Pika-analyysi päivän uutisesta · aineisto vapaasti käytettävissä</span></p>
+      <p>Tämä on kirjoitettu uutispäivän iltana. Google kertoi 9.9.2026 investoivansa Suomeen vähintään 13 miljardia euroa ja allekirjoitti Fortumin kanssa 22 vuoden sopimuksen, joka kattaa puolet Loviisan ydinvoimalasta vuosina 2030—2049. Analyysi oli mahdollinen samana päivänä vain siksi, että sähköpuolen laskenta oli tehty jo aiemmin näitä muita katsauksia varten.</p>
+      <p>Ensin yksi korjaus, koska se meni julkisuudessa sekaisin: sopimus ei koske Olkiluoto 3:a vaan Loviisaa. Olkiluoto 3 on 1 600 megawattia uutta tehoa. Loviisa on 1 014 megawattia vanhaa tehoa, joka oli poistumassa vuoden 2030 jälkeen. Uutinen ei kerro sähkön lisääntymisestä vaan siitä, että vähentyminen jää tapahtumatta.</p>
+      <p><strong>Mitä tämä maksaa tavalliselle suomalaiselle.</strong> Simuloin tasakuorman lisäyksen 27 002 tunnin aineistolla. Sopimuksen nettovaikutus oikeaa vaihtoehtoa vastaan riippuu Googlen kuormasta, ja raja kulkee täsmälleen Loviisan kapasiteetissa 1 014 megawatissa: sopimus on nollatulos silloin, kun Googlen kuorma on yhtä suuri kuin teho, jonka se pelastaa. Lukua ei kerrottu, mutta paras riippumaton arvio on 300–500 megawattia — ja sillä sähkölämmitteisen omakotitalon lasku nousee 109–149 euroa vuodessa vähemmän kuin ilman sopimusta. Koko datakeskusaalto viidellä gigawatilla ilman uutta tuotantoa olisi samalle talolle 1 064 euroa vuodessa.</p>
+      <p><strong>Kuka maksaa.</strong> Datahubin tuntiaineistosta näkyy, ettei kukaan maksa aritmeettista keskihintaa. Kaudella 2025/26 sähkölämmitteinen pientalo maksoi 69,26 euroa megawattitunnilta ja teollisuus 62,03, kun keskihinta oli 56,47. Kalleimman viiden prosentin tunneista kotitaloudet ovat 39,0 prosenttia vaikka ovat 34,8 kulutuksesta. Teollisuus väistää kalliin tunnin, kotitalous ei.</p>
+      <p><strong>Ja mitä pitäisi tapahtua.</strong> Tuulikapasiteetin kaksinkertaistaminen palauttaa vuoden keskihinnan mutta jättää helmikuun ja kalleimmat tunnit koholle, koska kalliilla tunnilla tuuli tuottaa kolmanneksen tavanomaisesta. Sama määrä säävarmaa tehoa palauttaa kaikki kolme täsmälleen. Tuonti naapurista ei auta: kalleimmalla prosentilla tunneista Ruotsista tuotiin jo 2 674 megawattia, yhteys oli lähes täynnä joka kolmannella tunnilla ja Suomen hinta oli 202 euroa korkeampi kuin Keski-Ruotsin. Kysyntäjousto vastaa riittävyyteen mutta ei laskuun.</p>
+      <p><strong>Lähteet ja käyttöoikeus</strong> Fingridin avoin data (datasetit 358 ja 360 Datahubin tuntikulutuksesta asiakastyypeittäin ja käyttäjäryhmittäin, 124, 75, 188, 194, 60 ja 61), Sähkötin ja Energy-Charts hintasarjoihin, NVE:n vesivarastotilasto, Tilastokeskus ja Energiateollisuus. Menetelmä on kuvattu artikkelissa toistettavaksi asti. <strong>Aineisto ja laskennat luovutetaan pyynnöstä, myös ja erityisesti kritiikkiä varten.</strong> Artikkelissa korjataan kaksi omaa aiempaa käsitystäni: kysyntäjouston riittävyys hintaratkaisuna ja alla olevan katsauksen <em>Kallis talvi, kallis tunti</em> vesivarastokorrelaatio.</p>
+      <p><strong>Versio 2.8 (12.9.2026).</strong> Uusi luku uuden ydinvoiman edellytyksistä. Ensin korjaus: Suomessa <em>ei</em> ole kahta käyttämätöntä ydinvoimalupaa. Olkiluoto 4:n periaatepäätös raukesi 30.6.2015 sen jälkeen kun valtioneuvosto hylkäsi jatkoaikahakemuksen äänin 10–3, ja Fennovoiman hanke päättyi 2022. Jäljellä on kaksi laitospaikkaa, ei kahta lupaa. <strong>Se mikä on muuttunut, on rahoitusväline:</strong> Googlen ja Fortumin sopimus on Suomen ensimmäinen ydinvoimaa koskeva pitkä ostosopimus ja Fortumin mukaan Euroopan suurin. Yhdysvalloissa datakeskusyhtiöt ovat solmineet 13 vastaavaa sopimusta, yli 9,8 gigawattia. Uuden ydinvoiman este ei ole ollut teknologia eikä lupa vaan se, ettei kukaan ole sitoutunut ostamaan sähköä kahdeksikymmeneksi vuodeksi etukäteen — nyt siitä on ennakkotapaus. Luvussa myös todelliset rakennusajat (50 reaktoria OL3:n jälkeen: keskimäärin 6 v 5 kk), uusi ydinenergialaki ja pienydinvoima. Muutosloki on artikkelin luvussa 20.</p>
+      <p><span class="kirjamerkki vapaa">Itsenäinen, ei kirjasidonnainen</span></p>
+      <p><a class="nappi" href="se-luku-jota-ei-kerrottu.pdf" target="_blank" rel="noopener">Lue analyysi (PDF)</a></p></div>
+    </details>
+    <details class="raportti" id="kallis-talvi-kallis-tunti">
+      <summary>
+        <p class="meta">Versio 1.0 · 20.8.2026 · 5 sivua</p>
+        <h3>Kallis talvi, kallis tunti</h3>
+        <p class="tiivis">Kun sähkö on kallista, syitä tarjotaan neljä: pakkanen, tyven, vesivarastot, siirtoyhteys.</p>
+      </summary>
+      <div class="avattu"><p>Kun sähkö on kallista, syitä tarjotaan neljä: pakkanen, tyven, vesivarastot, siirtoyhteys. Ne eivät ole vaihtoehtoja vaan vastauksia kahteen eri kysymykseen. Vesi ratkaisee, onko talvi kallis — Norjan marraskuisen täyttöasteen ja talven keskihinnan korrelaatio on −0,73. Sää ratkaisee, mitkä tunnit sen talven sisällä ovat kalliita, ja tuulen puute on selvempi poikkeama kuin pakkanen: kalliilla tunnilla tuulta on viidesosa tavanomaisesta. Ja syy on vaihtumassa. Vielä 2020—2023 Suomen kalleimmista tunneista 88 prosenttia oli kalliita myös Ruotsissa; talvella 2025/26 enää 36. Loput ovat Suomen omia tunteja — ja yli puolella niistä johto Ruotsiin oli täynnä. Lopussa arvio tulevasta talvesta: Norjan altaissa on elokuussa 65 prosenttia, mikä on kolmenkymmenenyhden vuoden jakauman alimmassa kymmenyksessä.</p>
+      <p class="pikkuteksti"><strong>Korjaus 9.9.2026.</strong> Tässä katsauksessa esitetty korrelaatio −0,73 perustuu kuuteen talveen. Kun otos pidennetään yhteentoista talveen (2015/16—2025/26), korrelaatio on −0,364, ja ilman energiakriisin talvia 2021/22 ja 2022/23 se on −0,159. Väite, että marraskuun täyttöaste ennustaa talven keskihinnan, ei siis kestä pidempää otosta. Väite vesivoiman roolista hinnanmuodostajana kestää. Korjaus on perusteltu ja laskettu auki katsauksessa <em>Se luku, jota ei kerrottu</em>.</p>
+      <p><span class="kirjamerkki vapaa">Itsenäinen, ei kirjasidonnainen</span></p>
+      <p><a class="nappi" href="kallis-talvi-kallis-tunti.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p></div>
+    </details>
+    <details class="raportti" id="kolmesataa-kilometria-etelaan">
+      <summary>
+        <p class="meta">Versio 1.0 · 20.8.2026 · 5 sivua</p>
+        <h3>Kolmesataa kilometriä etelään</h3>
+        <p class="tiivis">102 paikkakuntaa, 80 vuotta, ERA5.</p>
+      </summary>
+      <div class="avattu"><p>102 paikkakuntaa, 80 vuotta, ERA5. Kaksi astetta ei tarkoita mitään — siksi käänsin sen kilometreiksi. Kuopion ilmasto on siirtynyt 362 kilometriä etelään, eli suunnilleen Helsinkiin, yhden ihmisen eliniän aikana. Ja yllätys: Inari on lämmennyt vähemmän kuin Kuopio ja Färsaaret tuskin lainkaan. Ratkaisevaa ei ole pohjoisuus vaan etäisyys avomerestä. Lopussa kaikkien 23 suomalaisen paikkakunnan luvut.</p>
+      <p><span class="kirjamerkki vapaa">Itsenäinen, ei kirjasidonnainen</span></p>
+      <p><a class="nappi" href="kolmesataa-kilometria-etelaan.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p></div>
+    </details>
+    <details class="raportti" id="nollan-vaaralla-puolella">
+      <summary>
+        <p class="meta">Versio 1.1 · 20.8.2026 · 7 sivua</p>
+        <h3>Nollan väärällä puolella</h3>
+        <p class="tiivis">Kuusi rannikkopistettä, 86 talvea, ERA5.</p>
+      </summary>
+      <div class="avattu"><p>Kuusi rannikkopistettä, 86 talvea, ERA5. Talvet ovat lämmenneet 2,5 astetta ja kovat pakkaset vähentyneet kolmanneksen — mutta tyynten päivien määrä ei ole muuttunut lainkaan, ja nollan ylitykset ovat lisääntyneet 70 prosenttia. Tammikuussa 2026 tuulivoimatuotanto putosi 0–5 prosenttiin kapasiteetista, eikä syy ollut tyyni sää vaan jää lavoissa — ja jäätäminen tapahtuu juuri siinä kaistassa, joka on kasvamassa.</p>
+      <p><span class="kirjamerkki vapaa">Itsenäinen, ei kirjasidonnainen</span></p>
+      <p><a class="nappi" href="nollan-vaaralla-puolella.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a> <a class="nappi" href="talvianalyysi-aineisto.md" target="_blank" rel="noopener">Aineisto</a></p></div>
+    </details>
+    <details class="raportti" id="yksi-tunti-ja-kuusi-viikkoa">
+      <summary>
+        <p class="meta">Versio 1.0 · 20.8.2026 · 6 sivua</p>
+        <h3>Yksi tunti ja kuusi viikkoa</h3>
+        <p class="tiivis">Kaikkien aikojen kulutusennätyksen hetkellä 8.1.2026 Suomi kävi omalla tuotannollaan ja Fenno-Skanissa oli kaksi kolmasosaa vapaana.</p>
+      </summary>
+      <div class="avattu"><p>Kaikkien aikojen kulutusennätyksen hetkellä 8.1.2026 Suomi kävi omalla tuotannollaan ja Fenno-Skanissa oli kaksi kolmasosaa vapaana. Ja tuonti huipentuu keskipäivällä, ei kulutushuipussa — koska kun meillä on kylmä, on kylmä myös Ruotsissa. Riittävyys ja hinta ovat eri ongelmia ja osuvat eri hetkiin. Sisältää korjauksen kirjoittajan omaan aiempaan väitteeseen.</p>
+      <p><span class="kirjamerkki vapaa">Itsenäinen, ei kirjasidonnainen</span></p>
+      <p><a class="nappi" href="yksi-tunti-ja-kuusi-viikkoa.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a> <a class="nappi" href="vesitase-aineisto-siirrot.csv" target="_blank" rel="noopener">Siirtoaineisto</a></p></div>
+    </details>
+    <details class="raportti" id="se-ei-ehdi-tayttya">
+      <summary>
+        <p class="meta">Versio 1.0 · 20.8.2026 · 8 sivua</p>
+        <h3>Se ei ehdi täyttyä</h3>
+        <p class="tiivis">Kolme omaa laskentaa koko ketjusta Norjan altaista Suomen pistorasiaan.</p>
+      </summary>
+      <div class="avattu"><p>Kolme omaa laskentaa koko ketjusta Norjan altaista Suomen pistorasiaan. Sademäärä ei ole muuttunut 85 vuodessa, mutta yhä suurempi osa siitä tulee vetenä eikä lumena — ja vain vesi täyttää altaan samana syksynä. Se ei silti riitä: mediaanitasoon tarvittaisiin 18,9 TWh:n syysnousu, ja suurin koskaan mitattu on 14,2. Ja ketjun toisessa päässä Suomi oli talvella tuonnin varassa 88,6 % ajasta, yhteydellä joka on tuontihuipuissa 98-prosenttisessa käytössä.</p>
+      <p><span class="kirjamerkki vapaa">Itsenäinen, ei kirjasidonnainen</span></p>
+      <p><a class="nappi" href="se-ei-ehdi-tayttya.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a> <a class="nappi" href="vesitase-aineisto-sade.csv" target="_blank" rel="noopener">Sadeaineisto</a> <a class="nappi" href="vesitase-aineisto-nve.csv" target="_blank" rel="noopener">NVE-aineisto</a> <a class="nappi" href="vesitase-aineisto-siirrot.csv" target="_blank" rel="noopener">Siirtoaineisto</a></p></div>
+    </details>
+    <details class="raportti" id="mita-kiinteassa-ostetaan">
+      <summary>
+        <p class="meta">Versio 2.0 · 20.8.2026 · 6 sivua</p>
+        <h3>Mitä kiinteässä ostetaan</h3>
+        <p class="tiivis">Lukijat kysyivät suoraan: kannattaako ottaa kiinteä sopimus Q1:lle.</p>
+      </summary>
+      <div class="avattu"><p>Lukijat kysyivät suoraan: kannattaako ottaa kiinteä sopimus Q1:lle. En vastaa siihen, mutta kysymykseen itseensä voi vastata — ja useimmat kysyvät väärää asiaa. Kiinteä hinta ei ole veikkaus keskihinnasta vaan vakuutus hännästä. Versio 2.0 korjaa version rakenteellisen virheen: jäätäminen ei osu kylmään skenaarioon vaan leutoon, ja halvan lopputuloksen todennäköisyys putosi 25 prosentista 15:een.</p>
+      <p><span class="kirjamerkki vapaa">Itsenäinen, ei kirjasidonnainen</span></p>
+      <p><a class="nappi" href="mita-kiinteassa-ostetaan.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p></div>
+    </details>
+    <details class="raportti" id="kolmas-potenssi">
+      <summary>
+        <p class="meta">Versio 1.0 · 19.8.2026 · 11 sivua</p>
+        <h3>Kolmas potenssi</h3>
+        <p class="tiivis">Miksi tuulituotannon ei tarvitse pysähtyä, jotta tehotase pettää.</p>
+      </summary>
+      <div class="avattu"><p>Miksi tuulituotannon ei tarvitse pysähtyä, jotta tehotase pettää. Turbiinin teho on tuulennopeuden kolmas potenssi: nopeuden puolittuminen vie 87 prosenttia tuotannosta. Mukana 86 vuoden säädata, El Niño -hypoteesin testaus ja hydrologisen taseen vaikutus hintaan.</p>
       <p><span class="kirjamerkki">Taustatyötä kirjaan Sähkökatko ja paskakuski</span></p>
-      <p><a class="nappi" href="teho-ei-energia.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p>
-    </div>
-<div class="raportti">
-      <p class="meta">Versio 1.0 · 19.8.2026 · 11 sivua</p>
-      <h3>Kolmas potenssi</h3>
-      <p>Miksi tuulituotannon ei tarvitse pysähtyä, jotta tehotase pettää. Turbiinin teho on tuulennopeuden kolmas potenssi: nopeuden puolittuminen vie 87 prosenttia tuotannosta. Mukana 86 vuoden säädata, El Niño -hypoteesin testaus ja hydrologisen taseen vaikutus hintaan.</p>
+      <p><a class="nappi" href="kolmas-potenssi.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p></div>
+    </details>
+    <details class="raportti" id="kuka-maksaa-tyynen-tunnin">
+      <summary>
+        <p class="meta">Versio 1.0 · 19.8.2026 · 6 sivua</p>
+        <h3>Kuka maksaa tyynen tunnin</h3>
+        <p class="tiivis">Sähkön hinta, verkon kustannukset ja riittävyys kuluttajan näkökulmasta.</p>
+      </summary>
+      <div class="avattu"><p>Sähkön hinta, verkon kustannukset ja riittävyys kuluttajan näkökulmasta. Onko hintahuoli ja riittävyyshuoli sama asia? Ja kuka maksaa verkon, joka rakennettiin hankkeille joita ei tullut.</p>
+      <p><span class="kirjamerkki vapaa">Itsenäinen, ei kirjasidonnainen</span></p>
+      <p><a class="nappi" href="kuka-maksaa-tyynen-tunnin.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p></div>
+    </details>
+    <details class="raportti" id="teho-ei-energia">
+      <summary>
+        <p class="meta">Versio 1.1 · 18.8.2026 · 6 sivua</p>
+        <h3>Teho, ei energia</h3>
+        <p class="tiivis">Suomen sähköjärjestelmän riittävyys tehon näkökulmasta 2026–2035.</p>
+      </summary>
+      <div class="avattu"><p>Suomen sähköjärjestelmän riittävyys tehon näkökulmasta 2026–2035. Riittävyydestä keskustellaan terawattitunteina vuodessa, mutta toimitusvarmuus ratkeaa megawatteina yhdellä tunnilla. Tammikuun 2026 kulutusennätys, tehoreservin nollapäätös ja se, mitkä toimenpiteet ehtivät vaikuttaa ennen 2030-lukua.</p>
       <p><span class="kirjamerkki">Taustatyötä kirjaan Sähkökatko ja paskakuski</span></p>
-      <p><a class="nappi" href="kolmas-potenssi.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p>
-    </div>
-
-    </div>
-
-    <div class="alaryhma">
-      <h3>Itäraja ja havainto</h3>
-<div class="raportti">
-      <p class="meta">Versio 1.0 · 19.8.2026 · 7 sivua</p>
-      <h3>Öljy jään alla</h3>
-      <p>Talvinen öljyvahinko on eri ongelma kuin kesäinen: öljy ei pysy pinnalla vaan hakeutuu jään halkeamiin, puomi ei ulotu jään alle eikä harjakeräin kerää sitä mitä ei ole pinnassa. Vuonna 1979 öljy painui jäiden alle ja ilmestyi kahden kuukauden kuluttua neljänsadan kilometrin päässä. Mukana aritmetiikka: torjuntatavoite kattaa kolmasosan yhdestä tankkerilastista.</p>
-      <p><span class="kirjamerkki">Taustatyötä kirjaan Jääraja</span></p>
-      <p><a class="nappi" href="oljy-jaan-alla.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p>
-    </div>
-<div class="raportti">
-      <p class="meta">Versio 3.0 · 21.8.2026 · 22 sivua</p>
-      <h3>Saari joka eli Pietarista</h3>
-      <p>Vuonna 1921 Seiskarissa asui 848 ihmistä neljällä neliökilometrillä — Suomen tiheimmin asuttu maalaiskunta. Saari on lähempänä Pietaria kuin lähintä suomalaista kaupunkia, ja se eli siitä: silakkaa, hylkeennahkaa ja meren pohjasta nostettuja katukiviä. Kun raja sulkeutui 1918, talous kuoli — ja kieltolaki oli kolmentoista vuoden korvike. Kun sota tuli, saari oli jo menettänyt puolet väestään.</p>
-      <p>Toinen osa seuraa yhtä taloa yhdentoista sukupolven ajan, 1750-luvulta nykypäivään. Kolmas osa on siemeniä mahdolliseen seuraavaan kirjaan: hovinarri joka omisti saaren, vuosi jolloin saari oli tyhjä, ja hyljekoirat jotka jäivät rannalle.</p>
-      <p>Tässä versiossa mukana koko sanomalehtiaineisto vuosilta 1860–1939. Se paljastaa kaksi asiaa: lehdistön Seiskari ei ollut kalastajien vaan hallinnon saari, ja sukunimen vaihdos Hotasesta Rantalaksi löytyi päivättyinä kuulutuksina vuosilta 1905 ja 1906 — mikä kumosi sen, mitä olin aiemmin väittänyt.</p>
-      <p><span class="kirjamerkki">Taustatyötä kirjaan Jääraja</span></p>
-      <p><a class="nappi" href="saari-joka-eli-pietarista.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p>
-    </div>
-<div class="raportti">
-      <p class="meta">Versio 1.0 · 21.8.2026 · 114 sivua</p>
-      <h3>Saari lehdissä 1860–1939</h3>
-      <p><span class="avoin">Lehdistökatsaus · vapaasti käytettävissä</span></p>
-      <p>Korpustutkimus siitä, mitä suomalainen sanomalehdistö kirjoitti Seiskarista kahdeksankymmenen vuoden ajan. Saari mainitaan aineistossa 6&nbsp;150 kertaa. Menetelmänä 41 teemasanaston läheisyyshaku ja 831 poimittua tekstikatkelmaa.</p>
-      <p>Päälöydös kääntää totutun kuvan: suurin teema ei ole meri vaan kirkko ja seurakunta (465 osumaa), ja kunta ja koulu tuottavat yhdessä enemmän kuin kalastus. Saaren historian tunnetuin jakso, kieltolain pirtuvuodet, tuottaa yhteensä 38 osumaa. Aineistosta löytyivät myös alkuperäiset nimenmuutoskuulutukset vuosilta 1905 ja 1906 sekä nimeltä mainittuja seiskarilaisia jäihin ajautumisineen ja virkakuulutuksineen.</p>
+      <p><a class="nappi" href="teho-ei-energia.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p></div>
+    </details>
+  </section>
+  <section class="osio" id="brahea">
+    <div class="banneri"><h2>Brahea ja Pielisjärvi · 1600–1800-luku</h2><span class="lkm">10 julkaisua</span></div>
+    <p class="kuvaus ryhmakuvaus">Kansallisarkiston tuomiokirjat ja muu alkuperäisaineisto. Taustaa Pielisjärvi-sarjaan ja Brahea-kirjoihin.</p>
+    <details class="raportti tuore" id="se-mita-nimihaku-ei-loyda">
+      <summary>
+        <p class="meta">Versio 1.1 · 9.9.2026 · 15 sivua</p>
+        <h3>Se mitä nimihaku ei löydä<span class="uusimerkki">Uusi</span></h3>
+        <p class="tiivis">Aineistokatsaus · vapaasti käytettävissä</p>
+      </summary>
+      <div class="avattu"><p><span class="avoin">Aineistokatsaus · vapaasti käytettävissä</span></p>
+      <p><strong>Sukututkijalle ensin.</strong> Tämä katsaus alkaa nimiluettelolla. Sivulla kaksi on kaikki 273 sukunimeä, jotka Pielisjärven ja Nurmeksen käräjäpöytäkirjoista vuosilta 1744–1750 löytyivät, ja sen jälkeen taulukko niistä 35 henkilöstä, joista aineistossa on eniten tietoa: nimi, asema, kylä ja folioviitteet. Nimet ovat tuomiokirjan asussa — <em>Nefwalain</em> on Nevalainen, <em>Kärkäin</em> on Kärkkäinen, <em>Sommin</em> on Sormunen — ja naisen nimi päättyy tavallisesti <em>-tar</em> tai <em>-tär</em>.</p>
+      <p>Kansallisarkiston omassa hakuindeksissä samaa aineistoa on viideltä vuodelta seitsemästä — vuodet 1745 ja 1747 puuttuvat kokonaan — ja indeksoitu teksti on luettu vanhemmalla mallilla. Ero näkyy heti: hakusana <em>Depner</em> antaa indeksistä 23 osumaa, mutta <em>mustarindanen</em> ja <em>Mandoin</em> nolla, vaikka ne ovat tässä aineistossa selvästi luettavissa. Se on koko katsauksen lähtökohta: <strong>nolla osumaa ei tarkoita, ettei sukua ole aineistossa. Se tarkoittaa, ettei sivua ole luettu tai ettei sitä ole luettu tarpeeksi hyvin.</strong> Latasin siis jaksot kokonaan ja luetin ne itse. Tulos on 783 sivua ja noin 547 000 merkkiä tekstiä.</p>
+      <p>Tuomiokirja kertoo esivanhemmasta sen, mitä kirkonkirja ei. Kirkonkirja antaa syntymän, vihkimisen ja kuoleman; tuomiokirja antaa talon, velat, riidat, naapurit, palveluspaikat, holhoukset ja perinnönjaot. Katsauksessa on kuusi esimerkkiä siitä, millaista sukutietoa yksi pykälä todella antaa. Petter Kårdelainen kuoli 1745 ja jätti jälkeensä lesken Juliana Hangattaren ja kolme poikaa, Petterin, Grelsin ja Påhlin, jotka erosivat yhteisestä taloudestaan — yhdessä kohdassa kuolinvuosi, puoliso, kolme lasta nimeltä ja taloudenjako. Johan Kåfwelain ja Lisa Wirckutar olivat olleet 32 vuotta naimisissa saamatta lasta. Cicilia Rosiåtar esiintyy kahdessa avioliitossa peräkkäin, molemmat miehet nimeltä.</p>
+      <p>Perässä on oma lukunsa siitä, mikä näissä on epävarmaa: kirjoitusasu, vuosiluku, sukulaisuussuhteen suunta ja se, onko sama nimi kahdella foliolla sama ihminen. Aineisto kertoo, missä kohtaa asiakirjaa suku esiintyy. Se ei kerro, mitä siinä kohtaa lukee.</p>
+      <p>Menetelmästä kaksi asiaa kannattaa tietää, jos aikoo tehdä saman itse. <strong>Folionumerointi on tehtävä ennen kuin aineistosta laskee mitään</strong> — juuri se paljasti, että lataukseni oli kolmessa jaksossa osunut osittain väärään käräjäkuntaan ja että vuoden 1750 syyskäräjistä oli tullut mukaan vain kaksi foliota Pielisjärveä. Ja aukeamakuva on jaettava kahdeksi sivuksi ennen tekstintunnistusta, muuten malli sekoittaa sivujen rivit keskenään.</p>
+      <p>Yksi esimerkki siitä, mihin aineisto yhdistettynä muihin sarjoihin kykenee. Käräjät tuomitsi helmikuussa 1747 kirkkoherran apulaisen naimaan kanteen nostaneen naisen, ja tähän aineistoon juttu päättyy siihen että mies valitti. Karjalan laamannikunnan tuomiokirjoista löytyy 38 sivua saman asian jatkoa: laamanninoikeus muutti tuomiota 13.3.1750, kirkkoherran puolesta tehtyä valitusta hovioikeuteen ei ajettu, ja maaliskuussa 1751 kantaja itse tuomittiin salavuoteudesta ja vastaajan oikeudenkäyntikuluihin. <strong>Käräjäpöytäkirja ei kerro lopputulosta. Se kertoo päätöksen.</strong></p>
+      <p>Lopussa on yksi sisällöllinen tulos. Kirkkoherra Jaakko Stenius vanhempi, Korpi-Jaakko, esiintyy aineistossa joka neljännellä sivulla ja noin 54 erillisessä asiassa — myllynomistajana talonpoikaa vastaan, kirkkokurin ilmiantajana, Venäjän alamaisen takaajana ja valitusten kohteena. <strong>Käräjäpöytäkirja mittaa eri asiaa kuin muistokirjoitus</strong>, ja koska sama ero perimäkuvan ja asiakirjan välillä toistuu myös hänen pojallaan Koski-Jaakolla, kyse on todennäköisemmin lähdelajeista kuin henkilöistä. Se on merkitty hypoteesiksi eikä tulokseksi.</p>
       <div class="lahdelaatikko">
         <strong>Lähteet ja käyttöoikeus</strong>
-        Aineisto on Kansalliskirjaston digitoitu sanomalehti- ja aikakauslehtikokoelma (KLK_FI, vuosikorpukset 1860–1939), joka on vapaasti käytettävissä vuoteen 1939 asti. Haut on tehty Kielipankin Korp-palvelun kautta läheisyyshakuna: teemasana enintään neljänkymmenen sanan päässä saaren nimestä.
-        Kaikki 41 hakulauseketta on julkaistu liitteessä A ja kaikki 831 katkelmaa liitteessä B lehti-, numero- ja sivutietoineen, joten jokainen tulos on toistettavissa ja tarkistettavissa.
-        <strong style="margin-top:8px">Muiden tutkijoiden vapaasti käytettävissä.</strong>
-        Raportti, sen taulukot ja konkordanssit saa käyttää, lainata ja jatkojalostaa vapaasti. Lähdeviite on kohteliaisuus, ei ehto. Virheistä ja puutteista otan mielelläni palautetta.
+        Karjalan tuomiokunnan renovoidut tuomiokirjat, sarja KO a, niteet 15–19, Kansallisarkisto 315213.KA. Kuvat ladattu Astiasta täydellä resoluutiolla ja luettu Kansallisarkiston Multicentury-HTR-mallilla. <strong>Muiden tutkijoiden ja sukututkijoiden vapaasti käytettävissä.</strong> Nimiluettelon, taulukot ja menetelmän saa käyttää, lainata ja jatkojalostaa vapaasti; lähdeviite on kohteliaisuus, ei ehto. Huomaa, että teksti on tarkistamatonta konelukua 1740-luvun käsialasta: merkkivirhetaajuus on noin kolme prosenttia ja virheet keskittyvät juuri erisnimiin, joita ei voi päätellä asiayhteydestä. Nimiluettelo on hakuväline, ei lähde — jokainen kohta on luettava alkuperäisestä sivukuvasta ennen käyttöä. Pykälänumerot puuttuvat vielä, joten viite on toistaiseksi folion tarkkuudella. Korjaukset ja tunnistukset ovat tervetulleita.
       </div>
-      <p><span class="kirjamerkki">Aineistoraportti Saari joka eli Pietarista -katsauksen taustalla</span></p>
-      <p><a class="nappi" href="seiskari-lehdissa-1860-1939.pdf" target="_blank" rel="noopener">Lue aineistoraportti (PDF)</a></p>
-    </div>
-    <div class="raportti">
-      <p class="meta">Versio 2.0 · 21.8.2026 · 9 sivua</p>
-      <h3>Kolme viranomaista, yksi saari</h3>
-      <p><span class="avoin">Tuomiokirja-aineistoa · vapaasti käytettävissä</span></p>
-      <p>Mitä tapahtuu, kun saarelaisten kohtaamiset esivallan kanssa haetaan oikeuden omista pöytäkirjoista eikä lehdistä? Kansallisarkisto on lukenut tekoälyllä yli seitsemän miljoonaa sivua käsin kirjoitettuja tuomiokirjoja, ja Viipurin raastuvanoikeuden aineisto ulottuu vuoteen 1924 — eli kieltolain viisi ensimmäistä vuotta ovat luettavissa nimineen ja rangaistuksineen.</p>
-      <p>Aineisto kumosi kaksi asiaa, jotka olin aiemmin kirjoittanut. Kieltolakivuosien takavarikot eivät pääosin olleet pirtua vaan <em>suolaa, saippuaa, tulitikkuja ja ruista</em> — matkalla itään, nälänhädän puolelle. Ja saarelaiset kävivät järjestelmällistä kauppaa Suomen aluevesillä ankkuroineiden venäläisten sota-alusten kanssa; yhdestä pysäytetystä moottoriveneestä löytyi 1&nbsp;692 hopearuplaa koneen alle kätkettynä.</p>
-      <p>Vanhin kerros on 1880-luvulta, ja siinä on aineiston ikävin yksityiskohta: miehiä tuomittiin toistuvasti purjehdusrikoksesta, koska he olivat purjehtineet Pietariin ilman passia — ja nimismiehen konttorista olivat passilomakkeet loppu. Sama nimismies sai puolet sakosta.</p>
-      <div class="lahdelaatikko">
-        <strong>Lähteet ja käyttöoikeus</strong>
-        Aineisto on Kansallisarkiston Sisältöhaku-palvelu, jossa on tekstihaettavana yli seitsemän miljoonaa sivua renovoituja tuomiokirjoja 1600–1900-luvuilta; teksti on luettu koneellisesti tekoälyn käsialamallilla. Haut on tehty sanoilla <em>Seiskari</em> ja <em>Seitskär</em>, ja osumia kertyi 977 tietuetta — niistä 758 Viipurin raastuvanoikeuden arkistosta ja 106 Viipurin hovioikeuden arkistosta.
-        Jokainen sitaatti on merkitty arkistoineen ja vuosineen, ja haku on toistettavissa sellaisenaan.
-        <strong style="margin-top:8px">Muiden tutkijoiden vapaasti käytettävissä.</strong>
-        Katsauksen tiedot, taulukot ja sitaatit saa käyttää, lainata ja jatkojalostaa vapaasti. Lähdeviite on kohteliaisuus, ei ehto. Huomaa, että teksti on konelukua eikä sitä ole tarkistettu alkuperäisistä — nimet ja numerot on varmennettava ennen käyttöä.
-      </div>
-      <p><span class="kirjamerkki">Taustatyötä kirjaan Jääraja</span></p>
-      <p><a class="nappi" href="kolme-viranomaista-yksi-saari.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p>
-    </div>
-
-<div class="raportti">
-      <p class="meta">Versio 1.0 · 19.8.2026 · 5 sivua</p>
-      <h3>Kenen käskystä</h3>
-      <p>Miksi Venäjä ei hajoa niin kuin Neuvostoliitto. Vuoden 1991 hajoaminen oli siisti, koska se seurasi valmiita saumoja. Nyky-Venäjällä niitä ei ole — ja siksi kysymys ei olisi rajoista vaan siitä, kuka komentaa mitäkin asetta.</p>
-      <p><span class="kirjamerkki sarja">Taustatyötä koko Rajamaa-sarjaan</span></p>
-      <p><a class="nappi" href="kenen-kaskysta.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p>
-    </div>
-<div class="raportti">
-      <p class="meta">Versio 2.0 · 19.8.2026 · 7 sivua</p>
-      <h3>Yksi valkoinen viiva</h3>
-      <p>Liittolaisten valvontalennot Suomen yllä: mitä kalustoa, mihin se pystyy, ja miksi juuri nuo reitit. Radiohorisontti selittää lentogeometrian kokonaan. Ja se kysymys jota kysytään väärin päin — selitystä ei vaadi jälkien katoaminen vaan se, että ne olivat päällä.</p>
-      <p><span class="kirjamerkki">Taustatyötä kirjaan Majakkaraja</span></p>
-      <p><a class="nappi" href="yksi-valkoinen-viiva.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p>
-    </div>
-<div class="raportti">
-      <p class="meta">Versio 2.0 · 19.8.2026 · 8 sivua</p>
-      <h3>Kaistale kerrallaan</h3>
-      <p>Merenpohja strategisena tilana. Kaapeli siirtää, kaapeli kuuntelee — ja kaapeli on halpa rikkoa. Mukana kuituoptisen kuuntelun fysiikka, Itämeren akustiikka, sukellusveneet, kaapelivauriot ja se mitä on syytä olettaa jätetyn kertomatta.</p>
-      <p><span class="kirjamerkki">Taustatyötä kirjaan Jääraja</span></p>
-      <p><a class="nappi" href="kaistale-kerrallaan.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p>
-    </div>
-<div class="raportti">
-      <p class="meta">Versio 1.0 · 19.8.2026 · 10 sivua</p>
-      <h3>Mitä koira tietää</h3>
-      <p>Hajuaistin fysiikka, jäljen ikägradientti ja kolme eri työtapaa. Ja se epämukava luku: kokeessa, jossa etsittävää ei ollut lainkaan, ohjaajan uskomus tuotti enemmän virhemerkkauksia kuin koiran oma kiinnostus. Koirakko on kahden osan mittalaite, ja epävarmempi osa kävelee kahdella jalalla. Ja ratkaisevin tekijä ei ole rotu vaan tunnit: jospa sille vuan näättäs mehttee.</p>
-      <p><span class="kirjamerkki">Taustatyötä kirjaan Majakkaraja</span></p>
-      <p><a class="nappi" href="mita-koira-tietaa.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p>
-    </div>
-<div class="raportti">
-      <p class="meta">Versio 2.1 · 19.8.2026 · 9 sivua</p>
-      <h3>Kolmesataa yhtä vastaan</h3>
-      <p>Miksi suomalainen virkamies ei pönötä? Vastaus on routavuosissa: kun lain noudattamisesta tuli vastarintaa, virkamiehen valta alkoi tulla laista eikä virasta — eikä sellaista tarvitse esittää. Mukana Rajavartiolaitoksen vaikenemisen perintö, valvonnan aritmetiikka, se mikä poliisin ympärillä on oikeasti kriisissä — ja Seiskari, jonne lähetettiin esivalta.</p>
-      <p><span class="kirjamerkki">Taustatyötä kirjaan Jääraja</span></p>
-      <p><a class="nappi" href="kolmesataa-yhta-vastaan.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p>
-    </div>
-<div class="raportti">
-      <p class="meta">Versio 1.0 · 19.8.2026 · 9 sivua</p>
-      <h3>Ei suurempaa haittaa</h3>
-      <p>Kalastuksenvalvojan toimivalta pykälätasolla: mitä hän saa tehdä, mitä ei — ja kuka valvoo valvojaa. Keskeisin löydös on symmetria: laki antaa valvojalle kolmiportaisen keinovalikoiman kalastajaa kohtaan ja viranomaiselle rakenteeltaan saman valvojaa kohtaan. Sama tikas molempiin suuntiin.</p>
-      <p><span class="kirjamerkki">Taustatyötä kirjaan Jääraja</span></p>
-      <p><a class="nappi" href="ei-suurempaa-haittaa.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p>
-    </div>
-<div class="raportti">
-      <p class="meta">Versio 1.0 · 19.8.2026 · 8 sivua</p>
-      <h3>Kuusi kalaa</h3>
-      <p>Pielisjoessa oli järvilohen lisääntymisalueita 177 hehtaaria. Niistä hävisi 171. Ja lajin olemassaolo näissä vesissä osoitettiin tieteellisesti vasta kahden ratkaisevan padon valmistuttua. Syksyllä 2025 tehtiin ensimmäinen onnistunut korjausyritys kuuden kalan perimällä — seitsemänkymmentä vuotta päätöksen jälkeen.</p>
-      <p><span class="kirjamerkki">Taustatyötä kirjaan Jääraja</span></p>
-      <p><a class="nappi" href="kuusi-kalaa.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p>
-    </div>
-<div class="raportti">
-      <p class="meta">Versio 1.0 · 19.8.2026 · 10 sivua</p>
-      <h3>Kirjan linnut ovat todellisia</h3>
-      <p>Sarjan tunnuslauseen tarkistus. Suomessa on laskettu noin kymmenentuhatta lintulinjaa seitsemässäkymmenessä vuodessa, ja työn ovat tehneet vapaaehtoiset — se on ainoa tämän sarjan aihe, jossa vertailuaineisto oli valmiina. Mukana kaikki kirjoissa esiintyvät lajit — ja kaksi joita ei ole: kottarainen ja peltosirkku, joiden katoamisessa syytettiin ensin ulkomaalaisia.</p>
-      <p><span class="kirjamerkki sarja">Koko sarjan tunnuslauseen tarkistus</span></p>
-      <p><a class="nappi" href="kirjan-linnut.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p>
-    </div>
-    </div>
-  
-    <div class="alaryhma">
-      <h3>Brahea ja Pielisjärvi · 1600–1800-luku</h3>
-<div class="raportti tuore">
-      <p class="meta">Versio 2.0 · 5.9.2026 · 9 sivua</p>
-      <h3>Pato joka rakennettiin joka kevät<span class="uusimerkki">Uusi</span></h3>
-      <p><span class="avoin">Aineistokatsaus · vapaasti käytettävissä</span></p>
+      <p><span class="kirjamerkki sarja">Taustatyötä kirjoihin Toimittamatta ja Jäävätty</span></p>
+      <p><a class="nappi" href="karajakirja.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p></div>
+    </details>
+    <details class="raportti tuore" id="pato-joka-rakennettiin-joka-kevat">
+      <summary>
+        <p class="meta">Versio 2.0 · 5.9.2026 · 9 sivua</p>
+        <h3>Pato joka rakennettiin joka kevät<span class="uusimerkki">Uusi</span></h3>
+        <p class="tiivis">Aineistokatsaus · vapaasti käytettävissä</p>
+      </summary>
+      <div class="avattu"><p><span class="avoin">Aineistokatsaus · vapaasti käytettävissä</span></p>
       <p>Lieksanjoen alajuoksulla oli koski, joka tuotti kruunulle veroa yhtäjaksoisesti lähes kaksisataa vuotta. Se ei ollut suuri — hyvänä vuonna siitä nousi kymmenen tynnyriä lohta, huonona kaksi. Mutta sen haltijat ovat lista, jota kannattaa katsoa.</p>
       <p>Ensimmäinen oli majuri Simon Affleck, Lieksan hovin isäntä, jonka kansa muistaa Simo Hurttana. Toinen oli nimismies Johan Winter, joka hukkui vuonna 1753. Kolmas oli Pielisjärven kirkkoherra Jaakko Stenius, Korpi-Jaakko, ja hänen jälkeensä poika, Koski-Jaakko. <strong>Sama koski, sama vero, sama kansan viha — ja pitäjän pahin muisto sekä pitäjän suurin hyväntekijä pitivät samaa apajaa.</strong></p>
       <p>Katsaus kokoaa yhteen sen, mitä kalastamosta tiedetään: kuka sitä piti, milloin, mitä se antoi ja mitä siitä maksettiin. Saaliit on kirjattu tynnyreinä, ja koska tynnyri ei sano nykylukijalle mitään, mukana on arvio kiloina sekä oma lukunsa siitä, mihin arvio perustuu ja miten epävarma se on.</p>
@@ -514,12 +566,15 @@
         Haltija-, saalis- ja verotiedot ovat A. V. A. Könösen vuonna 1916 julkaisemasta tutkimuksesta, joka on koottu maakirjoista; alkuperäisiä maakirjasivuja ei ole tarkistettu, ja Könösen ilmoittamat sivunumerot on merkitty näkyviin tarkistusta varten. Kilomäärät ovat laskettuja arvioita Kemijoen lohitynnyrin painosta, eivät maakirjasta. Rajoitteet on eritelty omassa luvussaan.
       </div>
       <p><span class="kirjamerkki sarja">Taustatyötä romaanityöhön</span></p>
-      <p><a class="nappi" href="pankakoski.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p>
-    </div>
-<div class="raportti tuore">
-      <p class="meta">Versio 1.0 · 5.9.2026 · 16 sivua</p>
-      <h3>Jouluyö Kuoran kylässä</h3>
-      <p><span class="avoin">Aineistokatsaus · vapaasti käytettävissä</span></p>
+      <p><a class="nappi" href="pankakoski.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p></div>
+    </details>
+    <details class="raportti tuore" id="jouluyo-kuoran-kylassa">
+      <summary>
+        <p class="meta">Versio 1.0 · 5.9.2026 · 16 sivua</p>
+        <h3>Jouluyö Kuoran kylässä</h3>
+        <p class="tiivis">Aineistokatsaus · vapaasti käytettävissä</p>
+      </summary>
+      <div class="avattu"><p><span class="avoin">Aineistokatsaus · vapaasti käytettävissä</span></p>
       <p>Joulukuun 24. ja 25. päivän välisenä yönä vuonna 1763 vanha talollinen Petter Hortanainen löi vaimoaan Anna Turpeitarta Kuoran kylässä Pielisjärvellä niin pahoin, että tämä kuoli samana yönä. Se oli jouluyö; asiakirja ei sano sitä ääneen, se sanoo päivämäärän.</p>
       <p>Siitä ei tiedetä muuta. Ei riidan syytä, ei todistajia, ei sitä millä hän löi. Ei hänen ikäänsä — sana <em>vanha</em> on ainoa mitä hänestä sanotaan. Ei sitäkään, tunnustiko hän vai kiistikö.</p>
       <p>Mutta yksi asia on kirjattu erittäin tarkasti, ja se on lasku. Provinsiaalivälskäri matkusti Kuopiosta, tarkasti ruumiin ja avasi sen, ja hänen palkkionsa määrättiin maksettavaksi tuomitun jäämistöstä. Käräjäoikeus tuomitsi 205 taalaria; hovioikeus tarkisti laskun ja alensi sen 193:een. Samassa aineistossa lehmän arvoksi määrätään kymmenen taalaria hopearahaa. <strong>Ruumiin avaaminen maksoi siis suunnilleen kuuden lehmän hinnan, ja se otettiin siitä jäämistöstä joka olisi jäänyt talon jatkajille.</strong></p>
@@ -530,12 +585,15 @@
         Turun ja vuodesta 1776 Vaasan hovioikeuden arkistot: alistettujen asiain päätöstaltiot, rikos- ja siviiliasiain pöytäkirjat, renovoidut tuomiokirjat. Yhdistetty korpus 9&nbsp;819 sivua, josta Pielisjärveä koskevia osumia 407. Kolme sivua luettu alkuperäisinä täysresoluutiokuvina Astiasta. Jokaisen tapauksen lähdesivu on merkitty näkyviin, jotta väitteet voi tarkistaa itse.
       </div>
       <p><span class="kirjamerkki sarja">Taustatyötä tulevaan tietokirjaan</span></p>
-      <p><a class="nappi" href="jouluyo.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p>
-    </div>
-<div class="raportti tuore">
-      <p class="meta">Versio 4.0 · 3.9.2026 · 42 sivua</p>
-      <h3>Brahean oikeustapaukset</h3>
-      <p><span class="avoin">Aineistoraportti · vapaasti käytettävissä</span></p>
+      <p><a class="nappi" href="jouluyo.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p></div>
+    </details>
+    <details class="raportti tuore" id="brahean-oikeustapaukset">
+      <summary>
+        <p class="meta">Versio 4.0 · 3.9.2026 · 42 sivua</p>
+        <h3>Brahean oikeustapaukset</h3>
+        <p class="tiivis">Aineistoraportti · vapaasti käytettävissä</p>
+      </summary>
+      <div class="avattu"><p><span class="avoin">Aineistoraportti · vapaasti käytettävissä</span></p>
       <p>Tämä ei ole katsaus vaan työluettelo: kaikki 99 oikeustapausta, jotka käytettävissä olevasta tuomiokirja-aineistosta löytyvät ja jotka voivat liittyä Lieksan Braheaan. Jokaisesta kerrotaan päivä, asiakirjan tunnus, osapuolet nimeltä, mistä riideltiin ja mikä oli tuomio. Jos tuomiota ei asiakirjassa ole, se sanotaan. Todistelu ja tuomiot on siteerattu myös ruotsiksi, ja liitteenä on kaikkien 25 raastuvanoikeuden asiakirjan koneluettu teksti kokonaisuudessaan.</p>
       <p>Luettelo on tehty romaania <em>Kolme luotia messinkiä</em> ja katsausta <em>Kaupunki joka kynnettiin pelloksi</em> varten, ja se sisältää enemmän kuin kumpikaan niistä käyttää. Majatalon lakkiriita, joka päättyi airoon päähän. Kolmekymmentä kirvestä, joita verrattiin murretun oven jälkeen — ja joista lopulta kuusitoista sopi jälkeen yhtä hyvin kuin syytetyn. Kolme pientä palloa, jotka esitettiin oikeudessa todisteena taikuudesta, tehtynä omasta hiestä, hiiren karvoista, lepakon lihasta ja ruisjauhoista. Kirkkoherra, joka kieltäytyi tulemasta raastupaan. Piika, jonka isäntä sulki hänet kahdesti samaan tupaan kaupunginkirjurin kanssa ja haan oven eteen.</p>
       <p>Mukana on myös luettelo siitä, mikä tässä on katsaukseen nähden uutta ja mitä katsauksessa on väärin: kaksi korjattua virhettä, kolme täyttyvää aukkoa ja kymmenen tapausta, joita katsauksessa ei ole. Ja seitsemän Raahen asiakirjaa, jotka osuivat seulaan ja johtavat harhaan, on lueteltu erikseen sen sijaan että ne olisi vaiettu pois.</p>
@@ -546,13 +604,15 @@
         Luettelon tiedot, taulukot ja sitaatit saa käyttää, lainata ja jatkojalostaa vapaasti. Lähdeviite on kohteliaisuus, ei ehto. Huomaa, että teksti on konelukua 1600-luvun kansliakäsialasta eikä sitä ole tarkistettu alkuperäisistä sivukuvista: nimet, summat ja päivämäärät vääntyvät, ja yhdessä pöytäkirjassa lukee vuosiluku 1767 kun kyse on vuodesta 1671. Kokonaiskuva kestää sen, yksittäinen väite ei. Korjaukset ovat tervetulleita.
       </div>
       <p><span class="kirjamerkki">Taustatyötä kirjaan Kolme luotia messinkiä</span></p>
-      <p><a class="nappi" href="brahean-oikeustapaukset.pdf" target="_blank" rel="noopener">Lue aineistoraportti (PDF)</a></p>
-    </div>
-<div class="raportti tuore" id="jatkuu">
-      <p class="meta">2.9.2026 · tilannekatsaus, ei erillistä PDF:ää</p>
-      <h3>Braheassa sattui ja tapahtui<span class="uusimerkki">Uusi</span></h3>
-
-      <p>Kiitos kiinnostuksesta. Näistä katsauksista on tullut enemmän viestiä kuin osasin odottaa, ja korjauksia on tullut useammalta kuin yhdeltä lukijalta. Molemmat ovat tervetulleita, ja korjauksista olen erityisen kiitollinen.</p>
+      <p><a class="nappi" href="brahean-oikeustapaukset.pdf" target="_blank" rel="noopener">Lue aineistoraportti (PDF)</a></p></div>
+    </details>
+    <details class="raportti tuore" id="jatkuu">
+      <summary>
+        <p class="meta">2.9.2026 · tilannekatsaus, ei erillistä PDF:ää</p>
+        <h3>Braheassa sattui ja tapahtui<span class="uusimerkki">Uusi</span></h3>
+        <p class="tiivis">Kiitos kiinnostuksesta.</p>
+      </summary>
+      <div class="avattu"><p>Kiitos kiinnostuksesta. Näistä katsauksista on tullut enemmän viestiä kuin osasin odottaa, ja korjauksia on tullut useammalta kuin yhdeltä lukijalta. Molemmat ovat tervetulleita, ja korjauksista olen erityisen kiitollinen.</p>
 
       <p>Yleisin kysymys on, milloin tulee lisää. Vastaus on hitaasti, ja syy on tämä: joka kerta kun olen sulkemassa yhtä lukua, aineistosta astuu esiin joku, jolla on oma juttunsa ja hyvin vahva mielipide siitä. Brahea oli pieni kaupunki, jossa kaikki tunsivat toisensa. Se ei tehnyt siitä yhtään rauhallisempaa — päinvastoin.</p>
 
@@ -591,13 +651,15 @@
 
       <p>Oikeustapausten luettelo kasvaa yhä. Sen on tarkoitus ilmestyä omana aineistonaan: jokainen juttu osapuolineen, ratkaisuineen ja arkistolinkkeineen, jotta seuraava ei joudu etsimään niitä uudelleen. Sitä ennen luvassa on lisää yksittäisiä löytöjä sitä mukaa kuin niitä tulee vastaan.</p>
 
-      <p>Tutkimus siis jatkuu. Se etenee suunnilleen sitä tahtia, jolla 1600-luvun lieksalaiset ehtivät asioida oikeudessa — ja he ehtivät usein.</p>
-    </div>
-
-<div class="raportti tuore" id="ruotsista">
-      <p class="meta">1.9.2026 · hakukertomus, päivitetään vastausten mukaan</p>
-      <h3>Mitä Ruotsista ei löytynyt<span class="uusimerkki">Uusi</span></h3>
-      <p><span class="avoin">Arkistokysely · vapaasti käytettävissä</span></p>
+      <p>Tutkimus siis jatkuu. Se etenee suunnilleen sitä tahtia, jolla 1600-luvun lieksalaiset ehtivät asioida oikeudessa — ja he ehtivät usein.</p></div>
+    </details>
+    <details class="raportti tuore" id="ruotsista">
+      <summary>
+        <p class="meta">1.9.2026 · hakukertomus, päivitetään vastausten mukaan</p>
+        <h3>Mitä Ruotsista ei löytynyt<span class="uusimerkki">Uusi</span></h3>
+        <p class="tiivis">Tämä ei ole katsaus vaan kertomus siitä, mitä kysyin, mitä vastattiin ja mitä sivutuotteena tuli.</p>
+      </summary>
+      <div class="avattu"><p><span class="avoin">Arkistokysely · vapaasti käytettävissä</span></p>
 
       <p>Tämä ei ole katsaus vaan kertomus siitä, mitä kysyin, mitä vastattiin ja mitä sivutuotteena tuli. Kielteinen hakutulos on myös tulos, ja sen kirjaaminen säästää seuraavalta saman työn. Ja lopussa on virhe, jonka olin tekemässä — se on tässä siksi, että se on tämän kertomuksen hyödyllisin osa.</p>
 
@@ -656,59 +718,15 @@
         <strong style="margin-top:8px">Muiden tutkijoiden vapaasti käytettävissä.</strong>
         Kuva, signumit ja tämä kertomus saa käyttää, lainata ja jatkojalostaa vapaasti. Lähdeviite on kohteliaisuus, ei ehto. Huomaa kolme asiaa. Kuva on kännykkäkuva eikä sitä pidä käyttää mittaamiseen tai yksityiskohtien lukemiseen — tilaa siihen tarkoitukseen jäljenne Riksarkivetista. Selitelaatikoiden lukemat ovat omiani kännykkäkuvasta eikä niitä ole varmennettu alkuperäisestä; varma on vain kartušin <em>Brahe Stads</em>. Ja kielteinen hakutulos koskee vain nimettyjä kokoelmia ja hakusanoja; se ei todista, ettei aineistoa olisi jossain muualla.
       </div>
-      <p><span class="kirjamerkki">Taustatyötä kirjaan Kolme luotia messinkiä</span></p>
-    </div>
-<div class="raportti tuore">
-      <p class="meta">Versio 10.0 · 28.8.2026 · 41 sivua</p>
-      <h3>Kaupunki joka kynnettiin pelloksi<span class="uusimerkki">Uusi</span></h3>
-      <p><span class="avoin">Tuomiokirja-aineistoa · vapaasti käytettävissä</span></p>
-      <p>Joulukuun viidentenä 1668 Brahean raati julisti porvaristolle valtakunnandrotsin myöntämät privilegiot ja määräsi samalla istunnolla kaikkien maalla asuvien porvarien muuttamaan kaupungin tontille neljänkymmenen markan sakon uhalla. Kaupunki oli ollut olemassa viisitoista vuotta ja joutui yhä käskemään asukkaitaan asumaan siellä. Kolmetoista vuotta myöhemmin se lakkautettiin, ja vuonna 1688 sen talot purettiin ja alue kynnettiin pelloksi.</p>
-      <p>Uutta ei ole aihe vaan pääsy. Kansallisarkisto on lukenut tekoälyn käsialamallilla yli seitsemän miljoonaa sivua tuomiokirjoja, ja Brahean pöytäkirjat ovat nyt haettavissa sanahaulla ensimmäistä kertaa. Niistä nousee kaupunki, jota kukaan ei ole kuvannut sisältäpäin: suomen- ja karjalankielinen raati ruotsalaisen pormestarin alla, kirkkoherra joka voitti pormestarin, porvareita rajan takaa, kolmekymmentä kirvestä joita verrattiin murtojälkeen. Kaupungin lopusta on porvarien oma valitus vuodelta 1688: heidät häädettiin, katot purettiin — kahdessa tapauksessa lesken ja lasten ollessa vielä sisällä.</p>
-      <p>Ja kruunun verokirjat kääntävät tavanomaisen tarinan toisin päin. Maakirjoissa Braheaa ei ole kaupunkina kertaakaan vuosina 1656–1677: se on kyläotsikko muiden joukossa. Todiste ei perustu siihen mitä lähteistä puuttuu — samassa niteessä, saman kirjurin kirjoittamana, on toinen Brahen kaupunki. Raahella on oma porvarisluettelo, oma summarivi kruunun kirjanpidossa ja punainen lakkasinetti sivun alalaidassa. Lieksan Brahealla ei ole yhtäkään niistä. Kaupunki ei menettänyt asemaansa; se ei saanut sitä koskaan.</p>
-      <p>Ja veroluettelot ajoittavat katoamisen tarkemmin kuin aiempi tutkimus: vuonna 1679 Brahealla on oma nelisenkymmenen nimen luettelo, vuonna 1682 kaksi verotettavaa taloutta, vuonna 1696 ei mitään. Asiakirjojen vahvistuspaikka seuraa samaa käyrää — Brahea, Lieksa, Liexa gård. Kaupungin nimi ei kadonnut päätöksellä vaan korvautui hallinnon omassa kielenkäytössä ensin kylän ja sitten hovin nimellä.</p>
-      <p>Tässä versiossa vastataan myös siihen kysymykseen, joka on ollut auki koko ajan: missä kaupunki oli. Kirkon paikka on ollut sama vuodesta 1667 nykypäivään — neljä kirkkoa peräkkäin samalle paikalle — ja se on ainoa Brahean rakennus, jonka sijainti tunnetaan varmasti. Sen rinnalle asettuu tilaketju, joka löytyi Suomen Pankin velkakirjasta vuodelta 1844: Hovila numero 77 ja Rantala numero 80 on lohkottu samasta vanhasta verotalosta numero 41, Hovila on kokonainen manttaali, ja nimi kertoo mistä — hovin maa, ja hovi oli se hovileiri, joka perustettiin kaupungin tonteille 1685. Isojaon aikaan Rantalan oli siirryttävä pois vanhalta tonttimaaltaan, ja molemmat tilat kalastivat Kaupunginniemen rannoilla. Vuoden 1772 todistus kuvaa asutuksen kulkeneen niemestä Hovilan ohi Rantalaan. Aineisto viittaa siihen, että kaupunki sijaitsi kirkon ja Hovilan välisellä alueella. Se on merkitty päätelmäksi eikä havainnoksi.</p>
-      <p><strong>Yksi asiakirja ratkaisisi tämän, ja se on käyttörajoituksen takana.</strong> Maanmittaushallituksen uudistusarkiston arkistoyksikkö <strong>D23:b11/1–102</strong> sisältää Lieksan isojaonkartan, jakokirjan ja pyykkiselityksen vuosilta 1840–1847, numerot 1–109, tekijöinä A. J. von Fieandt ja C. F. Durckman. Kartta näyttää palstat numeroituina; jakokirja ja pyykkiselitys kertovat kunkin numeron haltijan ja rajapyykit maastossa. Niistä selviäisi suoraan, missä Rantalan vanha tonttimaa oli ja miten tilojen 41, 77 ja 80 rajat kulkivat suhteessa kirkkoon. Aineistolla on käyttörajoitus, joten sitä ei saa verkosta — se on tilattava tai katsottava paikan päällä. Lieksan keskustassa on tätä kirjoitettaessa käynnissä arkeologisia koe-etsintöjä, ja jos aineisto hankitaan nyt, sen tiedot ovat käytettävissä vielä silloin kun ne voivat vaikuttaa kohdentamiseen. Pyydettävä on nimenomaan jakokirja ja pyykkiselitys, ei pelkkä karttalehti.</p>
-      <div class="lahdelaatikko">
-        <strong>Lähteet ja käyttöoikeus</strong>
-        Aineisto on Kansallisarkiston Sisältöhaku ja Astia. Tuomiokirja-aineistoa jäsennettiin 3&nbsp;487 asiakirjaa ja 10,7 miljoonaa merkkiä konelukutekstiä, josta seulottiin 55 luettavaksi; niistä 25 on Lieksan Brahean raastuvanoikeuden pöytäkirjoja. Lisäksi on luettu kahdeksan Kajaanin vapaaherrakunnan maakirjaa vuosilta 1656 ja 1670–1677 sekä neljä Pielisjärven vero- ja savuluetteloa vuosilta 1679, 1682, 1686 ja 1696 — nämä sivukuvista, ilman konelukua. Jokaisella asiakirjalla on tunnus ja suora linkki alkuperäiskuvaan Astia-palvelussa.
-        <strong style="margin-top:8px">Muiden tutkijoiden vapaasti käytettävissä.</strong>
-        Katsauksen tiedot, taulukot ja sitaatit saa käyttää, lainata ja jatkojalostaa vapaasti. Lähdeviite on kohteliaisuus, ei ehto. Huomaa, että tuomiokirjateksti on konelukua ja verokirjat on luettu ruudulta; kumpaakaan ei ole tarkistettu alkuperäisistä. Luvussa 18 luetellaan seitsemäntoista kohtaa, joita aineisto ei kerro.
-      </div>
-      <p><span class="kirjamerkki">Taustatyötä kirjaan Kolme luotia messinkiä</span></p>
-      <p><a class="nappi" href="kaupunki-joka-kynnettiin-pelloksi.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p>
-    </div>
-<div class="raportti tuore">
-      <p class="meta">Versio 1.0 · 28.8.2026 · 10 sivua</p>
-      <h3>Skanssi jonka he rakensivat itse<span class="uusimerkki">Uusi</span></h3>
-      <p><span class="avoin">Tuomiokirja-aineistoa · vapaasti käytettävissä</span></p>
-      <p>Maaliskuussa 1688 Pielisjärven talonpojat valittivat käräjillä siitä, että heidän oli maksettava palkkaa miehelle, joka vartioi Lieksan skanssia. Kenraalikuvernööri hylkäsi valituksen yhdellä perustelulla: he olivat itse pyytäneet sitä miestä ja palkanneet hänet vapaaehtoisesti. Se kuulostaa hallinnon jälkikäteiseltä selitykseltä. Se ei ole — päätös on luettavissa heidän omilta käräjiltään kolme vuotta aiemmin.</p>
-      <p>Päällikkyyden vaihtuminen on nyt ajoitettavissa päivämäärätasolle. Luutnantti Lars Björn kuoli keväällä 1684, rustimestari Erich Aahlholm anoi paikkaa syyskäräjillä, kenraalikuvernööri Jöran Sperling nimitti hänet 29.11.1684 — kolme päivää sen jälkeen, kun sama mies oli allekirjoittanut vuokraaja Salomon Enbergin sopimuksen koko pitäjästä. Palkka määrättiin käräjillä seuraavana vuonna, ja tehtävään kuului vartioinnin ohella rahvaan kouluttaminen aseiden käyttöön kiertäviä vihollispartioita vastaan. Skanssi ei ollut vartiotorni vaan pitäjän puolustusjärjestely.</p>
-      <p>Vastarinta kulki kolmea tietä peräkkäin, ja väkivalta oli viimeinen eikä ensimmäinen. Ensin laki: kirkkoherra kirjoitti rahvaan läheteille matkapassin, kirjelmät kirjoitti pappilassa entinen Kajaanin tullimies, matkaan Ouluun ja Tukholmaan lainattiin 300 taalaria oululaiselta porvarilta — ja kuningas vastasi määräämällä, että kruunun talonpojille on laadittava varma maakirja. Sitten käräjät maaliskuussa 1688, jotka pidettiin vuokraajan omassa hovileirissä ja joilla rahvaan lautamiehet oli suljettu neuvottelujen ulkopuolelle. Ja vasta sitten kansannousu, jonka jälkeen rahvaan omat valtuutetut suljettiin siihen skanssiin, jonka pitäjä oli itse rakentanut.</p>
-      <p><strong>Lähteet ja käyttöoikeus</strong> Kansallisarkiston renovoidut tuomiokirjat Käkisalmen läänin tuomiokunnasta vuosilta 1684, 1685 ja 1688 sekä Pielisjärven vero- ja savuluettelot 1679, 1682, 1686 ja 1696. Keskeiset kohdat on luettu Astian sivukuvista käsialasta suurennettuina. <strong>Muiden tutkijoiden vapaasti käytettävissä.</strong> Katsauksen tiedot, taulukot ja sitaatit saa käyttää, lainata ja jatkojalostaa vapaasti; lähdeviite on kohteliaisuus, ei ehto. Kolme skanssia koskevaa väitettä on toistaiseksi koneluvun varassa ja merkitty tekstiin erikseen, samoin kymmenen muuta kohtaa, joita aineisto ei kerro. Vuoden 1688 pöytäkirjan foliot 73–92 ovat lukematta, ja skanssin etäisyys rajasta on niissä.</p>
-      <p><span class="kirjamerkki">Taustatyötä kirjaan Kolme luotia messinkiä</span></p>
-      <p><a class="nappi" href="skanssi-jonka-he-rakensivat-itse.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p>
-    </div>
-<div class="raportti tuore">
-      <p class="meta">Versio 1.0 · 28.8.2026 · 8 sivua</p>
-      <h3>Se on kruunun kala<span class="uusimerkki">Uusi</span></h3>
-      <p><span class="avoin">Tuomiokirja-aineistoa · vapaasti käytettävissä</span></p>
-      <p>Kesällä 1686 kolme miestä käveli Pielisjärven pappilaan: veronvuokraaja Salomon Enberg, luutnantti Erich Ahlholm ja lautamies Grels Partain. He tulivat kieltämään kirkkoherraa kalastamasta. Kirkkoherra vastasi jatkavansa kuten ennenkin — hänellä oli kihlakunnantuomarin tuomiot vuodelta 1670, ja jos se ei riittäisi, hän veisi asian kuninkaalle. Hän vei. Kolme vuotta myöhemmin riita oli kulkenut Tukholmaan ja takaisin, ja käräjillä vuokraaja tiivisti kantansa neljään sanaan: <em>det ähr Cronones Fiska</em>, se on kruunun kala.</p>
-      <p>Katsaus lukee kalastuksen tuomioiden kautta: mitä pyydettiin, millä välineillä, missä ja milloin. Nuotanveto ja nuotta-apajat, verkot, merrat, liistekatiskat, tuulastus ja sataviisikymmentä koukkua yhdessä siimassa. Lohi, siika ja hauki. Kalaa keitettiin apajalla, ja kun kirjuri kohtasi sanan jolle ei ollut ruotsinkielistä vastinetta, hän selitti sen pöytäkirjaan: <em>een half kala kucko, thet är, fisk stelt sin i brudh</em>.</p>
-      <p>Riidan aiheita on neljä, ja ne toistuvat pitäjästä toiseen. Pato vastaan väylä: laki ei kieltänyt patoamista vaan vaati jättämään aukon, ja kiista koski aina sitä mistä kohtaa — Utrassa yksi pato tyhjensi kahdeksantoista peninkulmaa yläjuoksua, eikä vuokraaja saanut sinä vuonna yhtään nousukalaa. Kutuaika vastaan ruoka: kalastuskielto oli voimassa ja siitä sakotettiin, mutta juuri silloin kala oli helpoimmin saatavissa. Kruunun regaali vastaan vanhat tuomiot, jotka oli myönnetty toisen hallintojärjestelmän aikana. Ja vuokraajan yksityisvesi vastaan talonpojan ikimuistoinen apaja, joka oli hänen mukaansa ollut olemassa <em>ennen kuin meri oli sinne rakennettu</em>.</p>
-      <p>Mukana on myös se, mitä oikeus perusteli harvinaisen suoraan. Kun Brahean pormestari oli jättänyt patoonsa vain puolen sylen syvyisen veden ja puolustautui sillä, että kolme lastaamatonta venettä mahtuisi rinnakkain, tuomioistuin vastasi: lohi on arka kala eikä seuraa matalaa vettä. Kuuden kyynärän veneväylä auki syvimmästä kohdasta, sakon uhalla.</p>
-      <div class="lahdelaatikko">
-        <strong>Lähteet ja käyttöoikeus</strong>
-        Kansallisarkiston renovoidut tuomiokirjat Käkisalmen läänin tuomiokunnasta vuosilta 1684–1690, haettuna Sisältöhausta koneluettuna tekstinä ja seulottuna kalastusta koskevin hakusanoin kaikissa tunnistetuissa kirjoitusasuissa. Ensin Pielisjärvi, sitten muu lääni: Liperi, Sortavala, Pyhäjärvi ja Kajaanin vapaaherrakunta.
-        <strong style="margin-top:8px">Muiden tutkijoiden vapaasti käytettävissä.</strong>
-        Sisältö saa käyttää, lainata ja jatkojalostaa vapaasti; lähdeviite on kohteliaisuus, ei ehto. Huomaa, että tämä katsaus on kokonaan koneluvun varassa eikä yhtäkään sitaattia ole tarkistettu alkuperäisestä sivukuvasta — nimet, luvut ja yksittäiset sanat voivat olla väärin. Kokonaiskuva kestää sen, yksittäinen väite ei. Se on sanottu tekstissä heti alussa, ja seitsemän muuta avointa kohtaa on lueteltu erikseen.
-      </div>
-      <p><span class="kirjamerkki">Taustatyötä kirjaan Kolme luotia messinkiä</span></p>
-      <p><a class="nappi" href="se-on-kruunun-kala.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p>
-    </div>
-<div class="raportti tuore">
-      <p class="meta">Versio 3.3 · 31.8.2026 · 33 sivua</p>
-      <h3>Kaksi laukausta<span class="uusimerkki">Päivitetty</span></h3>
-      <p><span class="avoin">Tuomiokirja-aineistoa · vapaasti käytettävissä</span></p>
+      <p><span class="kirjamerkki">Taustatyötä kirjaan Kolme luotia messinkiä</span></p></div>
+    </details>
+    <details class="raportti tuore" id="kaksi-laukausta">
+      <summary>
+        <p class="meta">Versio 3.3 · 31.8.2026 · 33 sivua</p>
+        <h3>Kaksi laukausta<span class="uusimerkki">Päivitetty</span></h3>
+        <p class="tiivis">Tuomiokirja-aineistoa · vapaasti käytettävissä</p>
+      </summary>
+      <div class="avattu"><p><span class="avoin">Tuomiokirja-aineistoa · vapaasti käytettävissä</span></p>
       <p>Helmikuussa 1697 Pielisjärven käräjillä luetteloitiin, ketkä olivat olleet ryöstämässä Lieksan hovia edellisenä jouluna. Luettelo etenee kylä kylältä, ja Viensuun kohdalla kirjuri kirjoittaa yhden nimen perään: <em>hwilcken blifwit skuten af Affleck</em> — joka on tullut Affleckin ampumaksi. Sitten kirjuri siirtyy seuraavaan kylään. Ei etunimeä, ei aikaa, ei syytä, ei seurausta. Kruunun virkamies oli ampunut talonpojan, ja oikeus käytti sitä henkilötunnisteena. Vuotta myöhemmin sama oikeus kirjaa samalla tavalla, että Meriläisen poika oli ampunut Affleckia päähän.</p>
       <p>Simon Affleck on se mies, jonka Suomi tuntee Simo Hurttana. Tässä artikkelissa häntä luetaan alkuperäisistä tuomiokirjoista ja tilikirjoista, sivukuvista suurennettuina. Leinon sotapäällikköä siellä ei ole: kahdentoista vuoden titteliketju on katkeamattomasti siviilivirkamiehen — kirjuri, lääninkirjuri, manttaalikomissaari. Mutta ei siellä ole myöskään sitä väärinymmärrettyä virkamiestä, jonka puolustajat tarjoavat. Väite, ettei hänen julmuudestaan ole asiakirjatodisteita, kaatuu kahteen laukaukseen.</p>
       <p>Ja lopulta kyse ei ole miehestä. Vuonna 1710 Pielisjärvi vannoi uskollisuutta tsaarille, ja kapinaa johti kirkkoherra, joka oli Affleckin appi. Sama pitäjä oli vannonut saman valan jo 1656. Kahdesti sadassa vuodessa rajapitäjä totesi, ettei kruunu ollut sen puolella — ja se kertoo Ruotsin vallasta rajalla enemmän kuin yksikään sotatapahtuma. Artikkelin perässä on erillinen tieteellinen yhteenveto: aineisto, menetelmä, löydökset ja rajoitteet.</p>
@@ -722,31 +740,252 @@
         Sisältö saa käyttää, lainata ja jatkojalostaa vapaasti; lähdeviite on kohteliaisuus, ei ehto. Vuodet 1701–1702 ja 1704–1725 ovat lukematta, ja avoimet kysymykset on lueteltu erikseen. Versiossa 3.1 on korjattu yksi version 3.0 virhe: oikeus ei kirjannut, että Affleckia koskeva tutkinta olisi määrätty, vaan esitti että sellainen määrättäisiin — verbi on konditionaalissa. Korjaus on merkitty tekstiin näkyviin. Joulukuun 1696 murhayrityksen ase on yhä auki, kohde ei enää. Vuoden 1689 Vaaraniemen ampuminen on edelleen merkitty kirjallisuudesta otetuksi: sitä ei löytynyt Pielisjärven syyskäräjiltä 1689 eikä talvikäräjiltä 1690, eikä pitäjässä pidetty kesä- eikä syyskäräjiä vuonna 1690. Korjaukset ovat tervetulleita — useita kohtia on nimetty, joiden lukema kaipaa toista silmäparia.
       </div>
       <p><span class="kirjamerkki">Taustatyötä kirjaan Kolme luotia messinkiä</span></p>
-      <p><a class="nappi" href="kaksi-laukausta.pdf" target="_blank" rel="noopener">Lue artikkeli (PDF)</a></p>
-    </div>
-    </div>
-</section>
-
-  <section class="osio" id="tulevat">
-    <div class="banneri"><h2>Tulevien kirjojen aiheita</h2><span class="lkm">5 julkaisua</span></div>
-    <p class="kuvaus">Aihekatsauksia: lähdetilanne koossa, kirja vielä kirjoittamatta. Osa kysymyksistä on tarkoituksella jätetty auki ja merkitty tekstiin.</p>
-
-    <div class="intro-laatikko">
-      <h4>Mistä tässä osiossa on kyse</h4>
-      <p><strong>Kirjan siemen.</strong> Näiden tekstien takana on tarina, jota ei ole vielä kirjoitettu: isoisäni Pekka Jukola ja hänen veljensä Juho ja Paavo syntyivät Aunuksen Karjalassa Mäntyselän pitäjän Hokanmäen kylässä, ylittivät rajan Suomeen 1919–1922 ja rakensivat Suojärvelle kauppahuoneen maassa, jossa pakolainen ei saanut omistaa maata. Heidän vanhempansa jäivät rajan taakse.</p>
-      
-      <p><strong>Mitä aineistot ovat.</strong> Nämä eivät ole kirjan lukuja vaan sen pohjatyötä. Osa kokoaa sen, mitä yhdestä perheestä, yhdestä kaupungista tai yhdestä elinkeinosta on asiakirjoissa. Osa esittää teorian — merkittynä teoriaksi. Ja osa on laajaa lähdeaineistoa, joka syntyi näitä tehdessä ja jota kuka tahansa voi käyttää omaan työhönsä.</p>
-      <p><strong>Yhteinen on menetelmä.</strong> Nämä ovat mahdollisia vasta nyt, koska arkistot ovat avautuneet koneluettavaksi: Kansalliskirjaston lehtikokoelma vuoteen 1939 ja Kansallisarkiston tuomiokirjat 1600-luvulta alkaen. Jokainen väite lähteistetään, epävarmuudet sanotaan ääneen, ja se mitä ei tiedetä merkitään tekstiin. Lähdetaso merkitään myös: mikä on luettu alkuperäisestä sivukuvasta ja mikä on pelkän koneluvun varassa. Kun jokin osoittautuu vääräksi, se korjataan näkyvästi.</p>
-    </div>
-    
-    
-    
-
-    
-<div class="raportti tuore" id="pappi">
-      <p class="meta">Versio 1.0 · 3.9.2026 · 5 sivua · synopsis, ei kirja</p>
-      <h3>Pappi haettiin rajan yli<span class="uusimerkki">Uusin</span></h3>
-      <p><span class="avoin">Aihesynopsis · kommentteja toivotaan</span></p>
+      <p><a class="nappi" href="kaksi-laukausta.pdf" target="_blank" rel="noopener">Lue artikkeli (PDF)</a></p></div>
+    </details>
+    <details class="raportti tuore" id="kaupunki-joka-kynnettiin-pelloksi">
+      <summary>
+        <p class="meta">Versio 10.0 · 28.8.2026 · 41 sivua</p>
+        <h3>Kaupunki joka kynnettiin pelloksi<span class="uusimerkki">Uusi</span></h3>
+        <p class="tiivis">Tuomiokirja-aineistoa · vapaasti käytettävissä</p>
+      </summary>
+      <div class="avattu"><p><span class="avoin">Tuomiokirja-aineistoa · vapaasti käytettävissä</span></p>
+      <p>Joulukuun viidentenä 1668 Brahean raati julisti porvaristolle valtakunnandrotsin myöntämät privilegiot ja määräsi samalla istunnolla kaikkien maalla asuvien porvarien muuttamaan kaupungin tontille neljänkymmenen markan sakon uhalla. Kaupunki oli ollut olemassa viisitoista vuotta ja joutui yhä käskemään asukkaitaan asumaan siellä. Kolmetoista vuotta myöhemmin se lakkautettiin, ja vuonna 1688 sen talot purettiin ja alue kynnettiin pelloksi.</p>
+      <p>Uutta ei ole aihe vaan pääsy. Kansallisarkisto on lukenut tekoälyn käsialamallilla yli seitsemän miljoonaa sivua tuomiokirjoja, ja Brahean pöytäkirjat ovat nyt haettavissa sanahaulla ensimmäistä kertaa. Niistä nousee kaupunki, jota kukaan ei ole kuvannut sisältäpäin: suomen- ja karjalankielinen raati ruotsalaisen pormestarin alla, kirkkoherra joka voitti pormestarin, porvareita rajan takaa, kolmekymmentä kirvestä joita verrattiin murtojälkeen. Kaupungin lopusta on porvarien oma valitus vuodelta 1688: heidät häädettiin, katot purettiin — kahdessa tapauksessa lesken ja lasten ollessa vielä sisällä.</p>
+      <p>Ja kruunun verokirjat kääntävät tavanomaisen tarinan toisin päin. Maakirjoissa Braheaa ei ole kaupunkina kertaakaan vuosina 1656–1677: se on kyläotsikko muiden joukossa. Todiste ei perustu siihen mitä lähteistä puuttuu — samassa niteessä, saman kirjurin kirjoittamana, on toinen Brahen kaupunki. Raahella on oma porvarisluettelo, oma summarivi kruunun kirjanpidossa ja punainen lakkasinetti sivun alalaidassa. Lieksan Brahealla ei ole yhtäkään niistä. Kaupunki ei menettänyt asemaansa; se ei saanut sitä koskaan.</p>
+      <p>Ja veroluettelot ajoittavat katoamisen tarkemmin kuin aiempi tutkimus: vuonna 1679 Brahealla on oma nelisenkymmenen nimen luettelo, vuonna 1682 kaksi verotettavaa taloutta, vuonna 1696 ei mitään. Asiakirjojen vahvistuspaikka seuraa samaa käyrää — Brahea, Lieksa, Liexa gård. Kaupungin nimi ei kadonnut päätöksellä vaan korvautui hallinnon omassa kielenkäytössä ensin kylän ja sitten hovin nimellä.</p>
+      <p>Tässä versiossa vastataan myös siihen kysymykseen, joka on ollut auki koko ajan: missä kaupunki oli. Kirkon paikka on ollut sama vuodesta 1667 nykypäivään — neljä kirkkoa peräkkäin samalle paikalle — ja se on ainoa Brahean rakennus, jonka sijainti tunnetaan varmasti. Sen rinnalle asettuu tilaketju, joka löytyi Suomen Pankin velkakirjasta vuodelta 1844: Hovila numero 77 ja Rantala numero 80 on lohkottu samasta vanhasta verotalosta numero 41, Hovila on kokonainen manttaali, ja nimi kertoo mistä — hovin maa, ja hovi oli se hovileiri, joka perustettiin kaupungin tonteille 1685. Isojaon aikaan Rantalan oli siirryttävä pois vanhalta tonttimaaltaan, ja molemmat tilat kalastivat Kaupunginniemen rannoilla. Vuoden 1772 todistus kuvaa asutuksen kulkeneen niemestä Hovilan ohi Rantalaan. Aineisto viittaa siihen, että kaupunki sijaitsi kirkon ja Hovilan välisellä alueella. Se on merkitty päätelmäksi eikä havainnoksi.</p>
+      <p><strong>Yksi asiakirja ratkaisisi tämän, ja se on käyttörajoituksen takana.</strong> Maanmittaushallituksen uudistusarkiston arkistoyksikkö <strong>D23:b11/1–102</strong> sisältää Lieksan isojaonkartan, jakokirjan ja pyykkiselityksen vuosilta 1840–1847, numerot 1–109, tekijöinä A. J. von Fieandt ja C. F. Durckman. Kartta näyttää palstat numeroituina; jakokirja ja pyykkiselitys kertovat kunkin numeron haltijan ja rajapyykit maastossa. Niistä selviäisi suoraan, missä Rantalan vanha tonttimaa oli ja miten tilojen 41, 77 ja 80 rajat kulkivat suhteessa kirkkoon. Aineistolla on käyttörajoitus, joten sitä ei saa verkosta — se on tilattava tai katsottava paikan päällä. Lieksan keskustassa on tätä kirjoitettaessa käynnissä arkeologisia koe-etsintöjä, ja jos aineisto hankitaan nyt, sen tiedot ovat käytettävissä vielä silloin kun ne voivat vaikuttaa kohdentamiseen. Pyydettävä on nimenomaan jakokirja ja pyykkiselitys, ei pelkkä karttalehti.</p>
+      <div class="lahdelaatikko">
+        <strong>Lähteet ja käyttöoikeus</strong>
+        Aineisto on Kansallisarkiston Sisältöhaku ja Astia. Tuomiokirja-aineistoa jäsennettiin 3&nbsp;487 asiakirjaa ja 10,7 miljoonaa merkkiä konelukutekstiä, josta seulottiin 55 luettavaksi; niistä 25 on Lieksan Brahean raastuvanoikeuden pöytäkirjoja. Lisäksi on luettu kahdeksan Kajaanin vapaaherrakunnan maakirjaa vuosilta 1656 ja 1670–1677 sekä neljä Pielisjärven vero- ja savuluetteloa vuosilta 1679, 1682, 1686 ja 1696 — nämä sivukuvista, ilman konelukua. Jokaisella asiakirjalla on tunnus ja suora linkki alkuperäiskuvaan Astia-palvelussa.
+        <strong style="margin-top:8px">Muiden tutkijoiden vapaasti käytettävissä.</strong>
+        Katsauksen tiedot, taulukot ja sitaatit saa käyttää, lainata ja jatkojalostaa vapaasti. Lähdeviite on kohteliaisuus, ei ehto. Huomaa, että tuomiokirjateksti on konelukua ja verokirjat on luettu ruudulta; kumpaakaan ei ole tarkistettu alkuperäisistä. Luvussa 18 luetellaan seitsemäntoista kohtaa, joita aineisto ei kerro.
+      </div>
+      <p><span class="kirjamerkki">Taustatyötä kirjaan Kolme luotia messinkiä</span></p>
+      <p><a class="nappi" href="kaupunki-joka-kynnettiin-pelloksi.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p></div>
+    </details>
+    <details class="raportti tuore" id="skanssi-jonka-he-rakensivat-itse">
+      <summary>
+        <p class="meta">Versio 1.0 · 28.8.2026 · 10 sivua</p>
+        <h3>Skanssi jonka he rakensivat itse<span class="uusimerkki">Uusi</span></h3>
+        <p class="tiivis">Tuomiokirja-aineistoa · vapaasti käytettävissä</p>
+      </summary>
+      <div class="avattu"><p><span class="avoin">Tuomiokirja-aineistoa · vapaasti käytettävissä</span></p>
+      <p>Maaliskuussa 1688 Pielisjärven talonpojat valittivat käräjillä siitä, että heidän oli maksettava palkkaa miehelle, joka vartioi Lieksan skanssia. Kenraalikuvernööri hylkäsi valituksen yhdellä perustelulla: he olivat itse pyytäneet sitä miestä ja palkanneet hänet vapaaehtoisesti. Se kuulostaa hallinnon jälkikäteiseltä selitykseltä. Se ei ole — päätös on luettavissa heidän omilta käräjiltään kolme vuotta aiemmin.</p>
+      <p>Päällikkyyden vaihtuminen on nyt ajoitettavissa päivämäärätasolle. Luutnantti Lars Björn kuoli keväällä 1684, rustimestari Erich Aahlholm anoi paikkaa syyskäräjillä, kenraalikuvernööri Jöran Sperling nimitti hänet 29.11.1684 — kolme päivää sen jälkeen, kun sama mies oli allekirjoittanut vuokraaja Salomon Enbergin sopimuksen koko pitäjästä. Palkka määrättiin käräjillä seuraavana vuonna, ja tehtävään kuului vartioinnin ohella rahvaan kouluttaminen aseiden käyttöön kiertäviä vihollispartioita vastaan. Skanssi ei ollut vartiotorni vaan pitäjän puolustusjärjestely.</p>
+      <p>Vastarinta kulki kolmea tietä peräkkäin, ja väkivalta oli viimeinen eikä ensimmäinen. Ensin laki: kirkkoherra kirjoitti rahvaan läheteille matkapassin, kirjelmät kirjoitti pappilassa entinen Kajaanin tullimies, matkaan Ouluun ja Tukholmaan lainattiin 300 taalaria oululaiselta porvarilta — ja kuningas vastasi määräämällä, että kruunun talonpojille on laadittava varma maakirja. Sitten käräjät maaliskuussa 1688, jotka pidettiin vuokraajan omassa hovileirissä ja joilla rahvaan lautamiehet oli suljettu neuvottelujen ulkopuolelle. Ja vasta sitten kansannousu, jonka jälkeen rahvaan omat valtuutetut suljettiin siihen skanssiin, jonka pitäjä oli itse rakentanut.</p>
+      <p><strong>Lähteet ja käyttöoikeus</strong> Kansallisarkiston renovoidut tuomiokirjat Käkisalmen läänin tuomiokunnasta vuosilta 1684, 1685 ja 1688 sekä Pielisjärven vero- ja savuluettelot 1679, 1682, 1686 ja 1696. Keskeiset kohdat on luettu Astian sivukuvista käsialasta suurennettuina. <strong>Muiden tutkijoiden vapaasti käytettävissä.</strong> Katsauksen tiedot, taulukot ja sitaatit saa käyttää, lainata ja jatkojalostaa vapaasti; lähdeviite on kohteliaisuus, ei ehto. Kolme skanssia koskevaa väitettä on toistaiseksi koneluvun varassa ja merkitty tekstiin erikseen, samoin kymmenen muuta kohtaa, joita aineisto ei kerro. Vuoden 1688 pöytäkirjan foliot 73–92 ovat lukematta, ja skanssin etäisyys rajasta on niissä.</p>
+      <p><span class="kirjamerkki">Taustatyötä kirjaan Kolme luotia messinkiä</span></p>
+      <p><a class="nappi" href="skanssi-jonka-he-rakensivat-itse.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p></div>
+    </details>
+    <details class="raportti tuore" id="se-on-kruunun-kala">
+      <summary>
+        <p class="meta">Versio 1.0 · 28.8.2026 · 8 sivua</p>
+        <h3>Se on kruunun kala<span class="uusimerkki">Uusi</span></h3>
+        <p class="tiivis">Tuomiokirja-aineistoa · vapaasti käytettävissä</p>
+      </summary>
+      <div class="avattu"><p><span class="avoin">Tuomiokirja-aineistoa · vapaasti käytettävissä</span></p>
+      <p>Kesällä 1686 kolme miestä käveli Pielisjärven pappilaan: veronvuokraaja Salomon Enberg, luutnantti Erich Ahlholm ja lautamies Grels Partain. He tulivat kieltämään kirkkoherraa kalastamasta. Kirkkoherra vastasi jatkavansa kuten ennenkin — hänellä oli kihlakunnantuomarin tuomiot vuodelta 1670, ja jos se ei riittäisi, hän veisi asian kuninkaalle. Hän vei. Kolme vuotta myöhemmin riita oli kulkenut Tukholmaan ja takaisin, ja käräjillä vuokraaja tiivisti kantansa neljään sanaan: <em>det ähr Cronones Fiska</em>, se on kruunun kala.</p>
+      <p>Katsaus lukee kalastuksen tuomioiden kautta: mitä pyydettiin, millä välineillä, missä ja milloin. Nuotanveto ja nuotta-apajat, verkot, merrat, liistekatiskat, tuulastus ja sataviisikymmentä koukkua yhdessä siimassa. Lohi, siika ja hauki. Kalaa keitettiin apajalla, ja kun kirjuri kohtasi sanan jolle ei ollut ruotsinkielistä vastinetta, hän selitti sen pöytäkirjaan: <em>een half kala kucko, thet är, fisk stelt sin i brudh</em>.</p>
+      <p>Riidan aiheita on neljä, ja ne toistuvat pitäjästä toiseen. Pato vastaan väylä: laki ei kieltänyt patoamista vaan vaati jättämään aukon, ja kiista koski aina sitä mistä kohtaa — Utrassa yksi pato tyhjensi kahdeksantoista peninkulmaa yläjuoksua, eikä vuokraaja saanut sinä vuonna yhtään nousukalaa. Kutuaika vastaan ruoka: kalastuskielto oli voimassa ja siitä sakotettiin, mutta juuri silloin kala oli helpoimmin saatavissa. Kruunun regaali vastaan vanhat tuomiot, jotka oli myönnetty toisen hallintojärjestelmän aikana. Ja vuokraajan yksityisvesi vastaan talonpojan ikimuistoinen apaja, joka oli hänen mukaansa ollut olemassa <em>ennen kuin meri oli sinne rakennettu</em>.</p>
+      <p>Mukana on myös se, mitä oikeus perusteli harvinaisen suoraan. Kun Brahean pormestari oli jättänyt patoonsa vain puolen sylen syvyisen veden ja puolustautui sillä, että kolme lastaamatonta venettä mahtuisi rinnakkain, tuomioistuin vastasi: lohi on arka kala eikä seuraa matalaa vettä. Kuuden kyynärän veneväylä auki syvimmästä kohdasta, sakon uhalla.</p>
+      <div class="lahdelaatikko">
+        <strong>Lähteet ja käyttöoikeus</strong>
+        Kansallisarkiston renovoidut tuomiokirjat Käkisalmen läänin tuomiokunnasta vuosilta 1684–1690, haettuna Sisältöhausta koneluettuna tekstinä ja seulottuna kalastusta koskevin hakusanoin kaikissa tunnistetuissa kirjoitusasuissa. Ensin Pielisjärvi, sitten muu lääni: Liperi, Sortavala, Pyhäjärvi ja Kajaanin vapaaherrakunta.
+        <strong style="margin-top:8px">Muiden tutkijoiden vapaasti käytettävissä.</strong>
+        Sisältö saa käyttää, lainata ja jatkojalostaa vapaasti; lähdeviite on kohteliaisuus, ei ehto. Huomaa, että tämä katsaus on kokonaan koneluvun varassa eikä yhtäkään sitaattia ole tarkistettu alkuperäisestä sivukuvasta — nimet, luvut ja yksittäiset sanat voivat olla väärin. Kokonaiskuva kestää sen, yksittäinen väite ei. Se on sanottu tekstissä heti alussa, ja seitsemän muuta avointa kohtaa on lueteltu erikseen.
+      </div>
+      <p><span class="kirjamerkki">Taustatyötä kirjaan Kolme luotia messinkiä</span></p>
+      <p><a class="nappi" href="se-on-kruunun-kala.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p></div>
+    </details>
+  </section>
+  <section class="osio" id="itaraja">
+    <div class="banneri"><h2>Itäraja, valvonta ja havainto</h2><span class="lkm">9 julkaisua</span></div>
+    <p class="kuvaus ryhmakuvaus">Rajan tekniikka, valvonta ja ympäristö. Taustaa Rajamaa-sarjaan ja Jäärajaan.</p>
+    <details class="raportti" id="oljy-jaan-alla">
+      <summary>
+        <p class="meta">Versio 1.0 · 19.8.2026 · 7 sivua</p>
+        <h3>Öljy jään alla</h3>
+        <p class="tiivis">Talvinen öljyvahinko on eri ongelma kuin kesäinen: öljy ei pysy pinnalla vaan hakeutuu jään halkeamiin, puomi ei ulotu jään alle eikä harjakeräin…</p>
+      </summary>
+      <div class="avattu"><p>Talvinen öljyvahinko on eri ongelma kuin kesäinen: öljy ei pysy pinnalla vaan hakeutuu jään halkeamiin, puomi ei ulotu jään alle eikä harjakeräin kerää sitä mitä ei ole pinnassa. Vuonna 1979 öljy painui jäiden alle ja ilmestyi kahden kuukauden kuluttua neljänsadan kilometrin päässä. Mukana aritmetiikka: torjuntatavoite kattaa kolmasosan yhdestä tankkerilastista.</p>
+      <p><span class="kirjamerkki">Taustatyötä kirjaan Jääraja</span></p>
+      <p><a class="nappi" href="oljy-jaan-alla.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p></div>
+    </details>
+    <details class="raportti" id="kenen-kaskysta">
+      <summary>
+        <p class="meta">Versio 1.0 · 19.8.2026 · 5 sivua</p>
+        <h3>Kenen käskystä</h3>
+        <p class="tiivis">Miksi Venäjä ei hajoa niin kuin Neuvostoliitto.</p>
+      </summary>
+      <div class="avattu"><p>Miksi Venäjä ei hajoa niin kuin Neuvostoliitto. Vuoden 1991 hajoaminen oli siisti, koska se seurasi valmiita saumoja. Nyky-Venäjällä niitä ei ole — ja siksi kysymys ei olisi rajoista vaan siitä, kuka komentaa mitäkin asetta.</p>
+      <p><span class="kirjamerkki sarja">Taustatyötä koko Rajamaa-sarjaan</span></p>
+      <p><a class="nappi" href="kenen-kaskysta.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p></div>
+    </details>
+    <details class="raportti" id="yksi-valkoinen-viiva">
+      <summary>
+        <p class="meta">Versio 2.0 · 19.8.2026 · 7 sivua</p>
+        <h3>Yksi valkoinen viiva</h3>
+        <p class="tiivis">Liittolaisten valvontalennot Suomen yllä: mitä kalustoa, mihin se pystyy, ja miksi juuri nuo reitit.</p>
+      </summary>
+      <div class="avattu"><p>Liittolaisten valvontalennot Suomen yllä: mitä kalustoa, mihin se pystyy, ja miksi juuri nuo reitit. Radiohorisontti selittää lentogeometrian kokonaan. Ja se kysymys jota kysytään väärin päin — selitystä ei vaadi jälkien katoaminen vaan se, että ne olivat päällä.</p>
+      <p><span class="kirjamerkki">Taustatyötä kirjaan Majakkaraja</span></p>
+      <p><a class="nappi" href="yksi-valkoinen-viiva.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p></div>
+    </details>
+    <details class="raportti" id="kaistale-kerrallaan">
+      <summary>
+        <p class="meta">Versio 2.0 · 19.8.2026 · 8 sivua</p>
+        <h3>Kaistale kerrallaan</h3>
+        <p class="tiivis">Merenpohja strategisena tilana.</p>
+      </summary>
+      <div class="avattu"><p>Merenpohja strategisena tilana. Kaapeli siirtää, kaapeli kuuntelee — ja kaapeli on halpa rikkoa. Mukana kuituoptisen kuuntelun fysiikka, Itämeren akustiikka, sukellusveneet, kaapelivauriot ja se mitä on syytä olettaa jätetyn kertomatta.</p>
+      <p><span class="kirjamerkki">Taustatyötä kirjaan Jääraja</span></p>
+      <p><a class="nappi" href="kaistale-kerrallaan.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p></div>
+    </details>
+    <details class="raportti" id="mita-koira-tietaa">
+      <summary>
+        <p class="meta">Versio 1.0 · 19.8.2026 · 10 sivua</p>
+        <h3>Mitä koira tietää</h3>
+        <p class="tiivis">Hajuaistin fysiikka, jäljen ikägradientti ja kolme eri työtapaa.</p>
+      </summary>
+      <div class="avattu"><p>Hajuaistin fysiikka, jäljen ikägradientti ja kolme eri työtapaa. Ja se epämukava luku: kokeessa, jossa etsittävää ei ollut lainkaan, ohjaajan uskomus tuotti enemmän virhemerkkauksia kuin koiran oma kiinnostus. Koirakko on kahden osan mittalaite, ja epävarmempi osa kävelee kahdella jalalla. Ja ratkaisevin tekijä ei ole rotu vaan tunnit: jospa sille vuan näättäs mehttee.</p>
+      <p><span class="kirjamerkki">Taustatyötä kirjaan Majakkaraja</span></p>
+      <p><a class="nappi" href="mita-koira-tietaa.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p></div>
+    </details>
+    <details class="raportti" id="kolmesataa-yhta-vastaan">
+      <summary>
+        <p class="meta">Versio 2.1 · 19.8.2026 · 9 sivua</p>
+        <h3>Kolmesataa yhtä vastaan</h3>
+        <p class="tiivis">Miksi suomalainen virkamies ei pönötä?</p>
+      </summary>
+      <div class="avattu"><p>Miksi suomalainen virkamies ei pönötä? Vastaus on routavuosissa: kun lain noudattamisesta tuli vastarintaa, virkamiehen valta alkoi tulla laista eikä virasta — eikä sellaista tarvitse esittää. Mukana Rajavartiolaitoksen vaikenemisen perintö, valvonnan aritmetiikka, se mikä poliisin ympärillä on oikeasti kriisissä — ja Seiskari, jonne lähetettiin esivalta.</p>
+      <p><span class="kirjamerkki">Taustatyötä kirjaan Jääraja</span></p>
+      <p><a class="nappi" href="kolmesataa-yhta-vastaan.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p></div>
+    </details>
+    <details class="raportti" id="ei-suurempaa-haittaa">
+      <summary>
+        <p class="meta">Versio 1.0 · 19.8.2026 · 9 sivua</p>
+        <h3>Ei suurempaa haittaa</h3>
+        <p class="tiivis">Kalastuksenvalvojan toimivalta pykälätasolla: mitä hän saa tehdä, mitä ei — ja kuka valvoo valvojaa.</p>
+      </summary>
+      <div class="avattu"><p>Kalastuksenvalvojan toimivalta pykälätasolla: mitä hän saa tehdä, mitä ei — ja kuka valvoo valvojaa. Keskeisin löydös on symmetria: laki antaa valvojalle kolmiportaisen keinovalikoiman kalastajaa kohtaan ja viranomaiselle rakenteeltaan saman valvojaa kohtaan. Sama tikas molempiin suuntiin.</p>
+      <p><span class="kirjamerkki">Taustatyötä kirjaan Jääraja</span></p>
+      <p><a class="nappi" href="ei-suurempaa-haittaa.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p></div>
+    </details>
+    <details class="raportti" id="kuusi-kalaa">
+      <summary>
+        <p class="meta">Versio 1.0 · 19.8.2026 · 8 sivua</p>
+        <h3>Kuusi kalaa</h3>
+        <p class="tiivis">Pielisjoessa oli järvilohen lisääntymisalueita 177 hehtaaria.</p>
+      </summary>
+      <div class="avattu"><p>Pielisjoessa oli järvilohen lisääntymisalueita 177 hehtaaria. Niistä hävisi 171. Ja lajin olemassaolo näissä vesissä osoitettiin tieteellisesti vasta kahden ratkaisevan padon valmistuttua. Syksyllä 2025 tehtiin ensimmäinen onnistunut korjausyritys kuuden kalan perimällä — seitsemänkymmentä vuotta päätöksen jälkeen.</p>
+      <p><span class="kirjamerkki">Taustatyötä kirjaan Jääraja</span></p>
+      <p><a class="nappi" href="kuusi-kalaa.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p></div>
+    </details>
+    <details class="raportti" id="kirjan-linnut-ovat-todellisia">
+      <summary>
+        <p class="meta">Versio 1.0 · 19.8.2026 · 10 sivua</p>
+        <h3>Kirjan linnut ovat todellisia</h3>
+        <p class="tiivis">Sarjan tunnuslauseen tarkistus.</p>
+      </summary>
+      <div class="avattu"><p>Sarjan tunnuslauseen tarkistus. Suomessa on laskettu noin kymmenentuhatta lintulinjaa seitsemässäkymmenessä vuodessa, ja työn ovat tehneet vapaaehtoiset — se on ainoa tämän sarjan aihe, jossa vertailuaineisto oli valmiina. Mukana kaikki kirjoissa esiintyvät lajit — ja kaksi joita ei ole: kottarainen ja peltosirkku, joiden katoamisessa syytettiin ensin ulkomaalaisia.</p>
+      <p><span class="kirjamerkki sarja">Koko sarjan tunnuslauseen tarkistus</span></p>
+      <p><a class="nappi" href="kirjan-linnut.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p></div>
+    </details>
+  </section>
+  <section class="osio" id="seiskari">
+    <div class="banneri"><h2>Seiskari ja heimoaate</h2><span class="lkm">5 julkaisua</span></div>
+    <p class="kuvaus ryhmakuvaus">Suomenlahden saari, sen väestö ja 1920–30-luvun heimoliikkeen lehdistö.</p>
+    <details class="raportti" id="saari-joka-eli-pietarista">
+      <summary>
+        <p class="meta">Versio 3.0 · 21.8.2026 · 22 sivua</p>
+        <h3>Saari joka eli Pietarista</h3>
+        <p class="tiivis">Vuonna 1921 Seiskarissa asui 848 ihmistä neljällä neliökilometrillä — Suomen tiheimmin asuttu maalaiskunta.</p>
+      </summary>
+      <div class="avattu"><p>Vuonna 1921 Seiskarissa asui 848 ihmistä neljällä neliökilometrillä — Suomen tiheimmin asuttu maalaiskunta. Saari on lähempänä Pietaria kuin lähintä suomalaista kaupunkia, ja se eli siitä: silakkaa, hylkeennahkaa ja meren pohjasta nostettuja katukiviä. Kun raja sulkeutui 1918, talous kuoli — ja kieltolaki oli kolmentoista vuoden korvike. Kun sota tuli, saari oli jo menettänyt puolet väestään.</p>
+      <p>Toinen osa seuraa yhtä taloa yhdentoista sukupolven ajan, 1750-luvulta nykypäivään. Kolmas osa on siemeniä mahdolliseen seuraavaan kirjaan: hovinarri joka omisti saaren, vuosi jolloin saari oli tyhjä, ja hyljekoirat jotka jäivät rannalle.</p>
+      <p>Tässä versiossa mukana koko sanomalehtiaineisto vuosilta 1860–1939. Se paljastaa kaksi asiaa: lehdistön Seiskari ei ollut kalastajien vaan hallinnon saari, ja sukunimen vaihdos Hotasesta Rantalaksi löytyi päivättyinä kuulutuksina vuosilta 1905 ja 1906 — mikä kumosi sen, mitä olin aiemmin väittänyt.</p>
+      <p><span class="kirjamerkki">Taustatyötä kirjaan Jääraja</span></p>
+      <p><a class="nappi" href="saari-joka-eli-pietarista.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p></div>
+    </details>
+    <details class="raportti" id="saari-lehdissa-1860-1939">
+      <summary>
+        <p class="meta">Versio 1.0 · 21.8.2026 · 114 sivua</p>
+        <h3>Saari lehdissä 1860–1939</h3>
+        <p class="tiivis">Lehdistökatsaus · vapaasti käytettävissä</p>
+      </summary>
+      <div class="avattu"><p><span class="avoin">Lehdistökatsaus · vapaasti käytettävissä</span></p>
+      <p>Korpustutkimus siitä, mitä suomalainen sanomalehdistö kirjoitti Seiskarista kahdeksankymmenen vuoden ajan. Saari mainitaan aineistossa 6&nbsp;150 kertaa. Menetelmänä 41 teemasanaston läheisyyshaku ja 831 poimittua tekstikatkelmaa.</p>
+      <p>Päälöydös kääntää totutun kuvan: suurin teema ei ole meri vaan kirkko ja seurakunta (465 osumaa), ja kunta ja koulu tuottavat yhdessä enemmän kuin kalastus. Saaren historian tunnetuin jakso, kieltolain pirtuvuodet, tuottaa yhteensä 38 osumaa. Aineistosta löytyivät myös alkuperäiset nimenmuutoskuulutukset vuosilta 1905 ja 1906 sekä nimeltä mainittuja seiskarilaisia jäihin ajautumisineen ja virkakuulutuksineen.</p>
+      <div class="lahdelaatikko">
+        <strong>Lähteet ja käyttöoikeus</strong>
+        Aineisto on Kansalliskirjaston digitoitu sanomalehti- ja aikakauslehtikokoelma (KLK_FI, vuosikorpukset 1860–1939), joka on vapaasti käytettävissä vuoteen 1939 asti. Haut on tehty Kielipankin Korp-palvelun kautta läheisyyshakuna: teemasana enintään neljänkymmenen sanan päässä saaren nimestä.
+        Kaikki 41 hakulauseketta on julkaistu liitteessä A ja kaikki 831 katkelmaa liitteessä B lehti-, numero- ja sivutietoineen, joten jokainen tulos on toistettavissa ja tarkistettavissa.
+        <strong style="margin-top:8px">Muiden tutkijoiden vapaasti käytettävissä.</strong>
+        Raportti, sen taulukot ja konkordanssit saa käyttää, lainata ja jatkojalostaa vapaasti. Lähdeviite on kohteliaisuus, ei ehto. Virheistä ja puutteista otan mielelläni palautetta.
+      </div>
+      <p><span class="kirjamerkki">Aineistoraportti Saari joka eli Pietarista -katsauksen taustalla</span></p>
+      <p><a class="nappi" href="seiskari-lehdissa-1860-1939.pdf" target="_blank" rel="noopener">Lue aineistoraportti (PDF)</a></p></div>
+    </details>
+    <details class="raportti" id="kolme-viranomaista-yksi-saari">
+      <summary>
+        <p class="meta">Versio 2.0 · 21.8.2026 · 9 sivua</p>
+        <h3>Kolme viranomaista, yksi saari</h3>
+        <p class="tiivis">Tuomiokirja-aineistoa · vapaasti käytettävissä</p>
+      </summary>
+      <div class="avattu"><p><span class="avoin">Tuomiokirja-aineistoa · vapaasti käytettävissä</span></p>
+      <p>Mitä tapahtuu, kun saarelaisten kohtaamiset esivallan kanssa haetaan oikeuden omista pöytäkirjoista eikä lehdistä? Kansallisarkisto on lukenut tekoälyllä yli seitsemän miljoonaa sivua käsin kirjoitettuja tuomiokirjoja, ja Viipurin raastuvanoikeuden aineisto ulottuu vuoteen 1924 — eli kieltolain viisi ensimmäistä vuotta ovat luettavissa nimineen ja rangaistuksineen.</p>
+      <p>Aineisto kumosi kaksi asiaa, jotka olin aiemmin kirjoittanut. Kieltolakivuosien takavarikot eivät pääosin olleet pirtua vaan <em>suolaa, saippuaa, tulitikkuja ja ruista</em> — matkalla itään, nälänhädän puolelle. Ja saarelaiset kävivät järjestelmällistä kauppaa Suomen aluevesillä ankkuroineiden venäläisten sota-alusten kanssa; yhdestä pysäytetystä moottoriveneestä löytyi 1&nbsp;692 hopearuplaa koneen alle kätkettynä.</p>
+      <p>Vanhin kerros on 1880-luvulta, ja siinä on aineiston ikävin yksityiskohta: miehiä tuomittiin toistuvasti purjehdusrikoksesta, koska he olivat purjehtineet Pietariin ilman passia — ja nimismiehen konttorista olivat passilomakkeet loppu. Sama nimismies sai puolet sakosta.</p>
+      <div class="lahdelaatikko">
+        <strong>Lähteet ja käyttöoikeus</strong>
+        Aineisto on Kansallisarkiston Sisältöhaku-palvelu, jossa on tekstihaettavana yli seitsemän miljoonaa sivua renovoituja tuomiokirjoja 1600–1900-luvuilta; teksti on luettu koneellisesti tekoälyn käsialamallilla. Haut on tehty sanoilla <em>Seiskari</em> ja <em>Seitskär</em>, ja osumia kertyi 977 tietuetta — niistä 758 Viipurin raastuvanoikeuden arkistosta ja 106 Viipurin hovioikeuden arkistosta.
+        Jokainen sitaatti on merkitty arkistoineen ja vuosineen, ja haku on toistettavissa sellaisenaan.
+        <strong style="margin-top:8px">Muiden tutkijoiden vapaasti käytettävissä.</strong>
+        Katsauksen tiedot, taulukot ja sitaatit saa käyttää, lainata ja jatkojalostaa vapaasti. Lähdeviite on kohteliaisuus, ei ehto. Huomaa, että teksti on konelukua eikä sitä ole tarkistettu alkuperäisistä — nimet ja numerot on varmennettava ennen käyttöä.
+      </div>
+      <p><span class="kirjamerkki">Taustatyötä kirjaan Jääraja</span></p>
+      <p><a class="nappi" href="kolme-viranomaista-yksi-saari.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p></div>
+    </details>
+    <details class="raportti" id="vain-muistomitalit">
+      <summary>
+        <p class="meta">Versio 4.0 · 21.8.2026 · 16 sivua</p>
+        <h3>Vain muistomitalit</h3>
+        <p class="tiivis">Vuonna 1938 otettiin Suojärven Suvilahdessa valokuva.</p>
+      </summary>
+      <div class="avattu"><p>Vuonna 1938 otettiin Suojärven Suvilahdessa valokuva. Kuvateksti kertoo, että miehet ovat heimosotureita ja että suurin osa on aunuksenkarjalaisia, joilla on <em>vain muistomitalit</em>. Ensimmäisenä on nimetty Juho Jukola, Mäntyselkä — isoisäni veli. Katsaus selvittää, mitä itäkarjalaisista pakolaisista tiedetään: heitä tuli Suomeen parikymmentä tuhatta, he eivät saaneet omistaa maata vaikka lähes kaikki olivat talollisia, ja kansalaisuus tuli hakemuksesta usein vasta kahdenkymmenen vuoden kuluttua. Toinen osa seuraa yhtä perhettä asiakirjoissa. Tässä versiossa selviää myös, mitä kuvateksti tarkoitti — ja miksi veljesten sotaretkistä kertova lause ei voi pitää paikkaansa nuorimman kohdalla.</p>
+      <p><span class="kirjamerkki sarja">Aihe mahdolliseen tulevaan kirjaan</span></p>
+      <p><a class="nappi" href="vain-muistomitalit.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p></div>
+    </details>
+    <details class="raportti" id="heimolehdiston-teemat-1925-1939">
+      <summary>
+        <p class="meta">Versio 1.0 · 21.8.2026 · 104 sivua</p>
+        <h3>Heimolehdistön teemat 1925–1939</h3>
+        <p class="tiivis">Lehdistökatsaus · vapaasti käytettävissä</p>
+      </summary>
+      <div class="avattu"><p><span class="avoin">Lehdistökatsaus · vapaasti käytettävissä</span></p>
+      <p>Korpustutkimus karjalaisen pakolais- ja heimolehdistön puheenaiheista. Aineistona seitsemän lehteä ja arviolta neljä miljoonaa sanaa, menetelmänä 50 teemasanaston frekvenssianalyysi ja 707 poimittua tekstikatkelmaa. Keskeisiä havaintoja: sana <em>kolhoosi</em> ilmestyy lehtiin vasta 1934 eli neljä vuotta itse tapahtuman jälkeen, mikä on mitattu viive tiedonkulussa rajan yli; vakoilua koskeva sanasto puuttuu lähes kokonaan, alle sata osumaa neljässä miljoonassa sanassa; ja <em>pakolainen</em> esiintyy 1&nbsp;160 kertaa mutta <em>kansalaisuus</em> vain 15 kertaa.</p>
+      <div class="lahdelaatikko">
+        <strong>Lähteet ja käyttöoikeus</strong>
+        Aineisto on Kansalliskirjaston digitoitu sanomalehti- ja aikakauslehtikokoelma (KLK_FI, vuosikorpukset 1925–1939), joka on vapaasti käytettävissä vuoteen 1939 asti. Haut on tehty Kielipankin Korp-palvelun kautta. Mukana ovat lehdet <em>Toukomies</em>, <em>Suomen Heimo</em>, <em>Viena-Aunus</em>, <em>Karjalan Vapaus</em>, <em>Karjalaisuuden Ystävä</em>, <em>Itä-Karjala</em> ja <em>Heimotyö</em>.
+        Kaikki 50 hakulauseketta on julkaistu liitteessä A ja kaikki 707 katkelmaa liitteessä B lehti-, numero- ja sivutietoineen, joten jokainen tulos on toistettavissa ja tarkistettavissa.
+        <strong style="margin-top:8px">Muiden tutkijoiden vapaasti käytettävissä.</strong>
+        Raportti, sen taulukot ja konkordanssit saa käyttää, lainata ja jatkojalostaa vapaasti. Lähdeviite on kohteliaisuus, ei ehto. Virheistä ja puutteista otan mielelläni palautetta.
+      </div>
+      <p><span class="kirjamerkki sarja">Aineistoraportti kahden yllä olevan katsauksen taustalla</span></p>
+      <p><a class="nappi" href="heimolehdiston-teemat-1925-1939.pdf" target="_blank" rel="noopener">Lue aineistoraportti (PDF)</a></p></div>
+    </details>
+  </section>
+  <section class="osio" id="suku">
+    <div class="banneri"><h2>Suku, metsä ja kotiseutu</h2><span class="lkm">3 julkaisua</span></div>
+    <p class="kuvaus ryhmakuvaus">Sukututkimusta ja kotiseudun aiheita, joista osasta on tulossa kirja.</p>
+    <details class="raportti tuore" id="pappi">
+      <summary>
+        <p class="meta">Versio 1.0 · 3.9.2026 · 5 sivua · synopsis, ei kirja</p>
+        <h3>Pappi haettiin rajan yli<span class="uusimerkki">Uusi</span></h3>
+        <p class="tiivis">Aloitin syyskuun alussa uuden aineistokierroksen: Kansallisarkiston Sisältöhausta poimitut kuolemantuomiot ja niiden taustat, aluksi ilman muuta…</p>
+      </summary>
+      <div class="avattu"><p><span class="avoin">Aihesynopsis · kommentteja toivotaan</span></p>
       <p>Aloitin syyskuun alussa uuden aineistokierroksen: Kansallisarkiston Sisältöhausta poimitut kuolemantuomiot ja niiden taustat, aluksi ilman muuta rajausta kuin oma uteliaisuus. Ensimmäinen yritys oli Ilomantsi 1650–1700, ja se tuotti tyhjää — mikä on sekin tulos, ja siksi se sanotaan tässä ääneen. Toinen yritys osui: kolme tekstitiedostoa, yhdistettynä <strong>9 819 sivua</strong> koneluettua tuomiokirjatekstiä, joista itäisiä ja kuolemantuomiosanastolla osuvia <strong>314</strong>. Niistä on tähän mennessä luettu alkuperäisistä sivukuvista <strong>57 tapausta</strong>, nimettyjä ihmisiä koneluennassa 434 ja pitäjiä 15: Ilomantsi, Liperi, Kitee, Tohmajärvi, Pielisjärvi, Kontiolahti, Sotkamo, Paltamo, Iisalmi, Kuopio, Juva, Kangasniemi ja naapurit.</p>
       <p>Kysyin aineistolta, kuinka monta päätä katkaistiin. Se vastasi kertomalla, kuinka moni säästyi. Sana <em>befriad</em>, vapautettu, esiintyy 1 400 sivulla; <em>halshuggas</em> noin kahdellasadalla. Vapauttaminen oli yleisin lopputulos, perusteettomasta ilmiannosta sakotettiin, mieleltään vajaata ei rangaistu lainkaan ja humalatila lievensi. Samassa aineistossa mies teilataan ja hänen päänsä seivästetään paaluun, sunnuntain rikkominen maksaa enemmän kuin vaimon lyöminen, ja köyhä saa raipat siitä mistä varakas maksoi rahalla. Tämä ei ole ristiriita jonka voi selittää pois. Se on se, mitä pitää selittää.</p>
       <p>Neljä löytöä, jotka en odottanut. <strong>Yksi:</strong> kuolemanrangaistus ei ollut yksi rangaistus vaan seitsemästä osasta koottu asteikko — kipu, julkinen häpeä, hyvitys, työ, karkotus, oikeudellisen aseman menetys ja ruumiin kohtelu kuoleman jälkeen. Rangaistus ei päättynyt kuolemaan; ruumiin kohtelussa oli kolme astetta teilauksesta siunattuun maahan ja siitä syrjään metsämaahan. <strong>Kaksi:</strong> julkinen häpeä ei koskaan jäänyt pois, mutta sen muoto neuvoteltiin — kirkkorangaistus luterilaiselle, jalkapuu kreikanuskoiselle, ja kuurolle ja mykälle Gauriel Fedotoville istuminen kirkon ovella. <strong>Kolme:</strong> rajalla oli oma säädöskerroksensa, kolme kuninkaallista säädöstä joita ei tarvittu Satakunnassa. <strong>Neljä:</strong> teloitus edellytti katumusta. Jöran Leinonen tuomittiin mestattavaksi lokakuussa 1769 ja oli kolme vuotta myöhemmin yhä elossa, koska hän oli määrättynä päivänä ollut valmistautumattomassa tilassa. Jos pappi ei saanut tuomittua katumaan, kirvestä ei nostettu.</p>
@@ -759,114 +998,35 @@
         Kansallisarkiston Sisältöhaku ja Astia: Vaasan hovioikeuden arkisto, alistettujen asiain päätöstaltiot ja rikosasiain pöytäkirjat, renovoidut tuomiokirjat. Jokaiseen väitteeseen liittyy sivukohtainen Astia-linkki. Synopsiksen tiedot, taulukot ja tapausselostukset saa käyttää, lainata ja jatkojalostaa vapaasti. Lähdeviite on kohteliaisuus, ei ehto. Osa luvuista perustuu konelukuun 1700-luvun käsialasta: kokonaiskuva kestää sen, yksittäinen nimi tai summa ei.
       </div>
       <p><span class="kirjamerkki sarja">Aihe mahdolliseen tulevaan kirjaan</span></p>
-      <p><a class="nappi" href="pappi-haettiin-rajan-yli.pdf" target="_blank" rel="noopener">Lue synopsis (PDF)</a></p>
-    </div>
-
-    <div class="raportti">
-      <p class="meta">Versio 1.0 · 22.8.2026 · 5 sivua</p>
-      <h3>Kaksi Jukolaa</h3>
-      <p>Helmikuussa 1906 Seiskarin ulkosaarella mies nimeltä Simo Kiili kuulutti virallisessa lehdessä, että hänen nimensä on tästä lähtien Jukola. Puolitoista vuosikymmentä myöhemmin ja viidensadan kilometrin päässä kolme Aunuksesta paennutta veljestä ottivat saman nimen. Näillä kahdella ei ole mitään yhteyttä — ei sukua, ei tuttavuutta, ei tietoa toisistaan.</p>
+      <p><a class="nappi" href="pappi-haettiin-rajan-yli.pdf" target="_blank" rel="noopener">Lue synopsis (PDF)</a></p></div>
+    </details>
+    <details class="raportti" id="kaksi-jukolaa">
+      <summary>
+        <p class="meta">Versio 1.0 · 22.8.2026 · 5 sivua</p>
+        <h3>Kaksi Jukolaa</h3>
+        <p class="tiivis">Helmikuussa 1906 Seiskarin ulkosaarella mies nimeltä Simo Kiili kuulutti virallisessa lehdessä, että hänen nimensä on tästä lähtien Jukola.</p>
+      </summary>
+      <div class="avattu"><p>Helmikuussa 1906 Seiskarin ulkosaarella mies nimeltä Simo Kiili kuulutti virallisessa lehdessä, että hänen nimensä on tästä lähtien Jukola. Puolitoista vuosikymmentä myöhemmin ja viidensadan kilometrin päässä kolme Aunuksesta paennutta veljestä ottivat saman nimen. Näillä kahdella ei ole mitään yhteyttä — ei sukua, ei tuttavuutta, ei tietoa toisistaan.</p>
       <p>Ja silti heidän poikansa päätyivät samana syksynä samaan maakuntaan. Seiskarin Jukolan poika kaatui Säämäjärvellä 14.9.1941 palveltuaan kaksi kuukautta ja viisi päivää. Aunuksen Jukoloista nuorin toimi samaan aikaan kansanhuoltoupseerina Aunuksessa — kotimaakunnassaan, josta hän oli paennut kaksikymmentä vuotta aiemmin.</p>
       <p>Katsaus kokoaa molempien linjojen asiakirjapohjan: nimenmuutoskuulutuksen, vuoden 1919 syytteen tuoreen silakan viennistä bolševikkien Venäjälle, papintodistuksen jossa pastori vakuuttaa miehen nauttivan kansalaisluottamusta — ja lopuksi luettelon siitä, mitä faktapohjaan vielä puuttuu ennen kuin fiktion voi rakentaa sen päälle. Sekä sen, miksi kirja ei voi käyttää näitä nimiä.</p>
       <p><span class="kirjamerkki sarja">Aihe mahdolliseen tulevaan kirjaan</span></p>
-      <p><a class="nappi" href="kaksi-jukolaa.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p>
-    </div>
-
-<div class="raportti">
-      <p class="meta">Versio 4.0 · 21.8.2026 · 16 sivua</p>
-      <h3>Vain muistomitalit</h3>
-      <p>Vuonna 1938 otettiin Suojärven Suvilahdessa valokuva. Kuvateksti kertoo, että miehet ovat heimosotureita ja että suurin osa on aunuksenkarjalaisia, joilla on <em>vain muistomitalit</em>. Ensimmäisenä on nimetty Juho Jukola, Mäntyselkä — isoisäni veli. Katsaus selvittää, mitä itäkarjalaisista pakolaisista tiedetään: heitä tuli Suomeen parikymmentä tuhatta, he eivät saaneet omistaa maata vaikka lähes kaikki olivat talollisia, ja kansalaisuus tuli hakemuksesta usein vasta kahdenkymmenen vuoden kuluttua. Toinen osa seuraa yhtä perhettä asiakirjoissa. Tässä versiossa selviää myös, mitä kuvateksti tarkoitti — ja miksi veljesten sotaretkistä kertova lause ei voi pitää paikkaansa nuorimman kohdalla.</p>
+      <p><a class="nappi" href="kaksi-jukolaa.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p></div>
+    </details>
+    <details class="raportti" id="metsa-jonka-he-tunsivat">
+      <summary>
+        <p class="meta">Versio 2.0 · 21.8.2026 · 8 sivua</p>
+        <h3>Metsä jonka he tunsivat</h3>
+        <p class="tiivis">Kun olin pieni poika, minulle kuiskuteltiin, että isoisäni ja hänen veljensä olivat käyneet rajan takana — että he menivät sinne silloin kun metsän…</p>
+      </summary>
+      <div class="avattu"><p>Kun olin pieni poika, minulle kuiskuteltiin, että isoisäni ja hänen veljensä olivat käyneet rajan takana — että he menivät sinne silloin kun metsän läpi pääsi, koska he tunsivat metsät ja kylät. Tämä katsaus selvittää, voisiko se pitää paikkansa. Pakolaisten oma lehti julkaisi karjalaksi ensikäden kertomuksia kolhoosipakosta, pidätyksistä ja Solovetskista — ja suomeksi kokouspöytäkirjoja. Jonkun oli täytynyt tuoda ne tiedot rajan yli. Samaan aikaan Yleisesikunnan Sortavalan alatoimisto lähetti rajan yli siviilipukuisia tiedustelijoita, joiden asiamiehet olivat pääosin karjalaisia pakolaisia. Teoria on merkitty teoriaksi, ja mukana on myös se, mikä tekee siitä hankalan: sitä on lähes mahdoton kumota.</p>
       <p><span class="kirjamerkki sarja">Aihe mahdolliseen tulevaan kirjaan</span></p>
-      <p><a class="nappi" href="vain-muistomitalit.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p>
-    </div>
-<div class="raportti">
-      <p class="meta">Versio 2.0 · 21.8.2026 · 8 sivua</p>
-      <h3>Metsä jonka he tunsivat</h3>
-      <p>Kun olin pieni poika, minulle kuiskuteltiin, että isoisäni ja hänen veljensä olivat käyneet rajan takana — että he menivät sinne silloin kun metsän läpi pääsi, koska he tunsivat metsät ja kylät. Tämä katsaus selvittää, voisiko se pitää paikkansa. Pakolaisten oma lehti julkaisi karjalaksi ensikäden kertomuksia kolhoosipakosta, pidätyksistä ja Solovetskista — ja suomeksi kokouspöytäkirjoja. Jonkun oli täytynyt tuoda ne tiedot rajan yli. Samaan aikaan Yleisesikunnan Sortavalan alatoimisto lähetti rajan yli siviilipukuisia tiedustelijoita, joiden asiamiehet olivat pääosin karjalaisia pakolaisia. Teoria on merkitty teoriaksi, ja mukana on myös se, mikä tekee siitä hankalan: sitä on lähes mahdoton kumota.</p>
-      <p><span class="kirjamerkki sarja">Aihe mahdolliseen tulevaan kirjaan</span></p>
-      <p><a class="nappi" href="metsa-jonka-he-tunsivat.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p>
-    </div>
-<div class="raportti">
-      <p class="meta">Versio 1.0 · 21.8.2026 · 104 sivua</p>
-      <h3>Heimolehdistön teemat 1925–1939</h3>
-      <p><span class="avoin">Lehdistökatsaus · vapaasti käytettävissä</span></p>
-      <p>Korpustutkimus karjalaisen pakolais- ja heimolehdistön puheenaiheista. Aineistona seitsemän lehteä ja arviolta neljä miljoonaa sanaa, menetelmänä 50 teemasanaston frekvenssianalyysi ja 707 poimittua tekstikatkelmaa. Keskeisiä havaintoja: sana <em>kolhoosi</em> ilmestyy lehtiin vasta 1934 eli neljä vuotta itse tapahtuman jälkeen, mikä on mitattu viive tiedonkulussa rajan yli; vakoilua koskeva sanasto puuttuu lähes kokonaan, alle sata osumaa neljässä miljoonassa sanassa; ja <em>pakolainen</em> esiintyy 1&nbsp;160 kertaa mutta <em>kansalaisuus</em> vain 15 kertaa.</p>
-      <div class="lahdelaatikko">
-        <strong>Lähteet ja käyttöoikeus</strong>
-        Aineisto on Kansalliskirjaston digitoitu sanomalehti- ja aikakauslehtikokoelma (KLK_FI, vuosikorpukset 1925–1939), joka on vapaasti käytettävissä vuoteen 1939 asti. Haut on tehty Kielipankin Korp-palvelun kautta. Mukana ovat lehdet <em>Toukomies</em>, <em>Suomen Heimo</em>, <em>Viena-Aunus</em>, <em>Karjalan Vapaus</em>, <em>Karjalaisuuden Ystävä</em>, <em>Itä-Karjala</em> ja <em>Heimotyö</em>.
-        Kaikki 50 hakulauseketta on julkaistu liitteessä A ja kaikki 707 katkelmaa liitteessä B lehti-, numero- ja sivutietoineen, joten jokainen tulos on toistettavissa ja tarkistettavissa.
-        <strong style="margin-top:8px">Muiden tutkijoiden vapaasti käytettävissä.</strong>
-        Raportti, sen taulukot ja konkordanssit saa käyttää, lainata ja jatkojalostaa vapaasti. Lähdeviite on kohteliaisuus, ei ehto. Virheistä ja puutteista otan mielelläni palautetta.
-      </div>
-      <p><span class="kirjamerkki sarja">Aineistoraportti kahden yllä olevan katsauksen taustalla</span></p>
-      <p><a class="nappi" href="heimolehdiston-teemat-1925-1939.pdf" target="_blank" rel="noopener">Lue aineistoraportti (PDF)</a></p>
-    </div>
-</section>
-
-  <section class="osio" id="muut">
-    <div class="banneri"><h2>Muut analyysit</h2><span class="lkm">7 katsausta</span></div>
-    <p class="kuvaus">Sähkömarkkina, sää ja ilmasto. Omaa laskentaa, ei kirjasidonnaisia.</p>
-<div class="raportti">
-      <p class="meta">Versio 1.0 · 20.8.2026 · 5 sivua</p>
-      <h3>Kallis talvi, kallis tunti</h3>
-      <p>Kun sähkö on kallista, syitä tarjotaan neljä: pakkanen, tyven, vesivarastot, siirtoyhteys. Ne eivät ole vaihtoehtoja vaan vastauksia kahteen eri kysymykseen. Vesi ratkaisee, onko talvi kallis — Norjan marraskuisen täyttöasteen ja talven keskihinnan korrelaatio on −0,73. Sää ratkaisee, mitkä tunnit sen talven sisällä ovat kalliita, ja tuulen puute on selvempi poikkeama kuin pakkanen: kalliilla tunnilla tuulta on viidesosa tavanomaisesta. Ja syy on vaihtumassa. Vielä 2020—2023 Suomen kalleimmista tunneista 88 prosenttia oli kalliita myös Ruotsissa; talvella 2025/26 enää 36. Loput ovat Suomen omia tunteja — ja yli puolella niistä johto Ruotsiin oli täynnä. Lopussa arvio tulevasta talvesta: Norjan altaissa on elokuussa 65 prosenttia, mikä on kolmenkymmenenyhden vuoden jakauman alimmassa kymmenyksessä.</p>
-      <p><span class="kirjamerkki vapaa">Itsenäinen, ei kirjasidonnainen</span></p>
-      <p><a class="nappi" href="kallis-talvi-kallis-tunti.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p>
-    </div>
-<div class="raportti">
-      <p class="meta">Versio 1.0 · 19.8.2026 · 6 sivua</p>
-      <h3>Kuka maksaa tyynen tunnin</h3>
-      <p>Sähkön hinta, verkon kustannukset ja riittävyys kuluttajan näkökulmasta. Onko hintahuoli ja riittävyyshuoli sama asia? Ja kuka maksaa verkon, joka rakennettiin hankkeille joita ei tullut.</p>
-      <p><span class="kirjamerkki vapaa">Itsenäinen, ei kirjasidonnainen</span></p>
-      <p><a class="nappi" href="kuka-maksaa-tyynen-tunnin.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p>
-    </div>
-<div class="raportti">
-      <p class="meta">Versio 1.0 · 20.8.2026 · 5 sivua</p>
-      <h3>Kolmesataa kilometriä etelään</h3>
-      <p>102 paikkakuntaa, 80 vuotta, ERA5. Kaksi astetta ei tarkoita mitään — siksi käänsin sen kilometreiksi. Kuopion ilmasto on siirtynyt 362 kilometriä etelään, eli suunnilleen Helsinkiin, yhden ihmisen eliniän aikana. Ja yllätys: Inari on lämmennyt vähemmän kuin Kuopio ja Färsaaret tuskin lainkaan. Ratkaisevaa ei ole pohjoisuus vaan etäisyys avomerestä. Lopussa kaikkien 23 suomalaisen paikkakunnan luvut.</p>
-      <p><span class="kirjamerkki vapaa">Itsenäinen, ei kirjasidonnainen</span></p>
-      <p><a class="nappi" href="kolmesataa-kilometria-etelaan.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p>
-    </div>
-<div class="raportti">
-      <p class="meta">Versio 1.1 · 20.8.2026 · 7 sivua</p>
-      <h3>Nollan väärällä puolella</h3>
-      <p>Kuusi rannikkopistettä, 86 talvea, ERA5. Talvet ovat lämmenneet 2,5 astetta ja kovat pakkaset vähentyneet kolmanneksen — mutta tyynten päivien määrä ei ole muuttunut lainkaan, ja nollan ylitykset ovat lisääntyneet 70 prosenttia. Tammikuussa 2026 tuulivoimatuotanto putosi 0–5 prosenttiin kapasiteetista, eikä syy ollut tyyni sää vaan jää lavoissa — ja jäätäminen tapahtuu juuri siinä kaistassa, joka on kasvamassa.</p>
-      <p><span class="kirjamerkki vapaa">Itsenäinen, ei kirjasidonnainen</span></p>
-      <p><a class="nappi" href="nollan-vaaralla-puolella.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a> <a class="nappi" href="talvianalyysi-aineisto.md" target="_blank" rel="noopener">Aineisto</a></p>
-    </div>
-<div class="raportti">
-      <p class="meta">Versio 1.0 · 20.8.2026 · 6 sivua</p>
-      <h3>Yksi tunti ja kuusi viikkoa</h3>
-      <p>Kaikkien aikojen kulutusennätyksen hetkellä 8.1.2026 Suomi kävi omalla tuotannollaan ja Fenno-Skanissa oli kaksi kolmasosaa vapaana. Ja tuonti huipentuu keskipäivällä, ei kulutushuipussa — koska kun meillä on kylmä, on kylmä myös Ruotsissa. Riittävyys ja hinta ovat eri ongelmia ja osuvat eri hetkiin. Sisältää korjauksen kirjoittajan omaan aiempaan väitteeseen.</p>
-      <p><span class="kirjamerkki vapaa">Itsenäinen, ei kirjasidonnainen</span></p>
-      <p><a class="nappi" href="yksi-tunti-ja-kuusi-viikkoa.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a> <a class="nappi" href="vesitase-aineisto-siirrot.csv" target="_blank" rel="noopener">Siirtoaineisto</a></p>
-    </div>
-<div class="raportti">
-      <p class="meta">Versio 1.0 · 20.8.2026 · 8 sivua</p>
-      <h3>Se ei ehdi täyttyä</h3>
-      <p>Kolme omaa laskentaa koko ketjusta Norjan altaista Suomen pistorasiaan. Sademäärä ei ole muuttunut 85 vuodessa, mutta yhä suurempi osa siitä tulee vetenä eikä lumena — ja vain vesi täyttää altaan samana syksynä. Se ei silti riitä: mediaanitasoon tarvittaisiin 18,9 TWh:n syysnousu, ja suurin koskaan mitattu on 14,2. Ja ketjun toisessa päässä Suomi oli talvella tuonnin varassa 88,6 % ajasta, yhteydellä joka on tuontihuipuissa 98-prosenttisessa käytössä.</p>
-      <p><span class="kirjamerkki vapaa">Itsenäinen, ei kirjasidonnainen</span></p>
-      <p><a class="nappi" href="se-ei-ehdi-tayttya.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a> <a class="nappi" href="vesitase-aineisto-sade.csv" target="_blank" rel="noopener">Sadeaineisto</a> <a class="nappi" href="vesitase-aineisto-nve.csv" target="_blank" rel="noopener">NVE-aineisto</a> <a class="nappi" href="vesitase-aineisto-siirrot.csv" target="_blank" rel="noopener">Siirtoaineisto</a></p>
-    </div>
-<div class="raportti">
-      <p class="meta">Versio 2.0 · 20.8.2026 · 6 sivua</p>
-      <h3>Mitä kiinteässä ostetaan</h3>
-      <p>Lukijat kysyivät suoraan: kannattaako ottaa kiinteä sopimus Q1:lle. En vastaa siihen, mutta kysymykseen itseensä voi vastata — ja useimmat kysyvät väärää asiaa. Kiinteä hinta ei ole veikkaus keskihinnasta vaan vakuutus hännästä. Versio 2.0 korjaa version rakenteellisen virheen: jäätäminen ei osu kylmään skenaarioon vaan leutoon, ja halvan lopputuloksen todennäköisyys putosi 25 prosentista 15:een.</p>
-      <p><span class="kirjamerkki vapaa">Itsenäinen, ei kirjasidonnainen</span></p>
-      <p><a class="nappi" href="mita-kiinteassa-ostetaan.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p>
-    </div>
+      <p><a class="nappi" href="metsa-jonka-he-tunsivat.pdf" target="_blank" rel="noopener">Lue katsaus (PDF)</a></p></div>
+    </details>
   </section>
 
-  <section class="osio">
-    <div class="banneri"><h2>Kirjat</h2></div>
-    <p>Katsaukset ovat syntyneet romaanien taustatyönä. Kirjat kertovat saman asian toisella tavalla — ihmisinä, jotka tekevät työtään ja huomaavat liian myöhään mitä on tapahtumassa.</p>
-    <p style="margin-top:22px"><a class="nappi" href="index.html">Koko tuotanto</a> <a class="nappi" style="background:transparent;color:var(--meri);box-shadow:inset 0 0 0 2px var(--meri)" href="mailto:jlintumies@gmail.com?subject=Aineistopyynt%C3%B6">Pyydä aineisto</a></p>
-  </section>
+    </main>
+  </div>
 
-  <footer>
-    <span>© J. Lintumies 2026 · Tuomarniemen Toivo</span>
-    <span>Ei evästeitä, ei seurantaa.</span>
-  </footer>
 </div>
 </body>
 </html>

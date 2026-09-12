@@ -113,8 +113,8 @@ footer a{color:#C8D2DA;border-bottom:1px solid #44586B}
 .sarjakirja .linkit{margin:12px 0 0;gap:6px 20px;font-size:14px}
 
 /* leima kannen kulmassa */
-.kansileima{position:relative;display:block}
-.kansileima .leima{position:absolute;right:-12%;bottom:-9%;width:47%;height:auto;
+.kansileima{position:relative;display:block;z-index:2}
+.kansileima .leima{position:absolute;right:-62%;bottom:-6%;width:94%;height:auto;
   transform:rotate(-11deg);pointer-events:none;mix-blend-mode:multiply}
 
 @media (max-width:680px){
@@ -240,21 +240,21 @@ footer a{color:#C8D2DA;border-bottom:1px solid #44586B}
               <path id="leima-ala" d="M 35,100 a 65,65 0 0 0 130,0"/>
             </defs>
             <circle cx="100" cy="100" r="92" fill="#f1ebdd" fill-opacity=".14"/>
-            <g fill="none" stroke="#8d3f22" stroke-opacity=".88">
-              <circle cx="100" cy="100" r="92" stroke-width="3.4"/>
-              <circle cx="100" cy="100" r="84" stroke-width="1.1"/>
-              <circle cx="100" cy="100" r="52" stroke-width="1.1"/>
+            <g fill="none" stroke="#8d3f22" stroke-opacity=".9">
+              <circle cx="100" cy="100" r="92" stroke-width="6"/>
+              <circle cx="100" cy="100" r="82" stroke-width="2.2"/>
+              <circle cx="100" cy="100" r="52" stroke-width="2.2"/>
             </g>
-            <g fill="#8d3f22" fill-opacity=".88" font-family="Georgia, 'Times New Roman', serif">
-              <text font-size="11" letter-spacing="1.7">
+            <g fill="#8d3f22" fill-opacity=".9" font-weight="bold" font-family="Georgia, 'Times New Roman', serif">
+              <text font-size="11.5" letter-spacing="1.2">
                 <textPath href="#leima-yla" startOffset="50%" text-anchor="middle">J. LINTUMIES · JURI JUKOLA</textPath>
               </text>
-              <text font-size="9.6" letter-spacing="1.6">
+              <text font-size="10" letter-spacing="1.2">
                 <textPath href="#leima-ala" startOffset="50%" text-anchor="middle">ANNO DOMINI MMXXVI</textPath>
               </text>
-              <text x="100" y="107" font-size="19" letter-spacing="3" text-anchor="middle">LUKUUN</text>
-              <circle cx="24" cy="100" r="2.2"/>
-              <circle cx="176" cy="100" r="2.2"/>
+              <text x="100" y="108" font-size="20" letter-spacing="2.6" text-anchor="middle">LUKUUN</text>
+              <circle cx="23" cy="100" r="3"/>
+              <circle cx="177" cy="100" r="3"/>
             </g>
           </svg>
         </div>

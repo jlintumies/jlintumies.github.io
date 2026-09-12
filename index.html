@@ -112,12 +112,18 @@ footer a{color:#C8D2DA;border-bottom:1px solid #44586B}
 .luonnos p:last-child{margin-bottom:0}
 .sarjakirja .linkit{margin:12px 0 0;gap:6px 20px;font-size:14px}
 
+/* leima kannen kulmassa */
+.kansileima{position:relative;display:block}
+.kansileima .leima{position:absolute;right:-12%;bottom:-9%;width:47%;height:auto;
+  transform:rotate(-11deg);pointer-events:none;mix-blend-mode:multiply}
+
 @media (max-width:680px){
   .sarja{grid-template-columns:1fr;gap:34px}
   .valmis{padding:24px 20px}
   body{font-size:17px}
   .kirja{grid-template-columns:1fr;gap:20px}
   .kirja img{max-width:230px}
+  .kansileima{max-width:230px}
   header.top h1{font-size:31px}
   .uusi{padding:24px 20px}
 }
@@ -224,9 +230,34 @@ footer a{color:#C8D2DA;border-bottom:1px solid #44586B}
     <div class="valmis">
       <span class="merkki harmaa">Tehty ja unohdettu</span>
       <div class="kirja">
-        <a href="katumus-ennen-kirvesta-kansi-koko.png" title="Avaa kansi isompana uuteen välilehteen" target="_blank" rel="noopener">
-          <img src="katumus-ennen-kirvesta-kansi.png" alt="Katumus ennen kirvestä — etukansi">
-        </a>
+        <div class="kansileima">
+          <a href="katumus-ennen-kirvesta-kansi-koko.png" title="Avaa kansi isompana uuteen välilehteen" target="_blank" rel="noopener">
+            <img src="katumus-ennen-kirvesta-kansi.png" alt="Katumus ennen kirvestä — etukansi">
+          </a>
+          <svg class="leima" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <defs>
+              <path id="leima-yla" d="M 27,100 a 73,73 0 0 1 146,0"/>
+              <path id="leima-ala" d="M 35,100 a 65,65 0 0 0 130,0"/>
+            </defs>
+            <circle cx="100" cy="100" r="92" fill="#f1ebdd" fill-opacity=".14"/>
+            <g fill="none" stroke="#8d3f22" stroke-opacity=".88">
+              <circle cx="100" cy="100" r="92" stroke-width="3.4"/>
+              <circle cx="100" cy="100" r="84" stroke-width="1.1"/>
+              <circle cx="100" cy="100" r="52" stroke-width="1.1"/>
+            </g>
+            <g fill="#8d3f22" fill-opacity=".88" font-family="Georgia, 'Times New Roman', serif">
+              <text font-size="11" letter-spacing="1.7">
+                <textPath href="#leima-yla" startOffset="50%" text-anchor="middle">J. LINTUMIES · JURI JUKOLA</textPath>
+              </text>
+              <text font-size="9.6" letter-spacing="1.6">
+                <textPath href="#leima-ala" startOffset="50%" text-anchor="middle">ANNO DOMINI MMXXVI</textPath>
+              </text>
+              <text x="100" y="107" font-size="19" letter-spacing="3" text-anchor="middle">LUKUUN</text>
+              <circle cx="24" cy="100" r="2.2"/>
+              <circle cx="176" cy="100" r="2.2"/>
+            </g>
+          </svg>
+        </div>
         <div>
           <p class="meta">Tietokirja · Kuolemanrangaistus Itä-Suomessa 1748–1809</p>
           <h3>Katumus ennen kirvestä</h3>

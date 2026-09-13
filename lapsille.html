@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lapsille — J. Lintumies · Juri Jukola</title>
+<meta name="description" content="Neljä tarinaa pronssikautisesta Tuomarniemestä lapsille ja nuorille. Kuvitteellisia, mutta paikka ja tutkimus ovat todellisia.">
+<style>
+:root{
+  --navy:#1B2E42;
+  --navy-2:#2A3E52;
+  --bone:#DEDCD3;
+  --cream:#EFE9DC;
+  --orange:#C05A28;
+  --grey:#5C6672;
+  --grey-2:#8A8F94;
+  --line:#C9C5B8;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--cream);
+  color:var(--navy);
+  font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+  font-size:18px;
+  line-height:1.62;
+}
+a{color:var(--navy);text-decoration:none;border-bottom:1px solid var(--orange)}
+a:hover{color:var(--orange)}
+.wrap{max-width:880px;margin:0 auto;padding:0 24px}
+
+/* ---------- ylapalkki ---------- */
+header.top{background:var(--navy);color:#F2EFE8;padding:26px 0 22px}
+header.top a{color:#F2EFE8;border:0}
+.kicker{font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:#9FB0BE;margin:0 0 14px}
+header.top h1{font-size:40px;letter-spacing:.14em;margin:0 0 10px;font-weight:normal}
+header.top p.lead{margin:0 0 20px;color:#C8D2DA;font-size:17px}
+nav.main{display:flex;flex-wrap:wrap;gap:8px 26px;font-size:14px;letter-spacing:.14em;text-transform:uppercase}
+nav.main a{border-bottom:1px solid transparent;padding-bottom:2px}
+nav.main a:hover{border-bottom-color:var(--orange)}
+nav.main a.nyt{border-bottom-color:var(--orange)}
+
+/* ---------- osastot ---------- */
+section{padding:52px 0 8px}
+h2.osasto{
+  font-size:14px;letter-spacing:.26em;text-transform:uppercase;
+  color:var(--grey);font-weight:normal;margin:0 0 4px;
+}
+h2.osasto::after{content:"";display:block;width:120px;height:3px;background:var(--orange);margin:14px 0 0}
+
+/* ---------- tarinat ---------- */
+.tarina{background:var(--bone);border-left:5px solid var(--orange);padding:26px 28px 22px;margin:30px 0 0}
+.tarina .meta{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--grey-2);margin:0 0 8px}
+.tarina h3{font-size:28px;letter-spacing:.05em;margin:0 0 14px;font-weight:normal}
+.tarina p{margin:0 0 14px}
+.tarina p.nosto{font-weight:bold}
+.linkit{margin:20px 0 0;display:flex;flex-wrap:wrap;gap:10px 22px;font-size:15px}
+
+/* ---------- laatikot ---------- */
+.laatikko{background:var(--bone);padding:26px 28px;margin:30px 0 0}
+.laatikko h3{margin:0 0 12px;font-size:22px;font-weight:normal;letter-spacing:.04em}
+.laatikko p{margin:0 0 13px}
+.laatikko p:last-child{margin-bottom:0}
+.pikku{font-size:14px;color:var(--grey);margin-top:12px}
+.erotin{border:0;border-top:1px solid var(--line);margin:56px 0 0}
+
+/* ---------- tekstiosat ---------- */
+.teksti p{margin:0 0 16px}
+
+footer{background:var(--navy);color:#9FB0BE;margin-top:60px;padding:32px 0;font-size:14px}
+footer a{color:#C8D2DA;border-bottom:1px solid #44586B}
+
+@media (max-width:680px){
+  body{font-size:17px}
+  header.top h1{font-size:31px}
+  .tarina{padding:22px 20px 18px}
+  .laatikko{padding:22px 20px}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <p class="kicker">J. Lintumies · Juri Jukola · Tuomarniemen Toivo</p>
+    <h1>Lapsille</h1>
+    <p class="lead">Neljä tarinaa pronssikautisesta Tuomarniemestä. Ne ovat kuvitteellisia, mutta paikka on todellinen: Viinijärven pohjasta on kaikuluodattu kaksi harjannetta niemenkaulan poikki, ja rinteessä on kuparilouhos.</p>
+    <nav class="main">
+      <a href="index.html">Kirjat</a>
+      <a href="analyysit.html">Faktat ja analyysit</a>
+      <a href="sahkokatko.html">Sähkökatko</a>
+      <a href="katumus.html">Katumus ennen kirvestä</a>
+      <a href="workpapers.html">Workpapers</a>
+      <a href="lapsille.html" class="nyt">Lapsille</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===================== TARINAT ===================== -->
+<section>
+  <div class="wrap">
+    <h2 class="osasto">Lasten ja nuorten tarinat</h2>
+
+    <div class="teksti" style="margin-top:26px">
+      <p>Tarinat sijoittuvat noin kolmen tuhannen vuoden taakse samalle niemelle, jolla Tuomarniemi nyt on. Kylässä on sata ihmistä, vallihauta niemenkaulassa, kuparilouhos itärinteessä ja koira nimeltä Harmaja. Sama kylä ja samat ihmiset ovat kaikissa neljässä, joten ne voi lukea missä järjestyksessä tahansa.</p>
+
+      <p>Jokaisen lopussa on lyhyt <em>Tarinan takaa</em> -osa opettajille ja vanhemmille: mikä on keksittyä ja mikä perustuu arkeologiseen tietoon tai tämän järven omaan kaikuluotausaineistoon. Tarinat ovat vapaasti luettavissa ja tulostettavissa.</p>
+    </div>
+
+    <div class="tarina">
+      <p class="meta">Aino, 10 vuotta · pisin tarina</p>
+      <h3>Aino ja Harmajan polku</h3>
+      <p class="nosto">Aino herää ennen aurinkoa, koska koira herää.</p>
+      <p>Kesän mittaan hän kysyy isovanhemmaltaan Leinikiltä, miksi niemenkaulaan rakennetaan kahta pengertä eikä yhtä, istuu yövartiossa Matin vieressä ja löytää joesta kivikalun, jonka on tehnyt joku ennen heitä. Leinikin vastaus on koko tarinan ydin: yksi penger on este, kaksi on ansa — ja ennen kaikkea viesti.</p>
+      <p>Tarina alkaa ja päättyy nykyaikaan: aikuisiin, jotka seisovat tietokoneen ääressä ja katsovat sinistä 3D-karttaa järven pohjasta.</p>
+      <div class="linkit">
+        <a href="Aino_ja_Harmajan_polku.pdf" target="_blank" rel="noopener">Lue tarina (PDF)</a>
+      </div>
+    </div>
+
+    <div class="tarina">
+      <p class="meta">Väinö, 8 vuotta · lyhyt</p>
+      <h3>Väinö ja Kuparin salaisuus</h3>
+      <p class="nosto">Väinö menee louhokselle yksin, vaikka ei saisi.</p>
+      <p>Seinämän alareunassa välkkyy vihreä kohta, joka on erilaista kuin muu kivi. Illalla hän kertoo siitä isälle ja saa parhaan vastauksen, jonka isä voi antaa: näytä minulle huomenna. Samana iltana hän kysyy, miksi pronssista tehdään rannekoruja eikä pelkästään aseita.</p>
+      <div class="linkit">
+        <a href="Vaino_ja_Kuparin_salaisuus.pdf" target="_blank" rel="noopener">Lue tarina (PDF)</a>
+      </div>
+    </div>
+
+    <div class="tarina">
+      <p class="meta">Eetu, 10 vuotta</p>
+      <h3>Eetu ja Tulinen Mies</h3>
+      <p class="nosto">Eetu pääsee ensimmäistä kertaa metsälle, mutta ei saa tappaa mitään. Hän katsoo ja kuuntelee.</p>
+      <p>Syksyn aikana hän oppii lukemaan hirven jäljen iän, saa pohjoisesta tulleelta kauppiaalta pronssilenkin ensimmäisen metsän kunniaksi ja näkee yhtenä yönä, miksi kylä rakensi vallihaudan — ja miksi sitä ei sinä yönä tarvittu. Isän vastaus siihen, miksi ei tapeltu, on lause jota kymmenvuotias miettii pitkään.</p>
+      <div class="linkit">
+        <a href="Eetu_ja_Tulinen_Mies.pdf" target="_blank" rel="noopener">Lue tarina (PDF)</a>
+      </div>
+    </div>
+
+    <div class="tarina">
+      <p class="meta">Liisa, 11 vuotta</p>
+      <h3>Liisa ja Pitkä Matka</h3>
+      <p class="nosto">Kauppamatkalle lähdettiin aina syksyllä, kun sato oli korjattu ja kupari punnittu.</p>
+      <p>Liisa pääsee mukaan Taipaleenjokea etelään: kanjoni, koski, yö nuotiolla vanhan tulisijankehän äärellä ja kauppa-asema, jossa hinta sovitaan sormilla, koska yhteistä kieltä ei ole. Sulatossa hän näkee, miten kupari ja tina tekevät yhdessä jotain kumpaakin kovempaa. Paluumatkalla tuulee kaakosta, ja Liisa oppii mihin pelko on hyvä.</p>
+      <div class="linkit">
+        <a href="Tarina%20-%20Liisa_ja_Pitka_Matka.pdf" target="_blank" rel="noopener">Lue tarina (PDF)</a>
+      </div>
+    </div>
+
+    <hr class="erotin">
+  </div>
+</section>
+
+<!-- ===================== TAUSTA ===================== -->
+<section>
+  <div class="wrap">
+    <h2 class="osasto">Mihin tarinat perustuvat</h2>
+
+    <div class="laatikko">
+      <p>Viinijärvessä, juuri Tuomarniemen edustalla, on kaikuluodattu vedenalaisia rakenteita: kaksi harjannetta niemenkaulan poikki. Rakentamisaikana vedenpinta oli alempana, joten ne olivat kuivalla maalla. Niemen itäpuolella on louhos, jossa on kuparia, ja pohjoispuolelta laskee joki.</p>
+      <p>Kupari ja tina sekoitetaan pronssiksi suhteessa noin 9:1, ja seos on kovempi kuin kumpikaan metalli yksin. Tina ei ole kotimaista, joten pronssi edellyttää kauppaa — siitä tarinoiden matkat. Vesireitit ovat samat kuin kartalla nyt: Taipaleenjoki etelään Orivedelle, ja Viinijoki pohjoiseen Höytiäiseen ennen vuoden 1859 järvenlaskua.</p>
+      <p>Harmaja-koira on keksitty. Koirat ovat olleet ihmisten kumppaneita yli 15 000 vuotta, joten arvaus ei ole villi.</p>
+      <div class="linkit">
+        <a href="analyysit.html">Faktat ja analyysit</a>
+      </div>
+    </div>
+
+    <p class="pikku">Palaute ja kysymykset: <a href="mailto:jlintumies@gmail.com?subject=Lasten%20ja%20nuorten%20tarinat">jlintumies@gmail.com</a></p>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    © J. Lintumies 2026 · Tuomarniemen Toivo · Ei evästeitä, ei seurantaa.
+  </div>
+</footer>
+
+</body>
+</html>

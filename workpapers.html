@@ -284,6 +284,22 @@
   .en-laatikko h4 { font-family: 'Archivo Narrow', sans-serif; font-size: 22px; color: var(--meri); margin: 12px 0 4px; font-weight: 600; }
   .en-laatikko .en-meta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--jaa); margin: 0 0 8px; }
   .raportti h3 .en-otsikko { display: block; font-size: 17px; font-weight: 400; font-style: italic; margin-top: 4px; }
+  /* ---------- versiovalitsin (sama aihe, kaksi muotoa, kaksi kieltä) ---------- */
+  .versiot { margin: 18px 0 14px; border: 1px solid var(--meri); }
+  .versiot .v-otsikko { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--paperi); background: var(--meri); padding: 5px 12px; margin: 0; }
+  .versiot .v-rivi { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid rgba(44,64,81,0.25); }
+  .versiot .v-rivi:first-of-type { border-top: none; }
+  .versiot .v-solu { padding: 14px 16px 16px; }
+  .versiot .v-solu + .v-solu { border-left: 1px solid rgba(44,64,81,0.25); background: rgba(44,64,81,0.05); }
+  .versiot .v-tyyppi { font-family: 'Archivo Narrow', sans-serif; font-size: 19px; font-weight: 600; color: var(--meri); margin: 0 0 2px; }
+  .versiot .v-meta { font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: var(--jaa); margin: 0 0 8px; }
+  .versiot .v-kuvaus { font-size: 15px; margin: 0 0 12px; }
+  .versiot .nappi { display: inline-block; }
+  @media (max-width: 640px) {
+    .versiot .v-rivi { grid-template-columns: 1fr; }
+    .versiot .v-solu + .v-solu { border-left: none; border-top: 1px dashed rgba(44,64,81,0.25); }
+  }
 </style>
 
 </head>
@@ -338,15 +354,54 @@
     </div>
 
 <div class="raportti" id="ostettu-ilman-avaimia">
-      <p class="meta">Talousanalyysi · 14 sivua, englanninkielinen 15 sivua · molemmat versio 1.6 · 19.9.2026</p>
-      <h3>Ostettu ilman avaimia<span class="uusimerkki">Uusi</span></h3>
-      <p><span class="avoin">Yrityskaupat ja omistajaohjaus · perustuu mietintöön TrVM 10/2026 vp ja viiteen asiantuntijalausuntoon · englanninkielinen versio: <em>Bought Without the Keys</em></span></p>
-      <p>Fortum osti Uniperin osakkeita 22 eurolla, osti lisää 29,93 eurolla ja myi kaiken Saksan valtiolle 1,70 eurolla. Tappio oli ennen veroja hieman alle kuusi miljardia euroa, ja eduskunnan tarkastusvaliokunnan mukaan yhtiön kaatuminen oli vuonna 2022 lähellä. Artikkeli käy läpi, miksi kauppa tehtiin, miten se eteni, kuka päätti ja millä tiedoilla, ja nostaa sitten katseen yrityskauppoihin yleensä: miksi kolme neljästä epäonnistuu ja mitä onnistuneet tekevät toisin.</p>
-      <p><strong>Mitä siinä on.</strong> Ostoprosessin kolme lukkoa: Venäjän vesilupa, Saksan yhtiöoikeuden 75 prosentin raja ja henkilöstön vastustus. Kahdeksan miljardin rahoituspäätös, josta omistajaohjaukseen otettiin ensimmäisen kerran yhteyttä viisi päivää päätöksen jälkeen. Fortumin kriisisuunnitelma, joka nojasi Saksan hallituksen päätökseen sallia kaasun kustannusten siirto asiakkaille. Arvio siitä, oliko myynti Saksan valtiolle järkevä ja miksi Ruotsin vesi- ja ydinvoimaa koskeva etuosto-oikeus päättyy 31.12.2026, kesken Saksan käynnistämän yksityistämisen. Toisessa osassa ovat 40&nbsp;000 kaupan aineisto, McKinseyn ohjelmallisten ostajien tulokset sekä vertailukohtina Vattenfall&ndash;Nuon ja Outokumpu&ndash;Inoxum.</p>
-      <p><strong>Johtopäätös.</strong> Ratkaisevat virheet tehtiin vasta vuosina 2019&ndash;2021: lisäosto 36 prosenttia kalliimmalla, vaikka pilkkominen osoittautui käytännössä mahdottomaksi, ja emoyhtiön takaus, joka teki tytäryhtiön kassakriisistä emon kriisin. Valiokunnan ehdottama hallituspaikka auttaa, mutta ei yksinään riitä. Tarvitaan mitattava kynnys, jonka ylittävistä kaupoista suurinta omistajaa kuullaan ennen päätöstä. Lopussa on kymmenen kysymystä, jotka hallituksen ja omistajan pitäisi esittää ennen jokaista suurta kauppaa.</p>
-      <p><strong>In English.</strong> Finland's state-controlled utility Fortum bought Germany's Uniper at 22 euros a share, bought more at 29.93 and sold everything to Berlin at 1.70, losing almost six billion euros. The English edition is adapted, not translated, for boards and executives outside Finland: the lessons apply to any company with a dominant owner, from family firms to private-equity portfolios. It explains the Finnish and German context, updates the account of the Gazprom arbitration award, of which only a fraction has been collected, and ends with ten questions every board should ask before a large deal.</p>
+      <p class="meta">Talousanalyysi · tutkimus ja artikkeli, suomeksi ja englanniksi · versio 1.6 · 19.9.2026</p>
+      <h3>Ostettu ilman avaimia<span class="uusimerkki">Uusi</span><span class="en-otsikko" lang="en">English: Bought Without the Keys</span></h3>
+      <p><span class="avoin">Yrityskaupat ja omistajaohjaus · perustuu tarkastusvaliokunnan mietintöön TrVM 10/2026 vp ja viiteen asiantuntijalausuntoon</span></p>
+      <p>Fortum osti Uniperin osakkeita 22 eurolla, osti lisää 29,93 eurolla ja myi kaiken Saksan valtiolle 1,70 eurolla. Tappio oli ennen veroja hieman alle kuusi miljardia euroa, ja eduskunnan tarkastusvaliokunnan mukaan yhtiön kaatuminen oli vuonna 2022 lähellä. Kirjoitus käy läpi, miksi kauppa tehtiin, miten se eteni, kuka päätti ja millä tiedoilla, ja nostaa sitten katseen yrityskauppoihin yleensä: miksi kolme neljästä epäonnistuu ja mitä onnistuneet tekevät toisin.</p>
+      <p><strong>Mitä siinä on.</strong> Ostoprosessin kolme lukkoa: Venäjän vesilupa, Saksan yhtiöoikeuden 75 prosentin raja ja henkilöstön vastustus. Kahdeksan miljardin rahoituspäätös, josta omistajaohjaukseen otettiin ensimmäisen kerran yhteyttä viisi päivää päätöksen jälkeen. Fortumin kriisisuunnitelma, joka nojasi Saksan hallituksen päätökseen sallia kaasun kustannusten siirto asiakkaille. Arvio siitä, oliko myynti Saksan valtiolle järkevä ja miksi Ruotsin vesi- ja ydinvoimaa koskeva etuosto-oikeus päättyy 31.12.2026, kesken Saksan käynnistämän yksityistämisen. Vertailu täyden haltuunoton reittiin ja sen lainsäädännölliseen ansaan. Lisäksi 40&nbsp;000 kaupan tutkimusaineisto sekä vertailukohtina Vattenfall&ndash;Nuon ja Outokumpu&ndash;Inoxum.</p>
+      <p><strong>Johtopäätös.</strong> Vuoden 2017 osto oli huono mutta palautettavissa, ja se maksoi arviolta puolet tappiosta. Vuosien 2019&ndash;2021 päätökset tekivät siitä peruuttamattoman ja muuttivat tappion olemassaolon uhaksi. Fortum valitsi välimaaston, jossa se kantoi omistajan riskin ilman omistajan valtaa. Valiokunnan ehdottama hallituspaikka auttaa, mutta ei yksinään riitä: tarvitaan mitattava kynnys, jonka ylittävistä kaupoista suurinta omistajaa kuullaan ennen päätöstä.</p>
+
+      <div class="versiot">
+        <p class="v-otsikko">Valitse muoto ja kieli · Choose format and language</p>
+        <div class="v-rivi">
+          <div class="v-solu">
+            <p class="v-tyyppi">Tutkimus</p>
+            <p class="v-meta">14 sivua · 49 lähdettä · noin 45 min</p>
+            <p class="v-kuvaus">Koko analyysi taulukoineen: aikajana, laskelma, riskitekijät, vastatosiasiallinen arvio, lähdeviitteet ja kymmenen kysymystä hallitukselle ja omistajalle. Tarkistettavaksi ja lainattavaksi.</p>
+            <a class="nappi" href="ostettu-ilman-avaimia.pdf" target="_blank" rel="noopener">Lue tutkimus (PDF)</a>
+          </div>
+          <div class="v-solu" lang="en">
+            <p class="v-tyyppi">Research paper</p>
+            <p class="v-meta">15 pages · 49 sources · about 45 min</p>
+            <p class="v-kuvaus">The full analysis, adapted rather than translated for boards and executives outside Finland: Finnish and German context explained, tables, footnoted sources and ten questions for any company with a dominant owner.</p>
+            <a class="nappi" href="bought-without-the-keys.pdf" target="_blank" rel="noopener">Read the paper (PDF)</a>
+          </div>
+        </div>
+        <div class="v-rivi">
+          <div class="v-solu">
+            <p class="v-tyyppi">Artikkeli</p>
+            <p class="v-meta">5 sivua · noin 10 min</p>
+            <p class="v-kuvaus">Lehtijuttu samasta aiheesta: pääväite, tarina ja johtopäätökset ilman taulukoita ja viitenumeroita. Lähteet lopussa yhtenä kappaleena.</p>
+            <a class="nappi" href="ostettu-ilman-avaimia-artikkeli.pdf" target="_blank" rel="noopener">Lue artikkeli (PDF)</a>
+          </div>
+          <div class="v-solu" lang="en">
+            <p class="v-tyyppi">Article</p>
+            <p class="v-meta">4 pages · about 10 min</p>
+            <p class="v-kuvaus">A feature-length read in the style of an international business paper: the argument and the story without tables or footnotes, sources listed at the end.</p>
+            <a class="nappi" href="bought-without-the-keys-article.pdf" target="_blank" rel="noopener">Read the article (PDF)</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="en-laatikko" lang="en">
+        <span class="en-leima">English versions available</span>
+        <h4>Bought Without the Keys</h4>
+        <p class="en-meta">Research paper · 15 pages &nbsp;|&nbsp; Article · 4 pages &nbsp;|&nbsp; version 1.6 · 19 September 2026</p>
+        <p>Finland’s state-controlled utility Fortum bought into Germany’s Uniper at €22 a share, bought more at €29.93 and sold everything to Berlin at €1.70, losing almost €6 billion and coming close to insolvency. Drawing on the Finnish parliament’s audit report and five expert statements, the analysis argues that the 2017 purchase was poor but reversible, and that the decisions of 2019–2021 turned it into an existential threat. Nobody, neither the board nor the owner, held the whole risk.</p>
+        <p>The <strong>research paper</strong> is for readers who want the evidence: timeline, ledger, counterfactual, risk-factor scoring and 49 sources. The <strong>article</strong> tells the same story in about ten minutes. Both are written for executives, directors and owners of companies with a dominant shareholder, whether a state, a family or a private-equity fund.</p>
+      </div>
+
       <p><span class="kirjamerkki vapaa">Itsenäinen · ei kirjasidonnainen</span></p>
-      <p><a class="nappi" style="margin-right:10px" href="ostettu-ilman-avaimia.pdf" target="_blank" rel="noopener">Lue artikkeli (PDF)</a> <a class="nappi" href="bought-without-the-keys.pdf" target="_blank" rel="noopener">Read in English (PDF)</a></p>
       <p class="linkkirivi"><a href="https://jlintumies.github.io/workpapers.html#ostettu-ilman-avaimia">jlintumies.github.io/workpapers.html#ostettu-ilman-avaimia</a></p>
     </div>
 

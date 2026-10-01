@@ -113,22 +113,9 @@ footer a{color:#C8D2DA;border-bottom:1px solid #44586B}
 .sarjakirja .linkit{margin:12px 0 0;gap:6px 20px;font-size:14px}
 
 
-/* Lukuleimat Laskemattan ("Paras nyt lukuun") ja Maksamattan ("Hyvä nyt lukuun") kansien päällä */
-.sarjakirja.leimattu{position:relative;overflow:visible}
-.sarjakirja.leimattu a.kansi{position:relative}
-.paraslukuun{position:absolute;z-index:3;right:-46%;bottom:14%;
-  transform:rotate(-30deg);pointer-events:none;
-  border:4px solid #B8331F;padding:3px;border-radius:2px;
-  background:transparent;opacity:.92}
-.paraslukuun span{display:block;border:1.5px solid #B8331F;
-  padding:9px 20px;border-radius:1px;
-  font-family:Georgia,'Times New Roman',serif;
-  font-size:19px;letter-spacing:.14em;text-transform:uppercase;
-  color:#B8331F;white-space:nowrap;line-height:1}
-@media (max-width:1000px){.paraslukuun span{font-size:14px;padding:6px 12px;letter-spacing:.1em}
-  .paraslukuun{border-width:3px;right:-14%}}
-@media (max-width:680px){.paraslukuun span{font-size:14px;padding:6px 12px}
-  .paraslukuun{right:-6%;bottom:16%}}
+/* Brahean sinetti sarjan tyhjässä solussa */
+.sarjasinetti{display:flex;justify-content:center;align-items:center;padding:34px 0 0;pointer-events:none}
+.sarjasinetti svg{width:62%;max-width:250px;height:auto;transform:rotate(20deg)}
 
 /* leima kannen kulmassa */
 .kansileima{position:relative;display:block;z-index:2}
@@ -144,6 +131,8 @@ footer a{color:#C8D2DA;border-bottom:1px solid #44586B}
   .kirja{grid-template-columns:1fr;gap:20px}
   .kirja img{max-width:230px}
   .kansileima{max-width:230px}
+  .sarjasinetti{padding:0}
+  .sarjasinetti svg{width:150px}
   header.top h1{font-size:31px}
   .uusi{padding:24px 20px}
 }
@@ -254,10 +243,9 @@ footer a{color:#C8D2DA;border-bottom:1px solid #44586B}
           </figcaption>
         </figure>
 
-        <figure class="sarjakirja leimattu">
+        <figure class="sarjakirja">
           <a class="kansi" href="LASKEMATTA-kansi-levitys.png" target="_blank" rel="noopener" title="Avaa kansi isompana omaan ikkunaan">
             <img src="LASKEMATTA-kansi-levitys.png" alt="Laskematta — takakansi, selkämys ja etukansi" loading="lazy">
-            <div class="paraslukuun" aria-hidden="true"><span>Paras nyt lukuun</span></div>
           </a>
           <figcaption>
             <p class="meta">Osa VI · Pielisjärvi ja Aunus 1941–1944 · Luonnos, koeluvussa</p>
@@ -271,10 +259,9 @@ footer a{color:#C8D2DA;border-bottom:1px solid #44586B}
           </figcaption>
         </figure>
 
-        <figure class="sarjakirja leimattu">
+        <figure class="sarjakirja">
           <a class="kansi" href="MAKSAMATTA-kansi-levitys.png" target="_blank" rel="noopener" title="Avaa kansi isompana omaan ikkunaan">
             <img src="MAKSAMATTA-kansi-levitys.png" alt="Maksamatta — takakansi, selkämys ja etukansi" loading="lazy">
-            <div class="paraslukuun" aria-hidden="true"><span>Hyvä nyt lukuun</span></div>
           </a>
           <figcaption>
             <p class="meta">Osa VII · Pielisjärvi 1862–1871 · Luonnos, koeluvussa</p>
@@ -287,6 +274,74 @@ footer a{color:#C8D2DA;border-bottom:1px solid #44586B}
             </div>
           </figcaption>
         </figure>
+
+        <div class="sarjasinetti">
+          <svg viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Punainen vahasinetti, jossa Brahean kaupungin sinetin jousimies ja vuosiluku 1669">
+            <defs>
+              <radialGradient id="bs-vaha" cx="42%" cy="38%" r="70%">
+                <stop offset="0" stop-color="#C23A26"/><stop offset=".55" stop-color="#A42A19"/><stop offset="1" stop-color="#6E170D"/>
+              </radialGradient>
+              <radialGradient id="bs-painuma" cx="50%" cy="50%" r="50%">
+                <stop offset=".82" stop-color="#9A2516"/><stop offset="1" stop-color="#7A1A0E"/>
+              </radialGradient>
+              <radialGradient id="bs-kiilto" cx="30%" cy="26%" r="36%">
+                <stop offset="0" stop-color="#FFD9C9" stop-opacity=".42"/><stop offset="1" stop-color="#FFD9C9" stop-opacity="0"/>
+              </radialGradient>
+              <filter id="bs-pinta" x="-10%" y="-10%" width="120%" height="120%">
+                <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="4" result="k"/>
+                <feColorMatrix in="k" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .10 0" result="kk"/>
+                <feComposite in="kk" in2="SourceGraphic" operator="in" result="t"/>
+                <feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="t"/></feMerge>
+              </filter>
+              <filter id="bs-varjo" x="-15%" y="-15%" width="130%" height="135%">
+                <feDropShadow dx="2" dy="4" stdDeviation="3.5" flood-color="#3A0A04" flood-opacity=".35"/>
+              </filter>
+              <path id="bs-kehä" d="M130,50 a80,80 0 1 1 -0.01,0"/>
+              <g id="bs-viivat"><g fill="none" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M117,86 Q115,74 123,72 Q133,72 132,86"/>
+          <path d="M115,86 L134,86"/>
+          <path d="M116,88 Q118,100 125,103 Q132,100 133,88"/>
+          <path d="M118,96 Q121,106 125,108 Q129,105 131,96"/>
+          <path d="M112,104 Q124,99 138,105"/>
+          <path d="M112,104 Q107,120 108,138 L104,154 Q122,159 142,153 L138,138 Q139,120 138,105"/>
+          <path d="M106,148 Q122,153 141,147"/>
+          <path d="M110,138 Q123,141 138,137"/>
+          <path d="M124,108 L124,152"/>
+          <path d="M138,107 L163,120"/>
+          <path d="M134,113 L140,121"/>
+          <path d="M160,90 Q180,121 160,152"/>
+          <path d="M160,90 L141,121 L160,152"/>
+          <path d="M132,121 L182,121"/>
+          <path d="M182,121 L176,117 M182,121 L176,125"/>
+          <path d="M134,121 L130,117 M134,121 L130,125"/>
+          <path d="M114,155 L113,170"/>
+          <path d="M131,156 L133,170"/>
+          <path d="M113,170 Q104,174 92,172 Q86,170 88,164"/>
+          <path d="M133,170 Q142,174 151,171 Q156,169 154,164"/>
+          <path d="M111,104 Q100,126 102,140"/>
+          <circle cx="130" cy="130" r="68" stroke-width="2.4"/><circle cx="130" cy="130" r="94" stroke-width="2.6"/></g></g>
+              <g id="bs-taytteet"><g stroke="none">
+          <path d="M116,79 Q124,69 133,79 L133,86 L116,86Z"/>
+          <path d="M120,100 Q125,113 130,100 Q125,104 120,100Z"/>
+          <path d="M200,128 l0,0"/>
+          <path d="M130,45 L132,49.5 L137,49.5 L133,52.5 L134.6,57.2 L130,54.3 L125.4,57.2 L127,52.5 L123,49.5 L128,49.5Z"/>
+          <text font-family="Georgia,'Times New Roman',serif" font-size="14.5" font-weight="bold" letter-spacing=".4"><textPath href="#bs-kehä" startOffset="11" textLength="462" lengthAdjust="spacing">SECRET·CIVIT·BRAHEÆ·PET·BRAHE·COM·W·</textPath></text>
+          <text x="88" y="142" font-family="Georgia,'Times New Roman',serif" font-size="19" font-weight="bold" text-anchor="middle">16</text>
+          <text x="179" y="163" font-family="Georgia,'Times New Roman',serif" font-size="17" font-weight="bold" text-anchor="middle">69</text></g></g>
+            </defs>
+            <g filter="url(#bs-varjo)"><path d="M247.6,135.1 Q247.0,140.2 245.9,145.2 Q244.9,150.3 244.4,155.4 Q243.9,160.5 241.5,165.1 Q239.1,169.7 236.8,174.2 Q234.4,178.7 230.3,182.1 Q226.3,185.6 222.5,188.8 Q218.7,192.1 216.7,196.6 Q214.8,201.1 212.3,205.5 Q209.8,209.8 205.6,212.5 Q201.4,215.1 197.4,217.8 Q193.3,220.4 189.7,223.8 Q186.1,227.2 182.4,230.9 Q178.7,234.5 174.1,236.5 Q169.5,238.4 164.6,239.7 Q159.7,241.0 155.0,242.7 Q150.2,244.4 145.1,244.0 Q139.9,243.6 135.0,245.4 Q130.0,247.2 124.9,246.9 Q119.8,246.6 114.7,246.1 Q109.6,245.7 104.7,244.4 Q99.7,243.1 95.0,241.1 Q90.3,239.1 85.8,236.8 Q81.2,234.6 77.6,230.9 Q73.9,227.2 69.5,224.9 Q65.1,222.6 60.8,220.2 Q56.4,217.7 52.3,214.8 Q48.1,211.9 43.9,208.8 Q39.7,205.7 37.0,201.4 Q34.3,197.0 32.2,192.3 Q30.1,187.7 28.8,182.7 Q27.5,177.8 26.4,173.0 Q25.2,168.1 25.0,163.2 Q24.8,158.2 24.2,153.5 Q23.6,148.8 22.4,144.1 Q21.2,139.5 20.8,134.8 Q20.4,130.0 20.5,125.2 Q20.7,120.4 20.7,115.6 Q20.7,110.7 22.0,106.1 Q23.2,101.4 24.9,96.9 Q26.6,92.4 27.2,87.4 Q27.8,82.3 28.7,77.2 Q29.7,72.1 29.5,65.8 Q29.4,59.5 30.8,53.8 Q32.3,48.0 36.6,44.5 Q41.0,41.0 46.0,38.4 Q50.9,35.8 56.6,34.5 Q62.3,33.3 67.2,31.4 Q72.1,29.6 76.8,27.9 Q81.6,26.2 86.7,25.5 Q91.7,24.8 96.3,22.9 Q100.8,21.1 105.7,20.5 Q110.6,19.9 115.4,18.5 Q120.1,17.2 125.1,17.4 Q130.0,17.6 134.8,18.7 Q139.6,19.8 144.4,20.4 Q149.2,21.1 153.8,22.7 Q158.3,24.3 163.3,24.5 Q168.3,24.8 173.2,25.9 Q178.0,27.0 182.8,28.6 Q187.6,30.3 191.8,33.0 Q196.0,35.8 199.9,38.9 Q203.8,42.1 206.9,46.1 Q209.9,50.1 212.2,54.6 Q214.4,59.2 217.5,62.9 Q220.5,66.6 223.0,70.7 Q225.6,74.8 229.8,78.2 Q233.9,81.5 237.1,85.7 Q240.3,89.9 243.2,94.4 Q246.1,98.9 247.3,104.0 Q248.5,109.1 248.3,114.4 Q248.0,119.7 248.2,124.8 Q248.3,130.0 247.6,135.1Z" fill="url(#bs-vaha)" filter="url(#bs-pinta)"/></g>
+            <circle cx="130" cy="130" r="99" fill="url(#bs-painuma)"/>
+            <circle cx="130" cy="130" r="99" fill="none" stroke="#E8826A" stroke-opacity=".35" stroke-width="1.6" transform="translate(1.2 1.6)"/>
+            <circle cx="130" cy="130" r="99" fill="none" stroke="#4A0C06" stroke-opacity=".45" stroke-width="1.6" transform="translate(-1 -1.3)"/>
+            <use href="#bs-viivat" stroke="#F09A80" stroke-opacity=".5" transform="translate(-.9 -.9)"/>
+            <use href="#bs-taytteet" fill="#F09A80" fill-opacity=".5" transform="translate(-.9 -.9)"/>
+            <use href="#bs-viivat" stroke="#4A0C06" stroke-opacity=".6" transform="translate(.9 1)"/>
+            <use href="#bs-taytteet" fill="#4A0C06" fill-opacity=".6" transform="translate(.9 1)"/>
+            <use href="#bs-viivat" stroke="#B5331F"/>
+            <use href="#bs-taytteet" fill="#B5331F"/>
+            <path d="M247.6,135.1 Q247.0,140.2 245.9,145.2 Q244.9,150.3 244.4,155.4 Q243.9,160.5 241.5,165.1 Q239.1,169.7 236.8,174.2 Q234.4,178.7 230.3,182.1 Q226.3,185.6 222.5,188.8 Q218.7,192.1 216.7,196.6 Q214.8,201.1 212.3,205.5 Q209.8,209.8 205.6,212.5 Q201.4,215.1 197.4,217.8 Q193.3,220.4 189.7,223.8 Q186.1,227.2 182.4,230.9 Q178.7,234.5 174.1,236.5 Q169.5,238.4 164.6,239.7 Q159.7,241.0 155.0,242.7 Q150.2,244.4 145.1,244.0 Q139.9,243.6 135.0,245.4 Q130.0,247.2 124.9,246.9 Q119.8,246.6 114.7,246.1 Q109.6,245.7 104.7,244.4 Q99.7,243.1 95.0,241.1 Q90.3,239.1 85.8,236.8 Q81.2,234.6 77.6,230.9 Q73.9,227.2 69.5,224.9 Q65.1,222.6 60.8,220.2 Q56.4,217.7 52.3,214.8 Q48.1,211.9 43.9,208.8 Q39.7,205.7 37.0,201.4 Q34.3,197.0 32.2,192.3 Q30.1,187.7 28.8,182.7 Q27.5,177.8 26.4,173.0 Q25.2,168.1 25.0,163.2 Q24.8,158.2 24.2,153.5 Q23.6,148.8 22.4,144.1 Q21.2,139.5 20.8,134.8 Q20.4,130.0 20.5,125.2 Q20.7,120.4 20.7,115.6 Q20.7,110.7 22.0,106.1 Q23.2,101.4 24.9,96.9 Q26.6,92.4 27.2,87.4 Q27.8,82.3 28.7,77.2 Q29.7,72.1 29.5,65.8 Q29.4,59.5 30.8,53.8 Q32.3,48.0 36.6,44.5 Q41.0,41.0 46.0,38.4 Q50.9,35.8 56.6,34.5 Q62.3,33.3 67.2,31.4 Q72.1,29.6 76.8,27.9 Q81.6,26.2 86.7,25.5 Q91.7,24.8 96.3,22.9 Q100.8,21.1 105.7,20.5 Q110.6,19.9 115.4,18.5 Q120.1,17.2 125.1,17.4 Q130.0,17.6 134.8,18.7 Q139.6,19.8 144.4,20.4 Q149.2,21.1 153.8,22.7 Q158.3,24.3 163.3,24.5 Q168.3,24.8 173.2,25.9 Q178.0,27.0 182.8,28.6 Q187.6,30.3 191.8,33.0 Q196.0,35.8 199.9,38.9 Q203.8,42.1 206.9,46.1 Q209.9,50.1 212.2,54.6 Q214.4,59.2 217.5,62.9 Q220.5,66.6 223.0,70.7 Q225.6,74.8 229.8,78.2 Q233.9,81.5 237.1,85.7 Q240.3,89.9 243.2,94.4 Q246.1,98.9 247.3,104.0 Q248.5,109.1 248.3,114.4 Q248.0,119.7 248.2,124.8 Q248.3,130.0 247.6,135.1Z" fill="url(#bs-kiilto)"/>
+          </svg>
+        </div>
       </div>
 
       <p class="pikku">Kansikuvat ovat kirjojen omista asiakirjoista. Asuttamattan kannessa on Pielisjärven käräjien pöytäkirja maaliskuulta 1688, jossa todetaan, että kaupungin tieltä kreivi Pietari oli häätänyt neljä talonpoikaa. Kirjaamattan kannessa on saman käräjäpöytäkirjan todistajaluettelo, jossa mainitaan <em>Skrifwaren Simon Affleck</em> (kirjuri Simon Affleck). Toimittamatta-kirjan kannessa on vuoden 1793 käräjien pykälä 14, Jäävätyn kannessa helmikuun 1747 kohta, jossa todistajaa vastaan esitetään jäävi, ja Sitomattan kannessa Kuopion läänin henkikirja vuodelta 1810: Ylikylän talo numero kaksi, ja siinä peräkkäin mylläri Henric Nevalainen ja torppari Olof Nevalainen. Laskemattan kansi ei ole käsialaa vaan konekirjoitusta: Itä-Karjalan sotilashallinnon kertomuksen sivu, jonka väliotsikkona on <em>Jakelutoimi ja Vako Oy</em>. Maksamattan kannessa on Pielisjärven pitäjänkokouksen pöytäkirja marraskuulta 1865, jossa tukkirahakassan hoitajaksi valitaan hätäapukomitean esimies ja hänen tehtäväkseen määrätään <em>periä rahat aikanaan kassaan</em>.</p>

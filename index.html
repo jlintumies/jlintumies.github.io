@@ -136,6 +136,26 @@ footer a{color:#C8D2DA;border-bottom:1px solid #44586B}
   header.top h1{font-size:31px}
   .uusi{padding:24px 20px}
 }
+
+/* ---------- uusin: sähkökatko ---------- */
+.esittely{display:grid;grid-template-columns:300px 1fr;gap:38px;align-items:start}
+.esittely a.kansi{display:block;border:0;cursor:zoom-in}
+.esittely img{width:100%;height:auto;display:block;box-shadow:0 4px 18px rgba(27,46,66,.28);transition:transform .15s ease, box-shadow .15s ease}
+.esittely a.kansi:hover img{transform:translateY(-3px);box-shadow:0 8px 24px rgba(27,46,66,.34)}
+.esittely .kuvateksti{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey-2);margin:12px 0 0}
+.esittely .meta{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--grey-2);margin:0 0 8px}
+.esittely h3{font-size:34px;letter-spacing:.05em;margin:0 0 18px;font-weight:normal;line-height:1.2}
+.esittely h3 em{color:var(--orange)}
+.esittely p{margin:0 0 15px}
+.esittely p.nosto{font-weight:bold;font-size:20px;line-height:1.45}
+.repliikit{margin:20px 0 18px;padding:4px 0 4px 18px;border-left:3px solid var(--orange);font-style:italic;color:var(--navy-2)}
+.repliikit p{margin:0 0 4px}
+.esittely .fakta{color:var(--grey);font-size:15px}
+@media (max-width:680px){
+  .esittely{grid-template-columns:1fr;gap:22px}
+  .esittely a.kansi,.esittely .kuvateksti{max-width:260px}
+  .esittely h3{font-size:28px}
+}
 </style>
 </head>
 <body>
@@ -156,10 +176,50 @@ footer a{color:#C8D2DA;border-bottom:1px solid #44586B}
   </div>
 </header>
 
+<!-- ===================== UUSIN: SÄHKÖKATKO JA PASKAKUSKI ===================== -->
+<section>
+  <div class="wrap">
+    <h2 class="osasto">Uusin · Romaani</h2>
+
+    <div class="uusi">
+      <div class="esittely">
+        <div>
+          <a class="kansi" href="SAHKOKATKO-kansi-levitys.png" target="_blank" rel="noopener" title="Avaa koko kansi: takakansi, selkä ja etukansi">
+            <img src="sahkokatko-kansi.jpg" alt="Sähkökatko ja paskakuski — etukansi: talvinen yö, sähkölanka nousee hintakäyräksi ja sen huipulla istuu talitiainen">
+          </a>
+          <p class="kuvateksti">Klikkaa: koko kansi</p>
+        </div>
+        <div>
+          <p class="meta">Romaani · Ei osa sarjaa · Koeluvussa</p>
+          <h3>Sähkökatko <em>ja</em> paskakuski</h3>
+          <p class="nosto">Kun valtakunta ei pidä kylää pystyssä, sen tekee paskakuski.</p>
+          <p>Jouni Tiainen tyhjentää sakokaivoja Pohjois-Karjalan kylillä. Hänen autonsa kyljessä lukee TIAISEN LOKA, ja kun häneltä kysytään, mitä hän tekee työkseen, hän vastaa suoraan, koska se säästää kaikkien aikaa.</p>
+          <p>Sitten tulee talvi, jolloin lunta ei tule. Savu nousee piipusta suoraan ylös, tuulivoimalat seisovat ja sähkön hinta nousee niin korkealle, että talitiainen mahtuu istumaan käyrän huipulle. Katkot kiertävät kylästä toiseen, pumppaamot pysähtyvät ja kaivot jäätyvät. Jounin puhelin soi yhtenä päivänä 64 kertaa, ja hän vastaa jokaiseen. Hänellä on aggregaatti, höyrytin ja vihko. Omaa hintaansa hän ei osaa laskea.</p>
+          <p>Kylässä vanhimmat ovat terävimpiä, vesiosuuskunnan kokouksen pullat leivotaan sille määrälle, jonka pitäisi tulla, ja kunnan valmiussuunnitelmassa on tasan yksi ihmisen nimi. Arvaa kenen.</p>
+          <p>Kirja naurattaa ääneen ja sitten hiljentää.</p>
+          <div class="repliikit">
+            <p>”Minä olen kompostoinut tässä seitsemänkymmentä vuotta.”</p>
+            <p>”Niin olette.”</p>
+            <p>”Kirjoita siihen, kuka neuvoi ketä.”</p>
+          </div>
+          <p class="fakta">Kirjan luvut ovat todellisia, samoin linnut. Tehopulan mekanismi ja sen vaikutus veteen, viemäriin ja lämmitykseen on käyty läpi julkisista lähteistä katsauksessa <em>Teho, ei energia</em> (Juri Jukola, 8/2026).</p>
+          <div class="linkit">
+            <a href="SAHKOKATKO-lukunayte.pdf" target="_blank" rel="noopener">Lue näyte (PDF)</a>
+            <a href="SAHKOKATKO-kansi-levitys.png" target="_blank" rel="noopener">Avaa kansi</a>
+            <a href="sahkokatko.html">Kirja ja faktapohja</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="erotin">
+  </div>
+</section>
+
 <!-- ===================== PIELISJÄRVI-SARJA ===================== -->
 <section>
   <div class="wrap">
-    <h2 class="osasto">Uusin · PIELISJÄRVI-sarja</h2>
+    <h2 class="osasto">PIELISJÄRVI-sarja</h2>
 
     <div class="uusi">
       <div class="sarja">
@@ -500,36 +560,6 @@ footer a{color:#C8D2DA;border-bottom:1px solid #44586B}
       <p>Linnut ovat myös se yksi asia, joka kulkee jokaisen kirjan läpi. Ne on tarkistettu lajilleen, paikalleen ja päivälleen — ja se tarkistus on kirjoitettu auki omaksi katsauksekseen.</p>
       <div class="linkit">
         <a href="kirjan-linnut.pdf">Kirjan linnut ovat todellisia (PDF)</a>
-      </div>
-    </div>
-
-    <hr class="erotin">
-  </div>
-</section>
-
-<!-- ===================== SÄHKÖKATKO ===================== -->
-<section>
-  <div class="wrap">
-    <h2 class="osasto">Erillisteos · sama maailma, eri kysymys</h2>
-
-    <div class="kirja">
-      <a href="sahkokatko-kansi-koko.jpg" title="Avaa kansi isompana uuteen välilehteen" target="_blank" rel="noopener">
-        <img src="sahkokatko-kansi.jpg" alt="Sähkökatko ja paskakuski — etukansi">
-      </a>
-      <div>
-        <p class="meta">Ei osa sarjaa</p>
-        <h3>Sähkökatko ja paskakuski</h3>
-        <p class="nosto">Marraskuun lopussa on seitsemäntoista astetta pakkasta eikä pihassa ole lunta.</p>
-        <p>Jouni Tiainen tyhjentää sakokaivoja. Firmassa on yksi auto ja yksi mies, ja auton kyljessä lukee hänen nimensä kolmenkymmenen sentin kirjaimin. Se tarkoittaa, että jos hän jättää tulematta, siinä lukee kenen autoa pihassa odotettiin.</p>
-        <p>Joulukuussa vesiosuuskunnan syyskokouksessa on kuusi ihmistä. Kohta kahdeksan koskee varautumista sähkökatkoihin: yksitoista pumppaamoa, satakolmekymmentäkaksituhatta euroa, ei tukimuotoa. Keskustelu kestää seitsemän minuuttia. Pöytäkirjaan kirjataan <em>asia siirrettiin</em>, mikä on täsmällinen ilmaus ja tarkoittaa sitä mitä se sanoo.</p>
-        <p>Helmikuussa tulee kahdeksan vuorokautta. Seuraavana tammikuuna kuusitoista.</p>
-        <p>Kukaan ei kuole. Kukaan ei tee mitään väärin. Ja se raha, jota ei löytynyt joulukuussa kuuden ihmisen kokouksesta, löytyy helmikuussa kolmessa viikossa.</p>
-        <p style="color:var(--grey);font-size:16px">Kirjan luvut ovat todellisia. Tehopulan mekanismi ja sen vaikutus veteen, viemäriin ja lämmitykseen on käyty läpi julkisista lähteistä erillisessä katsauksessa <em>Teho, ei energia</em> (Juri Jukola, 8/2026).</p>
-        <div class="linkit">
-          <a href="nayte-sahkokatko.html">Lue näyte</a>
-          <a href="sahkokatko.html">Kirja ja faktapohja</a>
-          <a href="analyysit.html">Kaikki katsaukset</a>
-        </div>
       </div>
     </div>
 

@@ -1,0 +1,162 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{fontspec}
+\setmainfont{TeX Gyre Pagella}
+\setsansfont{TeX Gyre Heros}
+\usepackage{polyglossia}
+\setmainlanguage{finnish}
+\usepackage[a4paper,top=24mm,bottom=26mm,left=26mm,right=26mm]{geometry}
+\usepackage{xcolor}
+\definecolor{meri}{HTML}{2C4051}
+\definecolor{leima}{HTML}{B8511F}
+\usepackage{graphicx}
+\usepackage{pdflscape}
+\usepackage{afterpage}
+\usepackage{titlesec}
+\usepackage[font=small,labelfont={sf,bf,color=meri},textfont=it,labelsep=period,justification=raggedright,singlelinecheck=false]{caption}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Kolme kirkkoa Varasjoen suulla},pdfauthor={Juri Jukola}}
+
+\linespread{1.08}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\emergencystretch=2em
+
+\titleformat{\section}{\sffamily\bfseries\large\color{meri}}{}{0pt}{}
+\titlespacing*{\section}{0pt}{1.3em}{0.35em}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[L]{\sffamily\footnotesize\color{meri}Kolme kirkkoa Varasjoen suulla · versio 1.0}
+\fancyfoot[R]{\sffamily\footnotesize\color{meri}\thepage}
+\fancypagestyle{plain}{\fancyhf{}\renewcommand{\headrulewidth}{0pt}\fancyfoot[R]{\sffamily\footnotesize\color{meri}\thepage}}
+
+\newcommand{\viite}[1]{\textsuperscript{\sffamily\color{leima}#1}}
+\newcommand{\sv}[2]{\textit{#1} (\textit{#2})}
+\renewcommand{\figurename}{Kuva}
+
+\begin{document}
+\thispagestyle{plain}
+
+{\sffamily\small\color{leima}\textbf{ARTIKKELI}\quad·\quad Brahea ja Pielisjärvi\quad·\quad versio 1.0 · 15.10.2026}
+
+\vspace{0.6em}
+{\sffamily\bfseries\fontsize{26}{30}\selectfont\color{meri}Kolme kirkkoa Varasjoen suulla\par}
+
+\vspace{0.5em}
+{\sffamily\large\color{meri}Lieksan vanhojen kirkkojen paikka asiakirjojen, karttojen ja laserkeilauksen valossa\par}
+
+\vspace{0.4em}
+{\sffamily\small Juri Jukola\par}
+
+\vspace{0.6em}
+{\color{leima}\rule{\linewidth}{0.8pt}}
+
+{\large\itshape Lieksan vanhat kirkot eivät seisseet siellä, missä nykyinen kirkko seisoo. Kun yhdistin seurakunnan pöytäkirjat, vanhat kartat, vuoden 1956 ilmakuvan ja laserkeilauksen, ne osoittivat kaikki samaan paikkaan: Varasjoen suulle, rautatiesillan länsipuolelle. Siellä seisoi peräkkäin kolme kirkkoa, ja niiden ympärillä oli hautausmaa.\par}
+
+{\color{leima}\rule{\linewidth}{0.8pt}}
+
+\section{Kirkko, joka ei ollut paikallaan}
+
+Lieksassa on pitkään pidetty selvänä, että kirkko on seissyt samalla paikalla 1600-luvulta asti. Aiemmissa muistioissani osoitin seurakunnan omista pöytäkirjoista, ettei niin ole. Pielisjärven emäkirkko, kellotapuli ja kellot paloivat ukkosen sytyttämässä tulipalossa 14.~elokuuta 1828. Seuraavana keväänä pitäjänkokous päätti, ettei uutta kirkkoa rakenneta vanhalle paikalle, koska palanut kirkko oli seissyt \sv{uti en By på en ganska trång och inskränkt plats hwar den war utsatt för eldsvådor}{kylässä sangen ahtaalla ja rajatulla paikalla, jossa se oli alttiina tulipaloille}.\viite{1} Uusi kirkko nousi vuosina 1832--1837 Varasjoen etelärannalle, ja sen paikalla seisoo nykyinen kirkko.
+
+Tässä artikkelissa jatkan siitä, mihin muistiot jäivät. Kysymys ei ole enää siitä, siirtyikö kirkko, vaan siitä, missä kohdassa vanhat kirkot tarkalleen seisoivat ja montako niitä oli. Vastaukseen tarvitaan kahdenlaista aineistoa: asiakirjat kertovat, millainen paikka oli, ja laserkeilaus näyttää, millainen maasto siellä nyt on.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{lidar3d.png}
+\caption{Varasjoen suu avoimesta laserkeilausaineistosta tehdyssä 3D-mallissa etelän suunnasta. Vasemmalla on Kevätlahti, keskellä rautatie ylittää Varasjoen, ja oikealla alhaalla on nykyinen kirkko. Punainen on ympäristöään korkeampaa ja sininen matalampaa maata. Katkoviivat ovat vuosien 1818--1819 verollepanokartan tonttimaat: kirkon tontti radan länsipuolella joen pohjoisrannalla ja tapulin tontti joen kohdalla radan alla. Sisältää Maanmittauslaitoksen Laserkeilausaineisto 0,5 p -aineistoa (CC BY 4.0).}
+\end{figure}
+
+\section{Kartta kymmenen vuotta ennen paloa}
+
+Kirkon paikan kulmakivi on vuosien 1818--1819 verollepanokartta. Maanmittari Carl Gabriel Backman piirsi Lieksan kylän maat palstoittain kymmenen vuotta ennen kirkon paloa.\viite{2} Nykyisen kirkon kohdalla kartalla on numeroituja peltopalstoja pinta-aloineen, eikä siellä ole yhtään tonttimaata. Kirkko ei siis seissyt siellä. Asutus oli Varasjoen varressa: tonttimaat rakennuksineen reunustavat uomaa sillan molemmin puolin, ja joen yli on piirretty kaksi siltaa. Kirkon ja hautausmaan tontti on pohjoisrannalla, ja kellotapulin tontti on etelärannalla sillan takana.
+
+Vuosien 1838--1840 isojakokartta näyttää palon jälkeisen tilanteen. Kirkko on silloin jo Varasjoen eteläpuolella \textit{Kyrkoplan}-nimisellä alueella, pohjoisrannan kirkkotontti on peltoa ja sen vieressä lukee \sv{Tingsplan}{käräjäpaikka}.\viite{3} Kartat kuvaavat saman paikan ennen paloa ja sen jälkeen, ja niiden välissä kirkko siirtyi joen yli.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\linewidth]{verokartta.png}
+\caption{Varasjoen suu vuosien 1818--1819 verollepanokartalla kymmenen vuotta ennen kirkon paloa. Kartta on piirretty pohjoinen vinossa oikealle ylös. Varasjoki kaartaa kuvan keskeltä alas oikealle, ja sen yli on kaksi siltaa. Ylemmän sillan molemmin puolin on punaiseksi väritetty tonttimaa: pohjoispuolella kirkon ja hautausmaan, eteläpuolella tapulin. Nykyisen kirkon kohdalla on peltopalsta 18 eikä tonttimaata. Ympyrä osoittaa nykyisen kirkon kohdan noin 30 metrin tarkkuudella. Kansallisarkisto, Maanmittaushallituksen verollepanokartat, 125:1 Lieksa 4:2a--l, lehti 8; merkinnät J. Jukola.}
+\end{figure}
+
+\section{Ensimmäinen kirkko niemellä}
+
+Kirkkoherra Jaakko Stenius kirjoitti lokakuussa 1778 luonnoksen kirkon historiasta. Sen mukaan ensimmäinen luterilainen kirkko rakennettiin Stolbovan rauhan (1617) jälkeen \textit{på K…niemi}. Nimi on korjattu käsikirjoituksessa, ja se on todennäköisimmin Kaupunginniemi. Kreivi Pietari Brahe rakennutti 1667 \sv{en ansenligare Kyrka på en Holme … Kaupungin Saari}{huomattavamman kirkon saarelle … Kaupunginsaarelle}, ja Steniuksen mukaan kirkonpaikkojen välillä oli \sv{allenast 150 alnars distance}{vain 150 kyynärän matka}.\viite{1} Se on noin 89 metriä.
+
+Kaupunginniemi on asiakirjoissa nimenä jo 1760, ja se on Varasjoen eteläpuolella.\viite{4} Ensimmäisen kirkon paikkaa rajaa myös maaston korkeus. Pielisen pinta vaihteli ennen säännöstelyä paljon, ja alle 95 metrin maa jäi korkean veden aikaan veden alle tai sen rajalle. Kirkkoa ei rakennettu sellaiselle maalle. Varasjoen etelärannalla suun lähellä on vain kapea kaista tätä korkeampaa maata. Sen kohdalla, noin 95 metrin päässä myöhemmistä kirkonpaikoista, on kohta, joka täyttää kaikki ehdot (kuvassa~\ref{fig:esitys} KE).
+
+Brahea perustettiin 1653, ja samalla määrättiin rakennettavaksi kirkko ja käräjätupa. Uuden kirkon hirret olivat kuitenkin yhä tuomatta tammikuussa 1656, ja saman vuoden kesällä Venäjän sodassa vihollinen poltti Lieksan kirkon ja pappilan, kuten kirkkoherra kertoi käräjillä 1680.\viite{5} Koska Brahean oma kirkko ei ollut vielä valmis, palanut kirkko oli todennäköisesti juuri tämä ensimmäinen kirkko niemellä.
+
+\section{Brahen kirkko saarella ja sen seuraaja}
+
+Asiakirjat kuvaavat Brahen kirkon paikan samalla tavalla 160 vuoden ajan. Vuonna 1797 kirkkoa uhkasi tulipalo \sv{nära dertill belägne Tingshusen}{sen vieressä olevien käräjätalojen vuoksi}, ja hautausmaata ympäröivät haat ja pellot.\viite{6} Vuonna 1810 kirkko seisoi \sv{uppå en liten ganska låg Holme}{pienellä ja hyvin matalalla saarella}, ja vuonna 1830 vanha paikka oli \sv{en kringfluten Holme}{veden ympäröimä saareke}.\viite{1} Saarekkeen pohjoispuolelle kaivettiin ja korjattiin ojaa vuosina 1752, 1760 ja 1763.\viite{1} Nykyisen kirkon mäellä sellaista ei olisi tarvittu. Sama oja näkyy sekä vuosien 1818--1819 verollepanokartalla että vuoden 1956 ilmakuvassa.\viite{2,7} Kun kuvat sovitetaan nykykoordinaatteihin, ojien suunnat eroavat toisistaan vain parin asteen verran.
+
+Vuoden 1956 ilmakuvassa ja maaston muodoissa erottuu Varasjoen pohjoisrannalla kaksi rakennuspohjalta näyttävää kohtaa noin 50 metrin päässä toisistaan. Läntinen on noin 20~×~21 metriä (KV) ja itäinen noin 14~×~12 metriä (KO). Tulkitsen läntisen Brahen vuoden 1667 kirkoksi ja itäisen vuonna 1765 aloitetuksi kirkoksi, joka paloi 1828. Vuoden 1667 kirkko oli korjattu perusteellisesti 1745--1753,\viite{1} mutta piispantarkastus totesi sen 1765 \sv{gamla och nog trånga}{vanhaksi ja varsin ahtaaksi}.\viite{6} Uusi kirkko rakennettiin vanhan viereen. Se on luontevaa, koska jumalanpalvelukset saattoivat jatkua vanhassa rakennuksessa niin kauan kuin uusi oli kesken.
+
+Itäinen pohja osuu muutaman metrin päähän siitä kohdasta, johon vuosien 1818--1819 verollepanokartta kirkon sijoittaa. Kartan oma tarkkuus on noin ±30 metriä, joten osuma ei yksin ratkaise asiaa, mutta se on samassa kohdassa eikä rannan toisella puolella. Pohjan koosta on sanottava yksi varaus. Vuoden 1765 kirkko oli ristikirkko, jonka kunkin siiven rakensi oma ryhmänsä, ja pisimmät hirret olivat noin 14 metriä.\viite{1} Siipineen kirkko oli 25--30 metriä pitkä, ja pitäjä kuvasi sitä 1837 \sv{bland de största i hela Karelen}{koko Karjalan suurimpien joukkoon kuuluvaksi}.\viite{8} Itäinen tasanne vastaa yhden siiven kokoa, joten kirkon koko pohja on todennäköisesti laajempi kuin se, mikä maastosta erottuu.
+
+\section{Hautausmaa puolikaaressa}
+
+Kirkkoa ympäröi hautausmaa. Joulukuussa 1828 sen kuvattiin olleen \sv{halfa Cirkel}{puoliympyrä}, jonka sisällä kirkko oli.\viite{1} Vuonna 1820 kirkkoa korjattiin: lattian alle ladottiin suuria kiviä, ja kirkon alle haudatut ruumiit nostettiin ja siirrettiin kirkkomaahan.\viite{1} Vuoden 1830 katselmuksen mukaan vanhan hautausmaan vieressä oli kreikanuskoisten rukoushuone.\viite{1}
+
+Laserkeilauksessa kirkonpaikkojen ympärillä erottuu puolikaaren muotoinen kehä. Se on noin 40 metriä leveä ja 50 metriä korkea, ja sen avoin puoli on länteen kohti vanhaa rantaa. Pohjois- ja itäpuolella kehä on vain noin 15 senttiä korkea harjanne, ja eteläpuolella se on lähes metrin porras. Muoto sopii vuoden 1828 kuvaukseen, mutta yksinään se ei todista hautausmaata. Harjanteen itäosa on samalla itäisen kirkonpaikan tasanteen reuna, ja porras on Varasjoen törmä. Kehän sisällä kirkonpaikkojen välissä on 23~×~10 metrin ja 0,6 metrin syvyinen kaivanto, jonka itäreunalla on kumpu (H3). Se sopii hautojen nostoon tai rakennuksen purkuun. Sen vieressä on alue, jossa pieniä kuoppia on kaksi kertaa enemmän kuin ympäröivässä metsämaassa (D1). Pienempi samanlainen alue on itäisen kirkonpaikan vieressä (D2).
+
+\section{Tapuli penkereen alla}
+
+Kellotapuli rakennettiin vuosina 1751--1755 Varasjoen etelärannalle. Vuonna 1813 katselmuksessa todettiin \sv{Bron emellan Stapeln och Kyrkan}{silta tapulin ja kirkon välillä} niin huonoksi, että sen kohta ehdotettiin täytettäväksi.\viite{1} Pitäjänmakasiini oli tapulin lähellä. Talvella 1832 hätätapuli päätettiin rakentaa \sv{emellan Sockne Magazinet och den afbrunna Kyrko Klockstapeln}{pitäjänmakasiinin ja palaneen kirkon kellotapulin väliin}.\viite{1} Vuosien 1818--1819 verollepanokartalla tapulin kohta osuu nykyisen rautatiepenkereen kohdalle, joten suurin osa siitä on todennäköisesti penkereen alla.
+
+Penkereen itäpuolelta, noin 50 metrin päästä, on löytynyt muinaisjäännösrekisteriin merkitty kulttuurikerros, Kirkkosaari~1. Vuoden 2014 inventoinnin koekuopan pohjalta löytyi tiiltä ja hiiltä.\viite{9} Tiili on merkittävä löytö, koska 1600- ja 1700-luvun talonpoikaistalossa sitä ei juuri käytetty. Tiiltä käytettiin muurattuihin uuneihin ja piippuihin säätyläisten taloissa ja julkisissa rakennuksissa. Löytö kertoo, että Varasjoen suulla voi olla maan alla paljon enemmän kuin tähän asti tiedetään.
+
+\afterpage{\begin{landscape}
+\begin{figure}[p]
+\centering
+\includegraphics[width=\linewidth]{esityskuva.png}
+\caption{Brahean kirkonpaikat Varasjoella: laserkeilausaineiston, vuosien 1818--1819 verollepanokartan ja vuoden 1956 ilmakuvan tulkinta. KV ja KO ovat pohjoisrannan kirkonpaikat, KE ensimmäisen kirkon todennäköinen paikka etelärannalla. Ympyrät ja katkoviivasuorakulmiot ovat vuosien 1818--1819 verollepanokartan kirkko, tapuli ja tonttimaat noin ±30 metrin tarkkuudella. Kohteiden sijainnit ovat tulkintoja; mitään kohdetta ei ole varmistettu maastossa. Sisältää Maanmittauslaitoksen Laserkeilausaineisto 5 p -aineistoa yleistettynä 2 metrin solukokoon ja maastotietokannan aineistoa. Ilmakuva 1956: Maanmittauslaitos. Tulkinta: J. Jukola 2026.}
+\label{fig:esitys}
+\end{figure}
+\end{landscape}}
+
+\section{Mitä laser näki ja mitä ei}
+
+Laserkeilauksessa lentokone mittaa maanpinnan muodon metsän läpi. Käytin Maanmittauslaitoksen tarkinta aineistoa, jossa on viisi mittapistettä neliömetrillä, ja tein siitä kymmeniä analyyseja: rinnevalot useasta suunnasta, paikalliset korkeusmallit, kuoppa-, kumpu- ja kehähaut, radan suuntaiset korkeusprofiilit metrin välein sekä tulvasimulaatiot eri vedenkorkeuksilla. Sovitin lisäksi vuosien 1818--1819 verollepanokartan ja vuoden 1956 ilmakuvan nykykoordinaatteihin. Jokaista havaintoa verrattiin vertailualueisiin, joissa on samanlainen maanpeite mutta ei tiedettyä historiaa, ja havainto kelpasi vasta, kun se erottui niistä.
+
+Tulos on kaksijakoinen. Kirkonpaikkojen ympäriltä erottuvat kaivanto, kuoppa-alueet ja kehä. Kirkkojen omia pohjia ja ojaa laser ei kuitenkaan erota taustasta. Muodot ovat 10--30 senttiä korkeita, ja metsämaassa mittapisteitä on liian vähän niiden erottamiseen. Myös automaattinen haku kellarikuopille, uuninpohjille ja perustuksille tuotti alueelta suunnilleen saman määrän ehdokkaita, jonka pelkkä sattuma tuottaisi. Siksi en esitä niitä löytöinä.
+
+Tarkempaa aineistoa koskee lisenssi. Maanmittauslaitoksella on laserkeilausaineistoa kahdessa tarkkuudessa. Avoin aineisto on harvempi, noin puoli mittauspistettä neliömetrillä, ja sitä saa julkaista vapaasti lähde mainiten. Tarkemman aineiston käyttöön tarvitaan maksullinen lisenssi, ja sen ehdot kieltävät julkaisemasta tai luovuttamasta aineistoa sellaisenaan tai vastaavalla tarkkuudella.\viite{10} Siksi en voi jakaa tarkempaa mallia enkä julkaista siitä tehtyjä yksityiskohtaisia kuvia. Kaikki tässä kuvatut analyysit on tehty tarkemmasta aineistosta. Artikkelin kuvat ja verkossa julkaistu 3D-malli on sen sijaan tehty karkeammasta aineistosta, joten lukija ei näe niistä aivan kaikkea, mihin päätelmäni perustuvat.
+
+
+\section{Mitä seuraavaksi}
+
+Kirkonpaikat ovat nykyään rakentamatonta ja tasaista maata. Ne sopivat maatutkaukselle, jolla perustukset, haudat ja ojan täyttö näkyvät kaivamatta. Vuoden 1820 korjauksessa lattian alle ladotut suuret kivet ovat juuri sellaista, minkä maatutka erottaa. Alue on kirkkomaana ja hautausmaana suojeltu, joten tutkimuksesta päättävät museoviranomaiset ja seurakunta. Asiakirjoista odotan vielä kahta: seurakunnan 1800-luvun alun lohkomiskarttaa kirkkopuistosta ja Lieksan isojaon jakokirjaa vuosilta 1840--1847. Kumpikin voi sijoittaa vanhan kirkkomaan rajat suoraan karttaan.
+
+Kolme kirkkoa, yksi saari ja hautausmaa puolikaaressa ovat siis asiakirjoissa. Maastossa ne ovat yhä paikallaan rautatiepenkereen ja Varasjoen välissä, odottamassa, että joku katsoo maan alle.
+
+\section{Lähteet}
+{\small
+\begin{enumerate}[label={\color{leima}\sffamily\arabic*},leftmargin=18pt,itemsep=2pt,parsep=0pt]
+\item Kansallisarkisto (KA), Pielisjärven seurakunnan arkisto, II Ca:1 Pitäjänkokousten pöytäkirjat 1743--1836: oja 1752, 1760 ja 1763; tapuli 1751--1755 (kuvat 79--88); ristikirkon rakentaminen 1765--1774 (kuvat 84, 104--106); luonnos 14.10.1778 (kuva 116L); saari 1810 (kuva 237L); silta 1813 (kuva 254R); korjaus ja haudat 27.4.1820 (kuvat 286R, 289R); palo 14.8.1828 (kuva 375); puoliympyrä 14.12.1828 (kuvat 352--353, 377--379); siirtopäätös 22.3.1829 (kuvat 365--367); katselmus 23.8.1830 (kuvat 349--350); hätätapuli 19.2.1832 (kuvat 397--398). Astia, hakusana \textit{Pielisjärven seurakunnan arkisto pitäjänkokousten pöytäkirjat}.
+\item KA, Maanmittaushallituksen verollepanokartat, 125:1 Lieksa 4:2a--l, C. G. Backman 1818--1819, lehti 8.
+\item Ote A. J. von Fieandtin isojakokartasta 1838--1840 teoksessa Poutiainen, Hannu, Sepänmaa, Timo \& Jussila, Timo 2019: \textit{Lieksan keskustaajaman osayleiskaavan arkeologinen inventointi}. Mikroliitti Oy, s.~14.
+\item KA, Karjalan tuomiokunnan renovoidut tuomiokirjat, Pielisjärven käräjät 1760.
+\item KA, Kajaanin vapaaherrakunnan renovoidut tuomiokirjat, KO a:1 (1653--1656) ja KO a:2 (1680), kuva 430.
+\item KA, Pielisjärven seurakunnan arkisto, II Cd:1 Piispan- ja rovastintarkastusten pöytäkirjat 1737--1846: tarkastus 17.--19.2.1765 (kuvat 488--497) ja 17.2.1797 (kuva 529).
+\item Maanmittauslaitos, ilmakuva 1956, Lieksan keskusta.
+\item KA, Pielisjärven seurakunnan arkisto, II Ca:2 Pitäjänkokousten pöytäkirjat 1835--1839, 4.5.1837 (kuva 42).
+\item Museovirasto, muinaisjäännösrekisteri: Lieksa, Kirkkosaari~1 (kohdetunnus 1000033026); inventointi V. Laakso, J. Ruohonen ja S. Kärkkäinen 2014.
+\item Maanmittauslaitos: Laserkeilausaineisto 5 p (2023) käyttöehtoineen ja Laserkeilausaineisto 0,5 p (2023, CC BY 4.0); maastotietokanta.
+\end{enumerate}
+}
+
+\vspace{0.6em}
+{\small\raggedright\textbf{Tarkemmat lähteet kuvanumeroineen ja aiemmat muistiot.} \textit{Palaneen kirkon paikka} (versio 1.1): \href{https://jlintumies.github.io/palaneen-kirkon-paikka.pdf}{jlintumies.github.io/palaneen-kirkon-paikka.pdf} · \textit{Brahea Varasjoen pohjoispuolella}: \href{https://jlintumies.github.io/brahea-varasjoen-pohjoispuolella.pdf}{jlintumies.github.io/brahea-varasjoen-pohjoispuolella.pdf} · \textit{Brahea ja sen kirkko 1653--1680}: \href{https://jlintumies.github.io/brahea-ja-kirkko-1653-1680.pdf}{jlintumies.github.io/brahea-ja-kirkko-1653-1680.pdf} · avoin 3D-malli: \href{https://jlintumies.github.io/brahea/}{jlintumies.github.io/brahea}\par}
+
+\vspace{0.8em}
+{\color{leima}\rule{\linewidth}{0.5pt}}
+
+{\small\sffamily Juri Jukola · \href{mailto:jujukol@gmail.com}{jujukol@gmail.com} · \href{https://www.linkedin.com/in/jurijukola}{linkedin.com/in/jurijukola}\\
+Artikkeli on vapaasti luettavissa ja jaettavissa lähde mainiten. Korjaukset ja lisätiedot ovat tervetulleita.\par}
+
+\end{document}

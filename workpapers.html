@@ -301,6 +301,25 @@
     .versiot .v-solu + .v-solu { border-left: none; border-top: 1px dashed rgba(44,64,81,0.25); }
   }
   .raportti:target { outline: 3px solid var(--leima); outline-offset: 6px; }
+  /* ---------- linkkinapit ---------- */
+  .raportti[id] { position: relative; }
+  .raportti[id] > .meta { padding-right: 120px; }
+  .linkkinappi {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
+    color: var(--meri); background: transparent; border: 1px solid var(--jaa);
+    padding: 6px 10px; cursor: pointer; white-space: nowrap; line-height: 1;
+  }
+  .linkkinappi:hover { background: var(--meri); color: var(--paperi); border-color: var(--meri); }
+  .linkkinappi:focus-visible { outline: 3px solid var(--leima); outline-offset: 2px; }
+  .linkkinappi.kopioitu, .linkkinappi.kopioitu:hover { background: var(--leima); border-color: var(--leima); color: var(--paperi); }
+  .linkkinappi svg { width: 13px; height: 13px; flex: none; }
+  .raportti[id] > .linkkinappi { position: absolute; top: 28px; right: 0; z-index: 1; }
+  @media (max-width: 600px) {
+    .raportti[id] > .meta { padding-right: 0; }
+    .raportti[id] > .linkkinappi { position: static; justify-self: start; margin: 2px 0 4px; }
+  }
 </style>
 
 </head>
@@ -583,6 +602,55 @@
   function mene(){var el=document.getElementById(id); if(el) el.scrollIntoView({block:'start'});}
   if(document.fonts&&document.fonts.ready){document.fonts.ready.then(mene);}
   window.addEventListener('load',mene);
+})();
+</script>
+<script>
+/* Linkkinapit: jokaiselle paperille kopioitava, pysyvä osoite (#ankkuri). */
+(function () {
+  var IKONI = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1.5-1.5"/></svg>';
+  var TEKSTI = 'Linkki';
+
+  function osoite(id) { return location.origin + location.pathname + '#' + id; }
+
+  function kopioi(teksti) {
+    if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(teksti);
+    return new Promise(function (ok, ei) {
+      var ta = document.createElement('textarea');
+      ta.value = teksti; ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy') ? ok() : ei(); } catch (e) { ei(e); }
+      document.body.removeChild(ta);
+    });
+  }
+
+  function otsikkoteksti(el) {
+    var h = el.querySelector('h3'); if (!h) return '';
+    var k = h.cloneNode(true);
+    k.querySelectorAll('.uusimerkki, .en-otsikko').forEach(function (x) { x.remove(); });
+    return k.textContent.trim();
+  }
+
+  document.querySelectorAll('.raportti[id]').forEach(function (r) {
+    var id = r.id, t = otsikkoteksti(r);
+    var a = document.createElement('a');
+    a.className = 'linkkinappi';
+    a.href = '#' + id;
+    a.title = 'Kopioi linkki tähän paperiin' + (t ? ': ' + t : '');
+    a.setAttribute('aria-label', a.title);
+    a.innerHTML = IKONI + '<span>' + TEKSTI + '</span>';
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      var url = osoite(id), span = a.querySelector('span');
+      kopioi(url).then(function () {
+        a.classList.add('kopioitu'); span.textContent = 'Kopioitu';
+        setTimeout(function () { a.classList.remove('kopioitu'); span.textContent = TEKSTI; }, 1800);
+      }, function () { window.prompt('Kopioi linkki:', url); });
+      if (history.replaceState) history.replaceState(null, '', '#' + id);
+    });
+    var meta = r.querySelector(':scope > .meta');
+    r.insertBefore(a, meta ? meta.nextSibling : r.firstChild);
+  });
 })();
 </script>
 </body>

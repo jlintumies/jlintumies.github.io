@@ -407,8 +407,31 @@
     <p><strong>Asiakirjoista tiedän, missä Lieksan vanha kirkko, kellotapuli, käräjätalot ja hovileirin tuvat seisoivat, mutta sylimitoista ja ilmansuunnista on vaikea hahmottaa paikkaa.</strong> Siksi piirsin kirkkomäen viitenä ajankohtana samasta kulmasta katsottuna. Vuonna 1655 saarekkeella on Liukkosen talo, joka oli juuri määrätty pappilaksi. Noin 1700 sen paikalla seisoo Pietari Brahen vuonna 1667 rakennuttama kirkko, ja käräjätalo on kirkon eteläpuolella. Vuonna 1757 kirkkomaa on täynnä rakennuksia: aidassa on kellotapuli, ja luoteessa ovat käräjätalot ja talli sekä hovileirin leivintupa ja yötupa. Noin 1790 vanhan kirkon tilalla on ristikirkko, ja käräjätalo ja Johan Mustosen talo ovat siirtyneet kirkon eteläpuolelle. Noin 1830 kirkko on palanut, ja sen paikalla on painanne, joka näkyy laserkeilauksessa vielä tänäänkin.</p>
     <p><strong>Kuvat ovat havainnekuvia eivätkä rekonstruktioita.</strong> Rakennusten paikat ja koot perustuvat tuomiokirjoihin, seurakunnan pöytäkirjoihin, vuosien 1818–1819 verollepanokarttaan ja kirkkomäen rakennuspohjiin laserkeilauksessa. Seinien korkeudet, kattojen kulmat, pellot, puut ja tiet olen lisännyt itse. Artikkeli kertoo kunkin kuvan kohdalla, mikä on asiakirjasta ja mikä oletusta.</p>
     <p><a class="nappi" href="varasjoen-suu-ajassa.html">Lue artikkeli</a></p>
-<p style="margin:16px 0"><a href="varasjoen-suu-maisema.jpg" target="_blank" rel="noopener" title="Avaa kuva täysikokoisena uuteen ikkunaan"><img src="varasjoen-suu-maisema.jpg" alt="Havainnekuva Varasjoen suusta vuodelta 1757: kirkko, kellotapuli, käräjätalot, hovileiri, Mustosen tontti ja kirkon silta" style="max-width:100%;height:auto;border:1px solid var(--ruutu);cursor:zoom-in"></a></p>
-<p class="meta">Kirkkomäki Varasjoen pohjoisrannalla noin vuonna 1757, katse kaakosta luoteeseen. Rakennusten paikat perustuvat asiakirjoihin ja Maanmittauslaitoksen Laserkeilausaineisto 5 p -aineistoon (keilattu 2023). Julkaisussa ne esitetään kohteeseen rajattuina, pienennettyinä rinnevalo- ja korkeuseroesityksinä. Kuvista ei voi palauttaa alkuperäistä pisteaineistoa tai korkeusmallia, eikä lähtöaineistoa julkaista. Kaukomaiseman vesistöt © OpenStreetMapin tekijät. Klikkaa kuvaa, niin se aukeaa täysikokoisena.</p>
+<div class="vaihtuva" id="varasjoki-sarja" style="position:relative;margin:16px 0;border:1px solid var(--ruutu);aspect-ratio:1800/1126;overflow:hidden;background:var(--ruutu)">
+  <a href="varasjoen-suu-1655.jpg" target="_blank" rel="noopener"><img src="varasjoen-suu-1655.jpg" alt="Varasjoen suu noin 1655: Liukkosen talo saarekkeella" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1;transition:opacity 1.2s ease;cursor:zoom-in"></a>
+  <a href="varasjoen-suu-1700.jpg" target="_blank" rel="noopener"><img src="varasjoen-suu-1700.jpg" alt="Varasjoen suu noin 1700: Brahen kirkko ja käräjätalo" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease;cursor:zoom-in"></a>
+  <a href="varasjoen-suu-1757.jpg" target="_blank" rel="noopener"><img src="varasjoen-suu-1757.jpg" alt="Varasjoen suu 1757: kirkko, tapuli, käräjätalot ja hovileiri" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease;cursor:zoom-in"></a>
+  <a href="varasjoen-suu-1790.jpg" target="_blank" rel="noopener"><img src="varasjoen-suu-1790.jpg" alt="Varasjoen suu noin 1790: ristikirkko ja Mustosen talo" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease;cursor:zoom-in"></a>
+  <a href="varasjoen-suu-1830.jpg" target="_blank" rel="noopener"><img src="varasjoen-suu-1830.jpg" alt="Varasjoen suu noin 1830: palaneen kirkon paikka ja tapuli sillan takana" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease;cursor:zoom-in"></a>
+</div>
+<script>
+(function(){
+  var box=document.getElementById('varasjoki-sarja'); if(!box) return;
+  var kuvat=box.querySelectorAll('img'), linkit=box.querySelectorAll('a'), i=0, ajastin=null;
+  for (var k=0;k<linkit.length;k++){ linkit[k].style.pointerEvents = k===0 ? 'auto' : 'none'; }
+  function nayta(n){
+    kuvat[i].style.opacity=0; linkit[i].style.pointerEvents='none';
+    i=n; kuvat[i].style.opacity=1; linkit[i].style.pointerEvents='auto';
+  }
+  function kaynnista(){ if(!ajastin) ajastin=setInterval(function(){ nayta((i+1)%kuvat.length); },5000); }
+  function pysayta(){ clearInterval(ajastin); ajastin=null; }
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  box.addEventListener('mouseenter',pysayta); box.addEventListener('mouseleave',kaynnista);
+  document.addEventListener('visibilitychange',function(){ document.hidden ? pysayta() : kaynnista(); });
+  kaynnista();
+})();
+</script>
+<p class="meta">Kirkkomäki Varasjoen pohjoisrannalla viitenä aikana: n. 1655, n. 1700, 1757, n. 1790 ja n. 1830. Kuva vaihtuu viiden sekunnin välein ja pysähtyy, kun hiiri on kuvan päällä. Katse on kaakosta luoteeseen. Rakennusten paikat perustuvat asiakirjoihin ja Maanmittauslaitoksen Laserkeilausaineisto 5 p -aineistoon (keilattu 2023). Julkaisussa ne esitetään kohteeseen rajattuina, pienennettyinä rinnevalo- ja korkeuseroesityksinä. Kuvista ei voi palauttaa alkuperäistä pisteaineistoa tai korkeusmallia, eikä lähtöaineistoa julkaista. Kaukomaiseman vesistöt © OpenStreetMapin tekijät. Klikkaa kuvaa, niin se aukeaa täysikokoisena.</p>
   </div>
 
 <div class="uusin" data-ankkuri="missa-brahea-seisoi">

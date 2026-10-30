@@ -523,7 +523,7 @@ const AIKAJANA = [{"y": "1617", "t": "Ensimmäinen luterilainen kirkko", "k": "S
   // ---------- tuomiokirjojen tekstihaku ----------
   let TKH = null; const TKD = {};
   function tkHakemisto() {
-    if (!TKH) TKH = fetch('tuomiokirjat/hakemisto.json').then(r => r.json());
+    if (!TKH) TKH = fetch('hakemisto.json').then(r => r.json());
     return TKH;
   }
   tkHakemisto().then(h => {
@@ -533,7 +533,7 @@ const AIKAJANA = [{"y": "1617", "t": "Ensimmäinen luterilainen kirkko", "k": "S
     $('tkalku').value = h.osat[0].d; $('tkloppu').value = h.osat[h.osat.length - 1].d;
   }).catch(() => {});
   function tkOsa(o) {
-    if (!TKD[o.d]) TKD[o.d] = fetch(o.f).then(r => r.json());
+    if (!TKD[o.d]) TKD[o.d] = fetch(o.f.split('/').pop()).then(r => r.json());
     return TKD[o.d];
   }
   function haeTk() {

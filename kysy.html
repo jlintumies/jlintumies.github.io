@@ -125,6 +125,8 @@
   .tapahtuma h2 { font-family: 'Archivo Narrow', sans-serif; font-weight: 600; font-size: 24px; line-height: 1.15; margin: 4px 0 6px; }
 
   .nimilaatikko { border-left-color: var(--meri); margin-top: 18px; }
+  .nimiluvut { margin-top: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.02em; color: var(--meri); }
+  .nimiluvut strong { color: var(--leima); font-weight: 500; }
   .nimiohje { margin-top: 10px; font-size: 14px; color: var(--jaa); line-height: 1.5; }
   .nimitulokset { list-style: none; margin-top: 10px; }
   .nimiryhma { border-top: 1px solid rgba(22,35,47,0.18); padding: 12px 0; }
@@ -179,7 +181,8 @@
       <input id="nimi" type="search" placeholder="Sukunimi, esim. Mustonen tai Sapattinen">
       <button id="haenimi" type="submit">Hae nimeä</button>
     </div>
-    <p class="nimiohje">Hakemisto kattaa noin 10 000 Pielisjärveä, Lieksaa, Nurmesta tai Braheaa mainitsevaa koneluettua tuomiokirjasivua. Saman nimen kirjoitusasut on yhdistetty, esimerkiksi Mustoin ja Mustonen. Koneluennassa nimiä voi puuttua tai olla väärin, joten tarkista maininta aina Astian sivukuvasta.</p>
+    <p class="nimiluvut"><strong>49 805</strong> henkilömainintaa · <strong>22 695</strong> eri nimeä · <strong>5 750</strong> sukunimeä · <strong>9 985</strong> tuomiokirjasivua</p>
+    <p class="nimiohje">Hakemisto kattaa kaikki Pielisjärveä, Lieksaa, Nurmesta tai Braheaa mainitsevat koneluetut tuomiokirjasivut vuosilta 1650–1810. Saman nimen kirjoitusasut on yhdistetty, esimerkiksi Mustoin ja Mustonen. Koneluennassa nimiä voi puuttua tai olla väärin, joten tarkista maininta aina Astian sivukuvasta.</p>
   </form>
   <div class="tila" id="nimitila" role="status"></div>
   <ol class="nimitulokset" id="nimitulokset"></ol>

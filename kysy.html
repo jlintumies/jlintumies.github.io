@@ -100,6 +100,7 @@
   .tulos .ote { font-size: 16px; }
   .tulos mark { background: var(--korostus); color: inherit; padding: 0 1px; }
   .tulos .lisaa { margin-top: 6px; background: none; border: 0; padding: 0; color: var(--meri); text-decoration: underline; text-transform: none; letter-spacing: 0; font-family: 'Spectral', serif; font-size: 15px; }
+  .tulos .astia { display: inline-block; margin-top: 6px; margin-left: 14px; font-size: 15px; }
   .tulos .tausta { display: inline-block; margin-left: 6px; color: var(--leima); }
   .ohje { margin-top: 40px; font-size: 15px; color: var(--meri); }
   .ohje h2 { font-family: 'Archivo Narrow', sans-serif; font-size: 15px; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 10px; }
@@ -171,7 +172,8 @@
 
   <section class="ohje">
     <h2>Miten haku toimii</h2>
-    <p>Haku käy läpi Brahean ja Pielisjärven historiaa käsittelevien raporttien tekstin sekä tutkimuksen aikana kootut taustamuistiot. Aikajanan tapahtumaa klikkaamalla näet, mitä aineistossa siitä kerrotaan. Tulokset näytetään osuvuusjärjestyksessä, ja jokaisesta otteesta pääsee suoraan raportin oikealle sivulle. Taustamuistiot ovat julkaisemattomia työmuistioita, ja niissä merkinnät [A], [H], [K] ja [P] kertovat, onko tieto luettu alkuperäisestä asiakirjasta, tekstihausta, kirjallisuudesta vai päätelty.</p>
+    <p>Haku käy läpi Brahean ja Pielisjärven historiaa käsittelevien raporttien tekstin sekä tutkimuksen aikana kootut taustamuistiot. Aikajanan tapahtumaa klikkaamalla näet, mitä aineistossa siitä kerrotaan.</p>
+    <p>Aineisto on neljässä osassa: julkaistut raportit, taustamuistiot, työaineisto ja koneluetut pöytäkirjat. Työaineisto on tutkimuksen aikana syntyneitä luentoja, transkriptioita ja muistiinpanoja; romaanien fiktiivinen aines on jätetty pois. Koneluetut pöytäkirjat ovat Kansallisarkiston tekoälyllä lukemia 1600-luvun tekstejä: nimet ja luvut voivat olla väärin, joten tarkista kohta aina alkuperäisestä Astia-linkin kautta. Tulokset näytetään osuvuusjärjestyksessä, ja jokaisesta otteesta pääsee suoraan raportin oikealle sivulle. Taustamuistiot ovat julkaisemattomia työmuistioita, ja niissä merkinnät [A], [H], [K] ja [P] kertovat, onko tieto luettu alkuperäisestä asiakirjasta, tekstihausta, kirjallisuudesta vai päätelty.</p>
     <p>Haku ymmärtää sanojen alkuosat, joten <i>kirkko</i> löytää myös <i>kirkon</i> ja <i>kirkkoherran</i>. Vanhan ruotsin kirjoitusasut kannattaa kokeilla sellaisinaan, esimerkiksi <i>hofläger</i> tai <i>Liexa</i>.</p>
     <p>Jos et löydä vastausta, kysy suoraan: <a href="mailto:jujukol@gmail.com">jujukol@gmail.com</a>.</p>
   </section>
@@ -218,23 +220,28 @@ const AIKAJANA = [{"y": "1617", "t": "Ensimmäinen luterilainen kirkko", "k": "S
     return w.length > 7 ? w.slice(0, Math.max(5, w.length - 3)) : w;
   }
 
+  function lisaa(data) {
+    const alku = A.docs.length, cAlku = A.c.length;
+    data.docs.forEach(d => A.docs.push(d));
+    const uudet = data.c.map(c => { const k = c.slice(); k[0] = c[0] + alku; return k; });
+    uudet.forEach(c => A.c.push(c));
+    ms.addAll(uudet.map((c, i) => ({ id: cAlku + i, t: A.docs[c[0]].t, x: c[2] })));
+    [...new Set(data.docs.map(d => d.s))].forEach(o => {
+      if ([...$('osio').options].some(x => x.value === o)) return;
+      const op = document.createElement('option'); op.value = o; op.textContent = o; $('osio').appendChild(op);
+    });
+    $('tila').textContent = A.docs.length + ' raporttia, muistiota ja työaineistoa, ' + A.c.length + ' tekstikohtaa';
+  }
+
   function lataa() {
     fetch('aineisto.json').then(r => {
       if (!r.ok) throw new Error(r.status);
       return r.json();
     }).then(data => {
-      A = data;
+      A = { v: data.v, docs: [], c: [] };
       $('versio').textContent = data.v;
-      const osiot = [...new Set(data.docs.map(d => d.s))];
-      osiot.forEach(o => { const op = document.createElement('option'); op.value = o; op.textContent = o; $('osio').appendChild(op); });
-      ms = new MiniSearch({
-        fields: ['t', 'x'],
-        storeFields: [],
-        tokenize: s => sanat(s),
-        processTerm: w => w
-      });
-      ms.addAll(data.c.map((c, i) => ({ id: i, t: data.docs[c[0]].t, x: c[2] })));
-      $('tila').textContent = data.docs.length + ' raporttia ja muistiota, ' + data.c.length + ' tekstikohtaa';
+      ms = new MiniSearch({ fields: ['t', 'x'], storeFields: [], tokenize: s => sanat(s), processTerm: w => w });
+      lisaa(data);
       ESIMERKIT.forEach(e => {
         const b = document.createElement('button'); b.type = 'button'; b.textContent = e;
         b.addEventListener('click', () => { $('kysymys').value = e; hae(); });
@@ -242,6 +249,9 @@ const AIKAJANA = [{"y": "1617", "t": "Ensimmäinen luterilainen kirkko", "k": "S
       });
       const q = new URLSearchParams(location.search).get('q');
       if (q) { $('kysymys').value = q; hae(); }
+      return fetch('tyoaineisto.json').then(r => r.ok ? r.json() : null).then(t => {
+        if (t) { lisaa(t); if ($('kysymys').value.trim()) hae(); }
+      }).catch(() => {});
     }).catch(() => { $('tila').textContent = 'Aineiston lataus epäonnistui. Päivitä sivu.'; });
   }
 
@@ -276,7 +286,7 @@ const AIKAJANA = [{"y": "1617", "t": "Ensimmäinen luterilainen kirkko", "k": "S
     for (const r of tulokset) {
       const d = A.c[r.id][0];
       perDoc[d] = (perDoc[d] || 0) + 1;
-      if (perDoc[d] <= 3) valitut.push(r);
+      if (perDoc[d] <= (A.docs[d].s === 'Koneluetut pöytäkirjat' ? 8 : 3)) valitut.push(r);
       if (valitut.length >= 15) break;
     }
     viimeisin = valitut;
@@ -319,7 +329,7 @@ const AIKAJANA = [{"y": "1617", "t": "Ensimmäinen luterilainen kirkko", "k": "S
     const li = document.createElement('li'); li.className = 'tulos';
     const l = document.createElement('div'); l.className = 'lahde';
     l.textContent = d.s + (d.f && sivu ? ' · sivu ' + sivu : '');
-    if (!d.f) { const t = document.createElement('span'); t.className = 'tausta'; t.textContent = '· julkaisematon'; l.appendChild(t); }
+    if (!d.f) { const t = document.createElement('span'); t.className = 'tausta'; t.textContent = d.s === 'Koneluetut pöytäkirjat' ? '· koneluenta, tarkistamaton' : '· julkaisematon'; l.appendChild(t); }
     const h = document.createElement('h3');
     if (d.f) {
       const a = document.createElement('a');
@@ -330,6 +340,12 @@ const AIKAJANA = [{"y": "1617", "t": "Ensimmäinen luterilainen kirkko", "k": "S
     const p = document.createElement('p'); p.className = 'ote';
     korosta(p, ote(teksti, re), re);
     li.append(l, h, p);
+    const url = A.c[r.id][3];
+    if (url) {
+      const a2 = document.createElement('a'); a2.href = url; a2.target = '_blank'; a2.rel = 'noopener';
+      a2.textContent = 'Avaa alkuperäinen sivu Astiassa'; a2.className = 'astia';
+      li.appendChild(a2);
+    }
     if (teksti.length > 500) {
       const b = document.createElement('button'); b.type = 'button'; b.className = 'lisaa'; b.textContent = 'Näytä koko kohta';
       b.addEventListener('click', () => { p.textContent = ''; korosta(p, teksti, re); b.remove(); });

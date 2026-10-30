@@ -59,7 +59,7 @@
     margin-bottom: 10px;
   }
   .hakurivi { display: flex; gap: 10px; }
-  #kysymys {
+  #kysymys, #nimi {
     flex: 1; min-width: 0; font: inherit; font-weight: 400; font-size: 18px;
     padding: 11px 14px; border: 1px solid var(--jaa); background: #FBF8F1; color: var(--muste);
     border-radius: 2px;
@@ -68,8 +68,8 @@
     font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.08em;
     text-transform: uppercase; cursor: pointer; border-radius: 2px;
   }
-  #hae { padding: 0 18px; background: var(--meri); color: #F4EFE4; border: 1px solid var(--meri); }
-  #hae:hover { background: var(--muste); }
+  #hae, #haenimi { padding: 0 18px; background: var(--meri); color: #F4EFE4; border: 1px solid var(--meri); }
+  #hae:hover, #haenimi:hover { background: var(--muste); }
   .suodatin { margin-top: 12px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; font-size: 15px; color: var(--jaa); }
   .suodatin select { font: inherit; font-size: 15px; padding: 4px 6px; background: #FBF8F1; border: 1px solid var(--ruutu); color: var(--muste); }
   .esimerkit { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px; }
@@ -123,13 +123,27 @@
   .tapahtuma { margin-top: 22px; padding: 18px 22px; border-left: 3px solid var(--meri); background: rgba(44,64,81,0.05); display: none; }
   .tapahtuma .v { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: var(--leima); }
   .tapahtuma h2 { font-family: 'Archivo Narrow', sans-serif; font-weight: 600; font-size: 24px; line-height: 1.15; margin: 4px 0 6px; }
+
+  .nimilaatikko { border-left-color: var(--meri); margin-top: 18px; }
+  .nimiohje { margin-top: 10px; font-size: 14px; color: var(--jaa); line-height: 1.5; }
+  .nimitulokset { list-style: none; margin-top: 10px; }
+  .nimiryhma { border-top: 1px solid rgba(22,35,47,0.18); padding: 12px 0; }
+  .nimiryhma > button { background: none; border: 0; padding: 0; cursor: pointer; text-align: left; text-transform: none; letter-spacing: 0; color: var(--muste); font-family: 'Archivo Narrow', sans-serif; font-weight: 600; font-size: 21px; }
+  .nimiryhma > button:hover { color: var(--leima); }
+  .nimiryhma .lkm { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--jaa); margin-left: 8px; font-weight: 400; }
+  .nimiryhma .muodot { font-size: 14px; color: var(--jaa); font-style: italic; }
+  .maininnat { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 15px; }
+  .maininnat td { padding: 4px 8px 4px 0; border-bottom: 1px solid var(--ruutu); vertical-align: top; }
+  .maininnat td.v { font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--jaa); white-space: nowrap; }
+  .maininnat td.l { font-size: 13px; color: var(--jaa); }
+  .lisaanimia { margin-top: 8px; background: none; border: 1px solid var(--ruutu); padding: 5px 10px; color: var(--meri); text-transform: none; letter-spacing: 0; font-family: 'Spectral', serif; font-size: 15px; }
   @media (max-width: 920px) {
     .runko { grid-template-columns: 1fr; }
     .aikajana { position: static; max-height: none; border-left: 0; border-top: 1px solid rgba(22,35,47,0.25); padding: 24px 0 0 22px; order: 2; }
   }
   @media (max-width: 520px) {
     .hakurivi { flex-direction: column; }
-    #hae { padding: 11px 18px; }
+    #hae, #haenimi { padding: 11px 18px; }
   }
 </style>
 </head>
@@ -157,6 +171,18 @@
     </div>
     <div class="esimerkit" id="esimerkit"></div>
   </form>
+
+
+  <form class="hakulaatikko nimilaatikko" id="nimilomake" autocomplete="off">
+    <label for="nimi">Nimihakemisto · tuomiokirjat 1650–1810</label>
+    <div class="hakurivi">
+      <input id="nimi" type="search" placeholder="Sukunimi, esim. Mustonen tai Sapattinen">
+      <button id="haenimi" type="submit">Hae nimeä</button>
+    </div>
+    <p class="nimiohje">Hakemisto kattaa noin 10 000 Pielisjärveä, Lieksaa, Nurmesta tai Braheaa mainitsevaa koneluettua tuomiokirjasivua. Saman nimen kirjoitusasut on yhdistetty, esimerkiksi Mustoin ja Mustonen. Koneluennassa nimiä voi puuttua tai olla väärin, joten tarkista maininta aina Astian sivukuvasta.</p>
+  </form>
+  <div class="tila" id="nimitila" role="status"></div>
+  <ol class="nimitulokset" id="nimitulokset"></ol>
 
   <div class="tila" id="tila" role="status">Ladataan aineistoa…</div>
 
@@ -402,6 +428,76 @@ const AIKAJANA = [{"y": "1617", "t": "Ensimmäinen luterilainen kirkko", "k": "S
   }
   $('lomake').addEventListener('submit', e => { e.preventDefault(); $('tapahtuma').style.display = 'none'; document.querySelectorAll('.aikajana button.valittu').forEach(x => x.classList.remove('valittu')); hae(); });
   rakennaAikajana();
+  // ---------- nimihakemisto ----------
+  let NH = null, nhLataus = null;
+  function nimiavain(x) {
+    let k = x.toLowerCase();
+    [['fw','v'],['fv','v'],['å','o'],['ph','f'],['th','t'],['ck','k'],['w','v'],['c','k'],['q','k'],['z','s'],['ü','y'],['é','e'],['è','e'],['ß','s'],['b','p'],['d','t'],['g','k']].forEach(([a,b]) => { k = k.split(a).join(b); });
+    k = k.replace(/(.)\1+/g, '$1');
+    if (k.startsWith('afl')) return 'aflek';
+    if (k.startsWith('steni')) return 'stenius';
+    k = k.replace(/(sers|ser|s)$/, '');
+    k = k.replace(/(tar|tär|atar|ätär)$/, '');
+    k = k.replace(/(nen|n)$/, '').replace(/i$/, '');
+    return k;
+  }
+  function lataaNimet() {
+    if (!nhLataus) nhLataus = fetch('nimihakemisto.json').then(r => r.json()).then(d => { NH = d; d.n.forEach(n => { n.k = n.v.map(nimiavain); n.l = n.v.map(x => x.toLowerCase()); }); return d; });
+    return nhLataus;
+  }
+  function haeNimi() {
+    const q = $('nimi').value.trim();
+    $('nimitulokset').innerHTML = '';
+    if (q.length < 3) { $('nimitila').textContent = 'Kirjoita vähintään kolme kirjainta.'; return; }
+    $('nimitila').textContent = NH ? '' : 'Ladataan nimihakemistoa…';
+    lataaNimet().then(d => {
+      const ql = q.toLowerCase().split(/\s+/).pop(), qk = nimiavain(ql);
+      let osumat = d.n.filter(n => n.k.includes(qk) || n.l.some(v => v.startsWith(ql)));
+      if (osumat.length < 3 && qk.length >= 4) osumat = osumat.concat(d.n.filter(n => !osumat.includes(n) && n.k.some(k => k.startsWith(qk))));
+      osumat.sort((a, b) => b.m.length - a.m.length);
+      const yht = osumat.reduce((s, n) => s + n.m.length, 0);
+      $('nimitila').textContent = osumat.length ? 'Nimiä ' + osumat.length + ', mainintoja ' + yht : 'Ei osumia. Kokeile vanhaa kirjoitusasua tai lyhyempää nimen alkua.';
+      osumat.slice(0, 40).forEach(n => $('nimitulokset').appendChild(nimiRyhma(n, d)));
+    });
+  }
+  function nimiRyhma(n, d) {
+    const li = document.createElement('li'); li.className = 'nimiryhma';
+    const b = document.createElement('button'); b.type = 'button'; b.textContent = n.n;
+    const l = document.createElement('span'); l.className = 'lkm'; l.textContent = n.m.length + ' mainintaa';
+    b.appendChild(l);
+    const mu = document.createElement('div'); mu.className = 'muodot'; mu.textContent = 'Kirjoitusasut: ' + n.v.join(', ');
+    li.append(b, mu);
+    let auki = false, taulu = null;
+    b.addEventListener('click', () => {
+      if (auki) { taulu.remove(); auki = false; return; }
+      taulu = document.createElement('div');
+      const t = document.createElement('table'); t.className = 'maininnat';
+      let nayta = 0;
+      const lisaa = () => {
+        n.m.slice(nayta, nayta + 100).forEach(m => {
+          const p = d.p[m[0]];
+          const tr = document.createElement('tr');
+          const v = document.createElement('td'); v.className = 'v'; v.textContent = p[0] + (p[1] && p[1] !== p[0] ? '–' + String(p[1]).slice(2) : '');
+          const nm = document.createElement('td'); nm.textContent = (m[2] >= 0 ? d.s[m[2]] + ' ' : '') + d.s[m[1]] + (m[3] >= 0 ? ', ' + d.s[m[3]] : '');
+          const lk = document.createElement('td'); lk.className = 'l';
+          const a = document.createElement('a'); a.href = 'https://astia.narc.fi/uusiastia//viewer/?fileId=' + p[2]; a.target = '_blank'; a.rel = 'noopener'; a.textContent = 'Astia';
+          lk.append(document.createTextNode(d.src[p[3]] + ' · '), a);
+          tr.append(v, nm, lk); t.appendChild(tr);
+        });
+        nayta += 100;
+        if (nayta >= n.m.length && lb) lb.remove();
+      };
+      taulu.appendChild(t);
+      let lb = null;
+      if (n.m.length > 100) { lb = document.createElement('button'); lb.type = 'button'; lb.className = 'lisaanimia'; lb.textContent = 'Näytä lisää mainintoja'; lb.addEventListener('click', lisaa); taulu.appendChild(lb); }
+      lisaa();
+      li.appendChild(taulu); auki = true;
+    });
+    return li;
+  }
+  $('nimilomake').addEventListener('submit', e => { e.preventDefault(); haeNimi(); });
+  $('nimi').addEventListener('focus', lataaNimet, { once: true });
+
   $('osio').addEventListener('change', hae);
   $('pyyda').addEventListener('click', pyydaVastaus);
   lataa();

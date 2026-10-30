@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Kysy raporteista · J. Lintumies</title>
-<meta name="description" content="Hae vastauksia Brahean, Pielisjärven, Seiskarin ja kotiseudun historiaa käsittelevistä raporteista ja taustamuistioista.">
+<title>Brahea ja Pielisjärvi · Hae historiasta · J. Lintumies</title>
+<meta name="description" content="Hae tietoa Brahean ja Pielisjärven historiasta: raportit, asiakirjalöydöt ja aikajana 1617–1840.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@500;600&family=Spectral:ital,wght@0,300;0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -105,6 +105,27 @@
   .ohje h2 { font-family: 'Archivo Narrow', sans-serif; font-size: 15px; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 10px; }
   .ohje p + p { margin-top: 10px; }
   footer { margin-top: 56px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--jaa); letter-spacing: 0.04em; }
+
+  .sivu { max-width: 1180px; }
+  .runko { display: grid; grid-template-columns: minmax(0,1fr) 330px; gap: 44px; align-items: start; }
+  .paa { min-width: 0; }
+  .aikajana { position: sticky; top: 18px; max-height: calc(100vh - 36px); overflow-y: auto; padding: 18px 0 18px 22px; border-left: 1px solid rgba(22,35,47,0.25); }
+  .aikajana h2 { font-family: 'Archivo Narrow', sans-serif; font-weight: 600; font-size: 15px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--meri); margin-bottom: 4px; }
+  .aikajana .selite { font-size: 14px; color: var(--jaa); margin-bottom: 14px; font-style: italic; }
+  .aikajana ol { list-style: none; }
+  .aikajana li { position: relative; }
+  .aikajana li button { display: grid; grid-template-columns: 46px 1fr; gap: 8px; width: 100%; text-align: left; background: none; border: 0; padding: 7px 4px 7px 0; cursor: pointer; text-transform: none; letter-spacing: 0; font-family: 'Spectral', serif; font-size: 15px; line-height: 1.35; color: var(--muste); }
+  .aikajana li button::before { content: ''; position: absolute; left: -27px; top: 13px; width: 9px; height: 9px; border-radius: 50%; background: var(--paperi); border: 2px solid var(--jaa); }
+  .aikajana li button:hover, .aikajana li button.valittu { color: var(--leima); }
+  .aikajana li button.valittu::before { background: var(--leima); border-color: var(--leima); }
+  .aikajana .v { font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--jaa); padding-top: 1px; }
+  .tapahtuma { margin-top: 22px; padding: 18px 22px; border-left: 3px solid var(--meri); background: rgba(44,64,81,0.05); display: none; }
+  .tapahtuma .v { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: var(--leima); }
+  .tapahtuma h2 { font-family: 'Archivo Narrow', sans-serif; font-weight: 600; font-size: 24px; line-height: 1.15; margin: 4px 0 6px; }
+  @media (max-width: 920px) {
+    .runko { grid-template-columns: 1fr; }
+    .aikajana { position: static; max-height: none; border-left: 0; border-top: 1px solid rgba(22,35,47,0.25); padding: 24px 0 0 22px; order: 2; }
+  }
   @media (max-width: 520px) {
     .hakurivi { flex-direction: column; }
     #hae { padding: 11px 18px; }
@@ -115,12 +136,14 @@
 <div class="sivu">
   <header>
     <div class="yla">J. Lintumies · Faktat ja analyysit</div>
-    <h1>Kysy<br>raporteista</h1>
+    <h1>Brahea ja<br>Pielisjärvi</h1>
     <div class="viiva"></div>
-    <p class="alaotsikko">Hae vastauksia Brahean, Pielisjärven, Seiskarin ja kotiseudun historiaa käsittelevistä raporteista ja taustamuistioista.</p>
-    <nav class="navi"><a href="index.html">Kirjat</a> <a href="analyysit.html">Faktat ja analyysit</a> <a href="kysy.html" class="tassa">Kysy raporteista</a> <a href="brahea/index.html">Brahea-lidarmalli</a> <a href="workpapers.html">Workpapers</a></nav>
+    <p class="alaotsikko">Hae tietoa Brahean ja Pielisjärven historiasta.</p>
+    <nav class="navi"><a href="index.html">Kirjat</a> <a href="analyysit.html">Faktat ja analyysit</a> <a href="kysy.html" class="tassa">Hae historiasta</a> <a href="brahea/index.html">Brahea-lidarmalli</a> <a href="workpapers.html">Workpapers</a></nav>
   </header>
 
+  <div class="runko">
+  <main class="paa">
   <form class="hakulaatikko" id="lomake" autocomplete="off">
     <label for="kysymys">Kysymys tai hakusanat</label>
     <div class="hakurivi">
@@ -143,14 +166,22 @@
   </section>
   <button id="pyyda" type="button">Pyydä tiivistetty vastaus</button>
 
+  <section class="tapahtuma" id="tapahtuma" aria-live="polite"><div class="v" id="tv"></div><h2 id="tt"></h2><p id="tk"></p></section>
   <ol class="tulokset" id="tulokset"></ol>
 
   <section class="ohje">
     <h2>Miten haku toimii</h2>
-    <p>Haku käy läpi kaikkien julkaistujen historia-aiheisten raporttien tekstin sekä tutkimuksen aikana kootut taustamuistiot. Tulokset näytetään osuvuusjärjestyksessä, ja jokaisesta otteesta pääsee suoraan raportin oikealle sivulle. Taustamuistiot ovat julkaisemattomia työmuistioita, ja niissä merkinnät [A], [H], [K] ja [P] kertovat, onko tieto luettu alkuperäisestä asiakirjasta, tekstihausta, kirjallisuudesta vai päätelty.</p>
+    <p>Haku käy läpi Brahean ja Pielisjärven historiaa käsittelevien raporttien tekstin sekä tutkimuksen aikana kootut taustamuistiot. Aikajanan tapahtumaa klikkaamalla näet, mitä aineistossa siitä kerrotaan. Tulokset näytetään osuvuusjärjestyksessä, ja jokaisesta otteesta pääsee suoraan raportin oikealle sivulle. Taustamuistiot ovat julkaisemattomia työmuistioita, ja niissä merkinnät [A], [H], [K] ja [P] kertovat, onko tieto luettu alkuperäisestä asiakirjasta, tekstihausta, kirjallisuudesta vai päätelty.</p>
     <p>Haku ymmärtää sanojen alkuosat, joten <i>kirkko</i> löytää myös <i>kirkon</i> ja <i>kirkkoherran</i>. Vanhan ruotsin kirjoitusasut kannattaa kokeilla sellaisinaan, esimerkiksi <i>hofläger</i> tai <i>Liexa</i>.</p>
     <p>Jos et löydä vastausta, kysy suoraan: <a href="mailto:jujukol@gmail.com">jujukol@gmail.com</a>.</p>
   </section>
+  </main>
+  <aside class="aikajana" aria-label="Aikajana">
+    <h2>Aikajana</h2>
+    <p class="selite">Klikkaa tapahtumaa, niin näet mitä aineistossa siitä kerrotaan.</p>
+    <ol id="aikajana"></ol>
+  </aside>
+  </div>
   <footer>Aineisto päivitetty <span id="versio">–</span> · Juri Jukola</footer>
 </div>
 
@@ -166,9 +197,12 @@
     'Mustoset ja hovileiri',
     'Anders Rautiainen tupakka',
     'kirkon palo 1828',
-    'Seiskari Pietari'
+    'skanssi',
+    'kestikievari'
   ];
+const AIKAJANA = [{"y": "1617", "t": "Ensimmäinen luterilainen kirkko", "k": "Stolbovan rauhan jälkeen Lieksaan rakennettiin ensimmäinen luterilainen kirkko Haukkaniemelle.", "q": "Haukkaniemi kirkko 1617"}, {"y": "1650", "t": "Pielisjärvi Brahen vapaaherrakuntaan", "k": "Pielisjärvi liitettiin kreivi Per Brahen Kajaanin vapaaherrakuntaan.", "q": "vapaaherrakunta Brahe Pielisjärvi"}, {"y": "1653", "t": "Brahean kaupunki perustetaan", "k": "Brahean kaupunki perustettiin Varasjoen suulle 26.5.1653.", "q": "Brahea perustaminen 1653"}, {"y": "1655", "t": "Brahean ensimmäinen pappila", "k": "Mårten Liukkosen talo otettiin pappilaksi 20.6.1655.", "q": "Liukkonen pappila 1655"}, {"y": "1656", "t": "Venäläisten hyökkäys", "k": "Sodan alussa kaupunki ja pappila poltettiin.", "q": "1656 poltettiin hyökkäys"}, {"y": "1659", "t": "Porvariluettelot ja skanssi", "k": "Brahean porvariluettelot laadittiin helmikuussa 1659; skanssi rakennettiin sodan aikana.", "q": "porvariluettelo 1659 skanssi"}, {"y": "1667", "t": "Brahen kirkko Kaupunginsaarelle", "k": "Uusi kirkko rakennettiin Kaupunginsaaren kohoumalle noin 89 metrin päähän vanhasta kirkonpaikasta.", "q": "1667 kirkko Kaupunginsaari"}, {"y": "1668", "t": "Raastuvanoikeus kokoontuu", "k": "Brahean raastuvanoikeuden pöytäkirjat 1668–1679 kertovat kaupungin arjesta.", "q": "raastuvanoikeus Bergenhemb 1668"}, {"y": "1674", "t": "Erich Ahlholm ja kaupunginkirjuri", "k": "Pormestarin avioton poika Erich Ahlholm valitti kaupunginkirjuri Lukassonin herjauksesta.", "q": "Ahlholm Lukasson 1674"}, {"y": "1681", "t": "Reduktio ja kaupungin loppu", "k": "Pielisjärvi palautettiin kruunulle, ja kaupungin purkamisesta annettiin määräys.", "q": "reduktio 1681 kaupunki"}, {"y": "1684", "t": "Ehnberg vuokraajaksi", "k": "Salomon Ehnberg sai Pielisjärven kruununtilan vuokralle 26.11.1684.", "q": "Ehnberg vuokrasopimus 1684"}, {"y": "1685", "t": "Skanssin tarkastus", "k": "Skanssi tarkastettiin; se toimi lähinnä kapakkana ja sateensuojana kirkkomiehille.", "q": "skanssi 1685 Kapakka-Matti"}, {"y": "1686", "t": "Tulkaa tuumaan, musta miero", "k": "Tapaninpäivänä 1686 kirkkomaalla kutsuttiin kansa koolle vuokraajaa vastaan.", "q": "musta miero 1686"}, {"y": "1688", "t": "Kaupunki kynnetään pelloksi", "k": "Porvarien valituksen mukaan tontit ja kadut kynnettiin pelloksi; käräjätaloa piiritettiin.", "q": "kynnettiin pelloksi 1688"}, {"y": "1693", "t": "Tupakkakauppias Rautiainen", "k": "Vuokraaja vaati irtolaisena kauppaa käyvän Anders Rautiaisen karkottamista.", "q": "Rautiainen tupakka 1693"}, {"y": "1697", "t": "Kato ja ryöstöt", "k": "Katovuosina vuokraaja lainasi viljaa, ja hovi ryöstettiin.", "q": "1697 kato ryöstö"}, {"y": "1700", "t": "Simon Affleck ja hovi", "k": "Majuri Simon Affleck siirsi hovileirin rakennukset kirkkomaalle.", "q": "Affleck hovileiri kirkkomaalle"}, {"y": "1710", "t": "Isoviha", "k": "Pielisjärven talonpojat vannoivat uskollisuutta tsaarille; Affleck ja Ehnberg pakenivat Kajaaniin.", "q": "vannoivat tsaarille 1710"}, {"y": "1726", "t": "Simo Hurtta haudataan", "k": "Majuri Simon Affleck haudattiin 1726, samalle aukeamalle tyttären häiden kanssa.", "q": "Affleck haudattiin 1726"}, {"y": "1736", "t": "Käräjätalo kirkkomaalle", "k": "Nimismies Johan Winter lupasi rakennuttaa käräjätalon 25.4.1736.", "q": "Winter käräjätalo 1736"}, {"y": "1745", "t": "Kirkon suuri korjaus", "k": "Vuoden 1667 kirkkoa korjattiin 1745–1753; kellotapuli rakennettiin 1751–1755.", "q": "kirkko korjaus 1745 tapuli"}, {"y": "1751", "t": "Mustoset ostavat hovileirin", "k": "Kajaanin porvarit Sigfred ja Johan Mustonen ostivat kaksi kolmasosaa hovileiristä 5.9.1751.", "q": "Mustonen hovileiri 1751"}, {"y": "1753", "t": "Nimismies hukkuu", "k": "Johan Winter hukkui jäihin 24.4.1753.", "q": "Winter hukkui 1753"}, {"y": "1757", "t": "Riita käräjätalon vieressä", "k": "Sigfred Mustonen alkoi rakentaa tupaa käräjätalon viereen.", "q": "Sigfred Mustonen 1757 käräjätalo"}, {"y": "1761", "t": "Kestikievari kirkon naapurissa", "k": "Johan Mustonen mainitaan kestikievarina.", "q": "kestikievari Mustonen 1761"}, {"y": "1765", "t": "Uusi kirkko", "k": "Pielisjärven uusi kirkko rakennettiin 1765.", "q": "1765 kirkko uusi"}, {"y": "1774", "t": "Pitäjän makasiini", "k": "Pitäjä päätti kerätä maksun oman viljamakasiinin rakentamiseen.", "q": "makasiini 1774"}, {"y": "1778", "t": "Steniuksen kirkkohistoria", "k": "Kirkkoherra Jaakko Stenius kirjoitti luonnoksen pitäjän kirkkojen historiasta.", "q": "Stenius 1778 luonnos"}, {"y": "1782", "t": "Ahvenkosken pato", "k": "Ahvenkosken pato nosti Pielisen vettä, ja rantaniityt tulvivat.", "q": "Ahvenkoski 1782"}, {"y": "1810", "t": "Kirkko matalalla holmilla", "k": "Kirkon sanotaan seisovan pienellä, melko matalalla holmilla.", "q": "holme 1810 kirkko"}, {"y": "1818", "t": "Verollepanokartta", "k": "Lieksan kylä kartoitettiin vuosien 1818–1819 verollepanokartalle.", "q": "verollepanokartta 1818"}, {"y": "1828", "t": "Lönnrot ja kirkon palo", "k": "Elias Lönnrot kävi Lieksassa; kirkko ja tapuli paloivat salamaniskusta 14.8.1828.", "q": "kirkon palo 1828 Lönnrot"}, {"y": "1831", "t": "Uuden kirkon paikka", "k": "Maaherra ratkaisi uuden kirkon paikan 14.6.1831.", "q": "kirkkopaikka 1831 maaherra"}, {"y": "1836", "t": "Katovuosi ja hätäaputyöt", "k": "Halla ja aikainen lumi tuhosivat sadon.", "q": "katovuosi 1836"}, {"y": "1838", "t": "Isojakokartta", "k": "Vuosien 1838–1840 isojakokartta näyttää Kyrkoplanin, Tingsplanin ja Hovilan tontit.", "q": "isojakokartta 1838"}];
   const $ = id => document.getElementById(id);
+  let vuosiPainotus = null;
   let A = null, ms = null, viimeisin = [];
 
   const SEIS = new Set(('ja on ei se oli että kun mutta tai jos niin kuin myös vain mitä missä mikä mihin miten miksi kuka ketkä kenen keitä milloin onko oliko ovat olivat olla ole sen siitä sitä hän he ne nämä tämä tuo joka jotka jonka joita mistä minne voi voiko kertoa kerro tietää och att det som i på med av till för den har var en ett är the of and').split(' '));
@@ -231,6 +265,11 @@
       const lisa = ms.search(termit.join(' '), Object.assign({ combineWith: 'OR' }, opt));
       const nahty = new Set(tulokset.map(r => r.id));
       tulokset = tulokset.concat(lisa.filter(r => !nahty.has(r.id)));
+    }
+    if (vuosiPainotus) {
+      const v = vuosiPainotus;
+      tulokset = tulokset.map((r, i) => ({ r, i, on: A.c[r.id][2].indexOf(v) >= 0 }))
+        .sort((a, b) => (b.on - a.on) || (a.i - b.i)).map(x => x.r);
     }
     // enintään 3 otetta samasta raportista, yhteensä 15
     const perDoc = {}, valitut = [];
@@ -322,7 +361,31 @@
       .finally(() => { $('pyyda').disabled = false; $('pyyda').textContent = 'Pyydä tiivistetty vastaus'; });
   }
 
-  $('lomake').addEventListener('submit', e => { e.preventDefault(); hae(); });
+  function rakennaAikajana() {
+    AIKAJANA.forEach((e, i) => {
+      const li = document.createElement('li');
+      const b = document.createElement('button'); b.type = 'button';
+      const v = document.createElement('span'); v.className = 'v'; v.textContent = e.y;
+      const t = document.createElement('span'); t.textContent = e.t;
+      b.append(v, t);
+      b.addEventListener('click', () => valitse(i, b));
+      li.appendChild(b); $('aikajana').appendChild(li);
+    });
+  }
+  function valitse(i, nappi) {
+    const e = AIKAJANA[i];
+    document.querySelectorAll('.aikajana button.valittu').forEach(x => x.classList.remove('valittu'));
+    nappi.classList.add('valittu');
+    $('tv').textContent = e.y; $('tt').textContent = e.t; $('tk').textContent = e.k;
+    $('kysymys').value = e.q;
+    vuosiPainotus = e.y;
+    hae();
+    vuosiPainotus = null;
+    $('tapahtuma').style.display = 'block';
+    if (window.matchMedia('(max-width: 920px)').matches) $('tapahtuma').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  $('lomake').addEventListener('submit', e => { e.preventDefault(); $('tapahtuma').style.display = 'none'; document.querySelectorAll('.aikajana button.valittu').forEach(x => x.classList.remove('valittu')); hae(); });
+  rakennaAikajana();
   $('osio').addEventListener('change', hae);
   $('pyyda').addEventListener('click', pyydaVastaus);
   lataa();

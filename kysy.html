@@ -130,6 +130,20 @@
   #tkhae { padding: 0 18px; background: var(--meri); color: #F4EFE4; border: 1px solid var(--meri); }
   .nimiluvut { margin-top: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.02em; color: var(--meri); }
   .nimiluvut strong { color: var(--leima); font-weight: 500; }
+
+  #kaikkinimet { padding: 0 14px; background: transparent; color: var(--meri); border: 1px solid var(--meri); }
+  #kaikkinimet:hover, #kaikkinimet[aria-expanded="true"] { background: var(--meri); color: #F4EFE4; }
+  .nimiluettelo { margin-top: 14px; }
+  .kirjaimet { display: flex; flex-wrap: wrap; gap: 4px; }
+  .kirjaimet button { min-width: 34px; padding: 6px 8px; background: transparent; border: 1px solid var(--ruutu); color: var(--meri); font-family: 'IBM Plex Mono', monospace; font-size: 14px; text-transform: none; letter-spacing: 0; }
+  .kirjaimet button:hover { border-color: var(--leima); color: var(--leima); }
+  .kirjaimet button[aria-selected="true"] { background: var(--leima); border-color: var(--leima); color: #fff; }
+  .kirjaimet button small { font-size: 10px; opacity: 0.7; margin-left: 2px; }
+  #luettelo .nimiryhma { padding: 7px 0; }
+  #luettelo .nimiryhma > button { font-size: 18px; }
+  #luettelo .muodot { font-size: 13px; }
+  .harvat { display: block; margin-top: 10px; font-size: 14px; color: var(--jaa); cursor: pointer; }
+  .harvat input { margin-right: 6px; accent-color: var(--leima); }
   .nimiohje { margin-top: 10px; font-size: 14px; color: var(--jaa); line-height: 1.5; }
   .nimitulokset { list-style: none; margin-top: 10px; }
   .nimiryhma { border-top: 1px solid rgba(22,35,47,0.18); padding: 12px 0; }
@@ -148,7 +162,7 @@
   }
   @media (max-width: 520px) {
     .hakurivi { flex-direction: column; }
-    #hae, #haenimi, #tkhae { padding: 11px 18px; }
+    #hae, #haenimi, #tkhae, #kaikkinimet { padding: 11px 18px; }
   }
 </style>
 </head>
@@ -183,10 +197,17 @@
     <div class="hakurivi">
       <input id="nimi" type="search" placeholder="Sukunimi, esim. Mustonen tai Sapattinen">
       <button id="haenimi" type="submit">Hae nimeä</button>
+      <button id="kaikkinimet" type="button">Koko nimiluettelo</button>
     </div>
     <p class="nimiluvut"><strong>49 805</strong> henkilömainintaa · <strong>22 695</strong> eri nimeä · <strong>5 750</strong> sukunimeä · <strong>9 985</strong> tuomiokirjasivua</p>
     <p class="nimiohje">Hakemisto kattaa kaikki Pielisjärveä, Lieksaa, Nurmesta tai Braheaa mainitsevat koneluetut tuomiokirjasivut vuosilta 1650–1810. Saman nimen kirjoitusasut on yhdistetty, esimerkiksi Mustoin ja Mustonen. Koneluennassa nimiä voi puuttua tai olla väärin, joten tarkista maininta aina Astian sivukuvasta.</p>
   </form>
+  <section class="nimiluettelo" id="nimiluettelo" hidden>
+    <div class="kirjaimet" id="kirjaimet" role="tablist" aria-label="Alkukirjain"></div>
+    <label class="harvat"><input type="checkbox" id="harvat" checked> Piilota nimet, joilla on vain yksi maininta (usein koneluennan virheitä)</label>
+    <p class="tila" id="luettelotila"></p>
+    <ol class="nimitulokset" id="luettelo"></ol>
+  </section>
   <div class="tila" id="nimitila" role="status"></div>
   <ol class="nimitulokset" id="nimitulokset"></ol>
 
@@ -574,6 +595,55 @@ const AIKAJANA = [{"y": "1617", "t": "Ensimmäinen luterilainen kirkko", "k": "S
     return li;
   }
   $('tklomake').addEventListener('submit', e => { e.preventDefault(); haeTk(); });
+
+
+  // ---------- koko nimiluettelo ----------
+  let luetteloKirjaimittain = null, nykyKirjain = null;
+  function rakennaLuettelo(d) {
+    if (luetteloKirjaimittain) return luetteloKirjaimittain;
+    const ryhmat = {};
+    d.n.forEach(n => {
+      const k = (n.n[0] || '?').toUpperCase();
+      const kirjain = 'ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ'.includes(k) ? k : '#';
+      (ryhmat[kirjain] = ryhmat[kirjain] || []).push(n);
+    });
+    Object.values(ryhmat).forEach(r => r.sort((a, b) => a.n.localeCompare(b.n, 'fi')));
+    luetteloKirjaimittain = ryhmat;
+    return ryhmat;
+  }
+  function naytaKirjain(kirjain, d) {
+    const r = (luetteloKirjaimittain[kirjain] || []).filter(n => !$('harvat').checked || n.m.length > 1);
+    nykyKirjain = kirjain;
+    document.querySelectorAll('#kirjaimet button').forEach(b => b.setAttribute('aria-selected', b.dataset.k === kirjain ? 'true' : 'false'));
+    $('luettelo').innerHTML = '';
+    const yht = r.reduce((s, n) => s + n.m.length, 0);
+    $('luettelotila').textContent = kirjain + ': ' + r.length + ' nimeä, ' + yht + ' mainintaa. Klikkaa nimeä, niin näet maininnat ja Astia-linkit.';
+    const frag = document.createDocumentFragment();
+    r.forEach(n => frag.appendChild(nimiRyhma(n, d)));
+    $('luettelo').appendChild(frag);
+  }
+  function avaaLuettelo() {
+    const p = $('nimiluettelo'), nappi = $('kaikkinimet');
+    if (!p.hidden) { p.hidden = true; nappi.setAttribute('aria-expanded', 'false'); return; }
+    p.hidden = false; nappi.setAttribute('aria-expanded', 'true');
+    $('luettelotila').textContent = 'Ladataan nimiluetteloa…';
+    lataaNimet().then(d => {
+      const r = rakennaLuettelo(d);
+      if (!$('kirjaimet').children.length) {
+        Object.keys(r).sort((a, b) => a.localeCompare(b, 'fi')).forEach(k => {
+          const b = document.createElement('button'); b.type = 'button'; b.dataset.k = k; b.setAttribute('role', 'tab');
+          b.append(document.createTextNode(k));
+          const sm = document.createElement('small'); sm.textContent = r[k].length; b.appendChild(sm);
+          b.addEventListener('click', () => naytaKirjain(k, d));
+          $('kirjaimet').appendChild(b);
+        });
+      }
+      naytaKirjain(Object.keys(r).sort((a, b) => a.localeCompare(b, 'fi'))[0], d);
+    }).catch(() => { $('luettelotila').textContent = 'Nimiluettelon lataus epäonnistui. Päivitä sivu.'; });
+  }
+  $('kaikkinimet').setAttribute('aria-expanded', 'false');
+  $('kaikkinimet').addEventListener('click', avaaLuettelo);
+  $('harvat').addEventListener('change', () => { if (nykyKirjain && NH) naytaKirjain(nykyKirjain, NH); });
 
   $('nimilomake').addEventListener('submit', e => { e.preventDefault(); haeNimi(); });
   $('nimi').addEventListener('focus', lataaNimet, { once: true });

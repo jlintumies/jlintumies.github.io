@@ -125,6 +125,9 @@
   .tapahtuma h2 { font-family: 'Archivo Narrow', sans-serif; font-weight: 600; font-size: 24px; line-height: 1.15; margin: 4px 0 6px; }
 
   .nimilaatikko { border-left-color: var(--meri); margin-top: 18px; }
+  .tklaatikko { border-left-color: var(--jaa); margin-top: 18px; }
+  #tkq { flex: 1; min-width: 0; font: inherit; font-weight: 400; font-size: 18px; padding: 11px 14px; border: 1px solid var(--jaa); background: #FBF8F1; color: var(--muste); border-radius: 2px; }
+  #tkhae { padding: 0 18px; background: var(--meri); color: #F4EFE4; border: 1px solid var(--meri); }
   .nimiluvut { margin-top: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.02em; color: var(--meri); }
   .nimiluvut strong { color: var(--leima); font-weight: 500; }
   .nimiohje { margin-top: 10px; font-size: 14px; color: var(--jaa); line-height: 1.5; }
@@ -145,7 +148,7 @@
   }
   @media (max-width: 520px) {
     .hakurivi { flex-direction: column; }
-    #hae, #haenimi { padding: 11px 18px; }
+    #hae, #haenimi, #tkhae { padding: 11px 18px; }
   }
 </style>
 </head>
@@ -186,6 +189,24 @@
   </form>
   <div class="tila" id="nimitila" role="status"></div>
   <ol class="nimitulokset" id="nimitulokset"></ol>
+
+
+  <form class="hakulaatikko tklaatikko" id="tklomake" autocomplete="off">
+    <label for="tkq">Tuomiokirjojen tekstihaku · 1650–1810</label>
+    <div class="hakurivi">
+      <input id="tkq" type="search" placeholder="Sanat pöytäkirjan kielellä, esim. hofläger Liexa">
+      <button id="tkhae" type="submit">Hae tekstistä</button>
+    </div>
+    <div class="suodatin">
+      <span>Vuodet:</span>
+      <select id="tkalku" aria-label="Alkaen"></select>
+      <span>–</span>
+      <select id="tkloppu" aria-label="Päättyen"></select>
+    </div>
+    <p class="nimiohje">Haku käy läpi samojen 9 985 tuomiokirjasivun koko koneluetun tekstin. Kirjoita sanat niin kuin ne pöytäkirjoissa ovat, vanhalla ruotsilla ja vanhoin kirjoitusasuin: haku löytää sanan alun, joten <i>Mustoin</i> löytää myös <i>Mustoinen</i>, ja kaikkien sanojen on oltava samalla sivulla. Teksti ladataan vuosikymmen kerrallaan vasta haettaessa; koko aineisto on noin 9 Mt.</p>
+  </form>
+  <div class="tila" id="tktila" role="status"></div>
+  <ol class="tulokset" id="tktulokset"></ol>
 
   <div class="tila" id="tila" role="status">Ladataan aineistoa…</div>
 
@@ -498,6 +519,62 @@ const AIKAJANA = [{"y": "1617", "t": "Ensimmäinen luterilainen kirkko", "k": "S
     });
     return li;
   }
+
+  // ---------- tuomiokirjojen tekstihaku ----------
+  let TKH = null; const TKD = {};
+  function tkHakemisto() {
+    if (!TKH) TKH = fetch('tuomiokirjat/hakemisto.json').then(r => r.json());
+    return TKH;
+  }
+  tkHakemisto().then(h => {
+    h.osat.forEach(o => {
+      ['tkalku', 'tkloppu'].forEach(id => { const op = document.createElement('option'); op.value = o.d; op.textContent = id === 'tkalku' ? o.d : (o.d + 9); $(id).appendChild(op); });
+    });
+    $('tkalku').value = h.osat[0].d; $('tkloppu').value = h.osat[h.osat.length - 1].d;
+  }).catch(() => {});
+  function tkOsa(o) {
+    if (!TKD[o.d]) TKD[o.d] = fetch(o.f).then(r => r.json());
+    return TKD[o.d];
+  }
+  function haeTk() {
+    const q = $('tkq').value.trim();
+    $('tktulokset').innerHTML = '';
+    const sanat = q.split(/\s+/).map(w => w.replace(/[^0-9A-Za-zÅÄÖåäöÜüéß:]/g, '')).filter(w => w.length >= 2);
+    if (!sanat.length) { $('tktila').textContent = 'Kirjoita vähintään yksi sana.'; return; }
+    const res = sanat.map(w => new RegExp('(^|[^0-9A-Za-zÅÄÖåäöÜüéß])(' + w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'i'));
+    const kor = new RegExp('(' + sanat.map(w => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|') + ')[0-9A-Za-zÅÄÖåäöÜüéß]*', 'gi');
+    tkHakemisto().then(h => {
+      const a = +$('tkalku').value, b = +$('tkloppu').value;
+      const osat = h.osat.filter(o => o.d >= Math.min(a, b) && o.d <= Math.max(a, b));
+      let valmis = 0; const osumat = [];
+      $('tktila').textContent = 'Ladataan ja haetaan… 0/' + osat.length;
+      return Promise.all(osat.map(o => tkOsa(o).then(d => {
+        d.r.forEach(r => { if (res.every(rx => rx.test(r[4]))) osumat.push({ r, src: d.src }); });
+        valmis++; $('tktila').textContent = 'Ladataan ja haetaan… ' + valmis + '/' + osat.length;
+      }))).then(() => {
+        osumat.sort((x, y) => x.r[0] - y.r[0]);
+        $('tktila').textContent = osumat.length ? 'Sivuja ' + osumat.length + (osumat.length > 300 ? ', näytetään 300 ensimmäistä' : '') : 'Ei osumia. Kokeile toista kirjoitusasua tai lyhyempää sanan alkua.';
+        osumat.slice(0, 300).forEach(o => $('tktulokset').appendChild(tkRivi(o, res[0], kor)));
+      });
+    }).catch(() => { $('tktila').textContent = 'Haku epäonnistui. Päivitä sivu ja yritä uudelleen.'; });
+  }
+  function tkRivi(o, rx, kor) {
+    const [y, y2, fid, si, t] = o.r;
+    const li = document.createElement('li'); li.className = 'tulos';
+    const l = document.createElement('div'); l.className = 'lahde';
+    l.textContent = (y2 && y2 !== y ? y + '–' + y2 : y) + ' · ' + o.src[si] + ' · koneluenta';
+    const m = t.search(rx);
+    let alku = Math.max(0, m - 200); if (alku > 0) { const s = t.indexOf(' ', alku); alku = s > 0 ? s + 1 : alku; }
+    const ote = (alku > 0 ? '… ' : '') + t.slice(alku, alku + 520) + (alku + 520 < t.length ? ' …' : '');
+    const p = document.createElement('p'); p.className = 'ote'; korosta(p, ote, kor);
+    const a = document.createElement('a'); a.href = 'https://astia.narc.fi/uusiastia//viewer/?fileId=' + fid; a.target = '_blank'; a.rel = 'noopener'; a.className = 'astia'; a.textContent = 'Avaa sivu Astiassa';
+    const b = document.createElement('button'); b.type = 'button'; b.className = 'lisaa'; b.textContent = 'Näytä koko sivu';
+    b.addEventListener('click', () => { p.textContent = ''; korosta(p, t, kor); b.remove(); });
+    li.append(l, p, b, a);
+    return li;
+  }
+  $('tklomake').addEventListener('submit', e => { e.preventDefault(); haeTk(); });
+
   $('nimilomake').addEventListener('submit', e => { e.preventDefault(); haeNimi(); });
   $('nimi').addEventListener('focus', lataaNimet, { once: true });
 

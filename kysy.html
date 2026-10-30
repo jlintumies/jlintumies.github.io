@@ -144,6 +144,17 @@
   #luettelo .muodot { font-size: 13px; }
   .harvat { display: block; margin-top: 10px; font-size: 14px; color: var(--jaa); cursor: pointer; }
   .harvat input { margin-right: 6px; accent-color: var(--leima); }
+
+  #aiheet { padding: 0 14px; background: transparent; color: var(--meri); border: 1px solid var(--meri); }
+  #aiheet:hover, #aiheet[aria-expanded="true"] { background: var(--meri); color: #F4EFE4; }
+  .aiheluettelo { margin-top: 14px; }
+  .aiheryhma { margin-top: 14px; }
+  .aiheryhma h3 { font-family: 'Archivo Narrow', sans-serif; font-weight: 600; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--meri); margin-bottom: 6px; }
+  .aiheryhma .napit { display: flex; flex-wrap: wrap; gap: 6px; }
+  .aiheryhma button { background: transparent; border: 1px solid var(--ruutu); color: var(--muste); padding: 4px 9px; text-transform: none; letter-spacing: 0; font-family: 'Spectral', serif; font-size: 15px; }
+  .aiheryhma button:hover { border-color: var(--leima); color: var(--leima); }
+  .aiheryhma button.valittu { background: var(--leima); border-color: var(--leima); color: #fff; }
+  .aiheryhma button small { font-family: 'IBM Plex Mono', monospace; font-size: 11px; opacity: 0.65; margin-left: 4px; }
   .nimiohje { margin-top: 10px; font-size: 14px; color: var(--jaa); line-height: 1.5; }
   .nimitulokset { list-style: none; margin-top: 10px; }
   .nimiryhma { border-top: 1px solid rgba(22,35,47,0.18); padding: 12px 0; }
@@ -162,7 +173,7 @@
   }
   @media (max-width: 520px) {
     .hakurivi { flex-direction: column; }
-    #hae, #haenimi, #tkhae, #kaikkinimet { padding: 11px 18px; }
+    #hae, #haenimi, #tkhae, #kaikkinimet, #aiheet { padding: 11px 18px; }
   }
 </style>
 </head>
@@ -217,6 +228,7 @@
     <div class="hakurivi">
       <input id="tkq" type="search" placeholder="Sanat pöytäkirjan kielellä, esim. hofläger Liexa">
       <button id="tkhae" type="submit">Hae tekstistä</button>
+      <button id="aiheet" type="button" aria-expanded="false">Aiheluettelo</button>
     </div>
     <div class="suodatin">
       <span>Vuodet:</span>
@@ -226,6 +238,10 @@
     </div>
     <p class="nimiohje">Haku käy läpi samojen 9 985 tuomiokirjasivun koko koneluetun tekstin. Kirjoita sanat niin kuin ne pöytäkirjoissa ovat, vanhalla ruotsilla ja vanhoin kirjoitusasuin: haku löytää sanan alun, joten <i>Mustoin</i> löytää myös <i>Mustoinen</i>, ja kaikkien sanojen on oltava samalla sivulla. Teksti ladataan vuosikymmen kerrallaan vasta haettaessa; koko aineisto on noin 9 Mt.</p>
   </form>
+  <section class="aiheluettelo" id="aiheluettelo" hidden>
+    <p class="nimiohje">189 oikeuden aihetta ja syytettä suomeksi. Aihe hakee tekstistä sen ruotsinkieliset vastineet vanhoin kirjoitusasuin valitulta aikaväliltä. Luku kertoo, monellako sivulla aihe esiintyy koko aineistossa 1650–1810. Koneluennan vuoksi osa osumista on vääriä ja osa puuttuu.</p>
+    <div id="aiheryhmat"></div>
+  </section>
   <div class="tila" id="tktila" role="status"></div>
   <ol class="tulokset" id="tktulokset"></ol>
 
@@ -557,12 +573,16 @@ const AIKAJANA = [{"y": "1617", "t": "Ensimmäinen luterilainen kirkko", "k": "S
     if (!TKD[o.d]) TKD[o.d] = fetch(o.f.split('/').pop()).then(r => r.json());
     return TKD[o.d];
   }
-  function haeTk() {
-    const q = $('tkq').value.trim();
+  function haeTk(aihe) {
+    const q = aihe ? aihe[1].join(', ') : $('tkq').value.trim();
     $('tktulokset').innerHTML = '';
-    const sanat = q.split(/\s+/).map(w => w.replace(/[^0-9A-Za-zÅÄÖåäöÜüéß:]/g, '')).filter(w => w.length >= 2);
+    const sanat = aihe ? aihe[1] : q.split(/\s+/).map(w => w.replace(/[^0-9A-Za-zÅÄÖåäöÜüéß:]/g, '')).filter(w => w.length >= 2);
     if (!sanat.length) { $('tktila').textContent = 'Kirjoita vähintään yksi sana.'; return; }
-    const res = sanat.map(w => new RegExp('(^|[^0-9A-Za-zÅÄÖåäöÜüéß])(' + w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'i'));
+    const esc = w => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const osa = w => esc(w) + (aihe && w.length <= 4 ? '(?![0-9A-Za-zÅÄÖåäöÜüéß])' : '');
+    const res = aihe
+      ? [new RegExp('(^|[^0-9A-Za-zÅÄÖåäöÜüéß])(' + sanat.map(osa).join('|') + ')', 'i')]
+      : sanat.map(w => new RegExp('(^|[^0-9A-Za-zÅÄÖåäöÜüéß])(' + esc(w) + ')', 'i'));
     const kor = new RegExp('(' + sanat.map(w => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|') + ')[0-9A-Za-zÅÄÖåäöÜüéß]*', 'gi');
     tkHakemisto().then(h => {
       const a = +$('tkalku').value, b = +$('tkloppu').value;
@@ -574,7 +594,7 @@ const AIKAJANA = [{"y": "1617", "t": "Ensimmäinen luterilainen kirkko", "k": "S
         valmis++; $('tktila').textContent = 'Ladataan ja haetaan… ' + valmis + '/' + osat.length;
       }))).then(() => {
         osumat.sort((x, y) => x.r[0] - y.r[0]);
-        $('tktila').textContent = osumat.length ? 'Sivuja ' + osumat.length + (osumat.length > 300 ? ', näytetään 300 ensimmäistä' : '') : 'Ei osumia. Kokeile toista kirjoitusasua tai lyhyempää sanan alkua.';
+        $('tktila').textContent = (aihe ? aihe[0] + ' (' + q + ') · ' : '') + (osumat.length ? 'Sivuja ' + osumat.length + (osumat.length > 300 ? ', näytetään 300 ensimmäistä' : '') : 'Ei osumia. Kokeile toista kirjoitusasua tai lyhyempää sanan alkua.');
         osumat.slice(0, 300).forEach(o => $('tktulokset').appendChild(tkRivi(o, res[0], kor)));
       });
     }).catch(() => { $('tktila').textContent = 'Haku epäonnistui. Päivitä sivu ja yritä uudelleen.'; });
@@ -594,6 +614,35 @@ const AIKAJANA = [{"y": "1617", "t": "Ensimmäinen luterilainen kirkko", "k": "S
     li.append(l, p, b, a);
     return li;
   }
+
+  // ---------- aiheluettelo ----------
+  const AIHEET = {"Väkivalta ja henkirikokset": [["Tappo", ["dråp", "dråpare", "ihjälslag", "ihjälslog", "dräpit", "dräpt"], 46], ["Murha", ["mord", "mördare", "mördat"], 24], ["Lapsenmurha", ["barnamord", "barnamörd", "fosterfördrif"], 12], ["Pahoinpitely", ["misshandel", "misshandla", "öfwerfall", "öfverfall"], 162], ["Lyöminen", ["slagit", "slog", "slag på", "hugg"], 490], ["Haavoittaminen", ["sår", "sårad", "blodwite", "blodvite"], 199], ["Tappelu", ["slagsmål", "slagsmähl", "tilltrasslan"], 221], ["Ampuminen", ["skjutit", "skott", "bössa", "bösse"], 114], ["Kirves", ["yxa", "yxe"], 131], ["Puukko, veitsi", ["knif", "knijf"], 72], ["Uhkailu", ["hot", "hotat", "hotelse", "hotade"], 46], ["Väkivalta virkamiestä kohtaan", ["wåldsamhet", "våldsamhet", "wåld", "våld"], 141], ["Kuolemantuomio", ["halshugg", "lifwet", "lifvet", "dödsstraff", "mista lifwet"], 70], ["Hirttäminen", ["hängas", "galge", "hängd"], 24]], "Varkaus ja omaisuusrikokset": [["Varkaus", ["stöld", "stulit", "stulet", "stal", "tiufnad", "tjufnad"], 448], ["Varas", ["tiuf", "tjuf"], 99], ["Ryöstö", ["rån", "rånat", "röfwa", "röfva", "röfwer"], 140], ["Murto", ["inbrott", "bråt"], 53], ["Kätkeminen", ["gömt", "gömde", "undangömt"], 17], ["Petos", ["bedrägeri", "bedrägit", "bedrog"], 6], ["Väärennös", ["förfalsk", "falsk"], 45], ["Tuhopoltto", ["mordbrand", "uppsåtelig brand", "satt eld"], 4]], "Siveys, avioliitto ja perhe": [["Salavuoteus", ["lönskaläger", "lönskeläger", "lönska"], 241], ["Huoruus", ["hor", "horsbrott", "horeri", "enkelt hor", "dubbelt hor"], 70], ["Raiskaus", ["wåldtäkt", "våldtäkt", "wåldfört", "våldfört", "lägra med wåld"], 3], ["Eläimeen sekaantuminen", ["tidelag", "tidelagsbrott"], 4], ["Avioton lapsi", ["oäkta", "horbarn", "lönskebarn"], 10], ["Elatus", ["uppfostran", "födo", "underhåll"], 131], ["Kihlaus", ["trolofning", "trolowning", "trolofwad"], 100], ["Avioliittolupaus", ["äktenskapslöfte", "äktenskaps löfte"], 6], ["Avioero", ["skillnad", "hjonskillnad"], 123], ["Avioliitto", ["äktenskap", "giftermål"], 100], ["Häät", ["bröllop", "bröllup"], 34], ["Leski", ["enka", "enkan", "enckia", "enckian", "änckia", "enkian"], 1129], ["Holhous", ["förmyndare", "förmynderskap", "omyndig"], 608], ["Perintö", ["arf", "arfskifte", "arfwode", "arfvingar", "arfwingar"], 1050], ["Perinnönjako", ["arfskifte", "arfwskifte", "skifte"], 344], ["Testamentti", ["testamente", "testamentet"], 248], ["Myötäjäiset", ["hemgift", "morgongåfwa", "morgongåfva"], 3], ["Lapset", ["barn", "barnen", "barnet"], 1293]], "Kunnia ja sanat": [["Solvaus", ["okwäd", "oqwäd", "ohöflig"], 163], ["Kiroilu", ["sworit", "svordom", "swordom", "ed och swordom"], 49], ["Valhe", ["lögn", "ljugit", "ljugare"], 3], ["Kunnianpalautus", ["afbön", "afbedja"], 37], ["Huhu, puhe", ["rykte", "sqwaller", "sqvaller"], 15]], "Velat, kauppa ja raha": [["Velka", ["skuld", "skulden", "skulder", "gäld", "gälden"], 1632], ["Velkakirja", ["skuldsedel", "förskrifning", "förskrifwning", "obligation", "revers"], 709], ["Laina", ["lån", "lånet", "lånat", "låne"], 476], ["Korko", ["ränta", "interesse"], 1034], ["Pantti", ["pant", "pantsatt"], 196], ["Ulosmittaus", ["utmätning", "utmätt", "exekution", "execution"], 550], ["Takaus", ["borgen", "borgesman", "löftesman", "caution"], 771], ["Kauppa", ["köp", "köpt", "köpebref", "köpebrefw"], 556], ["Luvaton kauppa", ["olaga handel", "förbuden handel", "förbjuden handel"], 3], ["Markkinat", ["marknad"], 74], ["Tupakka", ["toback", "tobak"], 164], ["Suola", ["salt"], 209], ["Viina", ["brännwin", "brännvin", "bränwin"], 43], ["Viinanpoltto", ["brännwinsbränning", "brännvinsbränning", "pannor"], 9], ["Hinta, arvo", ["wärde", "värde", "taxa"], 1326], ["Raha", ["penningar", "penningarne", "riksdaler", "daler kopparmynt", "daler silfwermynt"], 2776], ["Palkka", ["lön", "lönen", "stat"], 430], ["Saatava", ["fordran", "fordrar"], 2135], ["Vahingonkorvaus", ["skadestånd", "ersättning", "ersättia", "ersätta"], 2513]], "Maa, talot ja tilat": [["Tila, talo", ["hemman", "hemmanet"], 3309], ["Perintötila", ["skattehemman", "skatte hemman"], 89], ["Kruununtila", ["kronohemman", "krono hemman"], 585], ["Verovapaa tila, rälssi", ["frälse"], 29], ["Torppa", ["torp", "torpare"], 449], ["Itsellinen", ["inhyses", "inhysing"], 1371], ["Raja", ["rå", "råmärke", "råmärken", "rålinien", "rågång", "rågången"], 216], ["Kaskiriita", ["swedia", "swedjeland", "svedjeland", "kaskis", "kaske"], 169], ["Kaski", ["swedjande", "swedja", "kytö"], 186], ["Pelto", ["åker", "åkern", "åkrar"], 865], ["Niitty", ["äng", "ängen", "ängar", "slåtter"], 1314], ["Laidun", ["bete", "betesmark", "hage"], 140], ["Metsä", ["skog", "skogen"], 573], ["Aita", ["gärdesgård", "gärdsgård", "gärde"], 210], ["Mylly", ["qwarn", "qvarn", "kvarn"], 198], ["Saha", ["såg", "sågqwarn"], 227], ["Sauna", ["bastu", "badstuga", "badstufwa"], 84], ["Aitta", ["bod", "bodar", "härbre"], 151], ["Riihi", ["ria", "rian"], 76], ["Navetta", ["ladugård", "fähus"], 88], ["Rakennus", ["byggnad", "byggning", "husesyn"], 155], ["Katselmus", ["syn", "synen", "besiktning", "syneförrättning", "laga syn"], 1028], ["Huonemuutto, asumisoikeus", ["inrymning", "inrymd"], 60], ["Häätö", ["afhysa", "afhyst", "uthyst", "afwika", "afträda"], 428], ["Lunastus", ["lösen", "inlösen", "inlöst", "bördsrätt"], 469], ["Isojako", ["storskifte", "storskiftet"], 17], ["Maanmittari", ["landtmätare", "landtmätaren", "landtmäteri"], 84], ["Verollepano", ["skattläggning", "skattlagd"], 67], ["Autiotila", ["öde", "ödes", "ödeshemman"], 164], ["Uudistila", ["nybygge", "nybyggare"], 299]], "Kalastus, metsästys ja eläimet": [["Kalastus", ["fiske", "fiskeri", "fiskewatn", "fiskvatten"], 198], ["Kalapato", ["fiskeskär", "fiskeskären", "pata", "patan", "fiskepata"], 4], ["Nuotta", ["not", "noten", "notdrägt", "notwarp"], 81], ["Lohi", ["lax"], 249], ["Pankakoski, kruunun kalastus", ["kronofiske", "krono fiske", "pankakåski", "pankakoski", "pankacoski"], 5], ["Metsästys", ["jagt", "jakt", "skytte"], 20], ["Karhu", ["björn", "biörn"], 118], ["Susi", ["warg", "varg", "ulf"], 9], ["Hevonen", ["häst", "hästen", "hästar", "sto", "ston", "fåle"], 1411], ["Lehmä, karja", ["kor", "boskap", "kreatur", "nöt", "koen", "kon"], 623], ["Lammas", ["får", "fåren"], 837], ["Sika", ["swin", "svin"], 87], ["Koira", ["hund", "hunden"], 77], ["Orava, turkikset", ["gråwärk", "gråverk", "ekorr", "skinn"], 78]], "Kirkko ja usko": [["Kirkko", ["kyrka", "kyrkan", "kyrkia", "kyrkian", "kyrkio"], 834], ["Kirkkoherra", ["kyrkoherde", "kyrkioherde", "pastor"], 721], ["Kappalainen", ["capellan", "kapellan", "comminister"], 465], ["Lukkari", ["klockare"], 212], ["Pappila", ["prestgård", "prästgård", "prestegård"], 23], ["Hautausmaa", ["kyrkogård", "kyrkiogård", "begrafning"], 58], ["Hautaus", ["begraf", "jordfäst"], 79], ["Kirkonrangaistus", ["kyrkoplikt", "uppenbar kyrkoplikt", "skriftermål"], 46], ["Jumalanpalveluksen häiritseminen", ["under gudstjenst", "gudstjänst", "sabbatsbrott"], 8], ["Pyhäpäivän rikkominen", ["helgdag", "sabbat"], 164], ["Kreikanuskoiset", ["grekisk", "ryska tron", "grek"], 11], ["Taikuus", ["trolldom", "widskepelse", "vidskepelse", "signeri", "trollkonst"], 6], ["Kymmenykset", ["tionde"], 15]], "Hallinto, verot ja virkamiehet": [["Vero", ["skatt", "skatten", "räntan", "räntor"], 704], ["Kruununvero", ["kronoränta", "kronoutskylder", "utskylder"], 160], ["Henkikirja, manttaali", ["mantal", "mantals"], 137], ["Rästit", ["restantier", "restans", "balans"], 16], ["Kruununvouti", ["kronofogde", "kronofogden"], 8], ["Nimismies", ["länsman", "länsmannen"], 2629], ["Lautamies", ["nämndeman", "nämdeman"], 2960], ["Kihlakunnantuomari", ["häradshöfding", "härads höfding"], 779], ["Vuokraaja", ["arrendator", "arrende"], 152], ["Hovileiri, hovi", ["hofläger", "hoflägret", "hoflägers", "lexa gård", "liexa gård", "lexa hof", "liexa hof"], 153], ["Kestikievari", ["gästgifwar", "gästgifvar", "gästgifweri"], 20], ["Kyyditys", ["skjuts", "skiuts", "skjutsning"], 248], ["Silta, tie", ["bro", "bron", "broar", "wägen", "vägen", "landswägen", "landsvägen"], 503], ["Siltavouti", ["brofogde"], 214], ["Käräjätalo", ["tingshus", "tingsstuga", "tingstuga"], 38], ["Vankila", ["fängelse", "häkte", "arrest"], 278], ["Sakko", ["böter", "plikt", "saköre"], 1733], ["Valitus", ["besvär", "beswär", "klagan", "klagomål"], 1268], ["Vetoaminen", ["vad", "appell", "vädjan"], 386], ["Kuninkaan kirje", ["kongl. maj", "kongl. resolution", "kongl. bref", "resolution"], 257], ["Maaherra", ["landshöfding", "landshöfdinge", "gouverneur"], 294], ["Rajankäynti", ["gränseruttning", "rågång"], 27], ["Kapina, niskoittelu", ["uppror", "upprorisk", "motwillighet", "motvillighet", "tredska"], 31], ["Valtakunnan raja", ["gräns", "gränsen", "riksgräns"], 25]], "Sota ja sotaväki": [["Sotilas", ["soldat", "soldater"], 135], ["Ruotujakolaitos", ["rote", "roten", "rotehållare"], 17], ["Rusthollari", ["rusthåll", "rusthållare"], 42], ["Kenraalit, upseerit", ["capitain", "leutnant", "lieutenant", "major", "fendrik"], 306], ["Karkuri", ["rymmare", "desertör", "rymd"], 17], ["Venäläiset, vihollinen", ["ryss", "ryssar", "fienden", "fiendt"], 79], ["Ryöstöretket", ["ströfparti", "strövparti", "partie"], 35], ["Sotaväen kuljetus", ["förning", "proviant"], 14], ["Skanssi", ["skants", "skantz", "skans"], 19]], "Työ ja palvelus": [["Renki", ["dräng", "drängen"], 1091], ["Piika", ["piga", "pigan"], 611], ["Palkollinen", ["tjenstehjon", "tjänstehjon", "legohjon"], 8], ["Laillinen suojelu", ["laga försvar", "laga förswar"], 6], ["Irtolainen", ["lösdrifware", "lösdrifvare", "bobul"], 32], ["Kerjäläinen", ["tiggare", "tiggeri"], 22], ["Köyhäinhoito", ["fattig", "fattighjon", "fattigdom"], 303], ["Päivätyö", ["dagsverke", "dagswerk"], 31], ["Seppä", ["smed", "smedja"], 37], ["Puuseppä, kirvesmies", ["snickare", "timmerman"], 50], ["Venemies, lotja", ["båt", "lodja", "lådja", "skeppare"], 113], ["Tervanpoltto", ["tiära", "tjära", "tjärdal"], 22]], "Arki, terveys ja onnettomuudet": [["Tulipalo", ["brand", "eldsvåda", "afbrunnit", "brann"], 345], ["Hukkuminen", ["drunkn", "omkommit under isen"], 6], ["Sairaus", ["sjukdom", "sjuk"], 248], ["Mielisairaus", ["sinnessvaghet", "sinnes swaghet", "wansinn", "vansinn"], 3], ["Kulkutauti", ["farsot", "smitta", "pest"], 4], ["Kato, nälkä", ["missväxt", "hungersnöd", "nöd", "missgröda"], 76], ["Halla", ["frost"], 13], ["Vilja", ["spannmål", "råg", "korn", "hafra"], 1963], ["Makasiini", ["magasin", "magazin"], 40], ["Juopumus", ["fylleri", "drucken", "drukken", "rus"], 179], ["Kapakka", ["krog", "krögare"], 16], ["Vaatteet", ["kläder", "rock", "tröja"], 219], ["Kirja, kirjoitus", ["bok", "boken", "skrift", "skriftelig", "bref", "brefwet"], 2777]], "Paikat": [["Lieksa", ["liexa", "lexa"], 4896], ["Brahea", ["brahea"], 9], ["Nurmes", ["nurmis", "nurmes"], 3633], ["Juuka", ["juga", "juuka"], 672], ["Ilomantsi", ["ilomants"], 338], ["Kajaani", ["cajana", "kajana"], 199], ["Joensuu", ["joensuu"], 4], ["Käkisalmi", ["kexholm"], 10], ["Sortavala", ["sordawal", "sordaval"], 69], ["Venäjä", ["ryssland"], 75]]};
+  function rakennaAiheet() {
+    Object.entries(AIHEET).forEach(([kat, lista]) => {
+      const div = document.createElement('div'); div.className = 'aiheryhma';
+      const h = document.createElement('h3'); h.textContent = kat; div.appendChild(h);
+      const napit = document.createElement('div'); napit.className = 'napit';
+      lista.forEach(a => {
+        const b = document.createElement('button'); b.type = 'button'; b.title = 'Hakusanat: ' + a[1].join(', ');
+        b.append(document.createTextNode(a[0]));
+        const sm = document.createElement('small'); sm.textContent = a[2]; b.appendChild(sm);
+        b.addEventListener('click', () => {
+          document.querySelectorAll('.aiheryhma button.valittu').forEach(x => x.classList.remove('valittu'));
+          b.classList.add('valittu');
+          $('tkq').value = '';
+          haeTk(a);
+          $('tktila').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+        napit.appendChild(b);
+      });
+      div.appendChild(napit); $('aiheryhmat').appendChild(div);
+    });
+  }
+  rakennaAiheet();
+  $('aiheet').addEventListener('click', () => {
+    const p = $('aiheluettelo'); p.hidden = !p.hidden; $('aiheet').setAttribute('aria-expanded', String(!p.hidden));
+  });
+
   $('tklomake').addEventListener('submit', e => { e.preventDefault(); haeTk(); });
 
 

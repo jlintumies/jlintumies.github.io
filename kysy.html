@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kysy raporteista · J. Lintumies</title>
+<meta name="description" content="Hae vastauksia Brahean, Pielisjärven, Seiskarin ja kotiseudun historiaa käsittelevistä raporteista ja taustamuistioista.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@500;600&family=Spectral:ital,wght@0,300;0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paperi: #EFE9DC;
+    --ruutu: #DFD8C8;
+    --muste: #16232F;
+    --meri: #2C4051;
+    --jaa: #5C7385;
+    --leima: #B8511F;
+    --korostus: rgba(184,81,31,0.16);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Spectral', Georgia, serif; font-weight: 300;
+    color: var(--muste); background: var(--paperi);
+    line-height: 1.65; font-size: 17px;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .sivu { max-width: 760px; margin: 0 auto; padding: 0 24px 96px; }
+  header { padding: 64px 0 28px; }
+  .yla {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.12em;
+    color: var(--jaa); text-transform: uppercase; margin-bottom: 20px;
+  }
+  h1 {
+    font-family: 'Archivo Narrow', sans-serif; font-weight: 600;
+    font-size: clamp(42px, 9vw, 72px); letter-spacing: 0.09em;
+    line-height: 0.95; text-transform: uppercase;
+  }
+  .viiva { width: 92px; height: 3px; background: var(--leima); margin: 18px 0 16px; }
+  .alaotsikko { font-style: italic; font-size: 19px; color: var(--meri); }
+  .navi {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.06em;
+    text-transform: uppercase; margin-top: 26px; display: flex; flex-wrap: wrap; gap: 4px 18px;
+  }
+  .navi a { color: var(--jaa); text-decoration: none; border-bottom: 1px solid transparent; }
+  .navi a:hover { color: var(--leima); border-bottom-color: var(--leima); }
+  .navi a.tassa { color: var(--muste); border-bottom-color: var(--leima); }
+  a { color: var(--meri); text-underline-offset: 3px; }
+  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid var(--leima); outline-offset: 2px; }
+
+  .hakulaatikko {
+    margin-top: 28px; padding: 22px 24px 20px;
+    background: rgba(44,64,81,0.05); border-left: 3px solid var(--leima);
+  }
+  .hakulaatikko label {
+    display: block; font-family: 'Archivo Narrow', sans-serif; font-weight: 600;
+    font-size: 15px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--meri);
+    margin-bottom: 10px;
+  }
+  .hakurivi { display: flex; gap: 10px; }
+  #kysymys {
+    flex: 1; min-width: 0; font: inherit; font-weight: 400; font-size: 18px;
+    padding: 11px 14px; border: 1px solid var(--jaa); background: #FBF8F1; color: var(--muste);
+    border-radius: 2px;
+  }
+  button {
+    font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.08em;
+    text-transform: uppercase; cursor: pointer; border-radius: 2px;
+  }
+  #hae { padding: 0 18px; background: var(--meri); color: #F4EFE4; border: 1px solid var(--meri); }
+  #hae:hover { background: var(--muste); }
+  .suodatin { margin-top: 12px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; font-size: 15px; color: var(--jaa); }
+  .suodatin select { font: inherit; font-size: 15px; padding: 4px 6px; background: #FBF8F1; border: 1px solid var(--ruutu); color: var(--muste); }
+  .esimerkit { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .esimerkit button {
+    background: transparent; border: 1px solid var(--ruutu); color: var(--meri);
+    padding: 5px 10px; text-transform: none; letter-spacing: 0; font-family: 'Spectral', serif; font-size: 15px;
+  }
+  .esimerkit button:hover { border-color: var(--leima); color: var(--leima); }
+
+  .tila { margin-top: 26px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: var(--jaa); text-transform: uppercase; }
+  .vastaus {
+    margin-top: 22px; padding: 22px 24px; background: #FBF8F1; border: 1px solid var(--ruutu);
+    display: none;
+  }
+  .vastaus h2 { font-family: 'Archivo Narrow', sans-serif; font-size: 15px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--meri); margin-bottom: 10px; }
+  .vastaus .teksti p + p { margin-top: 12px; }
+  .vastaus .huom { margin-top: 14px; font-size: 14px; color: var(--jaa); font-style: italic; }
+  #pyyda { margin-top: 18px; padding: 9px 14px; background: transparent; color: var(--leima); border: 1px solid var(--leima); display: none; }
+  #pyyda:hover { background: var(--korostus); }
+  #pyyda[disabled] { opacity: 0.5; cursor: wait; }
+
+  .tulokset { margin-top: 18px; list-style: none; }
+  .tulos { padding: 20px 0 18px; border-top: 1px solid rgba(22,35,47,0.18); }
+  .tulos .lahde { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.04em; color: var(--jaa); text-transform: uppercase; }
+  .tulos h3 { font-family: 'Archivo Narrow', sans-serif; font-weight: 600; font-size: 21px; line-height: 1.2; margin: 4px 0 8px; }
+  .tulos h3 a { color: var(--muste); text-decoration: none; }
+  .tulos h3 a:hover { color: var(--leima); }
+  .tulos .ote { font-size: 16px; }
+  .tulos mark { background: var(--korostus); color: inherit; padding: 0 1px; }
+  .tulos .lisaa { margin-top: 6px; background: none; border: 0; padding: 0; color: var(--meri); text-decoration: underline; text-transform: none; letter-spacing: 0; font-family: 'Spectral', serif; font-size: 15px; }
+  .tulos .tausta { display: inline-block; margin-left: 6px; color: var(--leima); }
+  .ohje { margin-top: 40px; font-size: 15px; color: var(--meri); }
+  .ohje h2 { font-family: 'Archivo Narrow', sans-serif; font-size: 15px; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 10px; }
+  .ohje p + p { margin-top: 10px; }
+  footer { margin-top: 56px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--jaa); letter-spacing: 0.04em; }
+  @media (max-width: 520px) {
+    .hakurivi { flex-direction: column; }
+    #hae { padding: 11px 18px; }
+  }
+</style>
+</head>
+<body>
+<div class="sivu">
+  <header>
+    <div class="yla">J. Lintumies · Faktat ja analyysit</div>
+    <h1>Kysy<br>raporteista</h1>
+    <div class="viiva"></div>
+    <p class="alaotsikko">Hae vastauksia Brahean, Pielisjärven, Seiskarin ja kotiseudun historiaa käsittelevistä raporteista ja taustamuistioista.</p>
+    <nav class="navi"><a href="index.html">Kirjat</a> <a href="analyysit.html">Faktat ja analyysit</a> <a href="kysy.html" class="tassa">Kysy raporteista</a> <a href="brahea/index.html">Brahea-lidarmalli</a> <a href="workpapers.html">Workpapers</a></nav>
+  </header>
+
+  <form class="hakulaatikko" id="lomake" autocomplete="off">
+    <label for="kysymys">Kysymys tai hakusanat</label>
+    <div class="hakurivi">
+      <input id="kysymys" type="search" placeholder="Esim. missä Brahean kirkko seisoi?" aria-describedby="tila">
+      <button id="hae" type="submit">Hae</button>
+    </div>
+    <div class="suodatin">
+      <span>Rajaa:</span>
+      <select id="osio" aria-label="Rajaa aiheen mukaan"><option value="">Kaikki aineistot</option></select>
+    </div>
+    <div class="esimerkit" id="esimerkit"></div>
+  </form>
+
+  <div class="tila" id="tila" role="status">Ladataan aineistoa…</div>
+
+  <section class="vastaus" id="vastaus" aria-live="polite">
+    <h2>Vastaus</h2>
+    <div class="teksti" id="vastausteksti"></div>
+    <p class="huom">Vastaus on koottu alla näkyvistä otteista. Tarkista aina lähde: otsikko vie raporttiin oikealle sivulle.</p>
+  </section>
+  <button id="pyyda" type="button">Pyydä tiivistetty vastaus</button>
+
+  <ol class="tulokset" id="tulokset"></ol>
+
+  <section class="ohje">
+    <h2>Miten haku toimii</h2>
+    <p>Haku käy läpi kaikkien julkaistujen historia-aiheisten raporttien tekstin sekä tutkimuksen aikana kootut taustamuistiot. Tulokset näytetään osuvuusjärjestyksessä, ja jokaisesta otteesta pääsee suoraan raportin oikealle sivulle. Taustamuistiot ovat julkaisemattomia työmuistioita, ja niissä merkinnät [A], [H], [K] ja [P] kertovat, onko tieto luettu alkuperäisestä asiakirjasta, tekstihausta, kirjallisuudesta vai päätelty.</p>
+    <p>Haku ymmärtää sanojen alkuosat, joten <i>kirkko</i> löytää myös <i>kirkon</i> ja <i>kirkkoherran</i>. Vanhan ruotsin kirjoitusasut kannattaa kokeilla sellaisinaan, esimerkiksi <i>hofläger</i> tai <i>Liexa</i>.</p>
+    <p>Jos et löydä vastausta, kysy suoraan: <a href="mailto:jujukol@gmail.com">jujukol@gmail.com</a>.</p>
+  </section>
+  <footer>Aineisto päivitetty <span id="versio">–</span> · Juri Jukola</footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/minisearch@6.3.0/dist/umd/index.min.js"></script>
+<script>
+(function () {
+  // Tekoälyvastauksen välityspalvelin. Tyhjä = vain haku.
+  const VASTAUS_URL = '';
+
+  const ESIMERKIT = [
+    'Missä Brahean kirkko seisoi?',
+    'Kuka oli Simo Hurtta?',
+    'Mustoset ja hovileiri',
+    'Anders Rautiainen tupakka',
+    'kirkon palo 1828',
+    'Seiskari Pietari'
+  ];
+  const $ = id => document.getElementById(id);
+  let A = null, ms = null, viimeisin = [];
+
+  const SEIS = new Set(('ja on ei se oli että kun mutta tai jos niin kuin myös vain mitä missä mikä mihin miten miksi kuka ketkä kenen keitä milloin onko oliko ovat olivat olla ole sen siitä sitä hän he ne nämä tämä tuo joka jotka jonka joita mistä minne voi voiko kertoa kerro tietää och att det som i på med av till för den har var en ett är the of and').split(' '));
+
+  function perusmuoto(s) {
+    return s.toLowerCase().normalize('NFC').replace(/[^0-9a-zåäöüéw]/g, '');
+  }
+  function sanat(s) {
+    return s.split(/[\s.,;:!?()"'«»„“”\[\]\/–—-]+/).map(perusmuoto).filter(w => w.length > 1 && !SEIS.has(w));
+  }
+  function katkaise(w) {
+    // karkea suomen taivutuksen poisto: lyhennetään pitkät sanat vartaloksi
+    return w.length > 7 ? w.slice(0, Math.max(5, w.length - 3)) : w;
+  }
+
+  function lataa() {
+    fetch('aineisto.json').then(r => {
+      if (!r.ok) throw new Error(r.status);
+      return r.json();
+    }).then(data => {
+      A = data;
+      $('versio').textContent = data.v;
+      const osiot = [...new Set(data.docs.map(d => d.s))];
+      osiot.forEach(o => { const op = document.createElement('option'); op.value = o; op.textContent = o; $('osio').appendChild(op); });
+      ms = new MiniSearch({
+        fields: ['t', 'x'],
+        storeFields: [],
+        tokenize: s => sanat(s),
+        processTerm: w => w
+      });
+      ms.addAll(data.c.map((c, i) => ({ id: i, t: data.docs[c[0]].t, x: c[2] })));
+      $('tila').textContent = data.docs.length + ' raporttia ja muistiota, ' + data.c.length + ' tekstikohtaa';
+      ESIMERKIT.forEach(e => {
+        const b = document.createElement('button'); b.type = 'button'; b.textContent = e;
+        b.addEventListener('click', () => { $('kysymys').value = e; hae(); });
+        $('esimerkit').appendChild(b);
+      });
+      const q = new URLSearchParams(location.search).get('q');
+      if (q) { $('kysymys').value = q; hae(); }
+    }).catch(() => { $('tila').textContent = 'Aineiston lataus epäonnistui. Päivitä sivu.'; });
+  }
+
+  function hae() {
+    if (!ms) return;
+    const q = $('kysymys').value.trim();
+    const os = $('osio').value;
+    $('vastaus').style.display = 'none';
+    $('tulokset').innerHTML = '';
+    if (!q) { $('tila').textContent = 'Kirjoita kysymys tai hakusanoja.'; return; }
+    const termit = sanat(q).map(katkaise);
+    if (!termit.length) { $('tila').textContent = 'Kysymyksessä ei ollut hakusanoja.'; return; }
+    const opt = {
+      prefix: true,
+      fuzzy: t => t.length > 6 ? 0.2 : false,
+      boost: { t: 2 },
+      filter: os ? r => A.docs[A.c[r.id][0]].s === os : undefined
+    };
+    let tulokset = ms.search(termit.join(' '), Object.assign({ combineWith: 'AND' }, opt));
+    if (tulokset.length < 5) {
+      const lisa = ms.search(termit.join(' '), Object.assign({ combineWith: 'OR' }, opt));
+      const nahty = new Set(tulokset.map(r => r.id));
+      tulokset = tulokset.concat(lisa.filter(r => !nahty.has(r.id)));
+    }
+    // enintään 3 otetta samasta raportista, yhteensä 15
+    const perDoc = {}, valitut = [];
+    for (const r of tulokset) {
+      const d = A.c[r.id][0];
+      perDoc[d] = (perDoc[d] || 0) + 1;
+      if (perDoc[d] <= 3) valitut.push(r);
+      if (valitut.length >= 15) break;
+    }
+    viimeisin = valitut;
+    $('tila').textContent = valitut.length ? 'Osumia ' + tulokset.length + ', näytetään ' + valitut.length + ' osuvinta' : 'Ei osumia. Kokeile toisia sanoja tai vanhaa kirjoitusasua.';
+    const re = korostusRe(termit);
+    valitut.forEach(r => $('tulokset').appendChild(tulosRivi(r, re)));
+    if (q.length > 3) history.replaceState(null, '', '?q=' + encodeURIComponent(q));
+    $('pyyda').style.display = (VASTAUS_URL && valitut.length) ? 'inline-block' : 'none';
+  }
+
+  function korostusRe(termit) {
+    const esc = termit.filter(t => t.length > 2).map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+    if (!esc.length) return null;
+    return new RegExp('(' + esc.join('|') + ')[\\wåäöÅÄÖ]*', 'gi');
+  }
+
+  function ote(teksti, re) {
+    if (!re) return teksti.slice(0, 420);
+    const m = teksti.search(re);
+    let alku = Math.max(0, m - 160);
+    if (alku > 0) { const s = teksti.indexOf(' ', alku); alku = s > 0 ? s + 1 : alku; }
+    let s = teksti.slice(alku, alku + 480);
+    return (alku > 0 ? '… ' : '') + s + (alku + 480 < teksti.length ? ' …' : '');
+  }
+
+  function korosta(el, teksti, re) {
+    if (!re) { el.textContent = teksti; return; }
+    let i = 0; re.lastIndex = 0; let m;
+    while ((m = re.exec(teksti))) {
+      if (m.index > i) el.appendChild(document.createTextNode(teksti.slice(i, m.index)));
+      const mk = document.createElement('mark'); mk.textContent = m[0]; el.appendChild(mk);
+      i = m.index + m[0].length;
+    }
+    if (i < teksti.length) el.appendChild(document.createTextNode(teksti.slice(i)));
+  }
+
+  function tulosRivi(r, re) {
+    const [di, sivu, teksti] = A.c[r.id];
+    const d = A.docs[di];
+    const li = document.createElement('li'); li.className = 'tulos';
+    const l = document.createElement('div'); l.className = 'lahde';
+    l.textContent = d.s + (d.f && sivu ? ' · sivu ' + sivu : '');
+    if (!d.f) { const t = document.createElement('span'); t.className = 'tausta'; t.textContent = '· julkaisematon'; l.appendChild(t); }
+    const h = document.createElement('h3');
+    if (d.f) {
+      const a = document.createElement('a');
+      a.href = d.f + (d.f.endsWith('.pdf') && sivu ? '#page=' + sivu : '');
+      a.target = '_blank'; a.rel = 'noopener'; a.textContent = d.t;
+      h.appendChild(a);
+    } else h.textContent = d.t;
+    const p = document.createElement('p'); p.className = 'ote';
+    korosta(p, ote(teksti, re), re);
+    li.append(l, h, p);
+    if (teksti.length > 500) {
+      const b = document.createElement('button'); b.type = 'button'; b.className = 'lisaa'; b.textContent = 'Näytä koko kohta';
+      b.addEventListener('click', () => { p.textContent = ''; korosta(p, teksti, re); b.remove(); });
+      li.appendChild(b);
+    }
+    return li;
+  }
+
+  function pyydaVastaus() {
+    if (!VASTAUS_URL || !viimeisin.length) return;
+    const q = $('kysymys').value.trim();
+    const otteet = viimeisin.slice(0, 8).map(r => {
+      const [di, sivu, teksti] = A.c[r.id]; const d = A.docs[di];
+      return { lahde: d.t, tiedosto: d.f, sivu: sivu, teksti: teksti };
+    });
+    $('pyyda').disabled = true; $('pyyda').textContent = 'Kootaan vastausta…';
+    fetch(VASTAUS_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ kysymys: q, otteet }) })
+      .then(r => r.json().then(j => ({ ok: r.ok, j })))
+      .then(({ ok, j }) => {
+        const el = $('vastausteksti'); el.innerHTML = '';
+        const teksti = ok ? (j.vastaus || '') : (j.virhe || 'Vastausta ei saatu juuri nyt. Hakutulokset alla ovat silti käytettävissä.');
+        teksti.split(/\n\s*\n/).forEach(k => { const p = document.createElement('p'); p.textContent = k.trim(); el.appendChild(p); });
+        $('vastaus').style.display = 'block';
+      })
+      .catch(() => {
+        $('vastausteksti').textContent = 'Vastauspalvelu ei ole juuri nyt käytettävissä. Hakutulokset alla ovat silti käytettävissä.';
+        $('vastaus').style.display = 'block';
+      })
+      .finally(() => { $('pyyda').disabled = false; $('pyyda').textContent = 'Pyydä tiivistetty vastaus'; });
+  }
+
+  $('lomake').addEventListener('submit', e => { e.preventDefault(); hae(); });
+  $('osio').addEventListener('change', hae);
+  $('pyyda').addEventListener('click', pyydaVastaus);
+  lataa();
+})();
+</script>
+</body>
+</html>

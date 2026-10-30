@@ -131,6 +131,12 @@
   .nimiluvut { margin-top: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.02em; color: var(--meri); }
   .nimiluvut strong { color: var(--leima); font-weight: 500; }
 
+  #paikka { flex: 1; min-width: 0; font: inherit; font-weight: 400; font-size: 18px; padding: 11px 14px; border: 1px solid var(--jaa); background: #FBF8F1; color: var(--muste); border-radius: 2px; }
+  #haepaikka { padding: 0 18px; background: var(--meri); color: #F4EFE4; border: 1px solid var(--meri); }
+  #kaikkipaikat { padding: 0 14px; background: transparent; color: var(--meri); border: 1px solid var(--meri); }
+  #kaikkipaikat:hover, #kaikkipaikat[aria-expanded="true"] { background: var(--meri); color: #F4EFE4; }
+  #pluettelo .nimiryhma { padding: 7px 0; }
+  #pluettelo .nimiryhma > button { font-size: 18px; }
   #kaikkinimet { padding: 0 14px; background: transparent; color: var(--meri); border: 1px solid var(--meri); }
   #kaikkinimet:hover, #kaikkinimet[aria-expanded="true"] { background: var(--meri); color: #F4EFE4; }
   .nimiluettelo { margin-top: 14px; }
@@ -173,7 +179,7 @@
   }
   @media (max-width: 520px) {
     .hakurivi { flex-direction: column; }
-    #hae, #haenimi, #tkhae, #kaikkinimet, #aiheet { padding: 11px 18px; }
+    #hae, #haenimi, #tkhae, #kaikkinimet, #aiheet, #haepaikka, #kaikkipaikat { padding: 11px 18px; }
   }
 </style>
 </head>
@@ -223,6 +229,24 @@
   <ol class="nimitulokset" id="nimitulokset"></ol>
 
 
+  <form class="hakulaatikko nimilaatikko" id="paikkalomake" autocomplete="off">
+    <label for="paikka">Paikannimihakemisto · tuomiokirjat 1650–1810</label>
+    <div class="hakurivi">
+      <input id="paikka" type="search" placeholder="Kylä tai pitäjä, esim. Vuonislahti tai Wuonislax">
+      <button id="haepaikka" type="submit">Hae paikkaa</button>
+      <button id="kaikkipaikat" type="button" aria-expanded="false">Koko paikkaluettelo</button>
+    </div>
+    <p class="nimiluvut"><strong>22 875</strong> paikkamainintaa · <strong>3 639</strong> paikannimeä · <strong>8 677</strong> tuomiokirjasivua</p>
+    <p class="nimiohje">Paikat on poimittu samoilta tuomiokirjasivuilta kuin nimet: ne tunnistetaan sanoista kuten <i>by</i>, <i>Sochn</i>, <i>Pogost</i> ja <i>ifrån</i>. Saman paikan kirjoitusasut on yhdistetty, esimerkiksi <i>Pielisjärfwi, Pjelisjerfvi ja Pielisjärvi</i>. Yleisimmille paikoille on lisätty nykyinen nimi, joten haku toimii myös esimerkiksi sanoilla <i>Lieksa</i>, <i>Liperi</i> tai <i>Kajaani</i>. Jos maininnan yhteydessä on henkilö, hänen nimensä näkyy rivillä.</p>
+  </form>
+  <section class="nimiluettelo" id="paikkaluettelo" hidden>
+    <div class="kirjaimet" id="pkirjaimet" role="tablist" aria-label="Alkukirjain"></div>
+    <label class="harvat"><input type="checkbox" id="pharvat" checked> Piilota paikat, joilla on vain yksi maininta</label>
+    <p class="tila" id="pluettelotila"></p>
+    <ol class="nimitulokset" id="pluettelo"></ol>
+  </section>
+  <div class="tila" id="paikkatila" role="status"></div>
+  <ol class="nimitulokset" id="paikkatulokset"></ol>
   <form class="hakulaatikko tklaatikko" id="tklomake" autocomplete="off">
     <label for="tkq">Tuomiokirjojen tekstihaku · 1650–1810</label>
     <div class="hakurivi">
@@ -653,7 +677,7 @@ const AIKAJANA = [{"y": "1617", "t": "Ensimmäinen luterilainen kirkko", "k": "S
     const ryhmat = {};
     d.n.forEach(n => {
       const k = (n.n[0] || '?').toUpperCase();
-      const kirjain = 'ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ'.includes(k) ? k : '#';
+      const kirjain = (k === 'V' || k === 'W') ? 'V/W' : ('ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ'.includes(k) ? k : '#');
       (ryhmat[kirjain] = ryhmat[kirjain] || []).push(n);
     });
     Object.values(ryhmat).forEach(r => r.sort((a, b) => a.n.localeCompare(b.n, 'fi')));
@@ -693,6 +717,111 @@ const AIKAJANA = [{"y": "1617", "t": "Ensimmäinen luterilainen kirkko", "k": "S
   $('kaikkinimet').setAttribute('aria-expanded', 'false');
   $('kaikkinimet').addEventListener('click', avaaLuettelo);
   $('harvat').addEventListener('change', () => { if (nykyKirjain && NH) naytaKirjain(nykyKirjain, NH); });
+
+
+  // ---------- paikannimihakemisto ----------
+  let PH = null, phLataus = null, pKirjaimittain = null, pNyky = null;
+  function paikka_avain(x) {
+    let k = x.toLowerCase();
+    [['fw','v'],['fv','v'],['ph','f'],['th','t'],['ck','k'],['w','v'],['c','k'],['q','k'],['z','s'],['å','o'],['ä','a'],['ö','o'],['é','e'],['ü','y']].forEach(([a,b]) => { k = k.split(a).join(b); });
+    k = k.split('pj').join('pi').split('ie').join('i').replace(/^lex/, 'lix').split('jerv').join('jarv').split('jerf').join('jarf').split('jarfv').join('jarv');
+    k = k.replace(/(.)\1+/g, '$1');
+    if (k.length > 5) k = k.replace(/s$/, '');
+    if (k.length > 6) k = k.replace(/(ta|lta|sta|lla|ssa|n)$/, '');
+    return k;
+  }
+  function lataaPaikat() {
+    if (!phLataus) phLataus = fetch('paikkahakemisto.json').then(r => r.json()).then(d => {
+      PH = d; d.n.forEach(n => { n.k = n.v.map(paikka_avain); n.l = n.v.map(x => x.toLowerCase()).concat(n.a ? [n.a.toLowerCase()] : []); if (n.a) n.k.push(paikka_avain(n.a)); });
+      return d;
+    });
+    return phLataus;
+  }
+  function paikkaRyhma(n, d) {
+    const li = document.createElement('li'); li.className = 'nimiryhma';
+    const b = document.createElement('button'); b.type = 'button'; b.textContent = n.n + (n.a ? ' (' + n.a + ')' : '');
+    const l = document.createElement('span'); l.className = 'lkm'; l.textContent = (n.t ? n.t + ' · ' : '') + n.m.length + ' mainintaa';
+    b.appendChild(l);
+    const mu = document.createElement('div'); mu.className = 'muodot'; mu.textContent = 'Kirjoitusasut: ' + n.v.join(', ');
+    li.append(b, mu);
+    let auki = false, taulu = null;
+    b.addEventListener('click', () => {
+      if (auki) { taulu.remove(); auki = false; return; }
+      taulu = document.createElement('div');
+      const t = document.createElement('table'); t.className = 'maininnat';
+      let nayta = 0, lb = null;
+      const lisaa = () => {
+        n.m.slice(nayta, nayta + 100).forEach(m => {
+          const p = d.p[m[0]];
+          const tr = document.createElement('tr');
+          const v = document.createElement('td'); v.className = 'v'; v.textContent = p[0] + (p[1] && p[1] !== p[0] ? '–' + String(p[1]).slice(2) : '');
+          const nm = document.createElement('td'); nm.textContent = d.s[m[1]] + (m[2] >= 0 ? ' (' + d.s[m[2]] + ')' : '') + (m[3] >= 0 ? ' · ' + d.s[m[3]] : '');
+          const lk = document.createElement('td'); lk.className = 'l';
+          const a = document.createElement('a'); a.href = 'https://astia.narc.fi/uusiastia//viewer/?fileId=' + p[2]; a.target = '_blank'; a.rel = 'noopener'; a.textContent = 'Astia';
+          lk.append(document.createTextNode(d.src[p[3]] + ' · '), a);
+          tr.append(v, nm, lk); t.appendChild(tr);
+        });
+        nayta += 100;
+        if (nayta >= n.m.length && lb) lb.remove();
+      };
+      taulu.appendChild(t);
+      if (n.m.length > 100) { lb = document.createElement('button'); lb.type = 'button'; lb.className = 'lisaanimia'; lb.textContent = 'Näytä lisää mainintoja'; lb.addEventListener('click', lisaa); taulu.appendChild(lb); }
+      lisaa();
+      li.appendChild(taulu); auki = true;
+    });
+    return li;
+  }
+  function haePaikka() {
+    const q = $('paikka').value.trim();
+    $('paikkatulokset').innerHTML = '';
+    if (q.length < 3) { $('paikkatila').textContent = 'Kirjoita vähintään kolme kirjainta.'; return; }
+    $('paikkatila').textContent = PH ? '' : 'Ladataan paikkahakemistoa…';
+    lataaPaikat().then(d => {
+      const ql = q.toLowerCase(), qk = paikka_avain(ql);
+      let os = d.n.filter(n => n.k.includes(qk) || n.l.some(v => v.startsWith(ql)));
+      if (os.length < 3 && qk.length >= 4) os = os.concat(d.n.filter(n => !os.includes(n) && n.k.some(k => k.startsWith(qk))));
+      os.sort((a, b) => b.m.length - a.m.length);
+      const yht = os.reduce((s, n) => s + n.m.length, 0);
+      $('paikkatila').textContent = os.length ? 'Paikkoja ' + os.length + ', mainintoja ' + yht : 'Ei osumia. Kokeile vanhaa kirjoitusasua (esim. w ja fw v:n tilalla) tai lyhyempää alkua.';
+      os.slice(0, 40).forEach(n => $('paikkatulokset').appendChild(paikkaRyhma(n, d)));
+    });
+  }
+  function pNaytaKirjain(kirjain, d) {
+    const r = (pKirjaimittain[kirjain] || []).filter(n => !$('pharvat').checked || n.m.length > 1);
+    pNyky = kirjain;
+    document.querySelectorAll('#pkirjaimet button').forEach(b => b.setAttribute('aria-selected', b.dataset.k === kirjain ? 'true' : 'false'));
+    $('pluettelo').innerHTML = '';
+    const yht = r.reduce((s, n) => s + n.m.length, 0);
+    $('pluettelotila').textContent = kirjain + ': ' + r.length + ' paikkaa, ' + yht + ' mainintaa. Klikkaa paikkaa, niin näet maininnat ja Astia-linkit.';
+    const frag = document.createDocumentFragment();
+    r.forEach(n => frag.appendChild(paikkaRyhma(n, d)));
+    $('pluettelo').appendChild(frag);
+  }
+  function avaaPaikkaluettelo() {
+    const p = $('paikkaluettelo'), nappi = $('kaikkipaikat');
+    if (!p.hidden) { p.hidden = true; nappi.setAttribute('aria-expanded', 'false'); return; }
+    p.hidden = false; nappi.setAttribute('aria-expanded', 'true');
+    $('pluettelotila').textContent = 'Ladataan paikkaluetteloa…';
+    lataaPaikat().then(d => {
+      if (!pKirjaimittain) {
+        pKirjaimittain = {};
+        d.n.forEach(n => { const k0 = (n.n[0] || '?').toUpperCase(); const k = (k0 === 'V' || k0 === 'W') ? 'V/W' : ('ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ'.includes(k0) ? k0 : '#'); (pKirjaimittain[k] = pKirjaimittain[k] || []).push(n); });
+        Object.values(pKirjaimittain).forEach(r => r.sort((a, b) => a.n.localeCompare(b.n, 'fi')));
+        Object.keys(pKirjaimittain).sort((a, b) => a.localeCompare(b, 'fi')).forEach(k => {
+          const b = document.createElement('button'); b.type = 'button'; b.dataset.k = k; b.setAttribute('role', 'tab');
+          b.append(document.createTextNode(k));
+          const sm = document.createElement('small'); sm.textContent = pKirjaimittain[k].length; b.appendChild(sm);
+          b.addEventListener('click', () => pNaytaKirjain(k, d));
+          $('pkirjaimet').appendChild(b);
+        });
+      }
+      pNaytaKirjain(Object.keys(pKirjaimittain).sort((a, b) => a.localeCompare(b, 'fi'))[0], d);
+    }).catch(() => { $('pluettelotila').textContent = 'Paikkaluettelon lataus epäonnistui. Päivitä sivu.'; });
+  }
+  $('paikkalomake').addEventListener('submit', e => { e.preventDefault(); haePaikka(); });
+  $('kaikkipaikat').addEventListener('click', avaaPaikkaluettelo);
+  $('pharvat').addEventListener('change', () => { if (pNyky && PH) pNaytaKirjain(pNyky, PH); });
+  $('paikka').addEventListener('focus', lataaPaikat, { once: true });
 
   $('nimilomake').addEventListener('submit', e => { e.preventDefault(); haeNimi(); });
   $('nimi').addEventListener('focus', lataaNimet, { once: true });

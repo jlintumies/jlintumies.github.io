@@ -1,0 +1,189 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setdefaultlanguage{finnish}
+\setmainfont{TeX Gyre Pagella}
+\setsansfont{TeX Gyre Heros}
+\usepackage[a4paper,left=24mm,right=24mm,top=24mm,bottom=26mm]{geometry}
+\usepackage{xcolor}
+\definecolor{meri}{HTML}{2C4051}
+\definecolor{leima}{HTML}{B8511F}
+\usepackage{titlesec}
+\titleformat{\section}{\sffamily\bfseries\large\color{meri}}{\thesection}{0.6em}{}
+\titlespacing*{\section}{0pt}{1.4em}{0.5em}
+\usepackage[most]{tcolorbox}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[C]{\sffamily\small\color{meri}\thepage}
+\fancyfoot[R]{\sffamily\scriptsize\color{meri}Juri Jukola · Workpaper · 31.10.2026}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.6em}
+\linespread{1.08}
+\setlength{\emergencystretch}{3em}
+\newcommand{\laskelmat}[1]{{\sffamily\small\itshape\color{meri}Laskelmat: #1}}
+\newcounter{taulu}
+\newcommand{\taul}{\stepcounter{taulu}Taulukko \thetaulu.}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+
+\begin{document}
+
+{\sffamily\small\color{leima}\textbf{WORKPAPER} · versio 1.0 · 31.10.2026}
+
+\vspace{0.4em}
+{\sffamily\bfseries\LARGE\color{meri} Kuiva Norja, tuulinen Suomi\par}
+
+\vspace{0.3em}
+{\sffamily\large\color{meri} Mitä talven 2026/27 sähkön hinnasta voi sanoa lokakuun lopussa\par}
+
+\vspace{0.4em}
+{\sffamily\small Juri Jukola · jujukol@gmail.com · +358 40 578 8519 · www.linkedin.com/in/jurijukola\par}
+
+\vspace{0.8em}
+Kirjoitin elokuussa katsauksessa \emph{Kallis talvi, kallis tunti}, että talven hintatason ratkaisee Norjan vesi ja yksittäisen kalliin tunnin tuulen puute. Syyskuussa korjasin ensimmäisen väitteen: kun otos pidennettiin kuudesta talvesta yhteentoista, marraskuun täyttöasteen ja talven keskihinnan korrelaatio putosi lukemasta $-0{,}73$ lukemaan $-0{,}36$, ja ilman energiakriisin kahta talvea yhteys katosi. Vesi asettaa hinnan, mutta yksi syksyn lukema ei kerro, mihin hintaan.
+
+Nyt syksy on ohi, altaiden täyttökausi on päättynyt ja futuurikäyrä on elänyt kaksi kuukautta. Kävin samat aineistot läpi uudelleen ja kysyin yhden asian: osataanko talven hintaa nyt arvioida paremmin kuin elokuussa?
+
+\begin{tcolorbox}[enhanced,colback=meri!4,colframe=leima,boxrule=0pt,leftrule=2.5pt,arc=0pt,left=8pt,right=8pt,top=6pt,bottom=6pt,fontupper=\sffamily\small]
+{\color{leima}\bfseries Lyhyesti}\\[2pt]
+\textbf{Vesi.} Norjan altaissa oli viikolla 43 vettä 69,5 prosenttia, noin 13 terawattituntia alle kolmenkymmenenyhden vuoden mediaanin. Matalampi lukema on ollut vain neljänä vuotena, viimeksi 2010.\\
+\textbf{Ennustevoima.} Lokakuun lopun täyttöaste ei ennusta talven hintaa paremmin kuin marraskuun. Korrelaatio tulee kriisitalvista, ja tämän syksyn lukema on otoksen ulkopuolella.\\
+\textbf{Markkina.} Futuurit hinnoittelevat joulu–helmikuun Suomen hinnaksi 114 €/MWh ja tammi–helmikuun 127 €/MWh, täsmälleen viime vuoden kalleimman jakson tasolle.\\
+\textbf{Suomen alennus.} Pohjoismainen systeemihinta on hinnoiteltu 136–153 euroon, Suomi 24–50 euroa sen alle. Kuiva Norja nostaa järjestelmän hintaa, mutta Suomeen se välittyy vain osittain.\\
+\textbf{Lokakuu.} Kuukausi maksoi 37 €/MWh, vaikka futuuri oli syyskuun lopussa 85 euroa. Vettä oli vähemmän kuin vuosi sitten, ja silti hinta oli halvempi. Syy oli tuuli.
+\end{tcolorbox}
+
+\section{Altaat eivät täyttyneet}
+
+Norjan vesivoiman varastot täyttyvät kevään sulamisesta syksyyn ja tyhjenevät talven aikana. Lokakuun lopussa täyttökausi on käytännössä ohi, ja se, mitä altaissa nyt on, on talven puskuri. Tänä vuonna puskuri jäi vajaaksi jo kesällä, eikä syksyn sade kuronut eroa umpeen.
+
+\vspace{1mm}
+{\small
+\begin{tabularx}{\textwidth}{@{}XRRRR@{}}
+\toprule
+\multicolumn{5}{@{}l}{\taul\ Norjan vesivarastojen täyttöaste syksyllä 2026} \\
+\multicolumn{5}{@{}l}{\small\itshape NVE, kaikki viisi hinta-aluetta, viikkolukema} \\
+\midrule
+Viikko & 2026, \% & Mediaani 1995–2025, \% & Ero, \%-yks. & Matalampia vuosia \\
+\midrule
+33 (elo) & 64,8 & 80,0 & $-15{,}2$ & 2/31 \\
+36 & 63,6 & 82,1 & $-18{,}5$ & 2/31 \\
+39 & 67,9 & 82,8 & $-15{,}0$ & 3/31 \\
+41 & 69,0 & 83,1 & $-14{,}1$ & 3/31 \\
+43 (loka) & 69,5 & 84,6 & $-15{,}1$ & 4/31 \\
+\bottomrule
+\end{tabularx}
+}
+
+\vspace{1mm}
+Ero mediaaniin on pysynyt koko syksyn 14–19 prosenttiyksikössä. Energiana se on noin 13 terawattituntia: altaissa on nyt 60,8 terawattituntia, kun saman viikon mediaani on 74,0 ja vuosi sitten lukema oli 70,7. Viikon 43 lukema on 32 vuoden sarjan viidenneksi matalin. Matalampi se on ollut vuosina 1996, 2006, 2010 ja 2003, ja vuonna 2021, jota seurasi energiakriisin ensimmäinen talvi, se oli 71,5.
+
+\laskelmat{NVE:n magasinstatistikk-rajapinta, haettu 31.10.2026.}
+
+\section{Lokakuun lukema ei ennusta talvea paremmin kuin marraskuun}
+
+Tarkistin, toimisiko lokakuun lopun lukema paremmin kuin elokuussa käyttämäni marraskuun keskiarvo. Se ei toimi.
+
+\vspace{1mm}
+{\small
+\begin{tabularx}{\textwidth}{@{}XRR|XRR@{}}
+\toprule
+\multicolumn{6}{@{}l}{\taul\ Viikon 43 täyttöaste ja seuraavan talven (marras–maalis) keskihinta Suomessa} \\
+\midrule
+Talvi & Vko 43, \% & €/MWh & Talvi & Vko 43, \% & €/MWh \\
+\midrule
+2015/16 & 89,5 & 29,9 & 2021/22 & 71,5 & 111,4 \\
+2016/17 & 79,0 & 34,8 & 2022/23 & 76,6 & 135,6 \\
+2017/18 & 86,7 & 38,3 & 2023/24 & 83,6 & 72,9 \\
+2018/19 & 81,3 & 49,0 & 2024/25 & 85,5 & 46,3 \\
+2019/20 & 81,4 & 31,2 & 2025/26 & 80,9 & 72,1 \\
+2020/21 & 92,9 & 42,5 & \textbf{2026/27} & \textbf{69,5} & ? \\
+\bottomrule
+\end{tabularx}
+}
+
+\vspace{1mm}
+Yhdellätoista talvella korrelaatio on $-0{,}68$, mikä näyttää vahvalta. Ilman talvia 2021/22 ja 2022/23 se on $-0{,}25$. Kuvio on sama kuin syyskuun korjauksessa: kaksi kallista kriisitalvea sattuivat vuosiin, joina altaissa oli keskimääräistä vähemmän vettä, ja niiden hinnan teki Euroopan kaasu. Vuosi 2016/17 näyttää saman toisinpäin, sillä vajaat altaat ja halpa talvi sopivat samaan vuoteen.
+
+Lisäksi tämän syksyn 69,5 prosenttia on matalampi kuin yksikään otoksen lukema. Suora, joka on sovitettu välille 71–93 prosenttia, ei kerro mitään sen alapuolelta. Omasta aineistostani en siis saa talvelle lukua. Saan suunnan: vettä on vähemmän kuin kertaakaan yhteentoista vuoteen.
+
+\laskelmat{Sähkötin (FI-tuntihinnat 2015–2026), NVE. Korjaus: Se luku, jota ei kerrottu, luku Vesivoima.}
+
+\section{Mitä markkina hinnoittelee}
+
+Futuurikäyrässä ovat mukana kaikki tekijät, joita yksittäinen korrelaatio ei näe: vesi, lumi, kaasu, ydinvoiman huoltokatkot, siirtoyhteydet ja säähavainnot. Siksi futuurit ovat parempi lähtökohta kuin oma malli. Suomen hinta muodostuu pohjoismaisesta systeemihinnasta ja Suomen aluehintaerosta (EPAD), ja ne kertovat eri asioita.
+
+\vspace{1mm}
+{\small
+\begin{tabularx}{\textwidth}{@{}XRRR@{}}
+\toprule
+\multicolumn{4}{@{}l}{\taul\ Futuurihinnat talvelle 2026/27, €/MWh ilman arvonlisäveroa} \\
+\multicolumn{4}{@{}l}{\small\itshape Euronext Nord Pool Power Futures, päätöskurssit 30.10.2026} \\
+\midrule
+Jakso & Systeemihinta & Suomen aluehintaero & Suomi \\
+\midrule
+Marraskuu 2026 & 140,5 & $-50{,}0$ & 90,5 \\
+Joulukuu 2026 & 136,4 & $-47{,}0$ & 89,4 \\
+Tammikuu 2027 & 151,7 & $-26{,}5$ & 125,2 \\
+Helmikuu 2027 & 152,5 & $-23{,}7$\textsuperscript{*} & 128,9 \\
+Maaliskuu 2027 & 117,4 & $-23{,}7$\textsuperscript{*} & 93,7 \\
+\midrule
+Tammi–maaliskuu 2027 & 139,7 & $-23{,}7$ & 116,0 \\
+\bottomrule
+\multicolumn{4}{@{}l}{\footnotesize\textsuperscript{*} Kuukaudelle ei noteerausta; käytetty neljänneksen aluehintaeroa.}
+\end{tabularx}
+}
+
+\vspace{1mm}
+Taulukosta erottuu kaksi asiaa. Ensimmäinen on taso. Joulu–helmikuun Suomen hinta on päiväpainotettuna 114 €/MWh, kun viime talven joulu–helmikuu toteutui 95 euroon. Tammi–helmikuu on hinnoiteltu 127 euroon. Saman verran maksoi viime talven tammi–helmikuu, joka oli aineistoni kylmin ja kuormaltaan suurin jakso. Markkina siis hinnoittelee tavallisen talven samaan hintaan kuin viime vuoden poikkeuksellisen. Erotuksesta suurin osa on todennäköisesti vettä.
+
+Toinen on Suomen alennus. Systeemihinta on hinnoiteltu 136–153 euroon, ja se kuvaa koko pohjoismaista järjestelmää, jonka hinnan vesi ratkaisee. Suomi on hinnoiteltu marras–joulukuussa noin 50 euroa ja keskitalvella noin 25 euroa sen alle. Tulkitsen tämän niin, että markkina odottaa Suomen oman tuotannon pitävän Suomen hinnan irti järjestelmän hinnasta alkutalvella mutta luottaa siihen vähemmän tammi–helmikuussa, kun kylmän ja tyynen jakson riski on suurin. Tämä sopii yhteen elokuun havaintoni kanssa: Suomi oli talvilla 2024/25 ja 2025/26 Keski-Ruotsia halvempi noin kahdella kolmasosalla tunneista, ja kalliit tunnit ovat muuttuneet pohjoismaisista suomalaisiksi.
+
+Käyrä on noussut koko syksyn. Marras–maaliskuun Suomen hinta oli 30.4.2026 noteerattu noin 74 euroon ja 29.9. noin 100 euroon. Nyt se on päiväpainotettuna 105 euroa.
+
+\laskelmat{Euronextin päätöskurssit ParasSähkön koonnista 31.10.2026; aiemmat noteeraukset Sähköfiksu 29.9.2026.}
+
+\section{Lokakuu näytti, mitä tuuli tekee}
+
+Lokakuun futuuri oli syyskuun lopussa noin 85 €/MWh. Toteutunut hinta 1.–30.10. oli 36,8 €/MWh. Lokakuussa 2025 hinta oli 48,9 euroa, vaikka Norjan altaissa oli silloin kymmenen terawattituntia enemmän vettä.
+
+Vesi ei siis näkynyt Suomen hinnassa lainkaan, koska tuuli riitti. Sama kuvio löytyi elokuun katsauksesta: vesi selittää järjestelmän tason, mutta Suomen tunnin selittää tuulen osuus ja Ruotsin-yhteyden täyttyminen. Tuulivoimaa on Suomessa nyt niin paljon, että tuulinen kuukausi voi pudottaa hinnan alle puoleen futuurista, vaikka järjestelmässä on niukkuutta.
+
+Koko talven tasolla futuurit ovat osuneet paremmin. Viime talven loka–maaliskuun toteuma oli 69 €/MWh, kun futuureista laskettu odotus oli 66 euroa. Yksi talvi ei ole otos, mutta se kertoo, että kuukauden virhe on suuri ja kauden virhe pienempi.
+
+\laskelmat{Sähkötin; futuurivertailu Lisätietoja.fi 9/2026 ja Sähköfiksu 21.10.2026.}
+
+\section{Arvio}
+
+Osataan arvioida paremmin kuin elokuussa, mutta eri keinolla. Oma korrelaatio ei kanna, futuurikäyrä kantaa. Talven tason paras arvio on käyrästä: joulu–helmikuu noin 114 €/MWh ja tammi–helmikuu noin 127 €/MWh. Elokuussa esittämäni haarukka 70–160 euroa on yhä oikean levyinen, mutta sen painopiste on siirtynyt ylemmäs.
+
+Omat aineistoni lisäävät käyrään kolme huomiota. Ensinnäkin riski on epäsymmetrinen. Tuulinen jakso painaa Suomen hinnan selvästi käyrän alle, kuten lokakuu osoitti, mutta altaissa ei ole tänä talvena puskuria, joten kylmä ja tyyni jakso nostaa hinnan korkeammalta kuin viime vuonna. Tammi–helmikuussa 2026 Suomen hinta oli keskimäärin 24 euroa Keski-Ruotsin hintaa korkeampi, joten kylmä jakso voi viedä Suomen hinnan kokonaan järjestelmän hinnan tasolle, joka on nyt 150 euroa.
+
+Toiseksi Suomen alennus on talven suurin yksittäinen epävarmuus, ei Norjan vesi. Vesi on jo hinnoiteltu systeemihintaan. Se, kuinka paljon siitä päätyy Suomeen, ratkeaa tuulen, ydinvoiman käytettävyyden ja Ruotsin-yhteyden mukaan tunti kerrallaan.
+
+Kolmanneksi sähkölämmittäjän lasku seuraa tammi–helmikuuta, ei talven keskiarvoa, koska kulutus on silloin suurimmillaan. Jos pitää yhden luvun mielessä, se on 127 euroa megawattitunnilta eli noin 16 senttiä kilowattitunnilta arvonlisäveroineen.
+
+\section{Rajoitteet}
+
+Ruotsin vesivarastot, lumi ja pohjavesi eli koko hydrologinen tase puuttuvat omista laskelmistani. Ruotsin altaiden aikasarjaa en ole vielä saanut aineistoon. Futuuri ei ole ennuste vaan hinta, jolla sähköä voi ostaa etukäteen, ja siihen sisältyy riskipreemio. Futuurihinnat ovat toissijaisesta koonnista, eivät Euronextin omasta julkaisusta. Kuukausifutuurien osumatarkkuudesta minulla on vain yksi talvi. Tammi–helmikuun 127 euron vertailukohta on yksi talvi, ei normaali.
+
+\section*{Lähteet}
+{\small
+\begin{enumerate}\setlength{\itemsep}{1pt}
+\item NVE, Magasinstatistikk. biapi.nve.no/magasinstatistikk, viikkodata 1995–2026, haettu 31.10.2026.
+\item Sähkötin, Suomen hinta-alueen tuntihinnat 2015–2026. sahkotin.fi, haettu 31.10.2026.
+\item Euronext Nord Pool Power Futures, päätöskurssit 30.10.2026, koonti: ParasSähkö, Sähkön hintaennuste, päivitetty 31.10.2026. parassahko.fi/sahkon-hintaennuste
+\item Sähköfiksu, Sähkön hinta loppuvuonna 2026 ja Sähkön hintaennuste 2027 (futuurit 30.4. ja 29.9.2026, lokakuun futuuri). sahkofiksu.fi
+\item Lisätietoja.fi, Sähkön hinta talvella 2027 (viime talven futuuriodotus ja toteuma). lisatietoja.fi
+\item Jukola, J. (2026). Kallis talvi, kallis tunti, v1.0, korjaus 9.9.2026. jlintumies.github.io/kallis-talvi-kallis-tunti.pdf
+\item Jukola, J. (2026). Se luku, jota ei kerrottu, v2.8. jlintumies.github.io/se-luku-jota-ei-kerrottu.pdf
+\end{enumerate}
+}
+
+Luovutan aineiston ja laskennat pyynnöstä. Jos luvuissa on virhe, korjaan sen näkyvästi.
+
+\end{document}

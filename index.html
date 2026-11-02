@@ -159,6 +159,21 @@ footer a{color:#C8D2DA;border-bottom:1px solid #44586B}
   .esittely a.kansi,.esittely .kuvateksti{max-width:260px}
   .esittely h3{font-size:28px}
 }
+
+/* ---------- linkkinapit ---------- */
+[id]{scroll-margin-top:24px}
+.linkit a.linkkinappi{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:11px;letter-spacing:.16em;text-transform:uppercase;line-height:1;
+  color:var(--navy);background:transparent;border:1px solid var(--line);
+  padding:6px 10px;cursor:pointer;white-space:nowrap;align-self:center;
+}
+.linkit a.linkkinappi:hover{background:var(--navy);color:#F2EFE8;border-color:var(--navy)}
+.linkit a.linkkinappi:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.linkit a.linkkinappi.kopioitu,.linkit a.linkkinappi.kopioitu:hover{background:var(--orange);border-color:var(--orange);color:#FFF}
+.linkkinappi svg{width:13px;height:13px;flex:none}
+.kohdistettu{animation:kohdistus 2.4s ease-out}
+@keyframes kohdistus{from{box-shadow:0 0 0 6px rgba(192,90,40,.35)}to{box-shadow:0 0 0 6px rgba(192,90,40,0)}}
 </style>
 </head>
 <body>
@@ -185,7 +200,7 @@ footer a{color:#C8D2DA;border-bottom:1px solid #44586B}
   <div class="wrap">
     <h2 class="osasto">Uusin · Julkaistu kokonaan</h2>
 
-    <div class="uusi" id="laskematta" style="scroll-margin-top:24px">
+    <div class="uusi" id="laskematta" data-linkki="laskematta">
       <span class="merkki">Koko kirja luettavissa</span>
       <div class="esittely">
         <div>
@@ -222,7 +237,7 @@ footer a{color:#C8D2DA;border-bottom:1px solid #44586B}
       </div>
     </div>
 
-    <div class="uusi" id="asuttamatta" style="scroll-margin-top:24px">
+    <div class="uusi" id="asuttamatta" data-linkki="asuttamatta">
       <span class="merkki">Koko kirja luettavissa</span>
       <div class="esittely">
         <div>
@@ -272,7 +287,7 @@ footer a{color:#C8D2DA;border-bottom:1px solid #44586B}
   <div class="wrap">
     <h2 class="osasto">Uusi · Romaani</h2>
 
-    <div class="uusi">
+    <div class="uusi" id="sahkokatko" data-linkki="sahkokatko">
       <div class="esittely">
         <div>
           <a class="kansi" href="SAHKOKATKO-kansi-levitys.png" target="_blank" rel="noopener" title="Avaa koko kansi: takakansi, selkä ja etukansi">
@@ -320,7 +335,7 @@ footer a{color:#C8D2DA;border-bottom:1px solid #44586B}
 
     <div class="uusi">
       <div class="sarja">
-        <figure class="sarjakirja">
+        <figure class="sarjakirja" data-linkki="asuttamatta">
           <a class="kansi" href="ASUTTAMATTA-kansi-levitys.png" target="_blank" rel="noopener" title="Avaa kansi isompana omaan ikkunaan">
             <img src="ASUTTAMATTA-kansi-levitys.png" alt="Asuttamatta — takakansi, selkämys ja etukansi" loading="lazy">
           </a>
@@ -337,7 +352,7 @@ footer a{color:#C8D2DA;border-bottom:1px solid #44586B}
           </figcaption>
         </figure>
 
-        <figure class="sarjakirja">
+        <figure class="sarjakirja" id="kirjaamatta" data-linkki="kirjaamatta">
           <a class="kansi" href="KIRJAAMATTA-kansi-levitys.png" target="_blank" rel="noopener" title="Avaa kansi isompana omaan ikkunaan">
             <img src="KIRJAAMATTA-kansi-levitys.png" alt="Kirjaamatta — takakansi, selkämys ja etukansi" loading="lazy">
           </a>
@@ -353,7 +368,7 @@ footer a{color:#C8D2DA;border-bottom:1px solid #44586B}
           </figcaption>
         </figure>
 
-        <figure class="sarjakirja">
+        <figure class="sarjakirja" id="toimittamatta" data-linkki="toimittamatta">
           <a class="kansi" href="TOIMITTAMATTA-kansi-levitys.png" target="_blank" rel="noopener" title="Avaa kansi isompana omaan ikkunaan">
             <img src="TOIMITTAMATTA-kansi-levitys.png" alt="Toimittamatta — takakansi, selkämys ja etukansi" loading="lazy">
           </a>
@@ -369,7 +384,7 @@ footer a{color:#C8D2DA;border-bottom:1px solid #44586B}
           </figcaption>
         </figure>
 
-        <figure class="sarjakirja">
+        <figure class="sarjakirja" id="jaavatty" data-linkki="jaavatty">
           <a class="kansi" href="JAAVATTY-kansi-levitys.png" target="_blank" rel="noopener" title="Avaa kansi isompana omaan ikkunaan">
             <img src="JAAVATTY-kansi-levitys.png" alt="Jäävätty — takakansi, selkämys ja etukansi" loading="lazy">
           </a>
@@ -385,7 +400,7 @@ footer a{color:#C8D2DA;border-bottom:1px solid #44586B}
           </figcaption>
         </figure>
 
-        <figure class="sarjakirja">
+        <figure class="sarjakirja" id="sitomatta" data-linkki="sitomatta">
           <a class="kansi" href="SITOMATTA-kansi-levitys.png" target="_blank" rel="noopener" title="Avaa kansi isompana omaan ikkunaan">
             <img src="SITOMATTA-kansi-levitys.png" alt="Sitomatta — takakansi, selkämys ja etukansi" loading="lazy">
           </a>
@@ -401,7 +416,7 @@ footer a{color:#C8D2DA;border-bottom:1px solid #44586B}
           </figcaption>
         </figure>
 
-        <figure class="sarjakirja">
+        <figure class="sarjakirja" data-linkki="laskematta">
           <a class="kansi" href="LASKEMATTA-kansi-levitys.png" target="_blank" rel="noopener" title="Avaa kansi isompana omaan ikkunaan">
             <img src="LASKEMATTA-kansi-levitys.png" alt="Laskematta — takakansi, selkämys ja etukansi" loading="lazy">
           </a>
@@ -418,7 +433,7 @@ footer a{color:#C8D2DA;border-bottom:1px solid #44586B}
           </figcaption>
         </figure>
 
-        <figure class="sarjakirja">
+        <figure class="sarjakirja" id="maksamatta" data-linkki="maksamatta">
           <a class="kansi" href="MAKSAMATTA-kansi-levitys.png" target="_blank" rel="noopener" title="Avaa kansi isompana omaan ikkunaan">
             <img src="MAKSAMATTA-kansi-levitys.png" alt="Maksamatta — takakansi, selkämys ja etukansi" loading="lazy">
           </a>
@@ -511,11 +526,11 @@ footer a{color:#C8D2DA;border-bottom:1px solid #44586B}
 </section>
 
 <!-- ===================== KATUMUS ENNEN KIRVESTÄ ===================== -->
-<section id="katumus" style="scroll-margin-top:24px">
+<section id="katumus">
   <div class="wrap">
     <h2 class="osasto">Tietokirja</h2>
 
-    <div class="valmis">
+    <div class="valmis" data-linkki="katumus">
       <span class="merkki harmaa">Tehty ja unohdettu</span>
       <div class="kirja">
         <div class="kansileima">
@@ -592,7 +607,7 @@ footer a{color:#C8D2DA;border-bottom:1px solid #44586B}
       <p>Kukaan ei ole pahis. Jokainen askel on perusteltu. Lopputulos on siitä huolimatta katastrofi.</p>
     </div>
 
-    <div class="kirja" id="rajamaa" style="scroll-margin-top:24px">
+    <div class="kirja" id="rajamaa" data-linkki="rajamaa">
       <a href="rajamaa-kansi-koko.jpg" title="Avaa kansi isompana uuteen välilehteen" target="_blank" rel="noopener">
         <img src="rajamaa-kansi.jpg" alt="Rajamaa — etukansi">
       </a>
@@ -609,7 +624,7 @@ footer a{color:#C8D2DA;border-bottom:1px solid #44586B}
       </div>
     </div>
 
-    <div class="kirja">
+    <div class="kirja" id="majakkaraja" data-linkki="majakkaraja">
       <a href="majakkaraja-kansi-koko.jpg" title="Avaa kansi isompana uuteen välilehteen" target="_blank" rel="noopener">
         <img src="majakkaraja-kansi.jpg" alt="Majakkaraja — etukansi">
       </a>
@@ -626,7 +641,7 @@ footer a{color:#C8D2DA;border-bottom:1px solid #44586B}
       </div>
     </div>
 
-    <div class="kirja">
+    <div class="kirja" id="jaaraja" data-linkki="jaaraja">
       <a href="jaaraja-kansi-koko.jpg" title="Avaa kansi isompana uuteen välilehteen" target="_blank" rel="noopener">
         <img src="jaaraja-kansi.jpg" alt="Jääraja — etukansi">
       </a>
@@ -715,5 +730,78 @@ footer a{color:#C8D2DA;border-bottom:1px solid #44586B}
   </div>
 </footer>
 
+<script>
+/* Linkkinapit: jokaiselle kirjalle oma, jaettava osoite (#ankkuri). */
+(function () {
+  var IKONI = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1.5-1.5"/></svg>';
+  var TEKSTI = 'Linkki';
+
+  function osoite(id) { return location.origin + location.pathname + '#' + id; }
+
+  function kopioi(teksti) {
+    if (navigator.clipboard && window.isSecureContext) {
+      return navigator.clipboard.writeText(teksti);
+    }
+    return new Promise(function (ok, ei) {
+      var ta = document.createElement('textarea');
+      ta.value = teksti; ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy') ? ok() : ei(); } catch (e) { ei(e); }
+      document.body.removeChild(ta);
+    });
+  }
+
+  function otsikkoteksti(el) {
+    var h = el.querySelector('h3'); if (!h) return '';
+    var k = h.cloneNode(true), m = k.querySelector('em');
+    if (m) m.remove();
+    return k.textContent.trim();
+  }
+
+  function nappi(id, otsikko) {
+    var a = document.createElement('a');
+    a.className = 'linkkinappi';
+    a.href = '#' + id;
+    a.title = 'Kopioi linkki tähän kirjaan' + (otsikko ? ': ' + otsikko : '');
+    a.setAttribute('aria-label', a.title);
+    a.innerHTML = IKONI + '<span>' + TEKSTI + '</span>';
+    a.addEventListener('click', function (e) {
+      e.preventDefault(); e.stopPropagation();
+      var url = osoite(id), span = a.querySelector('span');
+      kopioi(url).then(function () {
+        a.classList.add('kopioitu'); span.textContent = 'Kopioitu';
+        setTimeout(function () { a.classList.remove('kopioitu'); span.textContent = TEKSTI; }, 1800);
+      }, function () { window.prompt('Kopioi linkki:', url); });
+      if (history.replaceState) history.replaceState(null, '', '#' + id);
+    });
+    return a;
+  }
+
+  document.querySelectorAll('[data-linkki]').forEach(function (el) {
+    var id = el.getAttribute('data-linkki');
+    if (!document.getElementById(id)) return;
+    var rivi = el.querySelector('.linkit');
+    if (rivi) rivi.appendChild(nappi(id, otsikkoteksti(el)));
+  });
+
+  /* Linkillä tultaessa: vieritä kirjaan ja korosta se */
+  function avaa(hash) {
+    if (!hash || hash.length < 2) return;
+    var el;
+    try { el = document.getElementById(decodeURIComponent(hash.slice(1))); } catch (e) { return; }
+    if (!el) return;
+    var kohde = el.matches('[data-linkki]') ? el : (el.querySelector('[data-linkki]') || el);
+    kohde.classList.remove('kohdistettu'); void kohde.offsetWidth;
+    kohde.classList.add('kohdistettu');
+    requestAnimationFrame(function () { el.scrollIntoView({ block: 'start' }); });
+  }
+  window.addEventListener('hashchange', function () { avaa(location.hash); });
+  if (location.hash) {
+    if (document.readyState === 'complete') avaa(location.hash);
+    else window.addEventListener('load', function () { avaa(location.hash); });
+  }
+})();
+</script>
 </body>
 </html>

@@ -3,29 +3,35 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>J. Lintumies</title>
-<meta name="description" content="Sivustolla julkaistiin vuonna 2026 Brahean ja Pielisjärven historiaa ja arkistoaineistoon perustuvia selvityksiä. Aineisto on poistettu rahoituksen puuttuessa. Tässä luettelo siitä, mitä sivustolla oli.">
+<title>Juri Jukola · Brahean ja Pielisjärven historiaa</title>
 <style>
   :root { --meri:#2C4051; --leima:#B8511F; --paperi:#F4F1EA; --muste:#1E2A33; --jaa:#5C7385; --ruutu:#DDD6C6; }
   html,body { margin:0; }
   body { background:var(--paperi); color:var(--muste); font-family: Georgia, 'Times New Roman', serif; padding:24px; box-sizing:border-box; }
   main { max-width:680px; margin:0 auto; }
-  .saate { min-height:70vh; display:flex; flex-direction:column; justify-content:center; }
+  .saate { padding:12vh 0 4vh; }
   .viiva { width:56px; height:3px; background:var(--leima); margin:0 0 28px; }
   h1 { font-size:clamp(24px,4.5vw,32px); line-height:1.3; font-weight:normal; font-style:italic; color:var(--meri); margin:0 0 28px; }
   p { font-size:17px; line-height:1.65; margin:0 0 18px; }
-  .allekirjoitus { margin-top:32px; font-size:15px; color:var(--meri); }
+  .allekirjoitus { margin-top:24px; font-size:15px; color:var(--meri); }
   a { color:var(--leima); }
-  .luvut { border-top:2px solid var(--muste); margin-top:40px; padding-top:28px; }
+  .pyynto { border-left:3px solid var(--leima); padding:4px 0 4px 20px; margin:32px 0; }
+  .pyynto h2 { border:0; margin-top:0; padding-top:0; }
+  h2 { font-size:15px; letter-spacing:.12em; text-transform:uppercase; color:var(--meri); font-weight:normal; margin:48px 0 6px; border-top:1px solid var(--ruutu); padding-top:20px; }
+  .lkm { font-size:13px; color:var(--jaa); margin:0 0 14px; }
+  .naytteet { display:grid; gap:18px; margin-top:12px; }
+  .nayte { background:#FBF9F4; border:1px solid var(--ruutu); padding:20px 22px 6px; }
+  .nayte h3 { font-size:22px; font-weight:normal; color:var(--meri); margin:2px 0 10px; }
+  .nayte p { font-size:16px; }
+  .nappi { display:inline-block; font-size:14px; text-decoration:none; color:var(--paperi); background:var(--meri); padding:9px 16px; }
   .luvut ul { list-style:none; padding:0; margin:0 0 8px; display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:18px; }
   .luvut li b { display:block; font-size:30px; font-weight:normal; color:var(--leima); }
   .luvut li { font-size:14px; line-height:1.4; color:var(--meri); }
-  h2 { font-size:15px; letter-spacing:.12em; text-transform:uppercase; color:var(--meri); font-weight:normal; margin:48px 0 2px; border-top:1px solid var(--ruutu); padding-top:20px; }
-  .lkm { font-size:13px; color:var(--jaa); margin:0 0 14px; }
   section ul { list-style:none; padding:0; margin:0; }
   section li { font-size:15.5px; line-height:1.5; padding:9px 0; border-bottom:1px solid var(--ruutu); }
   .ot { font-weight:bold; color:var(--muste); }
-  .mt { font-size:12.5px; color:var(--jaa); white-space:nowrap; }
+  .mt { font-size:12.5px; color:var(--jaa); }
+  .nayte .mt { margin:0; font-family:monospace; letter-spacing:.04em; }
   .loppu { margin-top:48px; border-top:2px solid var(--muste); padding-top:24px; }
 </style>
 </head>
@@ -34,26 +40,64 @@
   <div class="saate">
     <div class="viiva"></div>
     <h1>Historia on ilmaista vain sille, joka sen lukee.</h1>
-    <p>Tällä sivustolla julkaistiin vuonna 2026 Brahean ja Pielisjärven historiaa, arkistoaineistoon perustuvia selvityksiä ja kirjojen taustatyötä. Työ tehtiin omalla kustannuksella. Julkaisutoimintaan ei ole saatu rahoitusta, joten aineisto on poistettu.</p>
+    <p>Julkaisin tällä sivustolla vuonna 2026 Brahean ja Pielisjärven historiaa: 80 arkistoaineistoon perustuvaa selvitystä, artikkelia ja raporttia, Brahean alueen laserkeilausmallin sekä hakusivun lähes kymmeneen tuhanteen tuomiokirjamerkintään. Työ tehtiin omalla kustannuksella. Julkaisutoimintaan ei ole saatu rahoitusta, joten aineisto on poistettu.</p>
     <p>Kiitos kaikille, jotka lukivat, kommentoivat ja lähettivät arkistolöytöjä.</p>
-    <p class="allekirjoitus">Juri Jukola · <a href="mailto:jujukol@gmail.com">jujukol@gmail.com</a></p>
+  </div>
+
+  <div class="pyynto">
+    <h2>Mitä aineisto tarvitsisi</h2>
+    <p>Haen rahoitusta siihen, että aineisto palaa pysyvästi verkkoon omalla, vain Brahean ja Pielisjärven historialle tarkoitetulla sivustolla. Rahoitus kattaisi sivuston ylläpidon, tuomiokirjahaun pitämisen ajan tasalla ja arkistotyön jatkamisen. Ensisijainen tavoite on, että tutkimustieto on muiden tutkijoiden, sukututkijoiden ja kotiseutuväen käytössä. Tuloksista voi syntyä myöhemmin myös kirjoja.</p>
+    <p>Hakusivulle etsin lisäksi pysyvää kotia esimerkiksi museosta tai sukututkimusseurasta. Jos sinulla on ajatus tai yhteys, kirjoita minulle.</p>
+  </div>
+
+  <h2>Kuka ja miten</h2>
+  <p>Olen Juri Jukola, syntyperäinen lieksalainen. Romaanini ilmestyvät kirjailijanimellä J. Lintumies, mutta historiatyön julkaisen omalla nimelläni.</p>
+  <p>Lähteinä ovat Kansallisarkiston digitoidut ja koneluetut tuomiokirjat, kirkonkirjat ja kartat. Käytin tekoälyä aineiston läpikäyntiin ja tekstien valmisteluun. Johtopäätökset ja niiden tarkistaminen alkuperäisasiakirjoista ovat omiani, ja jokaisessa tekstissä on arkistoviitteet.</p>
+
+  <h2>Neljä näytettä</h2>
+  <p class="lkm">Nämä neljä tekstiä ovat yhä luettavissa.</p>
+  <div class="naytteet">
+    <article class="nayte">
+      <p class="mt">Artikkeli · 29.10.2026 · 3 sivua</p>
+      <h3>Simo Hurtta haudattiin kahdesti</h3>
+      <p>Hieman humoristinen kertomus siitä, minne lieksalaiset menivät, kun eivät menneet kirkkoon. Juttu kulkee vuoden 1685 skanssista, jossa oli kaksi vanhaa tykkiä ja aitta ilman lukkoa, kestikievarin väentupaan ja Johan Mustosen taloon kirkon sillan alapuolella. Lopussa ovat vuoden 1837 sakot penkkien yli kiipeilystä ja kirkonkylään jäämisestä sekä Simo Hurtan kahdet hautajaiset.</p>
+      <p><a class="nappi" href="simo-hurtta-haudattiin-kahdesti.pdf">Lue artikkeli (PDF)</a></p>
+    </article>
+    <article class="nayte">
+      <p class="mt">Tutkimusraportti · 24.9.2026 · 24 sivua · 54 lähdettä</p>
+      <h3>Kirkko joka muutti paikkaa</h3>
+      <p>Kirkko liikkui. Pielisjärven pitäjänkokous totesi 22.3.1829 palaneen kirkon paikan ahtaaksi ja paloherkäksi ja päätti rakentaa uuden kirkon joen pappilan puoleiselle rannalle. Vuosien 1818–1819 verollepanokartassa nykyisen kirkon kohdalla on numeroituja peltopalstoja eikä yhtään tonttimaata. Kirjallisuuden lause, jonka mukaan vuoden 1772 kirkko rakennettiin entisen paikalle, on ainoa lenkki, joka pitäisi kirkon paikallaan 1667–1828, eikä sille ole esitetty asiakirjaa. Raportti kokoaa, mitä Kansallisarkiston asiakirjoista tiedetään Lieksan kirkkojen paikoista, ja näyttää, mitä kirkon siirtyminen muuttaa Brahean kaupungin paikan päättelyssä.</p>
+      <p><a class="nappi" href="kirkko-joka-muutti-paikkaa.pdf">Lue raportti (PDF)</a></p>
+    </article>
+    <article class="nayte">
+      <p class="mt">Artikkeli · 5.11.2026 · 8 sivua ja A4-kartta</p>
+      <h3>Kun laser ei riitä, seuraa pappia</h3>
+      <p>Laserkeilaus löysi Lieksan kirkonkylän ympäriltä satoja kumpareita, kirjallisuus antoi talojen nimet ja isojakokartta tontit, mutta mikään niistä ei kertonut, mikä talo seisoi missäkin. Sen kertoi 1780-luvun pappi. Pielisjärven rippikirjassa vuosilta 1781–1790 talot on kirjoitettu siinä järjestyksessä, jossa pappi niissä kulki: pappilasta lossilla Hovilaan, länsirantaa pohjoiseen, Lieksankosken sillan yli ja itärantaa takaisin etelään. Joen yli hän ei hypännyt. Papin perässä kulkiessa talot asettuivat paikoilleen.</p>
+      <p><a class="nappi" href="kun-laser-ei-riita.pdf">Lue artikkeli (PDF)</a> <a class="nappi" href="papin-kierros-kartta.pdf">Kartta A4 (PDF)</a></p>
+    </article>
+    <article class="nayte">
+      <p class="mt">Artikkeli · 5.11.2026 · 5 sivua</p>
+      <h3>Iivana Riikosen isän nimi</h3>
+      <p>Lieksan maat kuuluivat 1600-luvun alussa lähes kokonaan kreikanuskoisille suvuille. Brahean kaupunki siirsi heidän talonsa kirkon tieltä, hovileiri ajoi Sapattiset tiloiltaan 1685, kaksi Timoskaista tapettiin ja isonvihan lopulla pohjalainen partio kidutti ja tappoi Otrasten talon staarostan. Artikkeli seuraa Riikosten sukua Abraham Riionpojasta 1720-luvulla Benjamin Rigoseen 1843. Pojanpoika Iivana Demetrioff istui Pielisjärven käräjillä lautamiehenä 1778–1798, vaikka ei kuulunut luterilaiseen seurakuntaan.</p>
+      <p><a class="nappi" href="iivana-riikosen-isan-nimi.pdf">Lue artikkeli (PDF)</a></p>
+    </article>
   </div>
 
   <div class="luvut">
-    <p>Alla on luettelo siitä, mitä sivustolla oli, kun se suljettiin 19.11.2026. Julkaisut ilmestyivät elo–marraskuussa 2026. Mikään niistä ei ole enää saatavilla.</p>
+    <h2>Mitä sivustolla oli</h2>
     <ul>
-      <li><b>100</b>katsausta, raporttia ja artikkelia</li>
-      <li><b>17</b>lyhyttä työpaperia</li>
-      <li><b>yli 1 200</b>sivua tekstiä</li>
-      <li><b>9 985</b>tuomiokirjamerkintää haettavana</li>
+      <li><b>80</b>historiaselvitystä, artikkelia ja raporttia</li>
+      <li><b>1 025</b>sivua tekstiä</li>
+      <li><b>9 985</b>tuomiokirjamerkintää haettavana</li>
+      <li><b>355</b>kohdetta laserkeilausmallissa</li>
     </ul>
   </div>
 
   <section>
     <h2>Työkalut ja aineistot</h2>
     <ul>
-      <li><span class="ot">Brahea laserkeilattuna</span><br>Brahean alueen 3D-malli selaimessa. Mukana asiakirjoista paikannetut kohteet, vuosien 1818–1819 tonttimaat ja 355 automaattisen haun kohdetta, joista jokaisella oli oma sivunsa koordinaatteineen ja palautelinkkeineen.</li>
-      <li><span class="ot">Hae historiasta</span><br>Hakusivu 9 985 tuomiokirjamerkintään 1650-luvulta 1800-luvulle. Aineisto oli koottu seitsemän tuomioistuimen pöytäkirjoista: Brahean raastuvanoikeus, Kajaanin vapaaherrakunta, Karjalan tuomiokunnat ja laamannikunta sekä Käkisalmen läänin tuomiokunta.</li>
+      <li><span class="ot">Brahea laserkeilattuna</span><br>Brahean alueen 3D-malli selaimessa. Mukana asiakirjoista paikannetut kohteet, vuosien 1818–1819 tonttimaat ja 355 automaattisen haun kohdetta omine sivuineen.</li>
+      <li><span class="ot">Hae historiasta</span><br>Hakusivu 9 985 tuomiokirjamerkintään 1650-luvulta 1800-luvulle. Aineisto oli koottu seitsemän tuomioistuimen pöytäkirjoista: Brahean raastuvanoikeus, Kajaanin vapaaherrakunta, Karjalan tuomiokunnat ja laamannikunta sekä Käkisalmen läänin tuomiokunta.</li>
       <li><span class="ot">Brahean oikeustapaukset</span><br>99 oikeustapauksen työluettelo, jossa jokaisella tapauksella oli linkki Kansallisarkiston asiakirjaan.</li>
     </ul>
   </section>
@@ -162,64 +206,9 @@
       <li><span class="ot">Jokaisella talolla oli oltava karhuverkko</span> <span class="mt">13.9.2026 · 7 s.</span><br>Karhu ja ihminen tuomiokirjoissa sekä nykyisen kannanhoidollisen metsästyksen tausta.</li>
     </ul>
   </section>
-  <section>
-    <h2>Itäraja, valvonta ja havainto</h2>
-    <p class="lkm">9 julkaisua · 73 sivua</p>
-    <ul>
-      <li><span class="ot">Öljy jään alla</span> <span class="mt">19.8.2026 · 7 s.</span><br>Talvinen öljyvahinko: miksi öljy jään alla on eri ongelma kuin kesällä ja mitä torjuntakalusto ei tavoita.</li>
-      <li><span class="ot">Kenen käskystä</span> <span class="mt">19.8.2026 · 5 s.</span><br>Miksi Venäjä ei hajoaisi Neuvostoliiton tavoin: kysymys ei olisi rajoista vaan siitä, kuka komentaa mitäkin asetta.</li>
-      <li><span class="ot">Yksi valkoinen viiva</span> <span class="mt">19.8.2026 · 7 s.</span><br>Liittolaisten valvontalennot Suomen yllä: mitä kalustoa, mihin se pystyy, ja miksi juuri nuo reitit.</li>
-      <li><span class="ot">Kaistale kerrallaan</span> <span class="mt">19.8.2026 · 8 s.</span><br>Merenpohja strategisena tilana: kaapelit, kuituoptinen kuuntelu, Itämeren akustiikka ja kaapelivauriot.</li>
-      <li><span class="ot">Mitä koira tietää</span> <span class="mt">19.8.2026 · 10 s.</span><br>Koiran jäljestäminen: hajuaistin fysiikka, jäljen ikägradientti ja kolme työtapaa.</li>
-      <li><span class="ot">Kolmesataa yhtä vastaan</span> <span class="mt">19.8.2026 · 9 s.</span><br>Miksi suomalainen virkamies ei pönötä: routavuodet, lakiin perustuva virkavalta ja Rajavartiolaitoksen vaikenemisen perintö.</li>
-      <li><span class="ot">Ei suurempaa haittaa</span> <span class="mt">19.8.2026 · 9 s.</span><br>Kalastuksenvalvojan toimivalta pykälätasolla: mitä hän saa tehdä, mitä ei — ja kuka valvoo valvojaa.</li>
-      <li><span class="ot">Kuusi kalaa</span> <span class="mt">19.8.2026 · 8 s.</span><br>Pielisjoen järvilohi, jolla oli joessa 177 hehtaaria lisääntymisalueita.</li>
-      <li><span class="ot">Kirjan linnut ovat todellisia</span> <span class="mt">19.8.2026 · 10 s.</span><br>Romaanisarjan lintujen tarkistus seitsemän vuosikymmenen linjalaskenta-aineistoa vasten.</li>
-    </ul>
-  </section>
-  <section>
-    <h2>Sähkö, energia ja huoltovarmuus</h2>
-    <p class="lkm">11 julkaisua · 105 sivua</p>
-    <ul>
-      <li><span class="ot">Pumppu ei ole kallein paikka</span> <span class="mt">18.9.2026 · 11 s.</span><br>Mitä öljykriisi maksaa Suomelle ja suomalaiselle vuoteen 2029, kuka siitä hyötyy ja kannattaako polttoaineen hintaa laskea.</li>
-      <li><span class="ot">Se luku, jota ei kerrottu</span> <span class="mt">12.9.2026 · 34 s.</span><br>Googlen ja Fortumin Loviisa-sopimus tuntidatasta laskettuna: riittääkö sähkö ja paljonko sähkölasku nousee.</li>
-      <li><span class="ot">Kallis talvi, kallis tunti</span> <span class="mt">20.8.2026 · 5 s.</span><br>Mikä tekee talven sähköstä kallista: pakkanen, tyven, vesivarastot vai siirtoyhteys.</li>
-      <li><span class="ot">Kolmesataa kilometriä etelään</span> <span class="mt">20.8.2026 · 5 s.</span><br>Ilmaston lämpeneminen 102 paikkakunnalla 80 vuoden ERA5-aineistosta, käännettynä kilometreiksi.</li>
-      <li><span class="ot">Nollan väärällä puolella</span> <span class="mt">20.8.2026 · 7 s.</span><br>Rannikon talvet 86 vuoden ajalta: tyynten päivien määrä ei ole muuttunut, mutta nollan ylitykset ovat lisääntyneet 70 prosenttia.</li>
-      <li><span class="ot">Yksi tunti ja kuusi viikkoa</span> <span class="mt">20.8.2026 · 6 s.</span><br>Kaikkien aikojen kulutusennätyksen hetkellä 8.1.2026 Suomi kävi omalla tuotannollaan ja Fenno-Skanissa oli kaksi kolmasosaa vapaana.</li>
-      <li><span class="ot">Se ei ehdi täyttyä</span> <span class="mt">20.8.2026 · 8 s.</span><br>Kolme omaa laskentaa koko ketjusta Norjan altaista Suomen pistorasiaan.</li>
-      <li><span class="ot">Mitä kiinteässä ostetaan</span> <span class="mt">20.8.2026 · 6 s.</span><br>Lukijoiden kysymys: kannattaako talveksi ottaa kiinteähintainen sähkösopimus.</li>
-      <li><span class="ot">Kolmas potenssi</span> <span class="mt">19.8.2026 · 11 s.</span><br>Miksi tuulituotannon ei tarvitse pysähtyä, jotta tehotase pettää.</li>
-      <li><span class="ot">Kuka maksaa tyynen tunnin</span> <span class="mt">19.8.2026 · 6 s.</span><br>Sähkön hinta, verkon kustannukset ja riittävyys kuluttajan näkökulmasta.</li>
-      <li><span class="ot">Teho, ei energia</span> <span class="mt">18.8.2026 · 6 s.</span><br>Suomen sähköjärjestelmän riittävyys tehon näkökulmasta 2026–2035.</li>
-    </ul>
-  </section>
-  <section>
-    <h2>Workpapers</h2>
-    <p class="lkm">17 lyhyttä paperia, osa myös englanniksi</p>
-    <ul>
-      <li><span class="ot">Sääntö-Suomi löysi naapurin kuhan</span> <span class="mt">3.11.2026 · 4 s.</span><br>Pakina ja lukijan kirjoitus hallituksen esityksestä kieltää vapaa-ajankalastajien kalanmyynti.</li>
-      <li><span class="ot">Kuiva Norja, tuulinen Suomi</span> <span class="mt">31.10.2026 · 4 s.</span><br>Talven 2026/27 sähkön hinta Norjan vesivarastojen, futuurien ja oman korjauksen valossa.</li>
-      <li><span class="ot">Neljä vastausta vieraskynän kysymyksiin</span> <span class="mt">26.10.2026 · 2 s.</span><br>Vastine HS:n vieraskynään sähköpulasta: tuonti, tuuli, datakeskusten varavoima ja kustannukset luvuin.</li>
-      <li><span class="ot">Oikaisu: Kuka laskee kilometreinä?</span> <span class="mt">23.10.2026 · 2 s.</span><br>Oikaisu ja lukijan kirjoitus Itä-Suomen menetyksistä rajan sulkeuduttua.</li>
-      <li><span class="ot">Lukittu voimalaitos</span> <span class="mt">13.10.2026 · 5 s.</span><br>Datakeskusten varavoima yhdeksän hankkeen ympäristöasiakirjoista laskettuna.</li>
-      <li><span class="ot">Itsetuhoinen lojaalisuus</span> <span class="mt">22.9.2026 · 9 s.</span><br>Keskijohdon lojaalisuus, joka suojaa päätöstä yhtiön kustannuksella. Myös englanniksi.</li>
-      <li><span class="ot">Vuosi on ratkaistu, viikko ei</span> <span class="mt">21.9.2026 · 4 s.</span><br>Suomen energiapolitiikka 2016–2026 huoltovarmuuden ja kotitalouden sähkölaskun kannalta.</li>
-      <li><span class="ot">Akku, moottori ja kaksitoista päivää</span> <span class="mt">21.9.2026 · 2 s.</span><br>Synteesi syyskuun 2026 uutisista: Fenno-Skan 2 -vika, akkubuumi, uudet säätövoimalat ja talvienergiatuki.</li>
-      <li><span class="ot">Ensin happosade, sitten superäly</span> <span class="mt">20.9.2026 · 2 s.</span><br>Pakina tekoälypelosta ja vihreän liikkeen pelkojen pitkästä urasta.</li>
-      <li><span class="ot">Viaporin varoitus</span> <span class="mt">20.9.2026 · 4 s.</span><br>Faktantarkistus HS:n esseestä, jonka mukaan puolustusmenot voivat olla rahanhukkaa.</li>
-      <li><span class="ot">Miljardia ei saa sähköautoista</span> <span class="mt">19.9.2026 · 3 s.</span><br>Paljonko liikenteen verokuoppaan saisi kiristämällä sähköautojen verotusta.</li>
-      <li><span class="ot">Puuttuvat miljardit</span> <span class="mt">19.9.2026 · 5 s.</span><br>Sdp:n verolinjaukset suhteessa velkajarrun sopeutustarpeeseen.</li>
-      <li><span class="ot">Kuoriyhtiö, kenraali ja Nescafé</span> <span class="mt">19.9.2026 · 6 s.</span><br>Venäjän 17.9.2026 haltuun ottamat Nestlén, Auchanin ja Lemana Pron yhtiöt. Myös englanniksi.</li>
-      <li><span class="ot">Ostettu ilman avaimia</span> <span class="mt">19.9.2026 · 14 s.</span><br>Fortumin Uniper-kauppa ja yrityskaupat yleensä tarkastusvaliokunnan mietinnön pohjalta. Tutkimus ja artikkeli, myös englanniksi.</li>
-      <li><span class="ot">Kenelle kartta näytetään?</span> <span class="mt">15.9.2026 · 6 s.</span><br>Hierarkia ja tieto tekoälyn aikakaudella. Myös englanniksi.</li>
-      <li><span class="ot">The Number They Didn&#x27;t Give</span> <span class="mt">12.9.2026 · 33 s.</span><br>Englanninkielinen käännös katsauksesta Se luku, jota ei kerrottu.</li>
-      <li><span class="ot">Seitsemän toimenpidettä, tärkeysjärjestyksessä</span> <span class="mt">12.9.2026 · 1 s.</span><br>Yhden sivun politiikkasuositus datakeskuskuormasta ja sähkön riittävyydestä.</li>
-    </ul>
-  </section>
 
   <div class="loppu">
-    <p>Lisäksi sivustolla olivat romaanien esittelysivut ja neljä lasten ja nuorten tarinaa pronssikautisesta Tuomarniemestä.</p>
+    <p>Sivustolla oli lisäksi 37 energia- ja turvallisuusaiheista katsausta ja työpaperia, romaanien esittelysivut sekä neljä lasten ja nuorten tarinaa.</p>
     <p class="allekirjoitus">Juri Jukola · <a href="mailto:jujukol@gmail.com">jujukol@gmail.com</a></p>
   </div>
 </main>
